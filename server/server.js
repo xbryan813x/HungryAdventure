@@ -2,7 +2,8 @@ import express from 'express'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpack from 'webpack'
 import webpackConfig from '../webpack.config.js'
-import dotenv from ('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 
