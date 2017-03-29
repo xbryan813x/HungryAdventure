@@ -19,8 +19,7 @@ export function fetchUser() {
 export function setUserName(name) {
   return {
     type: 'SET_USER_NAME',
-    payload: {
-      payload: name,
+    payload: {name,
     },
   };
 }
@@ -28,8 +27,7 @@ export function setUserName(name) {
 export function setUserAge(age) {
   return {
     type: 'SET_USER_AGE',
-    payload: {
-      payload: age,
+    payload: { age,
     },
   };
 }

@@ -8,4 +8,4 @@ import reducer from './reducers';
 
 const middleware = applyMiddleware(promise(), thunk, ReduxLogger)
 
-export default createStore(reducer, middlware)
+export default createStore(reducer, middleware);
