@@ -1,8 +1,11 @@
-import React from "react"
-import ReactDom from "react-dom"
+import React from 'react';
+import ReactDom from 'react-dom';
+import { Provider } from 'react-redux'; //wrap react-redux with provider
+import Layout from './components/Layout';
+import store from './store';
 
-import Layout from "./component/Layout"
+const app = document.getElementById('app');
 
-const app = document.getElementById('app')
-
-ReactDOM.render(<Layout />, app);
+ReactDom.render(<Provider store={store}>
+	<Layout />
+</Provider>, app);
