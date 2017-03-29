@@ -1,15 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux'; // 
 
+import { fetchUser } from '../actions/userAction'
+import { fetchDestinations } from '../actions/destinationsActions'
+
 @connect((store) => {
   return {
-  	user: store.user.user
+  	user: store.user.user,
+  	userFetched: store.user.fetched,
+  	destinations: store.destinations.destinations,
   }
 })//transpiling decorators (wrap components) --> inject props into layout without messing with layout component
 export default class Layout extends React.Component {
+  componentWillMount(){
+  	this.props.dispatch(fetchUser())
+  }
+
+ fetchDestinations(){
+  	this.props.dispatch(fetchDestinations())
+  }
+
   render () {
-  	console.log('hi');
-  	console.log(this.props);
-    return null;
+  	const { user, destinations } = this.props;
+
+  	if(!destinations.length) {
+  		return <button onClick={this.fetchDestinations.bind(this)}>load destinations</button>
+  	}
+    
+    const mappedDestinations = destinations.map(destination => <li>{destination.text}</li>)
+
+    return <div>
+    <h1> {user.name} </h1>
+      <ul>{mappedDestinations}</ul>
+    </div>
   }
 }

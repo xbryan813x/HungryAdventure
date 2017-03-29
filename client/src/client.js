@@ -1,11 +1,14 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'; //wrap react-redux with provider
 import Layout from './components/Layout';
 import store from './store';
 
-const app = document.getElementById('app');
+// const app = document.getElementById('app');
 
-ReactDom.render(<Provider store={store}>
-	<Layout />
-</Provider>, app);
+ReactDOM.render(
+    <Provider store={store}>
+    <Layout />
+    </Provider>, 
+    document.getElementById('app')
+  );

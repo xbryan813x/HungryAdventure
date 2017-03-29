@@ -1,10 +1,10 @@
-import { combindeReducers } from 'redux';
+import { combineReducers } from 'redux';
 
-import tweets from './tweetsReducer';
+import destinations from './destinationsReducer';
 import user from './userReducer';
 
-export default combindeReducers({
-  tweets,
+export default combineReducers({
+  destinations,
   user,
 });
 
