@@ -1,11 +1,3 @@
-// Example of importing actions for react
-// import * as user from '../userAction' // Imports all user actions
-// user.setUserName('John');
-
-// import { setUserName } from '../userActions' // import single action
-// setUserName('John');
-
-
 export function fetchUser() {
   return {
     type: 'FETCH_USER_FULFILLED',
