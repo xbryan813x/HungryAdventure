@@ -12,7 +12,7 @@ const compiler = webpack(webpackConfig);
 
 app.use(express.static(__dirname + '/../client/assets'));
 
-// require('./config/routes.js')(app, express)
+require('./config/routes.js')(app, express)
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
