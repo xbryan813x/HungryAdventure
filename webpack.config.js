@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   context: path.join(__dirname, 'client/src'),
   entry: [
-    './main.js',
+    './client.js',
   ],
   output: {
     path: path.join(__dirname, 'client/assets'),
@@ -17,7 +17,7 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets:['es2015', 'react', 'stage-2'],
-          plugins:['transform-decorators'],
+          plugins:['transform-decorators-legacy'],
         }
       }
     ]
