@@ -10,15 +10,16 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          'babel-loader',
-        ],
-      },
-    ],
+        loader: 'babel-loader',
+        query: {
+          presets:['es2015', 'react', 'stage-2']
+        }
+      }
+    ]
   },
   resolve: {
     modules: [
