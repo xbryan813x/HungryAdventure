@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 
 //usually in seperate files
 const userReducer = (state={}, action) => {
@@ -17,7 +17,6 @@ const userReducer = (state={}, action) => {
 
 //usually in seperate files
 const tweetsReducer = (state=[], action) => {
-  
   return state;
 };
 
@@ -28,8 +27,24 @@ const reducers = combineReducers({
 })
 
 
+
+const logger = (store) => (next) => (action) => {
+  console.log("action fired", action);
+  next(action);
+}
+
+const error = (store) => (next) => (action) => {
+  try {
+  	next(action);
+  } catch (err) {
+  	console.log("Oh no", err);
+  }
+}
+
+const middleware = applyMiddleware();
+
 //Store of actions
-const store = createStore(reducers);
+const store = createStore(reducers, middleware);
 
 store.subscribe(() => {
 	console.log("store changed", store.getState());
@@ -39,6 +54,7 @@ store.subscribe(() => {
 store.dispatch({type: "CHANGE_NAME", payload: "Mike" });
 store.dispatch({type: "CHANGE_AGE", payload: 35 });
 store.dispatch({type: "CHANGE_AGE", payload: 36 });
+store.dispatch({type: "CHANGE_NAME", payload: "John" });
 
 
 
