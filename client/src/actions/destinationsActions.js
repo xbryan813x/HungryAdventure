@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'; // allows you to fire off an XHR (XMLHttpRequest) request
 
 export function fetchDestinations() {
   return function (dispatch) {
