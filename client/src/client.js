@@ -6,7 +6,10 @@ import store from './store';
 
 const app = document.getElementById('app');
 
-ReactDOM.render(
+/*ReactDOM.render(
     <Provider store={store}>
     <Layout />
-    </Provider>, app);
+    </Provider>, app);*/
+
+import App from './components/App'
+ReactDOM.render(<App />, app);
