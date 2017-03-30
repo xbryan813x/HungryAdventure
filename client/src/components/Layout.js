@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux'; 
+import { connect } from 'react-redux';
 
 import { fetchUser } from '../actions/userAction'
 import { fetchDestinations } from '../actions/destinationsActions'
@@ -11,11 +11,11 @@ import { fetchDestinations } from '../actions/destinationsActions'
   	destinations: store.destinations.destinations,
   }
 })
-
+//transpiling decorators (wrap components) --> inject props into layout without messing with layout component
 export default class Layout extends React.Component {
   //Loads Immediately
   componentWillMount(){
-  	this.props.dispatch(fetchUser()) 
+  	this.props.dispatch(fetchUser())
   }
 
  fetchDestinations(){
@@ -27,8 +27,14 @@ export default class Layout extends React.Component {
 
   	if(!destinations.length) {
   		return <button onClick={this.fetchDestinations.bind(this)}>load destinations</button>
+<<<<<<< HEAD
   	} else {
       const mappedDestinations = destinations.map(destination => <li>{destination.text}</li>)
+=======
+  	}
+
+    const mappedDestinations = destinations.map(destination => <li>{destination.text}</li>)
+>>>>>>> flightarray
 
       return <div>
       <h1> {user.name} </h1>
