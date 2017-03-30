@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux'; 
+import { connect } from 'react-redux';
 
 import { fetchUser } from '../actions/userAction'
 import { fetchDestinations } from '../actions/destinationsActions'
@@ -10,7 +10,8 @@ import { fetchDestinations } from '../actions/destinationsActions'
   	userFetched: store.user.fetched,
   	destinations: store.destinations.destinations,
   }
-})//transpiling decorators (wrap components) --> inject props into layout without messing with layout component
+})
+//transpiling decorators (wrap components) --> inject props into layout without messing with layout component
 export default class Layout extends React.Component {
   componentWillMount(){
   	this.props.dispatch(fetchUser())
@@ -26,7 +27,7 @@ export default class Layout extends React.Component {
   	if(!destinations.length) {
   		return <button onClick={this.fetchDestinations.bind(this)}>load destinations</button>
   	}
-    
+
     const mappedDestinations = destinations.map(destination => <li>{destination.text}</li>)
 
     return <div>

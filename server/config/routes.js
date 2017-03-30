@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import request from 'request';
 import rp from'request-promise';
+import { trimSkyBody } from '../helpers/flightQuotesHelper.js';
 
 module.exports = function (app, express) {
 
@@ -14,17 +15,20 @@ app.get('/api/flights', function(req, res) {
     }
   };
 
+const cache = [];
+const pix =[];
+const pixObject = {};
   rp(options)
     .then((data) => {
-      const frontArray = [];
+      const flightResults = [];
       const sabreBody = JSON.parse(data);
       sabreBody.FareInfo.forEach(elem => {
         const obj = {}
         obj[elem.DestinationLocation] = {};
-        frontArray.push(obj);
+        flightResults.push(obj);
       })
       const flights = [];
-      frontArray.forEach(elem => {
+      flightResults.forEach(elem => {
         const arrival = Object.keys(elem)[0];
         const options = {
           url: "http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/JFK/"+arrival+"/2017-04-01/2017-04-08?apiKey="+process.env.SKYSCANNER_API,
@@ -34,44 +38,70 @@ app.get('/api/flights', function(req, res) {
         }
         flights.push(rp(options));
       })
-
-      Promise.all(flights).then((skyBody) => {
-        // console.log(skyBody)
+      return Promise.all(flights).then((promiseElem) => {
+        promiseElem.forEach((eachQueue, index) => {
+          const skyBody = JSON.parse(eachQueue);
+          const flightObj = flightResults[index];
+          const arrivalKeyName = Object.keys(flightObj)[0]
+          let eachDestObj = flightObj[arrivalKeyName];
+          let parsed = trimSkyBody(skyBody);
+          if(Object.keys(parsed).length === 0){
+          } else {
+            flightObj[arrivalKeyName] = parsed;
+          }
+        })
+        return flightResults;
       })
-      // console.log("flights", frontArray)
-      // frontArray.forEach((elem, index) => {
-      //
-      //   const arrival = Object.keys(elem)[0];
-      //   let eachDestObj = elem[arrival];
-      //
-      //     // const skyBody = flights[index];
-      //     // module.exports = {
-      //     //   skyBody,
-      //     //   elem,
-      //     //   arrival,
-      //     // };
-      //     // elem[arrival] =  require('../helpers/flightQuotesHelper.js');
-      //     // console.log("SKY", skyBody)
-      //     // console.log(arrival, eachDestObj)
-      //
-      // })
-
-
     })
-    .then(function(data) {
-      const options = {
-        url: "https://pixabay.com/api/?key="+process.env.PIXABAY_API+"&q=toronto&image_type=photo",
-        headers: {
-          contentType: "application/json"
+    .catch((err) => {
+      throw err;
+      console.log("SkyScan API failed");
+    })
+    .then(function(flightResults) {
+      const pixFlights = [];
+      flightResults.forEach((elem, i) => {
+        const arrivalKeyName = Object.keys(elem)[0];
+        const destinationObj = flightResults[i][arrivalKeyName];
+
+        if(destinationObj.location && cache.indexOf(destinationObj.location) === -1){
+          const options = {
+            url: "https://pixabay.com/api/?key="+process.env.PIXABAY_API+"&q="+destinationObj.location+"&image_type=photo",
+            headers: {
+              contentType: "application/json"
+            }
+          }
+          pixFlights.push(rp(options));
+        } else if (!destinationObj.location){
+          destinationObj.location = null;
         }
-      }
-      request(options, function(error, response, body){
-        if(error) throw error;
-        const pixaBody = JSON.parse(body);
-        // console.log("image body",pixaBody.hits[0].webformatURL)
-        res.send()
+        if(destinationObj.location){
+          if(cache.indexOf(destinationObj.location) === -1){
+            cache.push(destinationObj.location);
+          }
+        }
+      })
+      return Promise.all(pixFlights).then((values) => {
+        // console.log(values)
+        values.forEach((eachPic, index) => {
+          const pixParsed = JSON.parse(eachPic);
+          pix.push(pixParsed.hits[0].webformatURL);
+          pixObject[cache[index]] = pixParsed.hits[0].webformatURL;
+        })
+        flightResults.forEach((flight, i) => {
+          const arrivalKeyName = Object.keys(flight)[0];
+          const destinationObj = flightResults[i][arrivalKeyName];
+          if(cache.indexOf(destinationObj.location) !== -1) {
+            destinationObj.imageUrl = pixObject[destinationObj.location];
+            console.log(destinationObj)
+          }
+        })
+        console.log()
+        res.send(flightResults)
       })
     })
-})
-
+    .catch((err) => {
+      throw err;
+      console.log("pixabay API failed");
+    })
+  })
 }

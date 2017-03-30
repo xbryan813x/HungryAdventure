@@ -1,56 +1,48 @@
-var routes = require('../config/routes.js');
-// console.log("SDLJKFSDKJFDJKLDFSJKLDSFJKLDSFJKLDSFJKLFDJK", routes)
-const skyBody = routes.skyBody;
-const elem = routes.elem;
-const arrivalKey = routes.arrival;
-const eachDestObj = elem[arrivalKey];
 
+module.exports = {
+  trimSkyBody: function(skyBody){
+    const trimResults = {};
+    let price = 0;
+    skyBody.Quotes.forEach((skyElem) => {
+      if(skyElem.InboundLeg && skyElem.OutboundLeg && skyElem.MinPrice > price){
+        trimResults.price = skyElem.MinPrice;
+        trimResults.carrierId = skyElem.OutboundLeg.CarrierIds[0];
+        trimResults.originId = skyElem.OutboundLeg.OriginId;
+        trimResults.destinationId = skyElem.InboundLeg.OriginId;
+        trimResults.arrivalDate = skyElem.OutboundLeg.DepartureDate;
+        trimResults.departureDate = skyElem.InboundLeg.DepartureDate;
+        price = skyElem.MinPrice;
+      }
+    })
+    var getOGID = function(id){
+      skyBody.Places.forEach((elem) => {
+        if(elem.PlaceId === id){
+          delete(trimResults.originId)
+          trimResults.originTerminal = elem.IataCode;
+        }
+      })
+    }
+    var getDesID = function(id){
+      skyBody.Places.forEach((elem) => {
+        if(elem.PlaceId === id){
+          delete(trimResults.destinationId)
+          trimResults.destinationTerminal = elem.IataCode;
+          trimResults.location = elem.CityName;
+        }
+      })
+    }
+    var getCarID = function(id){
+      skyBody.Carriers.forEach((elem) => {
+        if(elem.CarrierId === id){
+          delete(trimResults.carrierId)
+          trimResults.carrier = elem.Name;
+        }
+      })
+    }
+    getOGID(trimResults.originId)
+    getDesID(trimResults.destinationId)
+    getCarID(trimResults.carrierId)
 
-
-// let price = 0;
-// skyBody.Quotes.forEach((skyElem) => {
-//   if(skyElem.InboundLeg && skyElem.OutboundLeg && skyElem.MinPrice > price){
-//     eachDestObj.price = skyElem.MinPrice;
-//     eachDestObj.carrierId = skyElem.OutboundLeg.CarrierIds[0];
-//     eachDestObj.originId = skyElem.OutboundLeg.OriginId;
-//     eachDestObj.destinationId = skyElem.OutboundLeg.DestinationId;
-//     eachDestObj.arrivalDate = skyElem.OutboundLeg.DepartureDate;
-//     eachDestObj.departureDate = skyElem.InboundLeg.DepartureDate;
-//     price = elem.MinPrice;
-//   }
-// })
-//
-// var getOGID = function(id){
-//   skyBody.Places.forEach((elem) => {
-//     if(elem.PlaceId === id){
-//       delete(eachDestObj.originId)
-//       eachDestObj.originTerminal = elem.IataCode;
-//     }
-//   })
-// }
-// var getDesID = function(id){
-//   skyBody.Places.forEach((elem) => {
-//     if(elem.PlaceId === id){
-//       delete(eachDestObj.destinationId)
-//       eachDestObj.destinationTerminal = elem.IataCode;
-//       eachDestObj.location = elem.CityName;
-//     }
-//   })
-// }
-// var getCarID = function(id){
-//   skyBody.Carriers.forEach((elem) => {
-//     if(elem.CarrierId === id){
-//       delete(eachDestObj.carrierId)
-//       eachDestObj.carrier = elem.Name;
-//     }
-//   })
-// }
-// console.log("originId", eachDestObj.originId)
-// getOGID(eachDestObj.originId)
-// getDesID(eachDestObj.destinationId)
-// getCarID(eachDestObj.carrierId)
-//
-//
-// console.log("20", arrivalKey, eachDestObj)
-
-module.exports = eachDestObj;
+    return trimResults;
+  }
+};
