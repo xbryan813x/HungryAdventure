@@ -1,12 +1,9 @@
 import dotenv from 'dotenv';
 dotenv.config();
-
-const request = require('request');
-const rp = require('request-promise');
+import request from 'request';
+import rp from'request-promise';
 
 module.exports = function (app, express) {
-
-const frontArray = [];
 
 app.get('/api/flights', function(req, res) {
   const options = {
@@ -17,28 +14,49 @@ app.get('/api/flights', function(req, res) {
     }
   };
 
-  rp(options, function(error, response, body) {
-    if(error) throw error;
-    const sabreBody = JSON.parse(body);
-    // sabre helper function
-    sabreBody.FareInfo.forEach(elem => {
-      const obj = {}
-      obj[elem.DestinationLocation] = {};
-      frontArray.push(obj);
-    })
-
-  })
-    .then(function(img){
-      const options = {
-        url: "http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/JFK/"+"LAX"+"/2017-04-01/2017-04-08?apiKey="+process.env.SKYSCANNER_API,
-        headers: {
-          contentType: "application/json"
-        }
-      }
-      request(options, function(error, response, body){
-        if(error) throw error;
-        const skyBody = JSON.parse(body);
+  rp(options)
+    .then((data) => {
+      const frontArray = [];
+      const sabreBody = JSON.parse(data);
+      sabreBody.FareInfo.forEach(elem => {
+        const obj = {}
+        obj[elem.DestinationLocation] = {};
+        frontArray.push(obj);
       })
+      const flights = [];
+      frontArray.forEach(elem => {
+        const arrival = Object.keys(elem)[0];
+        const options = {
+          url: "http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/JFK/"+arrival+"/2017-04-01/2017-04-08?apiKey="+process.env.SKYSCANNER_API,
+          headers: {
+            contentType: "application/json"
+          }
+        }
+        flights.push(rp(options));
+      })
+
+      Promise.all(flights).then((skyBody) => {
+        // console.log(skyBody)
+      })
+      // console.log("flights", frontArray)
+      // frontArray.forEach((elem, index) => {
+      //
+      //   const arrival = Object.keys(elem)[0];
+      //   let eachDestObj = elem[arrival];
+      //
+      //     // const skyBody = flights[index];
+      //     // module.exports = {
+      //     //   skyBody,
+      //     //   elem,
+      //     //   arrival,
+      //     // };
+      //     // elem[arrival] =  require('../helpers/flightQuotesHelper.js');
+      //     // console.log("SKY", skyBody)
+      //     // console.log(arrival, eachDestObj)
+      //
+      // })
+
+
     })
     .then(function(data) {
       const options = {
@@ -51,7 +69,7 @@ app.get('/api/flights', function(req, res) {
         if(error) throw error;
         const pixaBody = JSON.parse(body);
         // console.log("image body",pixaBody.hits[0].webformatURL)
-        res.send(frontArray)
+        res.send()
       })
     })
 })
