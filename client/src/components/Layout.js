@@ -30,8 +30,7 @@ export default class Layout extends React.Component {
   	} else {
       const mappedDestinations = destinations.map(destination => <li>{destination.text}</li>)
 
-      return 
-      <div>
+      return <div>
       <h1> {user.name} </h1>
         <ul>{mappedDestinations}</ul>
       </div>
