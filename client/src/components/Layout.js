@@ -27,14 +27,10 @@ export default class Layout extends React.Component {
 
   	if(!destinations.length) {
   		return <button onClick={this.fetchDestinations.bind(this)}>load destinations</button>
-<<<<<<< HEAD
   	} else {
       const mappedDestinations = destinations.map(destination => <li>{destination.text}</li>)
-=======
-  	}
 
-    const mappedDestinations = destinations.map(destination => <li>{destination.text}</li>)
->>>>>>> flightarray
+  	}
 
       return <div>
       <h1> {user.name} </h1>
