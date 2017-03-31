@@ -12,9 +12,9 @@ const compiler = webpack(webpackConfig);
 app.use(express.static(path.join(__dirname + '/../build')));
 
 app.get('*', (request, response) => {
- response.sendFile(path.resolve(__dirname +  '/../build', 'index.html'));
+  response.sendFile(path.resolve(__dirname +  '/../build', 'index.html'));
 });
-require('./config/routes.js')(app, express)
+require('./config/routes.js')(app, express);
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
@@ -25,6 +25,7 @@ app.use(webpackDevMiddleware(compiler, {
   },
   historyApiFallback: true,
 }));
+
 
 const server = app.listen(8888, () => {
   const host = server.address().address;
