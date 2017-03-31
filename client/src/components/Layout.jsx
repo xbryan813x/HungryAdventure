@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import { fetchUser } from '../actions/userAction';
 import { fetchDestinations } from '../actions/destinationsActions';
@@ -35,6 +36,8 @@ export default class Layout extends React.Component {
   		return <div>
       <button onClick={ this.fetchDestinations.bind(this) }>load destinations</button>
       <ContactFrom onSubmit={this.submit} />
+      <Link to='/work'>Link</Link>
+      <Link to='/test'>Link</Link>
       </div>
 
   	} else {
