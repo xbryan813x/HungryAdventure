@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchUser } from '../actions/userAction';
 import { fetchDestinations } from '../actions/destinationsActions';
 
+import ContactFrom from './searchForm';
 
 @connect((store) => {
   return {
@@ -23,6 +24,9 @@ export default class Layout extends React.Component {
   	this.props.dispatch(fetchDestinations())
   }
 
+  submit = (values) => {
+    console.log(values)
+  }
 
   render () {
   	const { user, destinations } = this.props;
@@ -30,7 +34,7 @@ export default class Layout extends React.Component {
   	if(!destinations.length) {
   		return <div>
       <button onClick={ this.fetchDestinations.bind(this) }>load destinations</button>
-  
+      <ContactFrom onSubmit={this.submit} />
       </div>
 
   	} else {
