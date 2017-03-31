@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchUser } from '../actions/userAction';
 import { fetchDestinations } from '../actions/destinationsActions';
 
-import ContactFrom from './searchForm';
+import ContactFrom from '../components/searchForm';
 
 @connect((store) => {
   return {
