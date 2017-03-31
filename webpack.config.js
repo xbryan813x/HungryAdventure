@@ -1,30 +1,32 @@
 const path = require('path');
 
 module.exports = {
-  context: path.join(__dirname, 'client/src'),
-  entry: [
-    './client.js',
-  ],
+  entry: './client/src/client.js',
   output: {
-    path: path.join(__dirname, 'client/assets'),
+    path: path.resolve(__dirname + 'build'),
     filename: 'bundle.js',
+    publicPath: '/build/',
+    pathinfo: true
   },
+  
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: {
-          presets:['es2015', 'react', 'stage-2'],
+        options: {
+          presets:['stage-2'],
           plugins:['transform-decorators-legacy'],
         }
       }
     ]
   },
   resolve: {
+    extensions: ['.js', '.jsx', '.json', '.css'],
     modules: [
       path.join(__dirname, 'node_modules'),
     ],
   },
+  devtool: "source-map",
 };

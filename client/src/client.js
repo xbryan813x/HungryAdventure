@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'; //wrap react-redux with provider
 import Layout from './components/Layout';
 import store from './store';
+import ContactForm from './components/searchForm';
 
 const app = document.getElementById('app');
 
@@ -11,5 +12,3 @@ ReactDOM.render(
     <Layout />
     </Provider>, app)
 
-// import App from './components/App';
-// ReactDOM.render(<App />, app);
