@@ -26,7 +26,7 @@ let ReactWidgetsForm = props => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="budget">Budget</label>
+        <label htmlFor="budget">Bussssssdget</label>
         <Field name="budget" component="input" type="text"/>
       </div>
       <div>

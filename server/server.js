@@ -1,13 +1,11 @@
 import express from 'express';
 import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpack from 'webpack';
 import path from 'path';
-import webpackConfig from '../webpack.config.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const compiler = webpack(webpackConfig);
+
 
 app.use(express.static(path.join(__dirname + '/../build')));
 
@@ -15,16 +13,16 @@ app.get('*', (request, response) => {
   response.sendFile(path.resolve(__dirname +  '/../build', 'index.html'));
 });
 require('./config/routes.js')(app, express);
-
-app.use(webpackDevMiddleware(compiler, {
-  hot: true,
-  filename: 'bundle.js',
-  publicPath: '/',
-  stats: {
-    colors: true,
-  },
-  historyApiFallback: true,
-}));
+console.log('HI');
+// app.use(webpackDevMiddleware(compiler, {
+//   hot: true,
+//   filename: 'bundle.js',
+//   publicPath: '/',
+//   stats: {
+//     colors: true,
+//   },
+//   historyApiFallback: true,
+// }));
 
 
 const server = app.listen(8888, () => {
