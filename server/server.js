@@ -6,16 +6,12 @@ dotenv.config();
 
 const app = express();
 
-
-app.use(express.static(path.join(__dirname + '/../build')));
-
+app.use(express.static(path.join(`${__dirname}/../build`)));
 
 app.get('*', (request, response) => {
-  response.sendFile(path.resolve(__dirname +  '/../build', 'index.html'));
+  response.sendFile(path.resolve(`${__dirname}/../build`, 'index.html'));
 });
 require('./config/routes.js')(app, express);
-
-
 
 
 const server = app.listen(8888, () => {

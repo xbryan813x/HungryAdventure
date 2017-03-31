@@ -6,6 +6,7 @@ import { fetchDestinations } from '../actions/destinationsActions';
 
 //Imported Component
 import ContactFrom from '../components/searchForm';
+// import Flights from '../components/flights';
 
 class Layout extends React.Component {
   //Loads Immediately
@@ -23,7 +24,7 @@ class Layout extends React.Component {
 
   render () {
     const { destinations } = this.props;
-     return <ContactFrom onSubmit={this.submit} />
+    //  return <Flights onSubmit={this.submit} />
   }
 }
 
