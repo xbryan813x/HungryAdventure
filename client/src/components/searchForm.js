@@ -14,8 +14,10 @@ const colors = [ { color: 'Red', value: 'ff0000' },
   { color: 'Green', value: '00ff00' },
   { color: 'Blue', value: '0000ff' } ]
 
-const renderDateTimePicker = ({ input: { value }, showTime }) =>
+
+const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
   <DateTimePicker
+    onChange={onChange}
     format="DD MMM YYYY"
     time={showTime}
     value={!value ? null : new Date(value)}
@@ -60,3 +62,4 @@ ReactWidgetsForm = reduxForm({
 
 // (state, action,)
 export default connect (null, null)(ReactWidgetsForm)
+

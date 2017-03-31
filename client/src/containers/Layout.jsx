@@ -10,11 +10,11 @@ import ContactFrom from '../components/searchForm';
 class Layout extends React.Component {
   //Loads Immediately
   componentWillMount(){
-  	this.props.fetchUser()
+    this.props.fetchUser()
   }
 
  fetchDestinations = () => {
-  	this.props.fetchDestinations()
+    this.props.fetchDestinations()
   }
 
   submit = (values) => {
@@ -22,7 +22,7 @@ class Layout extends React.Component {
   }
 
   render () {
-  	const { destinations } = this.props;
+    const { destinations } = this.props;
      return <ContactFrom onSubmit={this.submit} />
   }
 }
