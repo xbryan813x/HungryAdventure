@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
 
-import { fetchUser } from '../actions/userAction'
-import { fetchDestinations } from '../actions/destinationsActions'
+import { fetchUser } from '../actions/userAction';
+import { fetchDestinations } from '../actions/destinationsActions';
+
 
 @connect((store) => {
   return {
@@ -22,15 +23,21 @@ export default class Layout extends React.Component {
   	this.props.dispatch(fetchDestinations())
   }
 
+
   render () {
   	const { user, destinations } = this.props;
-
+    
   	if(!destinations.length) {
-  		return <button onClick={this.fetchDestinations.bind(this)}>load destinations</button>
+  		return <div>
+      <button onClick={ this.fetchDestinations.bind(this) }>load destinations</button>
+  
+      </div>
+
   	} else {
       const mappedDestinations = destinations.map(destination => <li>{destination.text}</li>)
 
       return <div>
+      
       <h1> {user.name} </h1>
         <ul>{mappedDestinations}</ul>
       </div>
