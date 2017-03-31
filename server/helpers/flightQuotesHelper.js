@@ -1,6 +1,6 @@
 
 module.exports = {
-  trimSkyBody: function(skyBody){
+  trimSkyBody: (skyBody) => {
     const trimResults = {};
     let price = 0;
     skyBody.Quotes.forEach((skyElem) => {
@@ -14,7 +14,7 @@ module.exports = {
         price = skyElem.MinPrice;
       }
     })
-    var getOGID = function(id){
+    var getOGID = (id) => {
       skyBody.Places.forEach((elem) => {
         if(elem.PlaceId === id){
           delete(trimResults.originId)
@@ -22,7 +22,7 @@ module.exports = {
         }
       })
     }
-    var getDesID = function(id){
+    var getDesID = (id) => {
       skyBody.Places.forEach((elem) => {
         if(elem.PlaceId === id){
           delete(trimResults.destinationId)
@@ -31,7 +31,7 @@ module.exports = {
         }
       })
     }
-    var getCarID = function(id){
+    var getCarID = (id) => {
       skyBody.Carriers.forEach((elem) => {
         if(elem.CarrierId === id){
           delete(trimResults.carrierId)
