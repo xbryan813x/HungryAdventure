@@ -9,20 +9,13 @@ const app = express();
 
 app.use(express.static(path.join(__dirname + '/../build')));
 
+
 app.get('*', (request, response) => {
   response.sendFile(path.resolve(__dirname +  '/../build', 'index.html'));
 });
 require('./config/routes.js')(app, express);
-console.log('HI');
-// app.use(webpackDevMiddleware(compiler, {
-//   hot: true,
-//   filename: 'bundle.js',
-//   publicPath: '/',
-//   stats: {
-//     colors: true,
-//   },
-//   historyApiFallback: true,
-// }));
+
+
 
 
 const server = app.listen(8888, () => {
