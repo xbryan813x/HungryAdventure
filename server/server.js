@@ -2,15 +2,19 @@ import express from 'express';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpack from 'webpack';
 import path from 'path';
-
-const webpackConfig = require('../webpack.config.js');
+import webpackConfig from '../webpack.config.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 const compiler = webpack(webpackConfig);
 
-app.use(express.static(path.join(__dirname, '/../client/assets')));
+app.use(express.static(path.join(__dirname + '/../build')));
 
-require('./config/routes.js')(app);
+app.get('*', (request, response) => {
+ response.sendFile(path.resolve(__dirname +  '/../build', 'index.html'));
+});
+require('./config/routes.js')(app, express)
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
