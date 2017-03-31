@@ -3,12 +3,12 @@ const path = require('path');
 module.exports = {
   entry: './client/src/client.js',
   output: {
-    path: path.resolve(__dirname + '/build'),
+    path: path.resolve(__dirname + 'build'),
     filename: 'bundle.js',
     publicPath: '/build/',
     pathinfo: true
   },
-
+  
   module: {
     rules: [
       {
@@ -28,5 +28,5 @@ module.exports = {
       path.join(__dirname, 'node_modules'),
     ],
   },
-  devtool: "source-map"
+  devtool: "source-map",
 };
