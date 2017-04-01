@@ -4,13 +4,11 @@ import { reducer as formReducer } from 'redux-form';
 import destinations from './destinationsReducer';
 import user from './userReducer';
 
-const reducers = {
-	form: formReducer
-}
 
-export default combineReducers({
+const rootReducer = combineReducers ({
   destinations,
   user,
-  reducers,
+  form: formReducer,
 });
 
+export default rootReducer;
