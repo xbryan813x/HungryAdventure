@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
-import dummyData from './dummyData'
+import { Col } from 'react-bootstrap';
+
+import dummyData from './dummyData';
+// const arrivalKey = Object.keys(dummy)[0];
 
 export default class Destinations extends Component {
-
   render() {
-
-    const dumnies = dummyData.map((dummy) => (
-     <div>
-      <div>{dummy.arrivalDate}</div>
-      <div>{dummy.depatureDate}</div>
-      <div>{dummy.location}</div>
-      <div>{dummy.carrier}</div>
-      <img src={dummy.imageUrl} />
-    </div>
-    ))
+    const dumnies = dummyData.map(dummy => (
+      <Col key={Object.keys(dummy)[0]} bsClass="container" xs={6} md={4}>
+        <div>
+          <img alt="" src={dummy[Object.keys(dummy)[0]].imageUrl} />
+        </div>
+        <div>
+          <div>{dummy[Object.keys(dummy)[0]].price}</div>
+          <div>{dummy[Object.keys(dummy)[0]].departureDate}</div>
+          <div>{dummy[Object.keys(dummy)[0]].location}</div>
+          <div>{dummy[Object.keys(dummy)[0]].carrier}</div>
+        </div>
+      </Col>
+    ));
 
     return (
-      <div className ="place">
+      <div className="place">
         {dumnies}
       </div>
-    )
+    );
   }
 }
