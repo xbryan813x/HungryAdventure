@@ -5,25 +5,28 @@ import { fetchUser } from '../actions/userAction';
 import { fetchDestinations } from '../actions/destinationsActions';
 
 //Imported Component
-import ContactFrom from '../components/searchForm';
+import Search from './searchForm';
 
 class Layout extends React.Component {
-  //Loads Immediately
-  componentWillMount(){
-    this.props.fetchUser()
-  }
 
- fetchDestinations = () => {
-    this.props.fetchDestinations()
-  }
 
-  submit = (values) => {
-    console.log('hello');
-  }
+// fetchDestination = () => {
+//   this.props.fetchDestinations()
+// }
+
+submit = (values) => {
+  console.log('------>', values)
+  console.log('++++++++++',this.props.fetchDestinations(values))
+
+
+
+
+}
 
   render () {
-    const { destinations } = this.props;
-     return <ContactFrom onSubmit={this.submit} />
+     return (
+      <Search onSubmit={this.submit} />
+      );
   }
 }
 
