@@ -3,8 +3,8 @@ import DestinationEntry from './DestinationEntry'
 
 const DestinationList = ({ destinations }) => (
   <div>
-    {destinations.destinations.map((destination) => 
-      <DestinationEntry destination={destination} />
+    {destinations.destinations.map((destination, index) => 
+      <DestinationEntry destination={destination} key={index} />
     )}
   </div>
 );
