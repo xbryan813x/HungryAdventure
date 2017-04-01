@@ -1,11 +1,11 @@
 import express from 'express';
-import webpackDevMiddleware from 'webpack-dev-middleware';
 import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
 
+require('./config/routes.js')(app, express);
 
 app.use(express.static(path.join(__dirname + '/../build')));
 
@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname + '/../build')));
 app.get('*', (request, response) => {
   response.sendFile(path.resolve(__dirname +  '/../build', 'index.html'));
 });
-require('./config/routes.js')(app, express);
+
 
 
 
