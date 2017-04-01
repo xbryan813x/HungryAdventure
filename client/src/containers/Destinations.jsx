@@ -10,6 +10,7 @@ class Destinations extends Component {
   }
 
   render () {   
+    console.log(this.props.destinations)
     return ( 
      <div>  
        {/*<NavBar />*/}
