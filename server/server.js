@@ -8,9 +8,10 @@ const app = express();
 require('./config/routes.js')(app, express);
 
 app.use(express.static(path.join(`${__dirname}/../build`)));
+app.use(express.static(path.join(`${__dirname}/../public`)));
 
 app.get('*', (request, response) => {
-  response.sendFile(path.resolve(`${__dirname}/../build`, 'index.html'));
+  response.sendFile(path.resolve(`${__dirname}/../public`, 'index.html'));
 });
 
 

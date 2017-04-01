@@ -1,14 +1,21 @@
 const dummyData = [
   {
     LAX: {
-      price: 362,
+      price: 358,
       arrivalDate: '2017-05-01T00:00:00',
       departureDate: '2017-05-08T00:00:00',
       originTerminal: 'JFK',
       destinationTerminal: 'LAX',
       location: 'Los Angeles',
       carrier: 'Virgin America',
-      imageUrl: 'https://pixabay.com/get/e833b50d2df5053ed95c4518b7484f93e671e2dc04b0154894f0c47da4eeb0_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/e833b30629f3023ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e83cb10a2afc013ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e833b30629fc013ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e837b50a21f2013ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e830b8072cf3023ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e131b8092bfd1c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+      ],
     },
   },
   {
@@ -20,7 +27,14 @@ const dummyData = [
       destinationTerminal: 'SFO',
       location: 'San Francisco',
       carrier: 'Virgin America',
-      imageUrl: 'https://pixabay.com/get/e833b20c2af4053ed95c4518b7484f93e671e2dc04b0154894f0c47da4eeb0_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/e833b20c2af4053ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e833b20c2af4033ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e833b20c2af4023ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/ea3db90629f31c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e83db80c21fc043ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/eb34b40b29fd053ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+      ],
     },
   },
   {
@@ -32,7 +46,14 @@ const dummyData = [
       destinationTerminal: 'LAS',
       location: 'Las Vegas',
       carrier: 'Virgin America',
-      imageUrl: 'https://pixabay.com/get/ec3db40f21fc1c2ad65a5854e2454393e577ebc818b5184095f5c57aa4e8_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/e83db40c2cf3063ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e833b30f21f2033ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e833b30f21f2003ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e834b6092df7083ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e030b80a2af41c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e131b00c2ff21c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+      ],
     },
   },
   {
@@ -44,7 +65,14 @@ const dummyData = [
       destinationTerminal: 'MIA',
       location: 'Miami',
       carrier: 'Interjet',
-      imageUrl: 'https://pixabay.com/get/eb34b0082bf5013ed95c4518b7484f93e671e2dc04b0154894f0c47da4eeb0_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/eb34b0082bf5013ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e13cb0082cf41c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e13cb0072cf01c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e13db50a2af51c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e13cb0082af01c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e13cb0082cf51c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+      ],
     },
   },
   {
@@ -56,7 +84,14 @@ const dummyData = [
       destinationTerminal: 'SEA',
       location: 'Seattle',
       carrier: 'jetBlue',
-      imageUrl: 'https://pixabay.com/get/e036b70a20fd1c2ad65a5854e2454393e577ebc818b5184095f5c57aa4e8_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/ee37b1082cf61c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e83cb60a2bfd093ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e03db50a29fc1c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e833b0062df4043ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e830b10629f0003ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/ef3cb1062ff71c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+      ],
     },
   },
   {
@@ -68,7 +103,9 @@ const dummyData = [
       destinationTerminal: 'MCO',
       location: 'Orlando',
       carrier: 'jetBlue',
-      imageUrl: 'https://pixabay.com/get/eb35b80f2ef4033ed95c4518b7484f93e671e2dc04b0154894f0c47da4eeb0_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/eb34b40e21f7013ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+      ],
     },
   },
   {
@@ -80,7 +117,14 @@ const dummyData = [
       destinationTerminal: 'SDQ',
       location: 'Santo Domingo',
       carrier: 'jetBlue',
-      imageUrl: 'https://pixabay.com/get/e833b00d2ef0043ed95c4518b7484f93e671e2dc04b0154894f0c47da4eeb0_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/e136b70d2af21c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/ee32b20728e90825d0471401ef494390e37effd41db8104193f2c471a1_640.jpg',
+        'https://pixabay.com/get/e83cb70e2ef3053ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/ee30b00628fd1c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/ee30b00628f01c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/ee30b00628f11c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+      ],
     },
   },
   {
@@ -92,7 +136,14 @@ const dummyData = [
       destinationTerminal: 'CUN',
       location: 'Cancun',
       carrier: 'Interjet',
-      imageUrl: 'https://pixabay.com/get/eb35b4072df2093ed95c4518b7484f93e671e2dc04b0154894f0c47da4eeb0_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/e837b3062efd013ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e837b90828f2033ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e837b30729f1023ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e837b30729f0083ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e837b2062ff5013ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e837b90828f1073ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+      ],
     },
   },
   {
@@ -104,19 +155,33 @@ const dummyData = [
       destinationTerminal: 'PUJ',
       location: 'Punta Cana',
       carrier: 'jetBlue',
-      imageUrl: 'https://pixabay.com/get/e837b2092dfc003ed95c4518b7484f93e671e2dc04b0154894f0c47da4eeb0_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/e834b30b2df4063ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/ea32b30f2bf41c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e13db80e2ff71c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e136b8092cf31c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/ea32b30f2bf51c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e834b30b2df4083ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+      ],
     },
   },
   {
     FLL: {
-      price: 233,
+      price: 227,
       arrivalDate: '2017-05-01T00:00:00',
       departureDate: '2017-05-08T00:00:00',
       originTerminal: 'JFK',
       destinationTerminal: 'FLL',
       location: 'Miami',
       carrier: 'jetBlue',
-      imageUrl: 'https://pixabay.com/get/eb34b0082bf5013ed95c4518b7484f93e671e2dc04b0154894f0c47da4eeb0_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/eb34b0082bf5013ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e13cb0082cf41c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e13cb0072cf01c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e13db50a2af51c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e13cb0082af01c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/e13cb0082cf51c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+      ],
     },
   },
   {
@@ -128,7 +193,14 @@ const dummyData = [
       destinationTerminal: 'STI',
       location: 'Santiago',
       carrier: 'jetBlue',
-      imageUrl: 'https://pixabay.com/get/ea3cb90b35fd0723cd0b410ce3494096ea6ae3d110b0114491f3c27c_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/e830b5072df4073ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/e830b5072df4043ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+        'https://pixabay.com/get/ee37b0082af11c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/ed35b70b2ef01c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/ed35b70b2df21c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+        'https://pixabay.com/get/ed35b70b2df01c2ad65a5854e2454393e577ebc818b5184095f6c37cafeb_640.jpg',
+      ],
     },
   },
   {
@@ -140,7 +212,9 @@ const dummyData = [
       destinationTerminal: 'PHX',
       location: 'Phoenix',
       carrier: 'jetBlue',
-      imageUrl: 'https://pixabay.com/get/ef33b00621f31c2ad65a5854e2454393e577ebc818b5184095f5c57aa4e8_640.jpg',
+      imageUrl: [
+        'https://pixabay.com/get/e832b2092df6043ed95c4518b7484f93e671e2dc04b0154894f0c77ba2e5b3_640.jpg',
+      ],
     },
   },
 ];

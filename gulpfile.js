@@ -2,8 +2,8 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 
 
-gulp.task('sass', () => gulp.src('client/style/scss/style.scss')
+gulp.task('sass', () => gulp.src('public/style/scss/style.scss')
   .pipe(sass())
-  .pipe(gulp.dest('client/style/css')));
+  .pipe(gulp.dest('public/style/css')));
 
-gulp.watch('client/style/scss/**/*.scss', ['sass']);
+gulp.watch('public/style/scss/**/*.scss', ['sass']);
