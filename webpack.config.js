@@ -9,6 +9,7 @@ module.exports = {
     pathinfo: true
   },
   
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -28,5 +29,4 @@ module.exports = {
       path.join(__dirname, 'node_modules'),
     ],
   },
-  devtool: "source-map",
 };
