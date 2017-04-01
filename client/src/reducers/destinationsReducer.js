@@ -19,6 +19,7 @@ export default function reducer(state = {
       };
     }
     case 'FETCH_DESTINATION_FULFILLED': {
+      console.log('+++++++', action.payload);
       return { ...state,
         fetching: false,
         fetched: true,

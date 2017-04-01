@@ -7,6 +7,7 @@ import { fetchDestinations } from '../actions/destinationsActions';
 //Imported Component
 import Search from './searchForm';
 
+
 class Layout extends React.Component {
 
 
@@ -16,10 +17,9 @@ class Layout extends React.Component {
 
 submit = (values) => {
   console.log('------>', values)
-  console.log('++++++++++',this.props.fetchDestinations(values))
-
-
-
+  this.props.fetchDestinations(values).then(() =>{
+     this.props.history.push('/work');
+   }) 
 
 }
 
