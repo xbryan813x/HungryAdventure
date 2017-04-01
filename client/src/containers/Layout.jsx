@@ -18,8 +18,8 @@ class Layout extends React.Component {
 submit = (values) => {
   console.log('------>', values)
   this.props.fetchDestinations(values).then(() =>{
-     this.props.history.push('/work');
-   }) 
+     this.props.history.push('/flights');
+   })
 
 }
 
