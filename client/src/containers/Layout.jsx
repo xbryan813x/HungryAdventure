@@ -13,7 +13,7 @@ class Layout extends React.Component {
     this.props.fetchUser()
   }
 
- fetchDestinations() {
+ fetchDestinations = () => {
     this.props.fetchDestinations()
   }
 
