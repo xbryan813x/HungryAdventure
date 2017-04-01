@@ -1,7 +1,7 @@
 import express from 'express';
-import webpackDevMiddleware from 'webpack-dev-middleware';
 import path from 'path';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const app = express();
@@ -14,7 +14,7 @@ app.get('*', (request, response) => {
 require('./config/routes.js')(app, express);
 
 
-const server = app.listen(8888, () => {
+const server = app.listen(7777, () => {
   const host = server.address().address;
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);

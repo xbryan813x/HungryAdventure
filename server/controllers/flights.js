@@ -85,6 +85,7 @@ module.exports = {
               destinationObj.imageUrl = pixObject[destinationObj.location];
             }
           });
+          console.log(flightResults);
           res.send(flightResults);
         });
       })
