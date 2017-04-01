@@ -9,12 +9,21 @@ import Search from './searchForm';
 
 class Layout extends React.Component {
 
-  submit = (values) => {
-    console.log(values);
-  }
+
+// fetchDestination = () => {
+//   this.props.fetchDestinations()
+// }
+
+submit = (values) => {
+  console.log('------>', values)
+  console.log('++++++++++',this.props.fetchDestinations(values))
+
+
+
+
+}
 
   render () {
-
      return (
       <Search onSubmit={this.submit} />
       );

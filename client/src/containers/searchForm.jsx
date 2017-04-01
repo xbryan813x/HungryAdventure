@@ -1,6 +1,7 @@
 //+++++ REACT SPECIFIC/REDUX
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 //+++++ STYLES
 // import Col from 'react-bootstrap/lib/Col';
@@ -24,6 +25,7 @@ const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
     value={!value ? null : new Date(value)}
   />
 
+
 class searchForm extends Component {
   
   render () {
@@ -44,7 +46,7 @@ class searchForm extends Component {
           <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type='text'/>
         </div>
          <div>
-           <button type="submit" disabled={pristine || submitting}> Submit </button>
+           <button type="submit" disabled={pristine || submitting}> Submit  </button>
            <button type="button" disabled={pristine || submitting} onClick={reset}>Reset Values</button>
        </div>
       </form>

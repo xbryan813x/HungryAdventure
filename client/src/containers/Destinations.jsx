@@ -10,6 +10,7 @@ class Destinations2 extends Component {
     return ( 
      <div>  
        {/*<NavBar />*/}
+       <h1> HIIIIII </h1>
        <DestinationList destinations={this.props.destinations} />
       </div>
     )
