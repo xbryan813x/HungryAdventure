@@ -39,12 +39,11 @@ let ReactWidgetsForm = props => {
   	<form onSubmit={handleSubmit}>  	
       <Row>
         <Col sm={4}>
+        
          <label htmlFor="budget">Budget</label>
          <Field name="budget" component="input" type="text"/>
-        </Col>
-        <Col sm={6}>
-          <label>Start Date</label>
-          <Field name="start_date" showTime={false} component={renderDateTimePicker}/>
+         <label>Start Date</label>
+         <Field name="start_date" showTime={false} component={renderDateTimePicker}/>
         </Col>
       </Row>
    
