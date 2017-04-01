@@ -6,26 +6,18 @@ import { fetchDestinations } from '../actions/destinationsActions';
 
 //Imported Component
 import Search from './searchForm';
-//<Search onSubmit={this.submit} />
-import DataInput from '../components/DataInput';
 
 class Layout extends React.Component {
-  //Loads Immediately
-  componentWillMount(){
-    this.props.fetchUser()
-  }
-
- fetchDestinations = () => {
-    this.props.fetchDestinations()
-  }
 
   submit = (values) => {
-    console.log('hello');
+    console.log(values);
   }
 
   render () {
-    const { destinations } = this.props;
-     return <Search />
+
+     return (
+      <Search onSubmit={this.submit} />
+      );
   }
 }
 

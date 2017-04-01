@@ -1,10 +1,10 @@
 //+++++ REACT SPECIFIC/REDUX
-import React from 'react';
+import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
 //+++++ STYLES
-import Col from 'react-bootstrap/lib/Col';
-import Row from 'react-bootstrap/lib/Row';
+// import Col from 'react-bootstrap/lib/Col';
+// import Row from 'react-bootstrap/lib/Row';
 import PageHeader from 'react-bootstrap/lib/PageHeader';
 
 //+++++ PLUGIN
@@ -16,13 +16,6 @@ momentLocaliser(moment);
 
 //+++++ COMPONENTS
 
-
-
-const colors = [ { color: 'Red', value: 'ff0000' },
-  { color: 'Green', value: '00ff00' },
-  { color: 'Blue', value: '0000ff' } ]
-
-
 const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
   <DateTimePicker
     onChange={onChange}
@@ -31,41 +24,39 @@ const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
     value={!value ? null : new Date(value)}
   />
 
-let ReactWidgetsForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props
-  return (<div>
-  	<PageHeader> Hungry Adventure </PageHeader>
-
-  	<form onSubmit={handleSubmit}>  	
-      <Row>
-        <Col sm={4}>
-        
-         <label htmlFor="budget">Budget</label>
-         <Field name="budget" component="input" type="text"/>
-         <label>Start Date</label>
-         <Field name="start_date" showTime={false} component={renderDateTimePicker}/>
-        </Col>
-      </Row>
-   
-        
-
-        <label>Arrival Date</label>
-        <Field name="arrival_date" showTime={false} component={renderDateTimePicker}/>
-
-
-      <div>
-        <button type="submit" disabled={pristine || submitting}> Submit </button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>Reset Values
-        </button>
+class searchForm extends Component {
+  
+  render () {
+  	const { handleSubmit, pristine, reset, submitting } = this.props;
+    return (<div>
+      <PageHeader> Hungry Adventure </PageHeader>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor='Budget'>Budget </label>
+          <Field name='Budget' component='input' type='text'/>
+        </div>
+        <div>
+          <label htmlFor='departDate'>Departure Time</label>
+          <Field name="departDate" showTime={false} component={renderDateTimePicker} type='text'/>
+        </div>
+        <div>
+          <label htmlFor='arrivalDate'>Arrival Time</label>
+          <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type='text'/>
+        </div>
+         <div>
+           <button type="submit" disabled={pristine || submitting}> Submit </button>
+           <button type="button" disabled={pristine || submitting} onClick={reset}>Reset Values</button>
+       </div>
+      </form>
       </div>
-    </form>
-  </div>)
+    );
+  }
 }
 
-ReactWidgetsForm = reduxForm({
-  form: 'reactWidgets'  // a unique identifier for this form
-})(ReactWidgetsForm)
+searchForm = reduxForm({
+  form: 'search',  // a unique identifier for this form
+})(searchForm);
 
 // (state, action,)
-export default connect (null, null)(ReactWidgetsForm)
+export default connect (null, null)(searchForm);
 
