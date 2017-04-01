@@ -27,7 +27,6 @@ let ReactWidgetsForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
     <form onSubmit={handleSubmit}>
-      <div><Link to="/work">Click Me</Link></div>
       <div>
         <label htmlFor="budget">Budget</label>
         <Field name="budget" component="input" type="text"/>

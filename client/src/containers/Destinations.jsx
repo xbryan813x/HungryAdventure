@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import { fetchDestinations } from '../actions/destinationsActions';
 import DestinationList from '../components/DestinationList'
 
-class Destinations extends Component {
-
-  select = () => {
-    console.log(this.props.destinations)
-  }
+class Destinations2 extends Component {
 
   render () {   
     console.log(this.props.destinations)
@@ -24,4 +20,4 @@ const mapStateToProps = (state) => ({
   destinations: state.destinations
 })
 
-export default connect(mapStateToProps)(Destinations);
+export default connect(mapStateToProps)(Destinations2);
