@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 //++++++ Imported Actions
 import { fetchUser } from '../actions/userAction';
 import { fetchDestinations } from '../actions/destinationsActions';
+import { PageHeader } from 'react-bootstrap';
 
 //Imported Component
 import Search from './searchForm';
@@ -24,9 +25,13 @@ submit = (values) => {
 }
 
   render () {
-     return (
+     return ( <div>
+      <center>
+      <PageHeader> Hungry Adventure </PageHeader>
       <Search onSubmit={this.submit} />
-      );
+      </center>
+      </div>
+    );
   }
 }
 
