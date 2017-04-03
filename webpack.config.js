@@ -8,7 +8,6 @@ module.exports = {
     publicPath: 'build/',
     pathinfo: true,
   },
-
   devtool: 'source-map',
   module: {
     rules: [
@@ -17,10 +16,21 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['stage-2'],
-          plugins: ['transform-decorators-legacy'],
+          presets:['stage-2'],
+          plugins:['transform-decorators-legacy'],
         },
       },
+       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+        }
+      }
     ],
   },
   resolve: {
@@ -30,3 +40,4 @@ module.exports = {
     ],
   },
 };
+
