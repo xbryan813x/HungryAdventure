@@ -102,6 +102,7 @@ module.exports = {
               destinationObj.imageUrl = pixObject[destinationObj.location];
             }
           });
+          flightQuotesHelper.sortLowestPrice(flightResults);
           res.send(flightResults);
         });
       })
