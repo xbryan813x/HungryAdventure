@@ -8,7 +8,7 @@ module.exports = {
     const arrivalDate = req.query.arrivalDate.slice(0, 10);
     const budget = req.query.Budget;
     let options = {
-      url: `https://api.test.sabre.com/v2/shop/flights/fares?origin=JFK&departuredate=${departDate}&returndate=${arrivalDate}&earliestdeparturedate=${departDate}&latestdeparturedate=${departDate}&lengthofstay=7&pointofsalecountry=US&topdestinations=20`,
+      url: `https://api.test.sabre.com/v2/shop/flights/fares?origin=JFK&departuredate=${departDate}&returndate=${arrivalDate}&earliestdeparturedate=${departDate}&latestdeparturedate=${departDate}&lengthofstay=7&pointofsalecountry=US`,
       headers: {
         Authorization: `Bearer ${process.env.SABRE_ACCESS_TOKEN}`,
         contentType: 'application/json',
@@ -47,14 +47,12 @@ module.exports = {
               flightObj[arrivalKeyName] = parsed;
             }
           });
-          for (let i = 0; i < flightResults.length; i++) {
+          for (let i = 0; i < flightResults.length; i + 1) {
             const arrival = Object.keys(flightResults[i])[0];
-            console.log(flightResults[i][arrival]);
             if (Object.keys(flightResults[i][arrival]).length === 0) {
               flightResults.splice(i, 1);
-              i--;
+              i -= 1;
             }
-            console.log(flightResults[i][arrival]);
           }
           return flightResults;
         });
@@ -63,7 +61,7 @@ module.exports = {
         throw err;
       })
       .then((flightResults) => {
-        console.log(flightResults);
+        // console.log(flightResults);
         const pixFlights = [];
         flightResults.forEach((elem, i) => {
           const arrivalKeyName = Object.keys(elem)[0];

@@ -19,7 +19,9 @@ const DestinationEntry = ({ destination }) => {
           <div>
             <div className="col-xs-10 left">
               <span className="icon glyphicon glyphicon-plane" />
-              <span className="bold"> {destination[airport].location} </span> || <span>{destination[airport].destinationTerminal}</span>
+              <span className="bold"> {destination[airport].location} </span>
+              ||
+              <span>{destination[airport].destinationTerminal}</span>
             </div>
             <div className="col-xs-2 right">${destination[airport].price}</div>
           </div>
