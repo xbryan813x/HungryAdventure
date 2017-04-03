@@ -14,8 +14,10 @@ module.exports = {
       }
     });
     const checkBudget = (price) => {
-      if (price > budget) {
-        trimResults = {};
+      if (budget !== undefined) {
+        if (price > budget) {
+          trimResults = {};
+        }
       }
     };
     const getOGID = (id) => {
@@ -50,5 +52,13 @@ module.exports = {
       getCarID(trimResults.carrierId);
     }
     return trimResults;
+  },
+  sortLowestPrice: (flightResults) => {
+    const callback = (a, b) => {
+      const priceA = a[Object.keys(a)[0]].price;
+      const priceB = b[Object.keys(b)[0]].price;
+      return priceA - priceB;
+    };
+    return flightResults.sort(callback);
   },
 };
