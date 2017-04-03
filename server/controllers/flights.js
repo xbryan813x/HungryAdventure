@@ -54,7 +54,6 @@ module.exports = {
               flightResults.splice(i, 1);
               i--;
             }
-            console.log(flightResults[i][arrival]);
           }
           return flightResults;
         });
