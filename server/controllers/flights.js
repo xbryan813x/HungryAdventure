@@ -61,7 +61,6 @@ module.exports = {
         throw err;
       })
       .then((flightResults) => {
-        // console.log(flightResults);
         const pixFlights = [];
         flightResults.forEach((elem, i) => {
           const arrivalKeyName = Object.keys(elem)[0];
