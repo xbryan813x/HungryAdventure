@@ -47,7 +47,7 @@ module.exports = {
               flightObj[arrivalKeyName] = parsed;
             }
           });
-          for (let i = 0; i < flightResults.length; i + 1) {
+          for (let i = 0; i < flightResults.length; i += 1) {
             const arrival = Object.keys(flightResults[i])[0];
             if (Object.keys(flightResults[i][arrival]).length === 0) {
               flightResults.splice(i, 1);
