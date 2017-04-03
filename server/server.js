@@ -1,8 +1,9 @@
 import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
-
 dotenv.config();
+
+const pg = require('./config/database.js');
 
 const app = express();
 require('./config/routes.js')(app, express);
@@ -22,3 +23,8 @@ const server = app.listen(8888, () => {
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
 });
+
+pg.select().table('users')
+  .then(data => console.log(data));
+
+// console.log(pg)
