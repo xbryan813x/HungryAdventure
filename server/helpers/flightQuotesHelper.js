@@ -1,18 +1,23 @@
 module.exports = {
-  trimSkyBody: (skyBody) => {
-    const trimResults = {};
-    let price = 0;
+  trimSkyBody: (skyBody, budget) => {
+    let trimResults = {};
+    let min = 0;
     skyBody.Quotes.forEach((skyElem) => {
-      if (skyElem.InboundLeg && skyElem.OutboundLeg && skyElem.MinPrice > price) {
+      if (skyElem.InboundLeg && skyElem.OutboundLeg && skyElem.MinPrice > min) {
         trimResults.price = skyElem.MinPrice;
         trimResults.carrierId = skyElem.OutboundLeg.CarrierIds[0];
         trimResults.originId = skyElem.OutboundLeg.OriginId;
         trimResults.destinationId = skyElem.InboundLeg.OriginId;
         trimResults.arrivalDate = skyElem.OutboundLeg.DepartureDate.slice(0, 10);
         trimResults.departureDate = skyElem.InboundLeg.DepartureDate.slice(0, 10);
-        price = skyElem.MinPrice;
+        min = skyElem.MinPrice;
       }
     });
+    const checkBudget = (price) => {
+      if (price > budget) {
+        trimResults = {};
+      }
+    };
     const getOGID = (id) => {
       skyBody.Places.forEach((elem) => {
         if (elem.PlaceId === id) {
@@ -38,10 +43,12 @@ module.exports = {
         }
       });
     };
-    getOGID(trimResults.originId);
-    getDesID(trimResults.destinationId);
-    getCarID(trimResults.carrierId);
-
+    checkBudget(trimResults.price);
+    if (trimResults) {
+      getOGID(trimResults.originId);
+      getDesID(trimResults.destinationId);
+      getCarID(trimResults.carrierId);
+    }
     return trimResults;
   },
 };
