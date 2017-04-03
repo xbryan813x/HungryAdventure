@@ -1,55 +1,58 @@
 // +++++ REACT SPECIFIC/REDUX
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 // +++++ STYLES
-// import Col from 'react-bootstrap/lib/Col';
-// import Row from 'react-bootstrap/lib/Row';
-import PageHeader from 'react-bootstrap/lib/PageHeader';
+import { Form, Button, FormGroup } from 'react-bootstrap';
+import 'react-widgets/dist/css/react-widgets.css';
+
 
 // +++++ PLUGIN
 import { Field, reduxForm } from 'redux-form';
-import DateTimePicker from '../../../node_modules/react-widgets/lib/DateTimePicker';
+import { DateTimePicker, Multiselect } from 'react-widgets';
 import moment from 'moment';
 import momentLocaliser from '../../../node_modules/react-widgets/lib/localizers/moment';
+
 momentLocaliser(moment);
 
 // +++++ COMPONENTS
 
-const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
-  <DateTimePicker
+const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholder }) => {
+  return (<DateTimePicker
     onChange={onChange}
     format="DD MMM YYYY"
     time={showTime}
     value={!value ? null : new Date(value)}
-  />;
+    placeholder={placeholder}
+  />);
+};
 
 
 class searchForm extends Component {
 
   render() {
   	const { handleSubmit, pristine, reset, submitting } = this.props;
-    return (<div>
-      <PageHeader className="title"> Hungry Adventure </PageHeader>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="Budget">Budget </label>
-          <Field name="Budget" component="input" type="text" />
+    return (<div><center>
+      <Form inline onSubmit={handleSubmit}>
+        
+        <FormGroup>
+        <div className='rw-datetimepicker rw-widget'>
+          <Field className='rw-input' name="Budget" component="input" type="text" placeholder="Budget" />
         </div>
-        <div>
-          <label htmlFor="departDate">Departure Time</label>
-          <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" />
-        </div>
-        <div>
-          <label htmlFor="arrivalDate">Arrival Time</label>
-          <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" />
-        </div>
-        <div>
-          <button type="submit" disabled={pristine || submitting}> Submit            </button>
-          <button type="button" disabled={pristine || submitting} onClick={reset}>Reset Values</button>
-        </div>
-      </form>
+        </FormGroup>       
+        <FormGroup>
+          <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder='Departure Date' />
+        </FormGroup>
+        
+        <FormGroup>
+          <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder='Arrival Date' />
+        </FormGroup>
+        
+        <FormGroup>
+          <Button type="submit" disabled={pristine || submitting}> Submit </Button>
+        </FormGroup> 
+      </Form>
+      </center>
     </div>
     );
   }
@@ -61,3 +64,51 @@ searchForm = reduxForm({
 
 // (state, action,)
 export default connect(null, null)(searchForm);
+
+
+/*
+
+
+<div class="container">
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
+
+
+
+
+
+
+*/

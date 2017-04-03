@@ -27,7 +27,7 @@ module.exports = {
         flightResults.forEach((elem) => {
           const arrival = Object.keys(elem)[0];
           options = {
-            url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/JFK/${arrival}/2017-05-01/2017-05-08?apiKey=${process.env.SKYSCANNER_API}`,
+            url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/EWR/${arrival}/2017-05-26/2017-06-04?apiKey=${process.env.SKYSCANNER_API}`,
             headers: {
               contentType: 'application/json',
             },
