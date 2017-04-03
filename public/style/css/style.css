@@ -42,3 +42,7 @@ span.icon {
 @media only screen and (max-width: 500px) {
   .mid {
     text-align: center; } }
+
+.budgetSearch {
+  padding-right: 0;
+}

@@ -36,7 +36,7 @@ class searchForm extends Component {
       <Form inline onSubmit={handleSubmit}>
         
         <FormGroup>
-        <div className='rw-datetimepicker rw-widget'>
+        <div className='rw-datetimepicker rw-widget budgetSearch'>
           <Field className='rw-input' name="Budget" component="input" type="text" placeholder="Budget" />
         </div>
         </FormGroup>       
