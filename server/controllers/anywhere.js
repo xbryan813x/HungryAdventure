@@ -17,8 +17,8 @@ module.exports = {
         const parsedData = JSON.parse(data);
         const top = anywhereHelper.sortFunc(parsedData.Quotes);
         const filterTop = anywhereHelper.uniqueFunc(top);
-        const budgetTop = anywhereHelper.budgetFunc(filterTop, req.query.Budget);
-        const top21 = budgetTop.length >= 21 ? budgetTop.slice(0, 21) : budgetTop;
+        const top21 = filterTop.length >= 21 ? filterTop.slice(0, 21) : filterTop;
+        const budgetTop = anywhereHelper.budgetFunc(top21, req.query.Budget);
         const finalarray = [];
         top21.forEach(() => {
           finalarray.push({});

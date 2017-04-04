@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-const  API = require('../maps.js');
+// const  API = require('../maps.js');
 
 const AnyReactComponent = ({ text }) => <div className="mapsText">{text}</div>;
 
