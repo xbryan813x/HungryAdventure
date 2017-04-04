@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 //++++++ Imported Actions
 import { fetchDestinations } from '../actions/destinationsActions';
@@ -9,6 +9,10 @@ import Search from './searchForm';
 
 
 class Layout extends React.Component {
+
+static propTypes =  {
+    destinations: PropTypes.object, 
+  }
 
 submit = (values) => {
   console.log('------>', values)
