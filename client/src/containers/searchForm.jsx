@@ -17,15 +17,13 @@ momentLocaliser(moment);
 
 // +++++ COMPONENTS
 
-const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholder }) => {
-  return (<DateTimePicker
-    onChange={onChange}
-    format="DD MMM YYYY"
-    time={showTime}
-    value={!value ? null : new Date(value)}
-    placeholder={placeholder}
-  />);
-};
+const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholder }) => (<DateTimePicker
+  onChange={onChange}
+  format="DD MMM YYYY"
+  time={showTime}
+  value={!value ? null : new Date(value)}
+  placeholder={placeholder}
+/>);
 
 
 class searchForm extends Component {
@@ -36,18 +34,23 @@ class searchForm extends Component {
       <Form inline onSubmit={handleSubmit}>
 
         <FormGroup>
-        <div className='rw-datetimepicker rw-widget budgetSearch'>
-          <Field className='rw-input' name="Budget" component="input" type="text" placeholder="Budget" />
-        </div>
-        <div>
-          <label htmlFor="arrivalDate">Arrival Time</label>
-          <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" />
-        </div>
-        <div>
-          <button type="submit" disabled={pristine || submitting}> Submit                      </button>
-          <button type="button" disabled={pristine || submitting} onClick={reset}>Reset Values</button>
-        </div>
-      </form>
+          <div className="rw-datetimepicker rw-widget budgetSearch">
+            <Field className="rw-input" name="Budget" component="input" type="text" placeholder="Budget" />
+          </div>
+        </FormGroup>
+        <FormGroup>
+          <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Departure Date" />
+        </FormGroup>
+
+        <FormGroup>
+          <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Arrival Date" />
+        </FormGroup>
+
+        <FormGroup>
+          <Button type="submit" disabled={pristine || submitting}> Submit </Button>
+        </FormGroup>
+      </Form>
+    </center>
     </div>
     );
   }
