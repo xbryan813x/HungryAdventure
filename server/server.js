@@ -23,4 +23,3 @@ const server = app.listen(8888, () => {
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
 });
-

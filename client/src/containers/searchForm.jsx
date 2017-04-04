@@ -17,15 +17,13 @@ momentLocaliser(moment);
 
 // +++++ COMPONENTS
 
-const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholder }) => {
-  return (<DateTimePicker
-    onChange={onChange}
-    format="DD MMM YYYY"
-    time={showTime}
-    value={!value ? null : new Date(value)}
-    placeholder={placeholder}
-  />);
-};
+const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholder }) => (<DateTimePicker
+  onChange={onChange}
+  format="DD MMM YYYY"
+  time={showTime}
+  value={!value ? null : new Date(value)}
+  placeholder={placeholder}
+/>);
 
 
 class searchForm extends Component {
@@ -34,25 +32,25 @@ class searchForm extends Component {
   	const { handleSubmit, pristine, reset, submitting } = this.props;
     return (<div><center>
       <Form inline onSubmit={handleSubmit}>
-        
+
         <FormGroup>
-        <div className='rw-datetimepicker rw-widget budgetSearch'>
-          <Field className='rw-input' name="Budget" component="input" type="text" placeholder="Budget" />
-        </div>
-        </FormGroup>       
-        <FormGroup>
-          <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder='Departure Date' />
+          <div className="rw-datetimepicker rw-widget budgetSearch">
+            <Field className="rw-input" name="Budget" component="input" type="text" placeholder="Budget" />
+          </div>
         </FormGroup>
-        
         <FormGroup>
-          <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder='Arrival Date' />
+          <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Departure Date" />
         </FormGroup>
-        
+
+        <FormGroup>
+          <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Arrival Date" />
+        </FormGroup>
+
         <FormGroup>
           <Button type="submit" disabled={pristine || submitting}> Submit </Button>
-        </FormGroup> 
+        </FormGroup>
       </Form>
-      </center>
+    </center>
     </div>
     );
   }
@@ -64,4 +62,3 @@ searchForm = reduxForm({
 
 // (state, action,)
 export default connect(null, null)(searchForm);
-
