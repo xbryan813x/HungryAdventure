@@ -27,7 +27,7 @@ submit = (values) => {
   render () {
      return ( <div>
       <center>
-      <PageHeader> Hungry Adventure </PageHeader>
+      <PageHeader className='pageHeaderBorder'> Hungry Adventure </PageHeader>
       <Search onSubmit={this.submit} />
       </center>
       </div>
