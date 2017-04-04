@@ -14,11 +14,10 @@ module.exports = {
     };
     rp(options)
       .then((data) => {
-        const budget = req.query.Budget;
         const parsedData = JSON.parse(data);
         const top = anywhereHelper.sortFunc(parsedData.Quotes);
         const filterTop = anywhereHelper.uniqueFunc(top);
-        const budgetTop = anywhereHelper.budgetFunc(filterTop, budget);
+        const budgetTop = anywhereHelper.budgetFunc(filterTop, req.query.Budget);
         const top21 = budgetTop.length >= 21 ? budgetTop.slice(0, 21) : budgetTop;
         const finalarray = [];
         top21.forEach(() => {
