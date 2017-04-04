@@ -34,25 +34,20 @@ class searchForm extends Component {
   	const { handleSubmit, pristine, reset, submitting } = this.props;
     return (<div><center>
       <Form inline onSubmit={handleSubmit}>
-        
+
         <FormGroup>
         <div className='rw-datetimepicker rw-widget budgetSearch'>
           <Field className='rw-input' name="Budget" component="input" type="text" placeholder="Budget" />
         </div>
-        </FormGroup>       
-        <FormGroup>
-          <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder='Departure Date' />
-        </FormGroup>
-        
-        <FormGroup>
-          <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder='Arrival Date' />
-        </FormGroup>
-        
-        <FormGroup>
-          <Button type="submit" disabled={pristine || submitting}> Submit </Button>
-        </FormGroup> 
-      </Form>
-      </center>
+        <div>
+          <label htmlFor="arrivalDate">Arrival Time</label>
+          <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" />
+        </div>
+        <div>
+          <button type="submit" disabled={pristine || submitting}> Submit                      </button>
+          <button type="button" disabled={pristine || submitting} onClick={reset}>Reset Values</button>
+        </div>
+      </form>
     </div>
     );
   }
@@ -64,4 +59,3 @@ searchForm = reduxForm({
 
 // (state, action,)
 export default connect(null, null)(searchForm);
-
