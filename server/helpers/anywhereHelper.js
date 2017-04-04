@@ -24,6 +24,15 @@ module.exports = {
     });
     return newArr;
   },
+  budgetFunc: (array, budget) => {
+    let newArr = array.slice();
+    newArr.forEach((elem, i) => {
+      if (array.MinPrice > budget) {
+        newArr = newArr.slice(0, i);
+      }
+    });
+    return newArr;
+  },
   trimSkyBody: (finalarray, skyBody, data) => {
     const getOGID = (id, trimResults) => {
       const copyTrim = Object.assign(trimResults);
@@ -65,10 +74,7 @@ module.exports = {
       getOGID(trimResults.originId, trimResults);
       getDesID(trimResults.destinationId, trimResults);
       getCarID(trimResults.carrierId, trimResults);
-      // console.log(trimResults);
     });
-
-    // console.log(finalarray);
     return finalarray;
   },
 };
