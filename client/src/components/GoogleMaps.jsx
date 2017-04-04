@@ -20,15 +20,9 @@ export default class GoogleMaps extends Component {
         bootstrapURLKeys={{key: API.googleMaps()}}
       >
         <AnyReactComponent
-          lat={40.713582}
-          lng={-74.005941}
-          text={'Hey'}
-        />
-
-                <AnyReactComponent
           lat={40.714392}
           lng={-74.006649}
-          text={'yo'}
+          text={'THIS IS YOUR PLACE'}
         />
 
       </GoogleMapReact>
