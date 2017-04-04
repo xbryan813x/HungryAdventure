@@ -3,6 +3,7 @@ const anywhereHelper = require('../helpers/anywhereHelper.js');
 
 module.exports = {
   getAnywhere: (req, res) => {
+    // console.log('QUERY', req.query);
     // const departDate = req.query.departDate.slice(0, 10);
     // const arrivalDate = req.query.arrivalDate.slice(0, 10);
     // const budget = req.query.Budget;
@@ -23,7 +24,57 @@ module.exports = {
           finalarray.push({});
         });
         anywhereHelper.trimSkyBody(finalarray, top21, parsedData);
-        res.send(finalarray);
+        return finalarray;
+      })
+      .catch((err) => {
+        throw err;
+      })
+      .then((flightResults) => {
+        const pixFlights = [];
+        const cache = [];
+        const pix = [];
+        const pixObject = {};
+        flightResults.forEach((elem) => {
+          if (elem.city && cache.indexOf(elem.city) === -1) {
+            const options2 = {
+              url: `https://pixabay.com/api/?key=${process.env.PIXABAY_API}&q=${elem.city}&image_type=photo&orientation=horizontal&category=travel`,
+              headers: {
+                contentType: 'application/json',
+              },
+            };
+            pixFlights.push(rp(options2));
+          }
+          if (elem.city) {
+            if (cache.indexOf(elem.city) === -1) {
+              cache.push(elem.city);
+            }
+          }
+        });
+        return Promise.all(pixFlights).then((values) => {
+          values.forEach((eachPic, index) => {
+            const pixParsed = JSON.parse(eachPic);
+            const topimages = [];
+            pixParsed.hits.forEach((elem, i) => {
+              if (i > 4) {
+                return;
+              }
+              topimages.push(elem.webformatURL);
+            });
+            pix.push(topimages);
+            pixObject[cache[index]] = topimages;
+          });
+          flightResults.forEach((elem) => {
+            const flight = Object.assign(elem);
+            if (cache.indexOf(flight.city) !== -1) {
+              flight.imageUrl = pixObject[flight.city];
+            }
+          });
+
+          res.send(flightResults);
+        });
+      })
+      .catch((err) => {
+        throw err;
       });
   },
 };
