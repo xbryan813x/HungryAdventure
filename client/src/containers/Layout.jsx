@@ -33,4 +33,4 @@ const mapStateToProps = ({destinations}) => ({
  destinations: destinations.destinations
 })
 
-export default connect(mapStateToProps, { fetchDestinations})(Layout);
+export default connect(mapStateToProps, { fetchDestinations })(Layout);
