@@ -1,33 +1,19 @@
 import React, { Component } from 'react';
 import { Col, Carousel } from 'react-bootstrap';
 
- let handleSelect = () => {
+const handleSelect = () => {
   console.log('HELLO!!!!');
- }
+};
 
-const DestinationEntry = ({ destination }) => {
-
-
-  const airport = Object.keys(destination).toString();
-  return (
-    <Col className="" sm={6} md={4} >
-      <div className="tile">
-        <div>
-          <Carousel className="flight" direction={null}>
-            {destination[airport].imageUrl.map((image, i) => (
-              <Carousel.Item className="flightimg" key={destination[airport].imageUrl[i]} onselect={handleSelect}>
-                <img className="flightimg" alt="" src={destination[airport].imageUrl[i]}  onselect={()=>{handleSelect}} />
-              </Carousel.Item>
-// =======
-// const DestinationEntry = ({ destination }) => (
-//   <Col className="" sm={6} md={4} >
-//     <div className="tile">
-//       <div>
-//         <Carousel className="flight">
-//           {destination.imageUrl.map((image, i) => (
-//             <Carousel.Item className="flightimg" key={destination.imageUrl[i]}>
-//               <img className="flightimg" alt="" src={destination.imageUrl[i]} />
-//             </Carousel.Item>
+const DestinationEntry = ({ destination }) => (
+  <Col className="" sm={6} md={4} >
+    <div className="tile">
+      <div>
+        <Carousel className="flight" direction={null}>
+          {destination.imageUrl.map((image, i) => (
+            <Carousel.Item className="flightimg" key={destination.imageUrl[i]} onSelect={handleSelect}>
+              <img className="flightimg" alt="" src={destination.imageUrl[i]} onSelect={() => { handleSelect; }} />
+            </Carousel.Item>
               ))}
         </Carousel>
       </div>
