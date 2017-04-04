@@ -3,39 +3,23 @@ const anywhereHelper = require('../helpers/anywhereHelper.js');
 
 module.exports = {
   getAnywhere: (req, res) => {
-<<<<<<< HEAD
-    // console.log('QUERY', req.query);
-    // const departDate = req.query.departDate.slice(0, 10);
-    // const arrivalDate = req.query.arrivalDate.slice(0, 10);
-    // const budget = req.query.Budget;
-    const options = {
-      url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/JFK/anywhere/2017-05-01/2017-05-08?apiKey=${process.env.SKYSCANNER_API}`,
-=======
     const departDate = req.query.departDate.slice(0, 10);
     const arrivalDate = req.query.arrivalDate.slice(0, 10);
 
     const options = {
       url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/JFK/anywhere/${departDate}/${arrivalDate}?apiKey=${process.env.SKYSCANNER_API}`,
->>>>>>> anyflight
       headers: {
         contentType: 'application/json',
       },
     };
     rp(options)
       .then((data) => {
-<<<<<<< HEAD
-        const parsedData = JSON.parse(data);
-        const top = anywhereHelper.sortFunc(parsedData.Quotes);
-        const filterTop = anywhereHelper.uniqueFunc(top);
-        const top21 = filterTop.length >= 21 ? filterTop.slice(0, 21) : filterTop;
-=======
         const budget = req.query.Budget;
         const parsedData = JSON.parse(data);
         const top = anywhereHelper.sortFunc(parsedData.Quotes);
         const filterTop = anywhereHelper.uniqueFunc(top);
         const budgetTop = anywhereHelper.budgetFunc(filterTop, budget);
         const top21 = budgetTop.length >= 21 ? budgetTop.slice(0, 21) : budgetTop;
->>>>>>> anyflight
         const finalarray = [];
         top21.forEach(() => {
           finalarray.push({});
@@ -86,9 +70,6 @@ module.exports = {
               flight.imageUrl = pixObject[flight.city];
             }
           });
-<<<<<<< HEAD
-
-=======
           return flightResults;
         });
       })
@@ -135,7 +116,6 @@ module.exports = {
               flight.imageUrl = pixObject[flight.country];
             }
           });
->>>>>>> anyflight
           res.send(flightResults);
         });
       })
