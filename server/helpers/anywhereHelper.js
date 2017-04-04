@@ -39,7 +39,6 @@ module.exports = {
         const copyTrim = Object.assign(trimResults);
         if (elem.PlaceId === id) {
           delete (copyTrim.destinationId);
-          copyTrim.destinationTerminal = elem.IataCode;
           copyTrim.city = elem.CityName;
           copyTrim.country = elem.CountryName;
           copyTrim.IataCode = elem.IataCode;
