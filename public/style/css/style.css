@@ -45,3 +45,15 @@ span.icon {
 
 .budgetSearch {
   padding-right: 0; }
+
+.maps {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  padding-top: 2%;
+}
+
+.mapsText {
+  color: red;
+  font-size: 30px;
+}
