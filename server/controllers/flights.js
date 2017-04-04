@@ -8,7 +8,7 @@ module.exports = {
     const arrivalDate = req.query.arrivalDate.slice(0, 10);
     const budget = req.query.Budget;
     let options = {
-      url: `https://api.test.sabre.com/v2/shop/flights/fares?origin=JFK&departuredate=${departDate}&returndate=${arrivalDate}&earliestdeparturedate=${departDate}&latestdeparturedate=${departDate}&lengthofstay=7&pointofsalecountry=US`,
+      url: `https://api.test.sabre.com/v2/shop/flights/fares?origin=JFK&departuredate=${departDate}&returndate=${arrivalDate}&earliestdeparturedate=${departDate}&latestdeparturedate=${departDate}&lengthofstay=7&pointofsalecountry=US&topdestinations=24`,
       headers: {
         Authorization: `Bearer ${process.env.SABRE_ACCESS_TOKEN}`,
         contentType: 'application/json',

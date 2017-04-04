@@ -8,5 +8,5 @@ import Routes from './Routes';
 const app = document.getElementById('app');
 
 ReactDOM.render(<Provider store={store}>
-    <Routes />
+  <Routes />
 </Provider>, app);
