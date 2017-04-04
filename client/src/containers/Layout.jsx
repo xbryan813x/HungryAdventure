@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 //++++++ Imported Actions
-import { fetchUser } from '../actions/userAction';
 import { fetchDestinations } from '../actions/destinationsActions';
 import { PageHeader } from 'react-bootstrap';
 
@@ -11,17 +10,11 @@ import Search from './searchForm';
 
 class Layout extends React.Component {
 
-
-// fetchDestination = () => {
-//   this.props.fetchDestinations()
-// }
-
 submit = (values) => {
   console.log('------>', values)
   this.props.fetchDestinations(values).then(() =>{
      this.props.history.push('/flights');
    })
-
 }
 
   render () {
@@ -36,10 +29,8 @@ submit = (values) => {
 }
 
 //Connects to store
-const mapStateToProps = ({destinations, user}) => ({
- user: user.user,
- userFetched: user.fetched,
+const mapStateToProps = ({destinations}) => ({
  destinations: destinations.destinations
 })
 
-export default connect(mapStateToProps, {fetchUser, fetchDestinations})(Layout);
+export default connect(mapStateToProps, { fetchDestinations})(Layout);
