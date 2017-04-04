@@ -1,29 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Search from './searchForm';
 
-class Destinations extends Component {
+//+++++ Imported Components
+
+
+class destinationPage extends Component {
 
 submit = (values) => {
   console.log('------>', values)
-  this.props.fetchDestinations(values).then(() =>{
-     this.props.history.push('/flights');
-   })
+  // this.props.fetchDestinations(values).then(() =>{
+  //    this.props.history.push('/flights');
+  //  })
 }
   render() {
-    console.log(this.props.destinations);
-    return (
-      <div>
-        <Search onSubmit={this.submit}/>
-        <h1 className="title"> Hungry Adventure </h1>
-        <DestinationList destinations={this.props.destinations} />
+    return (<div>
+        {/*< HEADERIMG />*/}
+        {/*< INFO Component />*/}
+        {/*< Weather Component />*/}
+        {/*< Map Component />*/}
+        <h1> HELLO WORLD </h1>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({destinations}) => ({
-  destinations: destinations,
+const mapStateToProps = ({price, arrivalDate, departureDate, originTerminal, city, country, IataCode, carrier, imageUrl }) => ({
+  price : price,
+  arrivalData: arrivalDate,
+  departureDate: departureDate, 
+  originTerminal: originTerminal, 
+  city: city, 
+  country: country,
+  IataCode: IataCode,
+  carrier: carrier,
+  imageUrl: imageUrl,
 });
 
-export default connect(mapStateToProps, {fetchDestinations})(Destinations);
+export default connect(mapStateToProps, null )(destinationPage);
