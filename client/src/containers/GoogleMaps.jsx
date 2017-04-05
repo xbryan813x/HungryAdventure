@@ -6,34 +6,26 @@ import Maps from '../components/Map'
 const  API = require('../keys/mapsKey.js');
 
 class GoogleMaps extends Component {
-
-
-  componentDidMount() {
-    this.props.fetchGeo({location: 'boston'})
-    //  console.log('------------', this.props)
-  }
-
-  static defaultProps = {
-    center: {lat: 40.7127837, lng: -74.0059413},
-    zoom: 14
+  constructor(props){
+    super(props);
   }
   
   render() {
-    console.log('WHAAA', this.props.locator)
-    return (
-      <div className="maps">
-        <GoogleMapReact
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-          bootstrapURLKeys={{key: API.googleMaps()}} />
-      </div>
-    );
+    if (this.props.locator === undefined) {
+      return (
+        <div>loading</div>
+      )
+    } else {
+      return (
+        <div className="maps">
+          <GoogleMapReact
+            defaultCenter={ {lat: this.props.locator.latitude, lng: this.props.locator.longitude} }
+            defaultZoom={13}
+            bootstrapURLKeys={{key: API.googleMaps()}} />
+        </div>
+      );
+    }
   }
 }
 
-const mapStateToProps = ({ geo }) => ({
-  ...geo
-});
-
-export default connect(mapStateToProps, { fetchGeo })(GoogleMaps)
-
+export default GoogleMaps
