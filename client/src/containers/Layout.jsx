@@ -11,7 +11,7 @@ import Search from './searchForm';
 class Layout extends React.Component {
 
 static propTypes =  {
-    destinations: PropTypes.object, 
+    destinations: PropTypes.array, 
   }
 
 submit = (values) => {

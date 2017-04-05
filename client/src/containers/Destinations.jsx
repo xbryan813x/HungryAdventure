@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchDestinations } from '../actions/destinationsActions';
 import DestinationList from '../components/DestinationList';
 import Search from './searchForm';
+import { history } from 'react-router-dom'
 
 class Destinations extends Component {
 
@@ -14,7 +15,6 @@ submit = (values) => {
 
 }
   render() {
-    console.log(this.props.destinations);
     return (
       <div>
         <Search onSubmit={this.submit}/>
