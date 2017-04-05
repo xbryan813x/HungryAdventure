@@ -17,7 +17,6 @@ momentLocaliser(moment);
 
 // +++++ COMPONENTS
 
-console.log(process.env)
 const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholder }) => (<DateTimePicker
   onChange={onChange}
   format="DD MMM YYYY"

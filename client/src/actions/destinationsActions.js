@@ -12,3 +12,10 @@ export function fetchDestinations(searchObj) {
       })
   };
 }
+
+export function fetchGeo(placeObj, callback) {
+  axios.get('/api/geocoder', {
+    params: placeObj })
+  .then(response => callback(response))
+  .catch(err => callback(err));
+}
