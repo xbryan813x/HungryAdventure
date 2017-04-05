@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Layout from './containers/Layout';
 import Destinations from './containers/Destinations';
 import Destination from './containers/destinationPage';
-import GoogleMaps from './components/GoogleMaps';
+import GoogleMaps from './containers/GoogleMaps';
 
 const Routes = () => (
   <Router>
