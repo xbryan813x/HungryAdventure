@@ -22,7 +22,6 @@ handleSelect = (destination) => {
   this.props.redirect('/destination');
 }
 
-
 render () {
   return (<div>
   {this.props.destinations.destinations.map((destination, index) => (
