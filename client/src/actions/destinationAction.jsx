@@ -9,8 +9,8 @@ export function destinationSet({
   IataCode,
   carrier,
   imageUrl }) {
-  return {
-    type: 'SET_DESTINATION',
+  return function (dispatch) {
+    return dispatch({ type: 'SET_DESTINATION',
     payload: {
       price,
       arrivalDate,
@@ -22,5 +22,5 @@ export function destinationSet({
       carrier,
       imageUrl,
     },
-  };
-}
+  })
+}}

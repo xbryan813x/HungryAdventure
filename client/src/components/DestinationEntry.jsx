@@ -1,44 +1,70 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Col, Carousel } from 'react-bootstrap';
+import { destinationSet } from '../actions/destinationAction';
 
-const handleSelect = () => {
-  console.log('HELLO!!!!');
-};
+import { history } from 'react-router-dom'
 
-const DestinationEntry = ({ destination }) => (
-  <Col className="" sm={6} md={4} >
-    <div className="tile">
-      <div>
-        <Carousel className="flight" direction={null}>
-          {destination.imageUrl.map((image, i) => (
-            <Carousel.Item className="flightimg" key={destination.imageUrl[i]} onSelect={handleSelect}>
-              <img className="flightimg" alt="" src={destination.imageUrl[i]} onSelect={() => { handleSelect; }} />
-            </Carousel.Item>
-              ))}
-        </Carousel>
-      </div>
-      <div>
+class DestinationEntry extends Component {
+
+constructor (props){
+  super(props);
+}
+
+
+handleSelect = (destination) => {
+  console.log('--->', destination);
+  this.props.destinationSet(destination);
+  
+  this.context.router.push('/destination');
+
+}
+
+
+render () {
+  return (<div>
+  {this.props.destinations.destinations.map((destination, index) => (
+    <Col className="" sm={6} md={4} >
+      <div className="tile">
         <div>
-          <div className="col-xs-10 left">
-            <span className="icon glyphicon glyphicon-plane" />
-            <span className="bold"> {destination.city} </span>
-              ||
-              <span> {destination.IataCode}</span>
+          <Carousel key={index} className="flight" direction={null}>
+            {destination.imageUrl.map((image, i) => (
+              <Carousel.Item className="flightimg" key={destination.imageUrl[i]} >
+                <img className="flightimg" alt="" src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}} />
+              </Carousel.Item>
+                ))}
+          </Carousel>
+        </div>
+        <div>
+          <div>
+            <div className="col-xs-10 left">
+              <span className="icon glyphicon glyphicon-plane" />
+              <span className="bold"> {destination.city} </span>
+                ||
+                <span> {destination.IataCode}</span>
+            </div>
+            <div className="col-xs-2 right">${destination.price}</div>
           </div>
-          <div className="col-xs-2 right">${destination.price}</div>
-        </div>
-        <div>
-          {destination.arrivalDate} through {destination.departureDate}
-        </div>
-        <div>
-          <span>{destination.carrier}</span>
+          <div>
+            {destination.arrivalDate} through {destination.departureDate}
+          </div>
+          <div>
+            <span>{destination.carrier}</span>
+          </div>
         </div>
       </div>
-    </div>
-  </Col>
-  );
+    </Col>
+    ))}
+  }
+  </div>
+  )
+}
+}
+const mapStateToProps = ({destinations}) => ({
+  destinations: destinations,
+});
 
-export default DestinationEntry;
+export default connect(mapStateToProps , { destinationSet } )(DestinationEntry);
 
 /*
 
