@@ -1,5 +1,4 @@
 const flightQuotesHelper = require('../helpers/flightQuotesHelper.js');
-
 const rp = require('request-promise');
 
 module.exports = {

@@ -10,8 +10,8 @@ const Routes = () => (
     <div>
       <Route exact path="/" component={Layout} />
       <Route path="/flights" component={Destinations} />
-      <Route path='/maps' component={GoogleMaps} />
-      <Route path='/destination' component={Destination} />
+      <Route path="/maps" component={GoogleMaps} />
+      <Route path="/destination" component={Destination} />
     </div>
   </Router>
 );
