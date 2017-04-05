@@ -14,7 +14,6 @@ constructor (props){
   console.log('PROPS-->', props)
 }
 
-
 handleSelect = (destination) => {
   console.log('--->', destination);
   this.props.fetchGeo({location: destination.city})
