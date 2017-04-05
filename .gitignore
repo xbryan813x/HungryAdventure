@@ -3,4 +3,4 @@ node_modules
 www/bundle.js
 .env
 build
-/client/src/mapsKey.js
+./client/src/mapsKey.js
