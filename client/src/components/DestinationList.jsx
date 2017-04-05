@@ -2,9 +2,9 @@ import React from 'react';
 import DestinationEntry from './DestinationEntry';
 
 
-const DestinationList = ({ destinations }) => (
+const DestinationList = ({ destinations , redirect }) => (
   <div>
-      <DestinationEntry />,
+      <DestinationEntry key={destinations.IataCode} redirect={ redirect } />,
   </div>
 );
 

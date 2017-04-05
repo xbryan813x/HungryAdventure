@@ -40,6 +40,7 @@
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
+    "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
     "react-widgets": "^3.4.6",
     "redux": "^3.6.0",
@@ -66,6 +67,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
+    "node-geocoder": "^3.16.0"
   }
 }

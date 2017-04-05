@@ -3,34 +3,38 @@ import { connect } from 'react-redux';
 import { Col, Carousel } from 'react-bootstrap';
 import { destinationSet } from '../actions/destinationAction';
 
-import { history } from 'react-router-dom'
+import { history, Link } from 'react-router-dom'
+import {browserHistory} from 'react-router';
+
 
 class DestinationEntry extends Component {
 
 constructor (props){
   super(props);
+  console.log('PROPS-->', props)
 }
 
 
 handleSelect = (destination) => {
   console.log('--->', destination);
-  this.props.destinationSet(destination);
-  
-  this.context.router.push('/destination');
+  console.log('PROPERTIES', this.props)
 
+  this.props.destinationSet(destination)
+  this.props.redirect('/destination')
 }
 
 
 render () {
   return (<div>
   {this.props.destinations.destinations.map((destination, index) => (
-    <Col className="" sm={6} md={4} >
+    <Col className="" sm={6} md={4} key={index}>
       <div className="tile">
         <div>
           <Carousel key={index} className="flight" direction={null}>
             {destination.imageUrl.map((image, i) => (
               <Carousel.Item className="flightimg" key={destination.imageUrl[i]} >
-                <img className="flightimg" alt="" src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}} />
+               <img className="flightimg" alt="" 
+               src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}} />
               </Carousel.Item>
                 ))}
           </Carousel>
@@ -64,7 +68,7 @@ const mapStateToProps = ({destinations}) => ({
   destinations: destinations,
 });
 
-export default connect(mapStateToProps , { destinationSet } )(DestinationEntry);
+export default connect(mapStateToProps , { destinationSet, browserHistory } )(DestinationEntry);
 
 /*
 
