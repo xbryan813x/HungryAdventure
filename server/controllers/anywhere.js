@@ -7,7 +7,7 @@ module.exports = {
     const arrivalDate = req.query.arrivalDate.slice(0, 10);
 
     const options = {
-      url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/JFK/anywhere/${departDate}/${arrivalDate}?apiKey=${process.env.SKYSCANNER_API}`,
+      url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/NYCA/anywhere/${departDate}/${arrivalDate}?apiKey=${process.env.SKYSCANNER_API}`,
       headers: {
         contentType: 'application/json',
       },
@@ -20,7 +20,7 @@ module.exports = {
         const top21 = filterTop.length >= 21 ? filterTop.slice(0, 21) : filterTop;
         const budgetTop = anywhereHelper.budgetFunc(top21, req.query.Budget);
         const finalarray = [];
-        top21.forEach(() => {
+        budgetTop.forEach(() => {
           finalarray.push({});
         });
         anywhereHelper.trimSkyBody(finalarray, top21, parsedData);
