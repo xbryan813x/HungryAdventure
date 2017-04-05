@@ -6,7 +6,7 @@ module.exports = {
     const options = {
       provider: 'google',
       httpAdapter: 'https',
-      api_key: 'AIzaSyBQeKRk8R_UBixWXGssKpGc6zc3-gmxRa0',
+      api_key: process.env.GOOGLE_MAPS,
     }
 
     const geocoder = NodeGeocoder(options);
