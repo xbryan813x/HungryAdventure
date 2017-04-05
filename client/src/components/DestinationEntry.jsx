@@ -15,7 +15,7 @@ constructor (props){
 handleSelect = (destination) => {
   console.log('--->', destination);
   this.props.destinationSet(destination);
-  
+
   this.context.router.push('/destination');
 
 }
@@ -24,7 +24,7 @@ handleSelect = (destination) => {
 render () {
   return (<div>
   {this.props.destinations.destinations.map((destination, index) => (
-    <Col className="" sm={6} md={4} >
+    <Col className="" sm={6} md={4} key={destination.IataCode}>
       <div className="tile">
         <div>
           <Carousel key={index} className="flight" direction={null}>
