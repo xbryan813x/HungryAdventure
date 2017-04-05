@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 
 class destinationPage extends Component {
 
+  constructor (props){
+  super(props);
+}
+
   render() {
     return (<div>
         {/*< HEADERIMG />*/}
@@ -13,22 +17,14 @@ class destinationPage extends Component {
         {/*< Weather Component />*/}
         {/*< Map Component />*/}
         <h1> HELLO WORLD </h1>
-        {this.props.price}
+        <h1>{this.props.price}</h1>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ price, arrivalDate, departureDate, originTerminal, city, country, IataCode, carrier, imageUrl }) => ({
-  price : price,
-  arrivalData: arrivalDate,
-  departureDate: departureDate,
-  originTerminal: originTerminal,
-  city: city,
-  country: country,
-  IataCode: IataCode,
-  carrier: carrier,
-  imageUrl: imageUrl,
+const mapStateToProps = ({destination}) => ({
+  ...destination,
 });
 
 export default connect(mapStateToProps, null )(destinationPage);
