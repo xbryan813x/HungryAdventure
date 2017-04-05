@@ -4,7 +4,7 @@ import DestinationEntry from './DestinationEntry';
 
 const DestinationList = ({ destinations, redirect }) => (
   <div>
-    <DestinationEntry />,
+    <DestinationEntry redirect={redirect} />,
   </div>
 );
 
