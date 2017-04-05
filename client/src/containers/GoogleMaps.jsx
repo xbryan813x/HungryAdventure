@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { fetchGeo } from '../actions/geoAction';
-const  API = require('../keys/mapsKey.js');
+const API = require('../keys/mapKey.js');
 
 const AnyReactComponent = ({ text }) => <div className="mapsText">{text}</div>;
 
