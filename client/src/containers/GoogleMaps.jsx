@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
 import { fetchGeo } from '../actions/geoAction';
 const  API = require('../keys/mapsKey.js');
 
 const AnyReactComponent = ({ text }) => <div className="mapsText">{text}</div>;
 
-export default class GoogleMaps extends Component {
-
+class GoogleMaps extends Component {
+  constructor(props) {
+    super(props)
+    // console.log('**************', this.props)
+  }
 
    componentWillMount() {
-    fetchGeo({location: 'paris'}, function({ latitude, longitude }){
-      console.log(latitude, longitude)
-    })
+    this.props.fetchGeo({location: 'new york'})
+    //  console.log('------------', this.props)
   };
 
   static defaultProps = {
@@ -19,9 +22,11 @@ export default class GoogleMaps extends Component {
     zoom: 15
   };
   render() {
-
+    console.log('THIS IS IT', this.props.locator.city)
     return (
+  
       <div className="maps">
+
       <GoogleMapReact
         defaultCenter={this.props.center}
         defaultZoom={this.props.zoom}
@@ -38,3 +43,10 @@ export default class GoogleMaps extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ geo }) => ({
+  ...geo
+});
+
+export default connect(mapStateToProps, { fetchGeo })(GoogleMaps)
+
