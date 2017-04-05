@@ -4,7 +4,7 @@ import DestinationEntry from './DestinationEntry';
 
 const DestinationList = ({ destinations }) => (
   <div>
-      <DestinationEntry />,
+    <DestinationEntry key={destinations.IataCode} />,
   </div>
 );
 
