@@ -7,7 +7,7 @@ module.exports = {
     const arrivalDate = req.query.arrivalDate.slice(0, 10);
 
     const options = {
-      url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/JFK/anywhere/${departDate}/${arrivalDate}?apiKey=${process.env.SKYSCANNER_API}`,
+      url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/NYCA/anywhere/${departDate}/${arrivalDate}?apiKey=${process.env.SKYSCANNER_API}`,
       headers: {
         contentType: 'application/json',
       },
