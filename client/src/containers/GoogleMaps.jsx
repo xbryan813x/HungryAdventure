@@ -1,40 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
 import { fetchGeo } from '../actions/geoAction';
 const  API = require('../keys/mapsKey.js');
 
-const AnyReactComponent = ({ text }) => <div className="mapsText">{text}</div>;
-
-export default class GoogleMaps extends Component {
-
-
-   componentWillMount() {
-    fetchGeo({location: 'paris'}, function({ latitude, longitude }){
-      console.log(latitude, longitude)
-    })
-  };
-
-  static defaultProps = {
-    center: {lat: 40.7127837, lng: -74.0059413},
-    zoom: 15
-  };
+class GoogleMaps extends Component {
+  constructor(props){
+    super(props);
+  }
+  
   render() {
-
-    return (
-      <div className="maps">
-      <GoogleMapReact
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
-        bootstrapURLKeys={{key: API.googleMaps()}}
-      >
-        <AnyReactComponent
-          lat={40.714392}
-          lng={-74.006649}
-          text={'THIS IS YOUR PLACE'}
-        />
-
-      </GoogleMapReact>
-      </div>
-    );
+    if (this.props.locator === undefined) {
+      return (
+        <div>loading</div>
+      )
+    } else {
+      return (
+        <div className="maps">
+          <GoogleMapReact
+            defaultCenter={ {lat: this.props.locator.latitude, lng: this.props.locator.longitude} }
+            defaultZoom={13}
+            bootstrapURLKeys={{key: API.googleMaps()}} />
+        </div>
+      );
+    }
   }
 }
+
+export default GoogleMaps

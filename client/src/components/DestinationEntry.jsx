@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Col, Carousel } from 'react-bootstrap';
 import { destinationSet } from '../actions/destinationAction';
-
+import { fetchGeo } from '../actions/geoAction';
 import { history, Link } from 'react-router-dom'
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 
 
 class DestinationEntry extends Component {
@@ -17,12 +17,9 @@ constructor (props){
 
 handleSelect = (destination) => {
   console.log('--->', destination);
-  this.props.destinationSet(destination);
-
-  this.context.router.push('/destination');
-
-  this.props.destinationSet(destination)
-  this.props.redirect('/destination')
+  this.props.fetchGeo({location: destination.city})
+    .then(() =>   this.props.destinationSet(destination));
+  this.props.redirect('/destination');
 }
 
 
@@ -71,7 +68,7 @@ const mapStateToProps = ({destinations}) => ({
   destinations: destinations,
 });
 
-export default connect(mapStateToProps , { destinationSet, browserHistory } )(DestinationEntry);
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo } )(DestinationEntry);
 
 /*
 
