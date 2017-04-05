@@ -13,13 +13,15 @@ class destinationPage extends Component {
   render() {
     console.log('*******************', this.props)
     return (<div>
-        <h1> HELLO WORLD </h1>
+        <h1> Hungry Adventure </h1>
         <GoogleMaps locator={this.props.geo.locator}/>
         {/*< HEADERIMG />*/}
         {/*< INFO Component />*/}
         {/*< Weather Component />*/}
         {/*< Map Component />*/}
-        <h1>{this.props.destination.price}</h1>
+        <h1> {this.props.destination.city}</h1>
+        <h1> {this.props.destination.country}</h1>
+        <h1>$ {this.props.destination.price}</h1>
       </div>
     );
   }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
 import { fetchGeo } from '../actions/geoAction';
-import Maps from '../components/Map'
 const  API = require('../keys/mapsKey.js');
 
 class GoogleMaps extends Component {
