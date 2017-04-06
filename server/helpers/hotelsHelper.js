@@ -9,7 +9,11 @@ module.exports = {
       list.lat = elem.listing.lat;
       list.lng = elem.listing.lng;
       list.neighborhood = elem.listing.neighborhood;
-      list.rating = elem.listing.star_rating;
+      if (elem.listing.star_rating === null) {
+        list.rating = 0;
+      } else {
+        list.rating = elem.listing.star_rating;
+      }
       list.price = elem.pricing_quote.rate_with_service_fee.amount;
       list.url = `https://www.airbnb.com/rooms/${elem.listing.id}`;
       list.pictures = elem.listing.picture_urls;
