@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GoogleMaps from './GoogleMaps';
+import HotelList from '../components/HotelList';
 // +++++ Imported Components
 
 
@@ -18,7 +19,7 @@ class destinationPage extends Component {
       {/* < HEADERIMG />*/}
       {/* < INFO Component />*/}
       {/* < Weather Component />*/}
-      {/* < Map Component />*/}
+      <HotelList hotels={this.props.hotels} destination={this.props.destination} />
       <h1> {this.props.destination.city}</h1>
       <h1> {this.props.destination.country}</h1>
       <h1>$ {this.props.destination.price}</h1>

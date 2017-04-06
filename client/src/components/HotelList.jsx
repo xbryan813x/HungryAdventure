@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import HotelEntry from './HotelEntry';
 
-const HotelList = ({ redirect }) => (
+const HotelList = () => (
   <div>
-    <HotelEntry redirect={redirect} />
+    <HotelEntry />
   </div>
 );
 
