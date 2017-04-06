@@ -1,11 +1,13 @@
 const flightQuotesHelper = require('../helpers/flightQuotesHelper.js');
-
 const rp = require('request-promise');
 
 module.exports = {
   getFlights: (req, res) => {
+    const departDate = req.query.departDate.slice(0, 10);
+    const arrivalDate = req.query.arrivalDate.slice(0, 10);
+    const budget = req.query.Budget;
     let options = {
-      url: 'https://api.test.sabre.com/v2/shop/flights/fares?origin=JFK&departuredate=2017-05-01&returndate=2017-05-08&earliestdeparturedate=2017-05-01&latestdeparturedate=2017-05-01&lengthofstay=7&pointofsalecountry=US&topdestinations=12',
+      url: `https://api.test.sabre.com/v2/shop/flights/fares?origin=JFK&departuredate=${departDate}&returndate=${arrivalDate}&earliestdeparturedate=${departDate}&latestdeparturedate=${departDate}&lengthofstay=7&pointofsalecountry=US&topdestinations=24`,
       headers: {
         Authorization: `Bearer ${process.env.SABRE_ACCESS_TOKEN}`,
         contentType: 'application/json',
@@ -27,7 +29,7 @@ module.exports = {
         flightResults.forEach((elem) => {
           const arrival = Object.keys(elem)[0];
           options = {
-            url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/JFK/${arrival}/2017-05-01/2017-05-08?apiKey=${process.env.SKYSCANNER_API}`,
+            url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/JFK/${arrival}/${departDate}/${arrivalDate}?apiKey=${process.env.SKYSCANNER_API}`,
             headers: {
               contentType: 'application/json',
             },
@@ -39,11 +41,18 @@ module.exports = {
             const skyBody = JSON.parse(eachQueue);
             const flightObj = flightResults[index];
             const arrivalKeyName = Object.keys(flightObj)[0];
-            const parsed = flightQuotesHelper.trimSkyBody(skyBody);
+            const parsed = flightQuotesHelper.trimSkyBody(skyBody, budget);
             if (Object.keys(parsed).length !== 0) {
               flightObj[arrivalKeyName] = parsed;
             }
           });
+          for (let i = 0; i < flightResults.length; i += 1) {
+            const arrival = Object.keys(flightResults[i])[0];
+            if (Object.keys(flightResults[i][arrival]).length === 0) {
+              flightResults.splice(i, 1);
+              i -= 1;
+            }
+          }
           return flightResults;
         });
       })
@@ -57,7 +66,7 @@ module.exports = {
           const destinationObj = flightResults[i][arrivalKeyName];
           if (destinationObj.location && cache.indexOf(destinationObj.location) === -1) {
             options = {
-              url: `https://pixabay.com/api/?key=${process.env.PIXABAY_API}&q=${destinationObj.location}&image_type=photo&orientation=horizontal&category=places`,
+              url: `https://pixabay.com/api/?key=${process.env.PIXABAY_API}&q=${destinationObj.location}&image_type=photo&orientation=horizontal&category=travel`,
               headers: {
                 contentType: 'application/json',
               },
@@ -77,7 +86,7 @@ module.exports = {
             const pixParsed = JSON.parse(eachPic);
             const topimages = [];
             pixParsed.hits.forEach((elem, i) => {
-              if (i > 5) {
+              if (i > 4) {
                 return;
               }
               topimages.push(elem.webformatURL);
@@ -92,6 +101,7 @@ module.exports = {
               destinationObj.imageUrl = pixObject[destinationObj.location];
             }
           });
+          flightQuotesHelper.sortLowestPrice(flightResults);
           res.send(flightResults);
         });
       })

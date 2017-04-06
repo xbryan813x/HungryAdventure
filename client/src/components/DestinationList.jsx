@@ -1,12 +1,11 @@
 import React from 'react';
-import DestinationEntry from './DestinationEntry'
+import DestinationEntry from './DestinationEntry';
 
-const DestinationList = ({ destinations }) => (
+
+const DestinationList = ({ destinations, redirect }) => (
   <div>
-    {destinations.destinations.map((destination, index) => 
-      <DestinationEntry destination={destination} key={index} />
-    )}
+    <DestinationEntry redirect={redirect} />,
   </div>
 );
 
-export default DestinationList
+export default DestinationList;

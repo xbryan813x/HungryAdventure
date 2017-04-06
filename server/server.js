@@ -1,8 +1,9 @@
 import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
-
 dotenv.config();
+
+const pg = require('./config/database.js');
 
 const app = express();
 require('./config/routes.js')(app, express);
