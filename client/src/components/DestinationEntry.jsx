@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Col, Carousel } from 'react-bootstrap';
 import { destinationSet } from '../actions/destinationAction';
 import { fetchGeo } from '../actions/geoAction';
+import { fetchHotels } from '../actions/hotelAction';
 import { history, Link } from 'react-router-dom'
 import { browserHistory } from 'react-router';
 
@@ -14,11 +15,12 @@ constructor (props){
   console.log('PROPS-->', props)
 }
 
-
 handleSelect = (destination) => {
   console.log('--->', destination);
+  this.props.fetchHotels({city: destination.city});
   this.props.fetchGeo({location: destination.city})
-    .then(() =>   this.props.destinationSet(destination));
+    .then(() => this.props.destinationSet(destination));
+
   this.props.redirect('/destination');
 }
 
@@ -26,7 +28,7 @@ render () {
   return (<div>
   {this.props.destinations.destinations.map((destination, index) => (
 
-    <Col className="" sm={6} md={4} key={destination.IataCode}>
+    <Col className="" sm={6} md={4} key={destination.IataCode} onClick={ ()=> {this.handleSelect(destination)}}>
       <div className="tile">
         <div>
           <Carousel key={index} className="flight" direction={null}>
@@ -58,16 +60,15 @@ render () {
       </div>
     </Col>
     ))}
+    </div>
+    )
   }
-  </div>
-  )
-}
 }
 const mapStateToProps = ({destinations}) => ({
   destinations: destinations,
 });
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo } )(DestinationEntry);
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels } )(DestinationEntry);
 
 /*
 

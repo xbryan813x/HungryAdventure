@@ -3,6 +3,7 @@ const hotelsHelper = require('../helpers/hotelsHelper.js');
 
 module.exports = {
   getHotels: (req, res) => {
+    console.log(req.query);
     const budget = req.query.Budget || 500;
     const city = req.query.city || 'Toronto';
     const options = {
