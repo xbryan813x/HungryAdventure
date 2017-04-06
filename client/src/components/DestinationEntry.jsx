@@ -7,7 +7,7 @@ import { fetchHotels } from '../actions/hotelAction';
 import { updateBudget } from '../actions/budgetAction';
 import { history, Link } from 'react-router-dom'
 import { browserHistory } from 'react-router';
-
+import { fetchEvents } from '../actions/eventsAction'
 
 class DestinationEntry extends Component {
 
@@ -21,7 +21,6 @@ handleSelect = (destination) => {
   this.props.fetchHotels({city: destination.city});
   this.props.fetchGeo({location: destination.city})
     .then(() => this.props.destinationSet(destination));
-
   this.props.redirect('/destination');
 }
 
@@ -71,6 +70,7 @@ const mapStateToProps = ({destinations, budget}) => ({
 });
 
 export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, updateBudget } )(DestinationEntry);
+
 
 /*
 

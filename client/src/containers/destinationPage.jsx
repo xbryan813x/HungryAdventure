@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
 // +++++ Imported Components
+import { Link } from 'react-router-dom';
+//+++++ Imported Components
 
 
 class destinationPage extends Component {
