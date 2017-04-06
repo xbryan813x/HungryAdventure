@@ -28,7 +28,7 @@ render () {
   return (<div>
   {this.props.destinations.destinations.map((destination, index) => (
 
-    <Col className="" sm={6} md={4} key={destination.IataCode} onClick={ ()=> {this.handleSelect(destination)}}>
+    <Col className="" sm={6} md={4} key={destination.IataCode}>
       <div className="tile">
         <div>
           <Carousel key={index} className="flight" direction={null}>
