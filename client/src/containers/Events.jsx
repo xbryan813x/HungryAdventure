@@ -11,16 +11,11 @@ class Events extends Component {
   // }
   
   render() {
+    console.log(this.props)
     return(
       <div>
         <GoogleMaps locator={this.props.geo.locator}/>
-        {this.props.eventsArr.events.map((event, index) => {
-          <div>
-          <Event event={event} key={index} />
-          <Pin lat={event.coordinates.latitude} lng={event.coordinates.longtiude} text={event.name} />
-          </div>
-        }
-        )}
+        {this.props.eventsArr.events.map((event, index) => <Event event={event} key={index} /> )}
     </div>
     );
   }

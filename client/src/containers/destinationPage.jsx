@@ -17,6 +17,7 @@ class destinationPage extends Component {
 
     console.log('*******************', this.props);
     return (<div>
+      <div><Link to='/events'>EVENTS</Link></div>
       <h1> Hungry Adventure </h1>
       <div className="hero" style={{ backgroundImage: `url(${heroImage})` }} />
       <GoogleMaps locator={this.props.geo.locator} />

@@ -21,6 +21,7 @@ handleSelect = (destination) => {
   this.props.fetchHotels({city: destination.city});
   this.props.fetchGeo({location: destination.city})
     .then(() => this.props.destinationSet(destination));
+  this.props.fetchEvents({location: destination.city})
   this.props.redirect('/destination');
 }
 
@@ -69,7 +70,7 @@ const mapStateToProps = ({destinations, budget}) => ({
   budget,
 });
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, updateBudget } )(DestinationEntry);
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, updateBudget, fetchEvents} )(DestinationEntry);
 
 
 /*
