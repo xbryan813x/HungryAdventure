@@ -15,7 +15,8 @@ const Event = ({ event }) => (
               name="rating" 
               editing={false}
               starCount={5}
-              value={event.rating} />
+              value={event.rating} 
+              />
           <div>{event.categories[0].title}</div>
         </Media.Body>
     </Col>
