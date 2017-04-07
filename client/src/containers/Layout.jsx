@@ -6,6 +6,7 @@ import { PageHeader } from 'react-bootstrap';
 
 //Imported Component
 import Search from './searchForm';
+import Auth from './FacebookAuth'
 
 
 class Layout extends React.Component {
@@ -13,6 +14,7 @@ class Layout extends React.Component {
 static propTypes =  {
     destinations: PropTypes.array, 
   }
+
 
 submit = (values) => {
   console.log('------>', values)
@@ -26,6 +28,7 @@ submit = (values) => {
       <center>
       <PageHeader className='pageHeaderBorder'> Hungry Adventure </PageHeader>
       <Search onSubmit={this.submit} />
+      <Auth />
       </center>
       </div>
     );
