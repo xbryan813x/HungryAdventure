@@ -11,8 +11,8 @@ import 'react-widgets/dist/css/react-widgets.css';
 import { Field, reduxForm } from 'redux-form';
 import { DateTimePicker, Multiselect } from 'react-widgets';
 import moment from 'moment';
+// import { Calendar } from 'react-date-range'; date range stuff
 import momentLocaliser from '../../../node_modules/react-widgets/lib/localizers/moment';
-
 momentLocaliser(moment);
 
 // +++++ COMPONENTS
@@ -27,14 +27,13 @@ const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholde
 
 
 class searchForm extends Component {
-
   render() {
   	const { handleSubmit, pristine, reset, submitting } = this.props;
     return (<div><center>
       <Form inline onSubmit={handleSubmit}>
 
         <FormGroup>
-          <div className="rw-datetimepicker rw-widget budgetSearch">
+          <div className="rw-datetimepicker rw-widget budgetSearch" >
             <Field className="rw-input" name="Budget" component="input" type="text" placeholder="Budget" />
           </div>
         </FormGroup>
@@ -59,6 +58,5 @@ class searchForm extends Component {
 searchForm = reduxForm({
   form: 'search',  // a unique identifier for this form
 })(searchForm);
-
 // (state, action,)
 export default connect(null, null)(searchForm);

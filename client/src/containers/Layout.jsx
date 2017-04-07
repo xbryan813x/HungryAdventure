@@ -6,16 +6,17 @@ import { PageHeader } from 'react-bootstrap';
 
 //Imported Component
 import Search from './searchForm';
-
+let Budget = null;
 
 class Layout extends React.Component {
 
 static propTypes =  {
-    destinations: PropTypes.array, 
+    destinations: PropTypes.array,
   }
 
 submit = (values) => {
   console.log('------>', values)
+  Budget = values.Budget
   this.props.fetchDestinations(values).then(() =>{
      this.props.history.push('/flights');
    })
@@ -34,7 +35,8 @@ submit = (values) => {
 
 //Connects to store
 const mapStateToProps = ({destinations}) => ({
- destinations: destinations.destinations
+ destinations: destinations.destinations,
+ Budget: Budget,
 })
 
 export default connect(mapStateToProps, { fetchDestinations })(Layout);
