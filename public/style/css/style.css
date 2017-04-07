@@ -1,6 +1,17 @@
+.hero {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center center; }
+
 body {
   font-family: "Gudea", sans-serif;
-  margin: auto; }
+  margin: 0;
+  text-align: center;
+  padding: 0; }
+
+.intro {
+  background-image: url("../../img/intro.jpeg"); }
 
 .title {
   font-family: "Quicksand", sans-serif; }
@@ -46,14 +57,11 @@ span.icon {
 .budgetSearch {
   padding-right: 0; }
 
-.maps {
-  width: 50%;
-  height: 50%;
-  margin: auto;
-  padding-top: 2%;
-}
+#header {
+  height: 50%; }
+  #header img {
+    height: 100%; }
 
-.mapsText {
-  color: red;
-  font-size: 30px;
-}
+.map {
+  width: 100%;
+  height: 20%; }

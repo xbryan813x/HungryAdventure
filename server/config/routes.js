@@ -6,8 +6,8 @@ const getWeatherController = require('../controllers/weather.js');
 
 module.exports = (app, express) => {
   app.get('/api/flights', flightController.getFlights);
-  app.get('/api/anywhere', anywhereController.getAnywhere);
+  app.get('/api/anywhere', anywhereController.getAnywhereDummy);
   app.get('/api/geocoder', geocoderController.location);
-  app.get('/api/hotels', hotelController.getHotels);
+  app.get('/api/hotels', hotelController.getHotelsDummy);
   app.get('/api/weather', getWeatherController.getWeather);
 };

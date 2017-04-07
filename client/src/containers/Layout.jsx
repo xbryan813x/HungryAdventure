@@ -1,25 +1,28 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 //++++++ Imported Actions
-import { fetchDestinations } from '../actions/destinationsActions';
+import { fetchDestinations } from '../actions/destinationsAction';
+import { getBudget } from '../actions/budgetAction';
 import { PageHeader } from 'react-bootstrap';
-
+//Reducer for react inputs
+import { combineReducers } from 'redux';
+import { createInputsReducer } from 'redux-inputs';
 //Imported Component
 import Search from './searchForm';
 
-
 class Layout extends React.Component {
 
-static propTypes =  {
-    destinations: PropTypes.array, 
-  }
+  static propTypes = {
+      destinations: PropTypes.array,
+    }
 
-submit = (values) => {
-  console.log('------>', values)
-  this.props.fetchDestinations(values).then(() =>{
-     this.props.history.push('/flights');
-   })
-}
+  submit = (values) => {
+    console.log('------> BUDGET', values.Budget)
+    this.props.getBudget(values);
+    this.props.fetchDestinations(values).then(() =>{
+       this.props.history.push('/flights');
+     })
+  }
 
   render () {
      return ( <div>
@@ -33,8 +36,9 @@ submit = (values) => {
 }
 
 //Connects to store
-const mapStateToProps = ({destinations}) => ({
- destinations: destinations.destinations
+const mapStateToProps = ({destinations, budget}) => ({
+ destinations: destinations.destinations,
+ budget,
 })
 
-export default connect(mapStateToProps, { fetchDestinations })(Layout);
+export default connect(mapStateToProps, { fetchDestinations, getBudget })(Layout);
