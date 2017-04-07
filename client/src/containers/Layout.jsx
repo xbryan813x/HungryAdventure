@@ -6,7 +6,6 @@ import { getBudget } from '../actions/budgetAction';
 import { PageHeader } from 'react-bootstrap';
 //Reducer for react inputs
 import { combineReducers } from 'redux';
-import { createInputsReducer } from 'redux-inputs';
 //Imported Component
 import Search from './searchForm';
 import Auth from './FacebookAuth'
