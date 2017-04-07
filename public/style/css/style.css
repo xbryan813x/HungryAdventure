@@ -65,3 +65,18 @@ span.icon {
 .map {
   width: 100%;
   height: 20%; }
+
+.maps {
+  width: 50%;
+  height: 40%;
+  margin: auto;
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+
+.eventContainer {
+  width: 50%;
+  margin: auto;
+  padding-bottom: 1%;
+}
+

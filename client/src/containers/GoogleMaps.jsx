@@ -13,6 +13,19 @@ class GoogleMaps extends Component {
     if (this.props.locator === undefined) {
       return (
         <div>loading</div>
+<<<<<<< HEAD
+=======
+      )
+    } else {
+      return (
+        <div className="maps">
+          <GoogleMapReact
+            defaultCenter={ {lat: this.props.locator.latitude, lng: this.props.locator.longitude} }
+            defaultZoom={13}
+            bootstrapURLKeys={{key: API.googleMaps()}}
+            key={ this.props.locator.latitude } />
+        </div>
+>>>>>>> yelp component
       );
     }
     return (
