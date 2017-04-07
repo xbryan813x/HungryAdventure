@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
 import { fetchGeo } from '../actions/geoAction';
-const API = require('../keys/mapsKey.js');
+const  API = require('../keys/mapsKey.js');
+import Pin from '../components/pin'
 
 class GoogleMaps extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
   }
 
   render() {
+    console.log(this.props)
     if (this.props.locator === undefined) {
       return (
         <div>loading</div>
-<<<<<<< HEAD
-=======
       )
     } else {
       return (
@@ -24,21 +24,11 @@ class GoogleMaps extends Component {
             defaultZoom={13}
             bootstrapURLKeys={{key: API.googleMaps()}}
             key={ this.props.locator.latitude } />
+         <Pin />   
         </div>
->>>>>>> yelp component
       );
     }
-    return (
-      <div className="map">
-        <GoogleMapReact
-          defaultCenter={{ lat: this.props.locator.latitude, lng: this.props.locator.longitude }}
-          defaultZoom={13}
-          bootstrapURLKeys={{ key: API.googleMaps() }}
-          key={this.props.locator.latitude}
-        />
-      </div>
-    );
   }
 }
 
-export default GoogleMaps;
+export default GoogleMaps

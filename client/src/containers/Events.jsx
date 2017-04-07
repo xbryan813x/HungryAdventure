@@ -3,6 +3,7 @@ import { fetchEvents } from '../actions/eventsAction';
 import { connect } from 'react-redux';
 import Event from '../components/Event';
 import GoogleMaps from './GoogleMaps'
+import Pin from '../components/pin'
 
 class Events extends Component {
   // constructor (props){
@@ -13,8 +14,12 @@ class Events extends Component {
     return(
       <div>
         <GoogleMaps locator={this.props.geo.locator}/>
-        {this.props.eventsArr.events.map((event, index) => 
+        {this.props.eventsArr.events.map((event, index) => {
+          <div>
           <Event event={event} key={index} />
+          <Pin lat={event.coordinates.latitude} lng={event.coordinates.longtiude} text={event.name} />
+          </div>
+        }
         )}
     </div>
     );
