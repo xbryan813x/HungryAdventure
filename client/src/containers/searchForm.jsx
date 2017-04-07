@@ -34,7 +34,7 @@ class searchForm extends Component {
 
         <FormGroup>
           <div className="rw-datetimepicker rw-widget budgetSearch" >
-            <Field className="rw-input" name="Budget" component="input" type="text" placeholder="Budget" />
+            <Field className="rw-input" name="Budget" component="input" type="number" placeholder="Budget" required />
           </div>
         </FormGroup>
         <FormGroup>

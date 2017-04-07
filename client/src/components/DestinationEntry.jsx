@@ -4,6 +4,7 @@ import { Col, Carousel } from 'react-bootstrap';
 import { destinationSet } from '../actions/destinationAction';
 import { fetchGeo } from '../actions/geoAction';
 import { fetchHotels } from '../actions/hotelAction';
+import { updateBudget } from '../actions/budgetAction';
 import { history, Link } from 'react-router-dom'
 import { browserHistory } from 'react-router';
 
@@ -16,7 +17,7 @@ constructor (props){
 }
 
 handleSelect = (destination) => {
-  console.log('--->', destination);
+  this.props.updateBudget({price: destination.price, original: Number(this.props.budget.budget.original)});
   this.props.fetchHotels({city: destination.city});
   this.props.fetchGeo({location: destination.city})
     .then(() => this.props.destinationSet(destination));
@@ -64,11 +65,12 @@ render () {
     )
   }
 }
-const mapStateToProps = ({destinations}) => ({
-  destinations: destinations,
+const mapStateToProps = ({destinations, budget}) => ({
+  destinations,
+  budget,
 });
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels } )(DestinationEntry);
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, updateBudget } )(DestinationEntry);
 
 /*
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchDestinations } from '../actions/destinationsActions';
+import { fetchDestinations } from '../actions/destinationsAction';
 import DestinationList from '../components/DestinationList';
 import Search from './searchForm';
 

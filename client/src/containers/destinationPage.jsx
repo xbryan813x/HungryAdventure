@@ -18,6 +18,7 @@ class destinationPage extends Component {
       <h1> Hungry Adventure </h1>
       <div className="hero" style={{ backgroundImage: `url(${heroImage})` }} />
       <GoogleMaps locator={this.props.geo.locator} />
+      <h1> current budget: ${this.props.budget.budget.flight}</h1>
       <h1> {this.props.destination.city}</h1>
       <h1> {this.props.destination.country}</h1>
       <h1>$ {this.props.destination.price}</h1>

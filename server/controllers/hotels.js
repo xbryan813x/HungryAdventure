@@ -1,7 +1,12 @@
 const rp = require('request-promise');
 const hotelsHelper = require('../helpers/hotelsHelper.js');
 
+const dummyHotels = require('../dummy/dummyHotels.js');
+
 module.exports = {
+  getHotelsDummy: (req, res) => {
+    res.send(dummyHotels);
+  },
   getHotels: (req, res) => {
     console.log(req.query);
     const budget = req.query.Budget || 500;
@@ -17,7 +22,9 @@ module.exports = {
       const parsedData = JSON.parse(data);
       let airbnbResults = hotelsHelper.trimHotelBody(parsedData);
       airbnbResults = hotelsHelper.sortLowestPrice(airbnbResults).slice(0, 21);
+      console.log(airbnbResults);
       res.send(airbnbResults);
-    });
+    })
+    .catch((err) => { throw err; });
   },
 };
