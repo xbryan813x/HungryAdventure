@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 //++++++ Imported Actions
+import queryDB from '../actions/facebookAction'
 //process.env.FB_CLIENT_ID
 
 //Imported Component
@@ -15,6 +16,7 @@ class FacebookAuth extends React.Component {
 
   componentWillMount () {
 
+  //Load Facebook SDK
     (function (d, s, id) {
       let js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -26,28 +28,33 @@ class FacebookAuth extends React.Component {
   }
 
 responseFacebook = (response) => {
-  console.log(response);
+  console.log('++++++++',response);
+  this.props.queryDB(response);
+  
 }
 
   render () {
-     return (<div>
-      <h1> HELLO WORLD </h1>
-      <FacebookLogin
+    if(this.props.fbpicture === undefined){
+      return <FacebookLogin
        appId='process.env.FB_CLIENT_ID'
        autoLoad={true}
        fields="name,email,picture"
        onClick={componentClicked}
        callback={this.responseFacebook}
        icon="fa-facebook" />
-
+    } else {
+     return (<div>
+      <h1>Hi ! {this.props.name}</h1>
+       <img src={this.props.fbpicture}></img>
        </div>
      );
+   }
   }
 }
 
 //Connects to store
-const mapStateToProps = (state) => ({
-
+const mapStateToProps = ({profile}) => ({
+...profile
 });
 
-export default connect(null, null)(FacebookAuth);
+export default connect(mapStateToProps, {queryDB})(FacebookAuth);
