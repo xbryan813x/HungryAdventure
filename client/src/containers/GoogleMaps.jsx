@@ -23,12 +23,19 @@ class GoogleMaps extends Component {
             defaultCenter={ {lat: this.props.locator.latitude, lng: this.props.locator.longitude} }
             defaultZoom={13}
             bootstrapURLKeys={{key: API.googleMaps()}}
-            key={ this.props.locator.latitude } />
-         <Pin />   
+            key={ this.props.locator.latitude } 
+          
+          
+
+            />
         </div>
       );
     }
   }
 }
 
-export default GoogleMaps
+const mapStateToProps = (state) => ({
+  ...state
+})
+
+export default connect(mapStateToProps, null)(GoogleMaps)

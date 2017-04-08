@@ -6,7 +6,7 @@ class Pin extends Component {
   }
 
   render(){
-    console.log(this.props)
+    console.log('what is this', this.props)
     return(
       <div>{this.props.text}</div>
     )

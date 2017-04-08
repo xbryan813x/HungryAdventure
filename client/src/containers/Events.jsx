@@ -15,7 +15,11 @@ class Events extends Component {
     return(
       <div>
         <GoogleMaps locator={this.props.geo.locator}/>
-        {this.props.eventsArr.events.map((event, index) => <Event event={event} key={index} /> )}
+        {this.props.eventsArr.events.map((event, index) => 
+        <div>
+          <Event event={event} key={index} /> 
+        </div>
+        )}
     </div>
     );
   }
