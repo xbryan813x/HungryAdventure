@@ -8,7 +8,6 @@ module.exports = {
     res.send(dummyHotels);
   },
   getHotels: (req, res) => {
-    console.log(req.query);
     const budget = req.query.Budget || 500;
     const city = req.query.city || 'Toronto';
     const options = {
@@ -22,7 +21,6 @@ module.exports = {
       const parsedData = JSON.parse(data);
       let airbnbResults = hotelsHelper.trimHotelBody(parsedData);
       airbnbResults = hotelsHelper.sortLowestPrice(airbnbResults).slice(0, 21);
-      console.log(airbnbResults);
       res.send(airbnbResults);
     })
     .catch((err) => { throw err; });

@@ -2,7 +2,6 @@ const rp = require('request-promise');
 
 module.exports = {
   getWeather: (req, res) => {
-    console.log('in here!');
     const latitude = req.query.latitude || 43.644;
     const longitude = req.query.longitude || -79.391;
     const time = '2017-05-05T16:00:00';

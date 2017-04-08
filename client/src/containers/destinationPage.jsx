@@ -15,7 +15,6 @@ class destinationPage extends Component {
   render() {
     const heroImage = this.props.destination.imageUrl[0];
 
-    console.log('*******************', this.props);
     return (<div>
       <div><Link to='/events'>EVENTS</Link></div>
       <h1> Hungry Adventure </h1>
