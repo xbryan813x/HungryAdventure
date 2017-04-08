@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
 // +++++ Imported Components
+import { Link } from 'react-router-dom';
+//+++++ Imported Components
 
 
 class destinationPage extends Component {
@@ -15,6 +17,7 @@ class destinationPage extends Component {
 
     console.log('*******************', this.props);
     return (<div>
+      <div><Link to='/events'>EVENTS</Link></div>
       <h1> Hungry Adventure </h1>
       <div className="hero" style={{ backgroundImage: `url(${heroImage})` }} />
       <GoogleMaps locator={this.props.geo.locator} />

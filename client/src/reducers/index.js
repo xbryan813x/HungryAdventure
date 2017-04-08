@@ -6,6 +6,7 @@ import destination from './destinationReducer';
 import geo from './geoReducer';
 import hotels from './hotelReducer';
 import budget from './budgetReducer';
+import events from './eventsReducer';
 
 
 const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   geo,
   hotels,
   budget,
+  events,
   form: formReducer,
 });
 
