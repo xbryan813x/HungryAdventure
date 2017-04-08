@@ -12,9 +12,9 @@ import Auth from './FacebookAuth'
 
 class Layout extends React.Component {
 
-  static propTypes = {
-      destinations: PropTypes.array,
-    }
+  // static propTypes = {
+  //     destinations: PropTypes.array,
+  //   }
 
   submit = (values) => {
     console.log('------> BUDGET', values.Budget)

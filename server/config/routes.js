@@ -1,8 +1,9 @@
-const flightController = require('../controllers/flights.js');
-const anywhereController = require('../controllers/anywhere.js');
-const geocoderController = require('../controllers/geocoder.js');
-const hotelController = require('../controllers/hotels.js');
-const getWeatherController = require('../controllers/weather.js');
+const flightController = require('../controllers/flights.js'),
+  anywhereController = require('../controllers/anywhere.js'),
+  geocoderController = require('../controllers/geocoder.js'),
+  hotelController = require('../controllers/hotels.js'),
+  getWeatherController = require('../controllers/weather.js'),
+  databaseController = require('../controllers/database.js');
 
 module.exports = (app, express) => {
   app.get('/api/flights', flightController.getFlights);
@@ -10,4 +11,5 @@ module.exports = (app, express) => {
   app.get('/api/geocoder', geocoderController.location);
   app.get('/api/hotels', hotelController.getHotelsDummy);
   app.get('/api/weather', getWeatherController.getWeather);
+  app.get('/api/dbQuery', databaseController.getProfile);
 };
