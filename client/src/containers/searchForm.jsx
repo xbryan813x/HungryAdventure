@@ -29,30 +29,36 @@ const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholde
 class searchForm extends Component {
   render() {
   	const { handleSubmit, pristine, reset, submitting } = this.props;
-    return (<div><center>
-      <Form inline onSubmit={handleSubmit}>
+    return (<div>
+      <style type="text/css">{`
+          .btn-custom {
+              background-color: transparent;
+              color: #438496;
+              border-width: medium;
+              border-radius: 5px;
+          }
+      `}</style>
+      <center>
+        <Form inline onSubmit={handleSubmit}>
 
-        <FormGroup>
-          <div className="rw-datetimepicker rw-widget budgetSearch" >
-            <Field className="rw-input" name="Budget" component="input" type="value" placeholder="Budget" required />
-          </div>
-        </FormGroup>
-        <FormGroup>
-          <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Departure Date" />
-        </FormGroup>
+          <FormGroup>
+            <div className="rw-datetimepicker rw-widget budgetSearch" >
+              <Field className="rw-input" name="Budget" component="input" type="value" placeholder="Budget" required />
+            </div>
+          </FormGroup>
+          <FormGroup>
+            <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Departure Date" />
+          </FormGroup>
 
-        <FormGroup>
-          <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Arrival Date" />
-        </FormGroup>
+          <FormGroup>
+            <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Arrival Date" />
+          </FormGroup>
 
-        <FormGroup>
-          <Button
-            style={{ color: 'black', border-width: 'medium',
-              backgroundColor: 'transparent' }} type="submit"
-          > Submit </Button>
-        </FormGroup>
-      </Form>
-    </center>
+          <FormGroup>
+            <Button bsStyle="custom" type="submit"> Submit </Button>
+          </FormGroup>
+        </Form>
+      </center>
     </div>
     );
   }

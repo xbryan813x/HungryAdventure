@@ -28,11 +28,7 @@ class Layout extends React.Component {
      return (
       <div className='overlay'>
         <AppBar
-          iconElementRight={
-             <div>
-               <FlatButton />
-             </div>
-           }
+        
           titleStyle={{ fontFamily: "'Quicksand', sans-serif"}}
           style={{ backgroundColor: "#438496" }}
           showMenuIconButton={false}
