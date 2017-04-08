@@ -57,8 +57,4 @@ const mapStateToProps = ({profile}) => ({
 ...profile
 });
 
-<<<<<<< HEAD
 export default connect(mapStateToProps, {queryDB})(FacebookAuth);
-=======
-export default connect(null, null)(FacebookAuth);
->>>>>>> trying material and elemental
