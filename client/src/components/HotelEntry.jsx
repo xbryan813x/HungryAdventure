@@ -5,7 +5,6 @@ import { Col, Carousel } from 'react-bootstrap';
 class HotelEntry extends Component {
   constructor(props) {
     super(props);
-    console.log('HOTEL PROPS MONEY ', props);
   }
   render() {
     if (this.props.hotels.hotels === undefined) {
@@ -13,7 +12,6 @@ class HotelEntry extends Component {
         <div>loading...</div>
       );
     }
-    console.log(this.props.destination.city);
     return (
       <div>
         {this.props.hotels.hotels.map(hotel => (

@@ -10,7 +10,6 @@ class GoogleMaps extends Component {
   }
 
   render() {
-    console.log(this.props)
     if (this.props.locator === undefined) {
       return (
         <div>loading</div>

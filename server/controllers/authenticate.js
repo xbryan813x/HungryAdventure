@@ -2,7 +2,6 @@ const passport = require('passport');
 
 module.exports = {
   localAccept: (req, res) => {
-    console.log('Yay logged in', req.user.username);
     res.redirect('/users/' + req.user.username);
   },
 

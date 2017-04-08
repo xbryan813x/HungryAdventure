@@ -17,7 +17,6 @@ class Layout extends React.Component {
     }
 
   submit = (values) => {
-    console.log('------> BUDGET', values.Budget)
     this.props.getBudget(values);
     this.props.fetchDestinations(values).then(() =>{
        this.props.history.push('/flights');

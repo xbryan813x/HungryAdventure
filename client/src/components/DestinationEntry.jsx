@@ -13,7 +13,6 @@ class DestinationEntry extends Component {
 
 constructor (props){
   super(props);
-  console.log('PROPS-->', props)
 }
 
 handleSelect = (destination) => {

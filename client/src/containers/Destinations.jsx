@@ -8,8 +8,6 @@ import Search from './searchForm';
 class Destinations extends Component {
 
 submit = (values) => {
-  console.log('------>', values)
-  console.log('HISTORY', this.props.history)
   this.props.fetchDestinations(values).then(() =>{
      this.props.history.push('/flights');
    })
