@@ -23,10 +23,10 @@ class Events extends Component {
           <div className="maps">
             <GoogleMapReact
               defaultCenter={ {lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude} }
-              defaultZoom={13}
+              defaultZoom={14}
               bootstrapURLKeys={{key: API.googleMaps()}} >
             {this.props.eventsArr.events.map((event, index) => 
-              <Pin lat={event.coordinates.latitude} lng={event.coordinates.longitude} text={'X'} key={index}/>
+              <Pin lat={event.coordinates.latitude} lng={event.coordinates.longitude} text={event.name} key={index}/>
             )}
            </GoogleMapReact>
         </div>
