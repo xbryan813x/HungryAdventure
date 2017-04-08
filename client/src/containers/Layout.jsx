@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchDestinations } from '../actions/destinationsAction';
 import { getBudget } from '../actions/budgetAction';
 import { PageHeader } from 'react-bootstrap';
+import { AppBar, AppBarMenu, FlatButton } from 'material-ui';
 //Reducer for react inputs
 import { combineReducers } from 'redux';
 //Imported Component
@@ -24,12 +25,24 @@ class Layout extends React.Component {
   }
 
   render () {
-     return ( <div>
-      <center>
-      <PageHeader className='pageHeaderBorder'> Hungry Adventure </PageHeader>
-      <Search onSubmit={this.submit} />
-      <Auth />
-      </center>
+     return (
+      <div className='overlay'>
+        <AppBar
+          iconElementRight={
+             <div>
+               <FlatButton />
+             </div>
+           }
+          titleStyle={{ fontFamily: "'Quicksand', sans-serif"}}
+          style={{ backgroundColor: "#438496" }}
+          showMenuIconButton={false}
+          title="Hungry Adventure"  />
+        <center>
+          <div style={{ marginTop: '10%' }}>
+            <Search onSubmit={this.submit} />
+            <Auth />
+          </div>
+        </center>
       </div>
     );
   }

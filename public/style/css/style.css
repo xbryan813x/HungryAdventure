@@ -5,13 +5,7 @@
   background-position: center center; }
 
 body {
-  font-family: "Gudea", sans-serif;
-  margin: 0;
-  text-align: center;
-  padding: 0; }
-
-.intro {
-  background-image: url("../../img/intro.jpeg"); }
+  font-family: "Gudea", sans-serif; }
 
 .title {
   font-family: "Quicksand", sans-serif; }
@@ -65,3 +59,12 @@ span.icon {
 .map {
   width: 100%;
   height: 20%; }
+
+.input {
+  color: white;
+  background-color: black; }
+
+.input .open > a,
+.input .open > a:hover,
+.input .open > a:focus {
+  background-color: transparent; }

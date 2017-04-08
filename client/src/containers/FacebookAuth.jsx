@@ -30,7 +30,7 @@ class FacebookAuth extends React.Component {
 responseFacebook = (response) => {
   console.log('++++++++',response);
   this.props.queryDB(response);
-  
+
 }
 
   render () {
@@ -57,4 +57,8 @@ const mapStateToProps = ({profile}) => ({
 ...profile
 });
 
+<<<<<<< HEAD
 export default connect(mapStateToProps, {queryDB})(FacebookAuth);
+=======
+export default connect(null, null)(FacebookAuth);
+>>>>>>> trying material and elemental
