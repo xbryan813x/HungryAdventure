@@ -1,8 +1,8 @@
 export function getBudget({ Budget }) {
-  return { type: 'GET_BUDGET_FULFILLED', payload: { original: Budget } };
+  return { type: 'GET_BUDGET_FULFILLED', payload: Budget };
 }
 
-export function updateBudget({ price, original }) {
+export function flightBudget({ price, original }) {
   const newBudget = original - price;
-  return { type: 'UPDATE_BUDGET_FULFILLED', payload: { original, flight: newBudget } };
+  return { type: 'FLIGHT_BUDGET_FULFILLED', payload: { original, flight: newBudget } };
 }

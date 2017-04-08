@@ -4,7 +4,7 @@ import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
 // +++++ Imported Components
 import { Link } from 'react-router-dom';
-//+++++ Imported Components
+// +++++ Imported Components
 
 
 class destinationPage extends Component {
@@ -16,11 +16,11 @@ class destinationPage extends Component {
     const heroImage = this.props.destination.imageUrl[0];
 
     return (<div>
-      <div><Link to='/events'>EVENTS</Link></div>
+      <div><Link to="/events">EVENTS</Link></div>
       <h1> Hungry Adventure </h1>
       <div className="hero" style={{ backgroundImage: `url(${heroImage})` }} />
       <GoogleMaps locator={this.props.geo.locator} />
-      <h1> current budget: ${this.props.budget.budget.flight}</h1>
+      <h1> current budget: ${this.props.budget.flight}</h1>
       <h1> {this.props.destination.city}</h1>
       <h1> {this.props.destination.country}</h1>
       <h1>$ {this.props.destination.price}</h1>

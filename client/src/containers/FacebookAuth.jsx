@@ -30,7 +30,7 @@ class FacebookAuth extends React.Component {
 responseFacebook = (response) => {
   console.log('++++++++',response);
   this.props.queryDB(response);
-  
+
 }
 
   render () {
