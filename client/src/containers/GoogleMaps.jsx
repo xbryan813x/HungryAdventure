@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
 import { fetchGeo } from '../actions/geoAction';
 const  API = require('../keys/mapsKey.js');
-import Pin from '../components/pin'
 
 class GoogleMaps extends Component {
   constructor(props){
@@ -24,9 +23,6 @@ class GoogleMaps extends Component {
             defaultZoom={13}
             bootstrapURLKeys={{key: API.googleMaps()}}
             key={ this.props.locator.latitude } 
-          
-          
-
             />
         </div>
       );

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { fetchEvents } from '../actions/eventsAction';
 import { connect } from 'react-redux';
 import Event from '../components/Event';
-import GoogleMaps from './GoogleMaps'
+import GoogleMapReact from 'google-map-react';
+// import GoogleMaps from './GoogleMaps'
+const  API = require('../keys/mapsKey.js');
 import Pin from '../components/pin'
 
 class Events extends Component {
@@ -13,14 +15,21 @@ class Events extends Component {
   render() {
     console.log(this.props)
     return(
-      <div>
-        <GoogleMaps locator={this.props.geo.locator}/>
-        {this.props.eventsArr.events.map((event, index) => 
         <div>
-          <Event event={event} key={index} /> 
+          <div className="maps">
+            <GoogleMapReact
+              defaultCenter={ {lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude} }
+              defaultZoom={13}
+              bootstrapURLKeys={{key: API.googleMaps()}} >
+            {this.props.eventsArr.events.map((event, index) => 
+              <Pin lat={event.coordinates.latitude} lng={event.coordinates.longitude} text={'X'} key={index}/>
+            )}
+           </GoogleMapReact>
         </div>
-        )}
-    </div>
+          {this.props.eventsArr.events.map((event, index) => 
+            <Event event={event} key={index} /> 
+          )}
+       </div>
     );
   }
 }
@@ -31,3 +40,6 @@ const mapStateToProps = ({ events, geo }) => ({
 });
 
 export default connect(mapStateToProps, { fetchEvents })(Events);
+
+
+    
