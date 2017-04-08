@@ -6,9 +6,9 @@ import { getBudget } from '../actions/budgetAction';
 import { PageHeader } from 'react-bootstrap';
 //Reducer for react inputs
 import { combineReducers } from 'redux';
-import { createInputsReducer } from 'redux-inputs';
 //Imported Component
 import Search from './searchForm';
+import Auth from './FacebookAuth'
 
 class Layout extends React.Component {
 
@@ -29,6 +29,7 @@ class Layout extends React.Component {
       <center>
       <PageHeader className='pageHeaderBorder'> Hungry Adventure </PageHeader>
       <Search onSubmit={this.submit} />
+      <Auth />
       </center>
       </div>
     );
