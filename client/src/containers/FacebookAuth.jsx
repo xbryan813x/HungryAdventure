@@ -13,6 +13,18 @@ class FacebookAuth extends React.Component {
     super(props);
   }
 
+  componentWillMount () {
+
+    (function (d, s, id) {
+      let js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1889680274620799";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+  }
+
 responseFacebook = (response) => {
   console.log(response);
 }
