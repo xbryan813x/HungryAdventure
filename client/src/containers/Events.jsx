@@ -13,7 +13,11 @@ class Events extends Component {
   // }
   
   render() {
-    console.log(this.props)
+    if(this.props.eventsArr.events === undefined) {
+      return(
+        <div>No Yelp Events</div>
+      )
+    }
     return(
         <div>
           <div className="maps">

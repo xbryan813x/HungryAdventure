@@ -15,7 +15,7 @@ class GoogleMaps extends Component {
       return (
         <div>loading</div>
       )
-    } else {
+    }
       return (
         <div className="maps">
           <GoogleMapReact
@@ -27,7 +27,6 @@ class GoogleMaps extends Component {
         </div>
       );
     }
-  }
 }
 
 const mapStateToProps = (state) => ({
