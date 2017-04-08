@@ -36,6 +36,8 @@ class searchForm extends Component {
               color: #438496;
               border-width: medium;
               border-radius: 5px;
+              border-color: #438496;
+              margin-left: 5px;
           }
       `}</style>
       <center>
