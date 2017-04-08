@@ -17,14 +17,16 @@ submit = (values) => {
       <div>
         <Search onSubmit={this.submit}/>
         <h1 className="title"> Hungry Adventure </h1>
+        <h1>Budget: {this.props.budget.original}</h1>
         <DestinationList destinations={this.props.destinations} redirect={(url)=>{this.props.history.push(url)}}/>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({destinations}) => ({
-  destinations: destinations,
+const mapStateToProps = ({destinations, budget}) => ({
+  destinations,
+  budget,
 });
 
 export default connect(mapStateToProps, {fetchDestinations})(Destinations);
