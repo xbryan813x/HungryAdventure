@@ -39,9 +39,9 @@ render () {
   return (
   <div className="destEntry">
     {this.props.destinations.destinations.map((destination, index) => (
-      <Col className="" lg={4} key={destination.IataCode}>
+      <Col className="" md={4} key={destination.IataCode}>
         <div className="tile">
-          <div>
+          <div className='image'>
             <Carousel key={index} className="flight" direction={null}>
               {destination.imageUrl.map((image, i) => (
                 <Carousel.Item className="flightimg" key={destination.imageUrl[i]+i} >
@@ -50,10 +50,10 @@ render () {
                 </Carousel.Item>
                   ))}
             </Carousel>
-          </div>
-          <div className="caption post-content">
-            <div className="bold">{destination.city}</div>
-            <div>${destination.price}</div>
+            <div className="caption post-content">
+              <div className="bold">{destination.city}</div>
+              <div>${destination.price}</div>
+            </div>
           </div>
         </div>
         </Col>
