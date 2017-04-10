@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
 // +++++ Imported Components
-import Weather2 from '../components/weather';
+import Weather2 from '../components/weather'
 import { Link } from 'react-router-dom';
 
 // +++++ Imported Components

@@ -62,5 +62,3 @@ const mapStateToProps = ({destinations, budget}) => ({
 
 
 export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination } )(DestinationEntry);
-
-
