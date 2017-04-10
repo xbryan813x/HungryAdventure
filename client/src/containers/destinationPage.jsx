@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
 // +++++ Imported Components
-import Weather2 from '../components/weather';
+import Weather2 from '../components/weather'
 import { Link } from 'react-router-dom';
 
 // +++++ Imported Components
@@ -17,11 +17,10 @@ class destinationPage extends Component {
 
   render() {
     const heroImage = this.props.destination.imageUrl[0];
-    // weather app url image code.
+
     return (<div>
       <div><Link to="/events">EVENTS</Link></div>
       <h1> Hungry Adventure </h1>
-      // this is the url for th weather component
       <div className="hero" style={{ backgroundImage: `url(${heroImage})` }} />
       <GoogleMaps locator={this.props.geo.locator} />
       <h1> current budget: ${this.props.budget.flight}</h1>

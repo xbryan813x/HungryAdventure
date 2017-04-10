@@ -9,7 +9,6 @@ import { history, Link } from 'react-router-dom'
 import { browserHistory } from 'react-router';
 import { fetchEvents } from '../actions/eventsAction'
 import { fetchWeather } from '../actions/weatherAction'
-import { currentDestination } from '../actions/currentState';
 
 class DestinationEntry extends Component {
 
@@ -17,40 +16,25 @@ constructor (props){
   super(props);
 }
 
-
 handleSelect = (destination) => {
-  console.log('Im inside of destinationEntry props=>', this.props)
   this.props.flightBudget({price: destination.price, original: Number(this.props.budget.original)});
   this.props.fetchHotels({city: destination.city});
   this.props.fetchGeo({location: destination.city})
     .then(() => this.props.destinationSet(destination));
-<<<<<<< HEAD
   this.props.fetchEvents({location: destination.city})
-  this.props.currentDestination({destination: destination});
-=======
-  // this.props.fetchEvents({latitude: geo.locator.latitude,
-  //                         longitude: geo.locator.longitude
-  //                        })
-  //this.props.fetchWeather({data: destination.arrivalDate})
->>>>>>> Finished weather component css and working on geo ASYNC
   this.props.redirect('/destination');
 }
 
 render () {
+  return (<div>
+  {this.props.destinations.destinations.map((destination, index) => (
 
-<<<<<<< HEAD
-  return (
-  <div className="destEntry">
-    {this.props.destinations.destinations.map((destination, index) => (
-      <Col className="" lg={4} key={destination.IataCode}>
-        <div className="tile">
-=======
     <Col className="" sm={6} md={4} key={destination.IataCode}>
       <div className="tile">
         <div>
           <Carousel key={index} className="flight" direction={null}>
             {destination.imageUrl.map((image, i) => (
-              <Carousel.Item className="flightimg" key={destination.imageUrl[i]+i} >
+              <Carousel.Item className="flightimg" key={destination.imageUrl[i]} >
                <img className="flightimg" alt=""
                src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}} />
               </Carousel.Item>
@@ -58,24 +42,25 @@ render () {
           </Carousel>
         </div>
         <div>
->>>>>>> Finished weather component css and working on geo ASYNC
           <div>
-            <Carousel key={index} className="flight" direction={null}>
-              {destination.imageUrl.map((image, i) => (
-                <Carousel.Item className="flightimg" key={destination.imageUrl[i]+i} >
-                 <img className="flightimg" alt=""
-                 src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}}/>
-                </Carousel.Item>
-                  ))}
-            </Carousel>
+            <div className="col-xs-10 left">
+              <span className="icon glyphicon glyphicon-plane" />
+              <span className="bold"> {destination.city} </span>
+                ||
+                <span> {destination.IataCode}</span>
+            </div>
+            <div className="col-xs-2 right">${destination.price}</div>
           </div>
-          <div className="caption post-content">
-            <div className="bold">{destination.city}</div>
-            <div>${destination.price}</div>
+          <div>
+            {destination.arrivalDate} through {destination.departureDate}
+          </div>
+          <div>
+            <span>{destination.carrier}</span>
           </div>
         </div>
-        </Col>
-      ))}
+      </div>
+    </Col>
+    ))}
     </div>
     )
   }
@@ -85,7 +70,56 @@ const mapStateToProps = ({destinations, budget}) => ({
   budget,
 });
 
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather } )(DestinationEntry);
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination } )(DestinationEntry);
 
+/*
 
+const ControlledCarousel = React.createClass({
+  getInitialState() {
+    return {
+      index: 0,
+      direction: null
+    };
+  },
+
+  handleSelect(selectedIndex, e) {
+    alert('selected=' + selectedIndex + ', direction=' + e.direction);
+    this.setState({
+      index: selectedIndex,
+      direction: e.direction
+    });
+  },
+
+  render() {
+    return (
+      <Carousel activeIndex={this.state.index} direction={this.state.direction} onSelect={this.handleSelect}>
+        <Carousel.Item>
+          <img width={900} height={500} alt="900x500" src="/assets/carousel.png"/>
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img width={900} height={500} alt="900x500" src="/assets/carousel.png"/>
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img width={900} height={500} alt="900x500" src="/assets/carousel.png"/>
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    );
+  }
+});
+
+ReactDOM.render(<ControlledCarousel />, mountNode);
+
+*/
