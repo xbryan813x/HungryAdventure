@@ -9,6 +9,7 @@ import { history, Link } from 'react-router-dom'
 import { browserHistory } from 'react-router';
 import { fetchEvents } from '../actions/eventsAction'
 import { fetchWeather } from '../actions/weatherAction'
+import { currentDestination } from '../actions/currentState';
 
 class DestinationEntry extends Component {
 
@@ -22,6 +23,7 @@ handleSelect = (destination) => {
   this.props.fetchGeo({location: destination.city})
     .then(() => this.props.destinationSet(destination));
   this.props.fetchEvents({location: destination.city})
+  this.props.currentDestination({destination: destination});
   this.props.redirect('/destination');
 }
 
@@ -34,7 +36,7 @@ render () {
         <div>
           <Carousel key={index} className="flight" direction={null}>
             {destination.imageUrl.map((image, i) => (
-              <Carousel.Item className="flightimg" key={destination.imageUrl[i]} >
+              <Carousel.Item className="flightimg" key={i++} >
                <img className="flightimg" alt=""
                src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}} />
               </Carousel.Item>
@@ -70,7 +72,8 @@ const mapStateToProps = ({destinations, budget}) => ({
   budget,
 });
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather } )(DestinationEntry);
+
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination } )(DestinationEntry);
 
 
 /*
