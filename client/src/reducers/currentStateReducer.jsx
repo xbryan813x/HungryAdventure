@@ -9,11 +9,16 @@ export default function reduce(state = {
       return { ...state, hotel: action.payload }
     }
     case 'FETCH_CURRENTEVENTS_FULFILLED' : {
+      if (!state.events.length) return { ...state, events: state.events.concat(action.payload) }
+       for(let i = 0; i < state.events.length; i++) {
+          if (state.events[i].event.id === action.payload.event.id) {
+          state.events.splice(i, 1)
+          console.log('the state of events are', state.events)
+          return { ...state, events: state.events }
+        }
+       }
       return { ...state, events: state.events.concat(action.payload) }
     }
   }
-
   return state;
 }
-
-    
