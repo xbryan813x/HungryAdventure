@@ -9,7 +9,7 @@ gulp.task('sass', () => {
     .pipe(sass())
     .pipe(concat('scss-files.scss'));
 
-  const cssStream = gulp.src('public/style/css/main.css')
+  const cssStream = gulp.src('public/style/css/**.*.css')
     .pipe(sass())
     .pipe(concat('css-files.css'));
 
