@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Col, Carousel } from 'react-bootstrap';
+import { currentHotel } from '../actions/currentState';
 
 class HotelEntry extends Component {
   constructor(props) {
     super(props);
   }
+
+  add = (hotel) => {
+    this.props.currentHotel({ hotel: hotel})
+  }
+
   render() {
     if (this.props.hotels.hotels === undefined) {
       return (
@@ -16,6 +22,7 @@ class HotelEntry extends Component {
       <div>
         {this.props.hotels.hotels.map(hotel => (
           <Col sm={6} md={4} key={hotel.id}>
+          <button onClick={ ()=> {this.add(hotel)} }>Add</button>
             <div className="tile">
               <div>
                 <Carousel className="flight" direction={null}>
@@ -57,4 +64,4 @@ const mapStateToProps = ({ hotels, destination }) => ({
   hotels,
   destination,
 });
-export default connect(mapStateToProps, null)(HotelEntry);
+export default connect(mapStateToProps, { currentHotel })(HotelEntry);

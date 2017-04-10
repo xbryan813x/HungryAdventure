@@ -8,7 +8,8 @@ import hotels from './hotelReducer';
 import budget from './budgetReducer';
 import events from './eventsReducer';
 import profile from './facebookReducer';
-import weather from './weatherReducer'
+import weather from './weatherReducer';
+import current from './currentStateReducer';
 
 
 const rootReducer = combineReducers({
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   hotels,
   budget,
   events,
+  current,
   form: formReducer,
   weather,
 });

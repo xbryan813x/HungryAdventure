@@ -9,6 +9,7 @@ import { history, Link } from 'react-router-dom'
 import { browserHistory } from 'react-router';
 import { fetchEvents } from '../actions/eventsAction'
 import { fetchWeather } from '../actions/weatherAction'
+import { currentDestination } from '../actions/currentState';
 
 class DestinationEntry extends Component {
 
@@ -22,6 +23,7 @@ handleSelect = (destination) => {
   this.props.fetchGeo({location: destination.city})
     .then(() => this.props.destinationSet(destination));
   this.props.fetchEvents({location: destination.city})
+  this.props.currentDestination({destination: destination});
   this.props.redirect('/destination');
 }
 
@@ -70,7 +72,9 @@ const mapStateToProps = ({destinations, budget}) => ({
   budget,
 });
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather } )(DestinationEntry);
+
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, updateBudget, fetchEvents, currentDestination} )(DestinationEntry);
+
 
 
 /*
