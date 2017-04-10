@@ -28,41 +28,29 @@ handleSelect = (destination) => {
 }
 
 render () {
-  return (<div>
-  {this.props.destinations.destinations.map((destination, index) => (
 
-    <Col className="" sm={6} md={4} key={destination.IataCode}>
-      <div className="tile">
-        <div>
-          <Carousel key={index} className="flight" direction={null}>
-            {destination.imageUrl.map((image, i) => (
-              <Carousel.Item className="flightimg" key={i++} >
-               <img className="flightimg" alt=""
-               src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}} />
-              </Carousel.Item>
-                ))}
-          </Carousel>
-        </div>
-        <div>
+  return (
+  <div className="destEntry">
+    {this.props.destinations.destinations.map((destination, index) => (
+      <Col className="" lg={4} key={destination.IataCode}>
+        <div className="tile">
           <div>
-            <div className="col-xs-10 left">
-              <span className="icon glyphicon glyphicon-plane" />
-              <span className="bold"> {destination.city} </span>
-                ||
-                <span> {destination.IataCode}</span>
-            </div>
-            <div className="col-xs-2 right">${destination.price}</div>
+            <Carousel key={index} className="flight" direction={null}>
+              {destination.imageUrl.map((image, i) => (
+                <Carousel.Item className="flightimg" key={destination.imageUrl[i]+i} >
+                 <img className="flightimg" alt=""
+                 src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}}/>
+                </Carousel.Item>
+                  ))}
+            </Carousel>
           </div>
-          <div>
-            {destination.arrivalDate} through {destination.departureDate}
-          </div>
-          <div>
-            <span>{destination.carrier}</span>
+          <div className="caption post-content">
+            <div className="bold">{destination.city}</div>
+            <div>${destination.price}</div>
           </div>
         </div>
-      </div>
-    </Col>
-    ))}
+        </Col>
+      ))}
     </div>
     )
   }

@@ -34,7 +34,7 @@ class Layout extends React.Component {
           showMenuIconButton={false}
           title="Hungry Adventure"  />
         <center>
-          <div style={{ marginTop: '10%' }}>
+          <div style={{ marginTop: '175px' }}>
             <Search onSubmit={this.submit} />
             <Auth />
           </div>
