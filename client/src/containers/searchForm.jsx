@@ -37,23 +37,25 @@ class searchForm extends Component {
               border-width: medium;
               border-radius: 5px;
               border-color: #438496;
-              margin-left: 5px;
           }
       `}</style>
       <center>
         <Form inline onSubmit={handleSubmit}>
-
           <FormGroup>
             <div className="rw-datetimepicker rw-widget budgetSearch" >
-              <Field className="rw-input" name="Budget" component="input" type="value" placeholder="Budget" required />
+              <Field className="rw-input" name="Budget" component="input" type="value" placeholder="Budget" />
             </div>
           </FormGroup>
           <FormGroup>
-            <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Departure Date" />
+            <div className="budgetSearch" >
+              <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Departure Date" />
+            </div>
           </FormGroup>
 
           <FormGroup>
-            <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Arrival Date" />
+            <div className="budgetSearch" >
+              <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Arrival Date" />
+            </div>
           </FormGroup>
 
           <FormGroup>
