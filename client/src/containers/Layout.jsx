@@ -5,6 +5,8 @@ import { fetchDestinations } from '../actions/destinationsAction';
 import { getBudget } from '../actions/budgetAction';
 import { PageHeader } from 'react-bootstrap';
 import { AppBar, AppBarMenu, FlatButton } from 'material-ui';
+import { saveSearchQuery } from '../actions/saveSearchQueryAction';
+
 //Reducer for react inputs
 import { combineReducers } from 'redux';
 //Imported Component
@@ -13,15 +15,23 @@ import Auth from './FacebookAuth'
 
 class Layout extends React.Component {
 
-  // static propTypes = {
-  //     destinations: PropTypes.array,
-  //   }
-
   submit = (values) => {
+  let saveQueryObj = {
+    email: this.props.email || 'none',
+    budget: values.Budget,
+    startDate: values.departDate,
+    endDate: values.arrivalDate,
+  }
+
     this.props.getBudget(values);
-    this.props.fetchDestinations(values).then(() =>{
-       this.props.history.push('/flights');
-     })
+    this.props.fetchDestinations(values)
+      .then(() =>{
+        console.log('saving.....', saveQueryObj)
+        this.props.saveSearchQuery(saveQueryObj)  
+      })
+      .then(() =>{
+        this.props.history.push('/flights');
+      })
   }
 
   render () {
@@ -45,9 +55,10 @@ class Layout extends React.Component {
 }
 
 //Connects to store
-const mapStateToProps = ({destinations, budget}) => ({
+const mapStateToProps = ({destinations, budget, profile}) => ({
  destinations: destinations.destinations,
  budget,
+ ...profile,
 })
 
-export default connect(mapStateToProps, { fetchDestinations, getBudget })(Layout);
+export default connect(mapStateToProps, { fetchDestinations, getBudget, saveSearchQuery })(Layout);

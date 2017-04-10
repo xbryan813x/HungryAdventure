@@ -14,4 +14,7 @@ module.exports = (app, express) => {
   app.get('/api/weather', getWeatherController.getWeather);
   app.get('/api/yelp', yelp.getEvents);
   app.get('/api/dbQuery', databaseController.getProfile);
+
+  //Analysis
+  app.get('/api/dbSearchQuerySave', databaseController.saveQuery);
 };

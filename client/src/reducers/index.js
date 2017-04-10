@@ -8,7 +8,8 @@ import hotels from './hotelReducer';
 import budget from './budgetReducer';
 import events from './eventsReducer';
 import profile from './facebookReducer';
-import weather from './weatherReducer'
+import weather from './weatherReducer';
+import saveQuery from './saveSearchQueryReducer';
 
 
 const rootReducer = combineReducers({
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   events,
   form: formReducer,
   weather,
+  saveQuery,
 });
 
 export default rootReducer;
