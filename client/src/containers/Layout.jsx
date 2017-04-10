@@ -61,5 +61,4 @@ const mapStateToProps = ({destinations, budget, profile}) => ({
  ...profile,
 })
 
-
 export default connect(mapStateToProps, { fetchDestinations, getBudget, saveSearchQuery })(Layout);
