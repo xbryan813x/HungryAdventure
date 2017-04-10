@@ -10,7 +10,7 @@ export default function queryDB(profileObj) {
         return dispatch({ type: 'LOAD_PROFILE_FULFILLED', payload: response.data[0] });
       })
       .catch((err) => {
-        return dispatch({ type: 'LOAD_GEO_REJECTED', payload: err });
+        return dispatch({ type: 'LOAD_PROFILE_REJECTED', payload: err });
       });
   };
 }

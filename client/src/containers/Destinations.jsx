@@ -3,11 +3,22 @@ import { connect } from 'react-redux';
 import { fetchDestinations } from '../actions/destinationsAction';
 import DestinationList from '../components/DestinationList';
 import Search from './searchForm';
+import { saveSearchQuery } from '../actions/saveSearchQueryAction'
 
 
 class Destinations extends Component {
 
 submit = (values) => {
+  
+  console.log ('+===VALUES within Destinations', values)
+  
+  let saveQueryObj = {
+    email: this.props.email || 'none',
+    budget: values.budget,
+    startDate: values.startDate,
+    endDate: values.endDate,
+  }
+
   this.props.fetchDestinations(values).then(() =>{
      this.props.history.push('/flights');
    })
@@ -29,4 +40,4 @@ const mapStateToProps = ({destinations, budget}) => ({
   budget,
 });
 
-export default connect(mapStateToProps, {fetchDestinations})(Destinations);
+export default connect(mapStateToProps, {fetchDestinations, saveSearchQuery })(Destinations);
