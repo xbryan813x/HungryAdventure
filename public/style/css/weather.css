@@ -1,4 +1,4 @@
-body {
+/*body {
     background: #f2f2f2;
 	width: 100%;
 	height: 100%;
@@ -6,9 +6,9 @@ body {
 	padding: 95px 0;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 200;
-}
+}*/
 
-.row-no-gutter {
+/*.row-no-gutter {
 	margin-right: 0;
 	margin-left: 0;
 }
@@ -211,4 +211,4 @@ figure {
 	color: #000;
 	width: 32px;
 	height: 32px;
-}
+}*/

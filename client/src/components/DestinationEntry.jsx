@@ -8,7 +8,7 @@ import { flightBudget } from '../actions/budgetAction';
 import { history, Link } from 'react-router-dom'
 import { browserHistory } from 'react-router';
 import { fetchEvents } from '../actions/eventsAction'
-import { fetchWeatehr } from '../actions/weatherAction'
+import { fetchWeather } from '../actions/weatherAction'
 
 class DestinationEntry extends Component {
 
