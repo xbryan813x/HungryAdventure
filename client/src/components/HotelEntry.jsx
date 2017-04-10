@@ -9,7 +9,7 @@ class HotelEntry extends Component {
   }
 
   add = (hotel) => {
-    this.props.currentHotel({ hotel: hotel})
+    this.props.currentHotel({ hotel: hotel })
   }
 
   render() {
@@ -22,7 +22,7 @@ class HotelEntry extends Component {
       <div>
         {this.props.hotels.hotels.map(hotel => (
           <Col sm={6} md={4} key={hotel.id}>
-          <button onClick={ ()=> {this.add(hotel)} }>Add</button>
+          <button onClick={()=> { this.add(hotel) }}>Add</button>
             <div className="tile">
               <div>
                 <Carousel className="flight" direction={null}>
