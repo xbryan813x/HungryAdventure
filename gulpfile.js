@@ -9,14 +9,14 @@ gulp.task('sass', () => {
     .pipe(sass())
     .pipe(concat('scss-files.scss'));
 
-  const cssStream = gulp.src('public/style/css/**.*.css')
+  const cssStream = gulp.src('public/style/css/**/*.css')
     .pipe(sass())
     .pipe(concat('css-files.css'));
 
   const mergedStream = merge(scssStream, cssStream)
     .pipe(concat('style.css'))
     .pipe(minify())
-    .pipe(gulp.dest('public/style/css'));
+    .pipe(gulp.dest('public/style/minify'));
 
   return mergedStream;
 });
@@ -24,5 +24,5 @@ gulp.task('sass', () => {
 
 gulp.watch([
   'public/style/scss/style.scss',
-  'public/style/css/**.*.css',
+  'public/style/css/**/*.css',
 ], ['sass']);
