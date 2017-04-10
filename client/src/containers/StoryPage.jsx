@@ -5,9 +5,11 @@ class StoryPage extends Component {
 
 
   render() {
+    console.log(this.props)
     return (
       <div>
-        <div>{this.props.destination.city}</div>
+        <img className="storyBackground" src={this.props.destination.imageUrl[0]} />
+        <div >{this.props.destination.city}</div>
         <div>{this.props.destination.country}</div>
         <div>$ {this.props.destination.price}</div>
         <div>{this.props.hotel.hotel}</div>
