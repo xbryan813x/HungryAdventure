@@ -1,4 +1,4 @@
-const pg = require ('../config/database.js');
+const pg = require('../config/database.js');
 
 module.exports = {
   getProfile(req, res) {
@@ -26,5 +26,19 @@ module.exports = {
       }
     });
   },
+  saveQuery(req, res) {
+ 
+    pg('searchQueries').insert({
+      email: req.query.email,
+      budget: req.query.budget,
+      startDate: req.query.startDate,
+      endDate: req.query.endDate,
+    }).then(()=>{
+
+        res.send('Saved');
+
+    })
+    
+  }
 };
 

@@ -9,15 +9,6 @@ import { saveSearchQuery } from '../actions/saveSearchQueryAction'
 class Destinations extends Component {
 
 submit = (values) => {
-  
-  console.log ('+===VALUES within Destinations', values)
-  
-  let saveQueryObj = {
-    email: this.props.email || 'none',
-    budget: values.budget,
-    startDate: values.startDate,
-    endDate: values.endDate,
-  }
 
   this.props.fetchDestinations(values).then(() =>{
      this.props.history.push('/flights');
@@ -25,6 +16,7 @@ submit = (values) => {
 }
   render() {
     return (
+
       <div>
         <Search onSubmit={this.submit}/>
         <h1 className="title"> Hungry Adventure </h1>
@@ -40,4 +32,4 @@ const mapStateToProps = ({destinations, budget}) => ({
   budget,
 });
 
-export default connect(mapStateToProps, {fetchDestinations, saveSearchQuery })(Destinations);
+export default connect(mapStateToProps, { fetchDestinations, saveSearchQuery })(Destinations);
