@@ -14,7 +14,6 @@ import { fetchWeather } from '../actions/weatherAction'
 
   render() {
     const herojpg = this.props.destination.imageUrl[0];
-    console.log('PPPPP', this.props, '===> ', this.props.arrival)
     return (
       <div className="container">
    <div className="row">
