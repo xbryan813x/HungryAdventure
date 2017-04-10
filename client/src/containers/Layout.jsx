@@ -51,3 +51,4 @@ const mapStateToProps = ({destinations, budget}) => ({
 })
 
 export default connect(mapStateToProps, { fetchDestinations, getBudget })(Layout);
+
