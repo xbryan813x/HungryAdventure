@@ -144,7 +144,7 @@ svg {
 	text-transform: uppercase;
 }
 
-.city-selected.weather:hover figure {
+.city-selected:hover figure {
 	opacity: 0.4;
 }
 
