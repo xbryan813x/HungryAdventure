@@ -9,7 +9,10 @@ import { history, Link } from 'react-router-dom'
 import { browserHistory } from 'react-router';
 import { fetchEvents } from '../actions/eventsAction'
 import { fetchWeather } from '../actions/weatherAction'
+<<<<<<< HEAD
 import { currentDestination } from '../actions/currentState';
+=======
+>>>>>>> completed tracking of search requests
 
 class DestinationEntry extends Component {
 
