@@ -13,11 +13,11 @@ const Event = ({ event }) => (
           </Media.Left>
           <Media.Body>
             <h4><a href={event.url}>{event.name}</a></h4>
-            <StarRatingComponent 
-                name="rating" 
+            <StarRatingComponent
+                name="rating"
                 editing={false}
                 starCount={5}
-                value={event.rating} 
+                value={event.rating}
                 />
             <div>{event.categories[0].title}</div>
           </Media.Body>

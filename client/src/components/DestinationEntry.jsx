@@ -8,6 +8,7 @@ import { flightBudget } from '../actions/budgetAction';
 import { history, Link } from 'react-router-dom'
 import { browserHistory } from 'react-router';
 import { fetchEvents } from '../actions/eventsAction'
+import { fetchWeatehr } from '../actions/weatherAction'
 
 class DestinationEntry extends Component {
 
@@ -69,7 +70,7 @@ const mapStateToProps = ({destinations, budget}) => ({
   budget,
 });
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents } )(DestinationEntry);
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather } )(DestinationEntry);
 
 
 /*
