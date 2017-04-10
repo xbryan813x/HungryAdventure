@@ -8,12 +8,12 @@ import { fetchWeather } from '../actions/weatherAction'
   }
 
   componentWillMount(){
-    // console.log("$$$$$$$$$inside component will mount ==>", this.props)
+    console.log("$$$$$$$$$inside component will mount ==>", this.props)
 
   }
 
   render() {
-    // console.log('PPPPP', this.props, '===> ', this.props.arrival)
+    console.log('PPPPP', this.props, '===> ', this.props.arrival)
     return (
       <div className="container">
    <div className="row">
