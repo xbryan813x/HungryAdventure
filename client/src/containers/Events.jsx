@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { fetchEvents } from '../actions/eventsAction';
 import { connect } from 'react-redux';
 import Event from '../components/Event';
@@ -21,7 +20,6 @@ class Events extends Component {
     }
     return(
         <div>
-          <button><Link to="/storypage">Story Page</Link></button>
           <div className="maps">
             <GoogleMapReact
               defaultCenter={ {lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude} }
