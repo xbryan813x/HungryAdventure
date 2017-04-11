@@ -35,14 +35,17 @@ class Layout extends React.Component {
 
   render () {
      return (
-      <div className='overlay'>
+      <div>
+        <div className='navlog'>
+          <Auth />
+        </div>
         <center>
           <div style={{ marginTop: '175px' }}>
           <h1> HUNGRY ADVENTURE </h1>
           <br></br>
           <br></br>
             <Search onSubmit={this.submit} />
-            <Auth />
+            
           </div>
         </center>
       </div>

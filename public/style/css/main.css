@@ -30,9 +30,33 @@ text-shadow: 1px 1px 1px white;
 }
 
 .btn-custom {
-              background-color: transparent;
-              color: #4c69ba;
-              border-width: medium;
-              border-radius: 5px;
-              border-color: #4c69ba;
-          }
+  background-color: transparent;
+  color: #4c69ba;
+  border-width: medium;
+  border-radius: 5px;
+  border-color: #4c69ba;
+}
+
+.facebookButton {
+  height:50px;
+  position:absolute;
+  top:5px;
+  right:5px;
+}
+
+.navlog {
+  margin-top:5px;
+}
+
+.user {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position:absolute;
+  top:5px;
+  right:5px;
+}
