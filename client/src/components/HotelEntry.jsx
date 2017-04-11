@@ -8,8 +8,14 @@ class HotelEntry extends Component {
     super(props);
   }
 
-  add = (hotel) => {
-    this.props.currentHotel({ hotel: hotel })
+  add = (hotel, props) => {
+    this.props.currentHotel({ hotel: props.hotel});
+    this.props.hotelBudget({
+      hotel: hotel.price,
+      budget: props.budget,
+      arrivalDate: props.destination.arrivalDate,
+      departureDate: props.destination.departureDate,
+      });
   }
 
   render() {

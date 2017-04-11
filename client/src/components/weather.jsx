@@ -45,12 +45,8 @@ class Weather extends Component {
                 <figure style={{ backgroundImage: `url(${herojpg})` }} />
               </div>
               <div className="days">
-                <div className="row row-no-gutter">
-                  <div className="col-md-4">
-                    <div className="day">
-                      <h1>Day of arrival forecast</h1>
-                    </div>
-                  </div>
+                <div className="day">
+                  <h1>Day of arrival forecast</h1>
                 </div>
               </div>
             </div>
