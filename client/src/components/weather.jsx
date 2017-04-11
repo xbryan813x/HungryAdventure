@@ -8,6 +8,12 @@ class Weather2 extends Component {
   }
 
   render() {
+    if(this.props.weather.weather === undefined) {
+      return (
+      <div>loading</div>
+      )
+    } else {
+      console.log('heyyyyy', this.props.weather.weather)
     const herojpg = this.props.destination.imageUrl[0];
     return (
       <div className="container">
@@ -20,7 +26,9 @@ class Weather2 extends Component {
                   <div className="info">
                     <div className="city"><span>City:</span> {this.props.destination.city}</div>
 
-                    <div className="temp">3°</div>
+                    <h3>HighTemp {this.props.weather.weather.highTemp}°F</h3>
+                    <h3>LowTemp {this.props.weather.weather.lowTemp}°F</h3>
+                    <h6>Summary {this.props.weather.weather.summary}</h6>
 
                     <div className="wind">
                        <svg id="wind" style={{ enableBackground: 'new 0 0 300.492 300.492' }} version="1.1" viewBox="0 0 300.492 300.492" x="0px" y="0px" xmlSpace="preserve">
@@ -62,6 +70,8 @@ class Weather2 extends Component {
 
     );
   }
+
+    }
 }
 
 const mapStateToProps = state => ({
