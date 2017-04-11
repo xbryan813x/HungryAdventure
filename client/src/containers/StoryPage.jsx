@@ -27,12 +27,14 @@ class StoryPage extends Component {
         </div>
       );
     } else if (!this.props.event && !this.props.hotel) {
+      return (
       <div>
         <img className="storyBackground" src={this.props.destination.imageUrl[0]} />
         <div >{this.props.destination.city}</div>
         <div>{this.props.destination.country}</div>
         <div>$ {this.props.destination.price}</div>
       </div>;
+      )
     }
     return (
       <div>
