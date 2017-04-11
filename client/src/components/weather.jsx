@@ -7,10 +7,6 @@ class Weather2 extends Component {
     super(props);
   }
 
-  componentMount() {
-
-  }
-
   render() {
     const herojpg = this.props.destination.imageUrl[0];
     return (

@@ -36,7 +36,7 @@ handleSelect = (destination) => {
 render () {
 
   return (
-  <div className="destEnweatry">
+  <div className="destEntry">
     {this.props.destinations.destinations.map((destination, index) => (
       <Col className="" lg={4} key={destination.IataCode}>
         <div className="tile">
