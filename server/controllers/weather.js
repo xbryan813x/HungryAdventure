@@ -19,8 +19,8 @@ module.exports = {
     rp(options)
     .then((result) => {
       const parsedResult = JSON.parse(result);
-      weatherObj.highTemp = parsedResult.daily.data[0].temperatureMax;
-      weatherObj.lowTemp = parsedResult.daily.data[0].temperatureMin;
+      weatherObj.highTemp = Math.round(parsedResult.daily.data[0].temperatureMax);
+      weatherObj.lowTemp = Math.round(parsedResult.daily.data[0].temperatureMin);
       weatherObj.summary = parsedResult.daily.data[0].summary;
       weatherObj.date = date;
       weatherObj.timeofDay = timeofDay;
