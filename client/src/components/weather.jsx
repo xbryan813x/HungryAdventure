@@ -13,7 +13,6 @@ class Weather2 extends Component {
       <div>loading</div>
       )
     } else {
-      console.log('heyyyyy', this.props.weather.weather)
     const herojpg = this.props.destination.imageUrl[0];
     return (
       <div className="container">
@@ -26,8 +25,8 @@ class Weather2 extends Component {
                   <div className="info">
                     <div className="city"><span>City:</span> {this.props.destination.city}</div>
 
-                    <h3>HighTemp {this.props.weather.weather.highTemp}°F</h3>
-                    <h3>LowTemp {this.props.weather.weather.lowTemp}°F</h3>
+                    <h3>HighTemp: {this.props.weather.weather.highTemp}°F</h3>
+                    <h3>LowTemp: {this.props.weather.weather.lowTemp}°F</h3>
                     <h6>Summary {this.props.weather.weather.summary}</h6>
 
                     <div className="wind">
