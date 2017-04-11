@@ -23,6 +23,5 @@ export function destinationSet({
         imageUrl,
       },
     });
-  }
-;
+  };
 }

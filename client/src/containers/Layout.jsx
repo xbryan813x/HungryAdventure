@@ -36,14 +36,11 @@ class Layout extends React.Component {
   render () {
      return (
       <div className='overlay'>
-        <AppBar
-
-          titleStyle={{ fontFamily: "'Quicksand', sans-serif"}}
-          style={{ backgroundColor: "#438496" }}
-          showMenuIconButton={false}
-          title="Hungry Adventure"  />
         <center>
           <div style={{ marginTop: '175px' }}>
+          <h1> HUNGRY ADVENTURE </h1>
+          <br></br>
+          <br></br>
             <Search onSubmit={this.submit} />
             <Auth />
           </div>

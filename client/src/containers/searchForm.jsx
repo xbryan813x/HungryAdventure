@@ -30,15 +30,6 @@ class searchForm extends Component {
   render() {
   	const { handleSubmit, pristine, reset, submitting } = this.props;
     return (<div>
-      <style type="text/css">{`
-          .btn-custom {
-              background-color: transparent;
-              color: #438496;
-              border-width: medium;
-              border-radius: 5px;
-              border-color: #438496;
-          }
-      `}</style>
       <center>
         <Form inline onSubmit={handleSubmit}>
           <FormGroup>

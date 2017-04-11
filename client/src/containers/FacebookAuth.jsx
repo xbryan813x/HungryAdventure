@@ -6,7 +6,7 @@ import queryDB from '../actions/facebookAction'
 
 //Imported Component
 import Search from './searchForm';
-import FacebookLogin, {componentClicked} from 'react-facebook-login';
+import FacebookLogin, {componentClicked} from '../components/facebookLoginIcon';
 
 class FacebookAuth extends React.Component {
 
