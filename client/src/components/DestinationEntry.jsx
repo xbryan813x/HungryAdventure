@@ -21,12 +21,13 @@ handleSelect = (destination) => {
   this.props.flightBudget({price: destination.price, original: Number(this.props.budget.original)});
   this.props.fetchHotels({city: destination.city});
   this.props.fetchGeo({location: destination.city})
-    // .then((result) => {
-    //   this.props.fetchWeather({
-    //     latitude: result.payload.latitude,
-    //     longitude: result.payloadlongitude
-    //   })
-    // });
+    .then((result) => {
+      this.props.fetchWeather({
+        latitude: result.payload.latitude,
+        longitude: result.payloadlongitude,
+        time: destination.arrivalDate,
+      })
+    });
   this.props.destinationSet(destination);
   this.props.fetchEvents({location: destination.city});
   this.props.currentDestination({destination: destination});
