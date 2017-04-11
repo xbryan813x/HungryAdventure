@@ -33,7 +33,7 @@ class StoryPage extends Component {
         <div >{this.props.destination.city}</div>
         <div>{this.props.destination.country}</div>
         <div>$ {this.props.destination.price}</div>
-      </div>;
+      </div>
       )
     }
     return (
