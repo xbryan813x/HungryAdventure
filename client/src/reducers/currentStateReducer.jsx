@@ -9,7 +9,6 @@ export default function reduce(state = {
       return { ...state, hotel: action.payload };
     }
     case 'FETCH_CURRENTEVENTS_FULFILLED' : {
-      if (!state.events.length) return { ...state, events: state.events.concat(action.payload) }
       for (let i = 0; i < state.events.length; i += 1) {
         if (state.events[i].id === action.payload.id) {
           state.events.splice(i, 1);

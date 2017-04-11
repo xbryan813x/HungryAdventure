@@ -8,37 +8,33 @@ module.exports = {
         profilePicture = (JSON.parse(req.query.picture)).data.url;
 
       if (results.length < 1) {
-        //create a new users
+        // create a new users
         pg('users').insert({
-          name: name,
-          email: email,
-          profilePicture: profilePicture,
+          name,
+          email,
+          profilePicture,
         }).then((data) => {
-          let results = [];
-          results.push({ name: name, email: email, profilePicture: profilePicture});
+          const results = [];
+          results.push({ name, email, profilePicture });
           console.log('Input New User', results);
           res.send(results);
         });
       } else {
-        //User exists
+        // User exists
         console.log(results);
         res.send(results);
       }
     });
   },
   saveQuery(req, res) {
- 
     pg('searchQueries').insert({
       email: req.query.email,
       budget: req.query.budget,
       startDate: req.query.startDate,
       endDate: req.query.endDate,
-    }).then(()=>{
-
-        res.send('Saved');
-
-    })
-    
-  }
+    }).then(() => {
+      res.send('Saved');
+    });
+  },
 };
 
