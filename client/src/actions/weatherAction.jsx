@@ -7,8 +7,6 @@ export function fetchWeather(weatherObj) {
       .then((response) => {
         return dispatch({ type: 'FETCH_WEATHER_FULFILLED', payload: response.data });
       })
-      .catch((err) => {
-        return dispatch({ type: 'FETCH_WEATHER_REJECTED', payload: err });
-      })
+      .catch(err => dispatch({ type: 'FETCH_WEATHER_REJECTED', payload: err }));
   };
 }

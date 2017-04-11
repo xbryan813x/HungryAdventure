@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
 // +++++ Imported Components
-import Weather2 from '../components/weather'
+import Weather2 from '../components/weather';
 import { Link } from 'react-router-dom';
 
 // +++++ Imported Components
@@ -27,7 +27,7 @@ class destinationPage extends Component {
       <h1> {this.props.destination.city}</h1>
       <h1> {this.props.destination.country}</h1>
       <h1>$ {this.props.destination.price}</h1>
-      <Weather2 sunny={this.props.geo.locator} arrival={this.props.destination.arrivalDate} />
+      <Weather2 />
       {/* < HEADERIMG />*/}
       {/* < INFO Component />*/}
       {/* < Weather Component />*/}
