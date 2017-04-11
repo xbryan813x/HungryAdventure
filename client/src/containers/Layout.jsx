@@ -37,16 +37,23 @@ class Layout extends React.Component {
   render () {
      return (
       <div className='overlay'>
-        <AppBar
-
+        {/*<AppBar
           titleStyle={{ fontFamily: "'Quicksand', sans-serif"}}
-          style={{ backgroundColor: "#438496" }}
+          style={{ backgroundColor: "#4c69ba" }}
           showMenuIconButton={false}
-          title="Hungry Adventure"  />
+          title="Hungry Adventure">
+          <FlatButton>
+          <Auth />
+        </FlatButton>
+          </AppBar>*/}
+          <Auth />
+
         <center>
           <div style={{ marginTop: '175px' }}>
+          <h1> HUNGRY ADVENTURE </h1>
+          <br></br>
             <Search onSubmit={this.submit} />
-            <Auth />
+  
           </div>
         </center>
       </div>
@@ -62,3 +69,8 @@ const mapStateToProps = ({destinations, budget, profile}) => ({
 })
 
 export default connect(mapStateToProps, { fetchDestinations, getBudget, saveSearchQuery })(Layout);
+
+
+
+
+
