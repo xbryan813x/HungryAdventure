@@ -36,6 +36,7 @@ class searchForm extends Component {
               <Field className="rw-input" name="Budget" component="input" type="value" placeholder="Budget" />
             </div>
           </FormGroup>
+
           <FormGroup>
             <div className="budgetSearch" >
               <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Departure Date" />
