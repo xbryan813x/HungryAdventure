@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Col, Carousel } from 'react-bootstrap';
 import { currentHotel } from '../actions/currentState';
+import { hotelBudget } from '../actions/budgetAction';
+import { hotelImage } from '../actions/budgetBarAction';
 
 class HotelEntry extends Component {
   constructor(props) {
@@ -9,13 +11,14 @@ class HotelEntry extends Component {
   }
 
   add = (hotel, props) => {
-    this.props.currentHotel({ hotel: props.hotel});
+    this.props.currentHotel({ hotel: hotel});
     this.props.hotelBudget({
       hotel: hotel.price,
       budget: props.budget,
       arrivalDate: props.destination.arrivalDate,
       departureDate: props.destination.departureDate,
       });
+    this.props.hotelImage({ hotel: hotel.pictures[0] });
   }
 
   render() {
@@ -28,7 +31,7 @@ class HotelEntry extends Component {
       <div>
         {this.props.hotels.hotels.map(hotel => (
           <Col sm={6} md={4} key={hotel.id}>
-          <button onClick={()=> { this.add(hotel) }}>Add</button>
+          <button onClick={()=> { this.add(hotel, this.props) }}>Add</button>
             <div className="tile">
               <div>
                 <Carousel className="flight" direction={null}>
@@ -66,8 +69,9 @@ class HotelEntry extends Component {
   }
 
 
-const mapStateToProps = ({ hotels, destination }) => ({
+const mapStateToProps = ({ hotels, destination, budget }) => ({
   hotels,
   destination,
+  budget,
 });
-export default connect(mapStateToProps, { currentHotel })(HotelEntry);
+export default connect(mapStateToProps, { currentHotel, hotelBudget, hotelImage })(HotelEntry);

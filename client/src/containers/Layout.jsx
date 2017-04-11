@@ -26,18 +26,16 @@ class Layout extends React.Component {
     this.props.getBudget(values);
     this.props.fetchDestinations(values)
       .then(() =>{
-        this.props.saveSearchQuery(saveQueryObj)  
+        this.props.saveSearchQuery(saveQueryObj);
       })
       .then(() =>{
         this.props.history.push('/flights');
-      })
+      });
   }
 
   render () {
      return (
       <div>
-      
-
       <header>
       <Auth />
         <section id="search">

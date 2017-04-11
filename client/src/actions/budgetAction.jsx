@@ -14,15 +14,23 @@ export function hotelBudget(props) {
   const hotel = props.hotel;
   const original = Number(props.budget.original);
   const days = getDays(props.arrivalDate, props.departureDate);
-  console.log('NUMBUR OF DUSHHSDKFL', days);
   const newBudget = flight - (hotel * days);
   return { type: 'HOTEL_BUDGET_FULFILLED', payload: { original, flight, hotel: newBudget } };
 }
 export function eventBudget(props) {
-  console.log('EVENTTTT', props.event);
   let newBudget;
-  if (hotel) {
-    newBudget = hotel;
+  if (props.hotel) {
+    newBudget = props.hotel - props.event;
+  } else {
+    newBudget = props.flight - props.event;
   }
-  return { type: 'EVENT_BUDGET_FULFILLED', payload: { original, flight, hotel, events: newBudget } };
+  return {
+    type: 'EVENT_BUDGET_FULFILLED',
+    payload: {
+      original: props.original,
+      flight: props.flight,
+      hotel: props.hotel,
+      events: newBudget,
+    },
+  };
 }

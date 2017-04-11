@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchWeather } from '../actions/weatherAction';
 
-class Weather extends Component {
+class Weather2 extends Component {
   constructor(props) {
     super(props);
   }
@@ -22,10 +22,10 @@ class Weather extends Component {
               <div className="city-selected">
                 <article>
                   <div className="info">
-                    <div className="city"><span>City:</span> {this.props.destination.city}</div>
-                    <h3>HighTemp: {this.props.weather.weather.highTemp}°F</h3>
-                    <h3>LowTemp: {this.props.weather.weather.lowTemp}°F</h3>
-                    <h6>Summary {this.props.weather.weather.summary}</h6>
+                    <div className="city">{this.props.destination.city}</div>
+                    <h3>{this.props.weather.weather.highTemp}°F</h3>
+                    <h3>{this.props.weather.weather.lowTemp}°F</h3>
+                    <h6>{this.props.weather.weather.summary}</h6>
                     <div className="wind">
                       <svg id="wind" style={{ enableBackground: 'new 0 0 300.492 300.492' }} version="1.1" viewBox="0 0 300.492 300.492" x="0px" y="0px" xmlSpace="preserve">
                         <g>
@@ -61,4 +61,4 @@ const mapStateToProps = state => ({
   ...state,
 });
 
-export default connect(mapStateToProps, null)(Weather);
+export default connect(mapStateToProps, null)(Weather2);
