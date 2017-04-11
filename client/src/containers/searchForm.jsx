@@ -11,7 +11,6 @@ import 'react-widgets/dist/css/react-widgets.css';
 import { Field, reduxForm } from 'redux-form';
 import { DateTimePicker, Multiselect } from 'react-widgets';
 import moment from 'moment';
-// import { Calendar } from 'react-date-range'; date range stuff
 import momentLocaliser from '../../../node_modules/react-widgets/lib/localizers/moment';
 momentLocaliser(moment);
 
@@ -48,7 +47,6 @@ class searchForm extends Component {
               <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Arrival Date" />
             </div>
           </FormGroup>
-
           <FormGroup>
             <Button bsStyle="custom" type="submit"> Submit </Button>
           </FormGroup>
