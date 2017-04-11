@@ -5,11 +5,6 @@ class StoryPage extends Component {
 
 
   render() {
-<<<<<<< HEAD
-    console.log(this.props)
-=======
-    console.log(this.props);
->>>>>>> weather_geo
     return (
       <div>
         <img className="storyBackground" src={this.props.destination.imageUrl[0]} />

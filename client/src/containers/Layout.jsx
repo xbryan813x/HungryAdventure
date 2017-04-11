@@ -26,7 +26,6 @@ class Layout extends React.Component {
     this.props.getBudget(values);
     this.props.fetchDestinations(values)
       .then(() =>{
-        console.log('saving.....', saveQueryObj)
         this.props.saveSearchQuery(saveQueryObj)  
       })
       .then(() =>{
@@ -37,23 +36,16 @@ class Layout extends React.Component {
   render () {
      return (
       <div className='overlay'>
-        {/*<AppBar
-          titleStyle={{ fontFamily: "'Quicksand', sans-serif"}}
-          style={{ backgroundColor: "#4c69ba" }}
-          showMenuIconButton={false}
-          title="Hungry Adventure">
-          <FlatButton>
-          <Auth />
-        </FlatButton>
-          </AppBar>*/}
-          <Auth />
+        <AppBar
 
+          titleStyle={{ fontFamily: "'Quicksand', sans-serif"}}
+          style={{ backgroundColor: "#438496" }}
+          showMenuIconButton={false}
+          title="Hungry Adventure"  />
         <center>
           <div style={{ marginTop: '175px' }}>
-          <h1> HUNGRY ADVENTURE </h1>
-          <br></br>
             <Search onSubmit={this.submit} />
-  
+            <Auth />
           </div>
         </center>
       </div>
@@ -69,8 +61,3 @@ const mapStateToProps = ({destinations, budget, profile}) => ({
 })
 
 export default connect(mapStateToProps, { fetchDestinations, getBudget, saveSearchQuery })(Layout);
-
-
-
-
-

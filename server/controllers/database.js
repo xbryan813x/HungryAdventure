@@ -16,12 +16,10 @@ module.exports = {
         }).then((data) => {
           const results = [];
           results.push({ name, email, profilePicture });
-          console.log('Input New User', results);
           res.send(results);
         });
       } else {
         // User exists
-        console.log(results);
         res.send(results);
       }
     });

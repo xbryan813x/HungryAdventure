@@ -5,7 +5,6 @@ export function saveSearchQuery(queryObj) {
     return axios.get('/api/dbSearchQuerySave', {
       params: queryObj })
       .then((response) => {
-        console.log(response);
         return dispatch({ type: 'SAVE_SEARCHQUERY_FULLFILLED', payload: response.data });
       })
       .catch(err => dispatch({ type: 'SAVE_SEARCHQUERY_FAILED', payload: err }));
