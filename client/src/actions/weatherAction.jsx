@@ -5,10 +5,9 @@ export function fetchWeather(weatherObj) {
     return axios.get('/api/weather', {
       params: weatherObj })
       .then((response) => {
+        console.log('yoooooooooo', response);
         return dispatch({ type: 'FETCH_WEATHER_FULFILLED', payload: response.data });
       })
-      .catch((err) => {
-        return dispatch({ type: 'FETCH_WEATHER_REJECTED', payload: err });
-      })
+      .catch(err => dispatch({ type: 'FETCH_WEATHER_REJECTED', payload: err }));
   };
 }

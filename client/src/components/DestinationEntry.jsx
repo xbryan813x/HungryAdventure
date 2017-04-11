@@ -21,7 +21,13 @@ handleSelect = (destination) => {
   this.props.flightBudget({price: destination.price, original: Number(this.props.budget.original)});
   this.props.fetchHotels({city: destination.city});
   this.props.fetchGeo({location: destination.city})
-    .then(() => this.props.destinationSet(destination));
+    .then((result) => {
+      this.props.fetchWeather({
+        latitude: result.payload.latitude,
+        longitude: result.payloadlongitude
+      })
+    });
+  this.props.destinationSet(destination)
   this.props.fetchEvents({location: destination.city})
   this.props.currentDestination({destination: destination});
   this.props.redirect('/destination');
@@ -30,7 +36,7 @@ handleSelect = (destination) => {
 render () {
 
   return (
-  <div className="destEntry">
+  <div className="destEnweatry">
     {this.props.destinations.destinations.map((destination, index) => (
       <Col className="" lg={4} key={destination.IataCode}>
         <div className="tile">
@@ -55,9 +61,10 @@ render () {
     )
   }
 }
-const mapStateToProps = ({destinations, budget}) => ({
+const mapStateToProps = ({destinations, budget, geo}) => ({
   destinations,
   budget,
+  geo,
 });
 
 
