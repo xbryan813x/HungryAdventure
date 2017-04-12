@@ -9,3 +9,7 @@ export function currentHotel({ hotel }) {
 export function currentEvents({ event }) {
   return { type: 'FETCH_CURRENTEVENTS_FULFILLED', payload: event };
 }
+
+export function currentViator({ event }) {
+  return { type: 'FETCH_CURRENTVIAEVENT_FULFILLED', payload: event };
+}
