@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { fetchDestinations } from '../actions/destinationsAction';
 import { getBudget } from '../actions/budgetAction';
 import { PageHeader } from 'react-bootstrap';
-import { AppBar, AppBarMenu, FlatButton } from 'material-ui';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction';
 
 //Reducer for react inputs
@@ -14,6 +13,7 @@ import Search from './searchForm';
 import Auth from './FacebookAuth'
 
 class Layout extends React.Component {
+
 
   submit = (values) => {
   let saveQueryObj = {
@@ -34,6 +34,12 @@ class Layout extends React.Component {
   }
 
   render () {
+
+    // if (this.props.destination.length === 0) {
+    //   return (
+    //     <div>loading...</div>
+    //   );
+    // } 
      return (
       <div>
       <header>
@@ -41,7 +47,7 @@ class Layout extends React.Component {
         <section id="search">
           <div className="header-content">
             <div className="header-content-inner">
-              <h1 id="homeHeading" className="title">HUNGRY ADVENTURE</h1>
+              <h1 id="homeHeading">HUNGRY ADVENTURE</h1>
                 <hr></hr>
                   <center>
                     <Search onSubmit={this.submit} />
@@ -112,8 +118,8 @@ class Layout extends React.Component {
         <div className="container-fluid">
             <div className="row no-gutter popup-gallery">
                 <div className="col-lg-4 col-sm-6">
-                    <a href="https://cdn.pixabay.com/photo/2016/10/18/08/13/travel-1749508_960_720.jpg" className="portfolio-box">
-                        <img src="https://cdn.pixabay.com/photo/2016/10/18/08/13/travel-1749508_960_720.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/3.jpg" className="portfolio-box">
+                        <img src="../../assets/3.jpg" className="img-responsive customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
@@ -127,8 +133,8 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="https://cdn.pixabay.com/photo/2015/01/28/23/10/mosque-615415_960_720.jpg" className="portfolio-box">
-                        <img src="https://cdn.pixabay.com/photo/2015/01/28/23/10/mosque-615415_960_720.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/4.jpg" className="portfolio-box">
+                        <img src="../../assets/4.jpg" className="img-responsive customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
@@ -142,8 +148,8 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_960_720.jpg" className="portfolio-box">
-                        <img src="https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_960_720.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/5.jpg" className="portfolio-box">
+                        <img src="../../assets/5.jpg" className="img-responsive customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
@@ -157,8 +163,8 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="https://cdn.pixabay.com/photo/2014/03/26/05/46/trevi-fountain-298411_960_720.jpg" className="portfolio-box">
-                        <img src="https://cdn.pixabay.com/photo/2014/03/26/05/46/trevi-fountain-298411_960_720.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/6.jpg" className="portfolio-box">
+                        <img src="../../assets/6.jpg" className="img-responsive customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
@@ -172,8 +178,8 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="https://cdn.pixabay.com/photo/2017/03/14/04/31/rock-2141913_960_720.jpg" className="portfolio-box">
-                        <img src="https://cdn.pixabay.com/photo/2017/03/14/04/31/rock-2141913_960_720.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/1.jpg" className="portfolio-box">
+                        <img src="../../assets/1.jpg" className="img-responsive customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
@@ -187,8 +193,8 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="https://cdn.pixabay.com/photo/2016/09/15/01/57/chiang-mai-1670926_960_720.jpg" className="portfolio-box">
-                        <img src="https://cdn.pixabay.com/photo/2016/09/15/01/57/chiang-mai-1670926_960_720.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/5.jpg" className="portfolio-box">
+                        <img src="../../assets/5.jpg" className="img-responsive customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
