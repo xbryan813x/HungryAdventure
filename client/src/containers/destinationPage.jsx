@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
-import Weather2 from '../components/weather';
+import Weather from '../components/weather';
 import BudgetBar from '../components/budgetBar';
 // +++++ Imported Components
 import { Link } from 'react-router-dom';
@@ -17,22 +17,20 @@ class destinationPage extends Component {
   }
 
   render() {
-    const heroImage = this.props.destination.imageUrl[0];
-
     return (<div>
       <div><Link to="/events">EVENTS</Link></div>
       <h1> Hungry Adventure </h1>
-      <div className="hero" style={{ backgroundImage: `url(${heroImage})` }} />
+      <div className="hero" style={{ backgroundImage: `url(${this.props.destination.imageUrl[0]})` }} />
       <GoogleMaps locator={this.props.geo.locator} />
+      <div style={{ display: 'grid' }}>
+        <BudgetBar budget={this.props.budget} />
+      </div>
       <h1> current budget: ${this.props.budget.flight}</h1>
       <h1> hotel budget: ${this.props.budget.hotel}</h1>
       <h1> {this.props.destination.city}</h1>
       <h1> {this.props.destination.country}</h1>
       <h1>$ {this.props.destination.price}</h1>
-      <div>
-        <BudgetBar budget={this.props.budget} />
-      </div>
-      <Weather2 />
+      <Weather />
       {/* < HEADERIMG />*/}
       {/* < INFO Component />*/}
       {/* < Weather Component />*/}

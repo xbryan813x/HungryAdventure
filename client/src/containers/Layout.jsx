@@ -41,7 +41,7 @@ class Layout extends React.Component {
         <section id="search">
           <div className="header-content">
             <div className="header-content-inner">
-              <h1 id="homeHeading">HUNGRY ADVENTURE</h1>
+              <h1 id="homeHeading" className="title">HUNGRY ADVENTURE</h1>
                 <hr></hr>
                   <center>
                     <Search onSubmit={this.submit} />
@@ -223,7 +223,7 @@ class Layout extends React.Component {
                 </div>
                 <div className="col-lg-4 col-lg-offset-2 text-center">
                     <i className="fa fa-phone fa-3x sr-contact"></i>
-                    <p>999-999-99</p>
+                    <p>999-999-9999</p>
                 </div>
                 <div className="col-lg-4 text-center">
                     <i className="fa fa-envelope-o fa-3x sr-contact"></i>

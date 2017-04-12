@@ -16,6 +16,7 @@ class Event extends Component {
   add = (event) => {
     this.props.currentEvents({event: event});
     this.props.eventsImage({ events: event.image_url })
+    
     // yelp price by ratings????
     // this.props.eventBudget({budget: this.props.budget, event: event})
   }

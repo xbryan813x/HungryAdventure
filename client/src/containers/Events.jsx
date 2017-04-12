@@ -7,6 +7,7 @@ import GoogleMapReact from 'google-map-react';
 // import GoogleMaps from './GoogleMaps'
 const API = require('../keys/mapsKey.js');
 import Pin from '../components/pin';
+import BudgetBar from '../components/budgetBar';
 
 class Events extends Component {
   constructor(props) {
@@ -22,6 +23,9 @@ class Events extends Component {
     return (
       <div>
         <h1>current budget: ${this.props.budget.hotel}</h1>
+        <div style={{ display: 'grid' }}>
+          <BudgetBar budget={this.props.budget} />
+        </div>
         <button><Link to="/storypage">Story Page</Link></button>
         <div className="maps">
           <GoogleMapReact
