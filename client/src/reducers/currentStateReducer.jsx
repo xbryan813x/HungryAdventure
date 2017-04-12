@@ -1,5 +1,6 @@
 export default function reduce(state = {
-  events: [],
+  yelpEvents: [],
+  viatorEvents: [],
 }, action) {
   switch (action.type) {
     case 'FETCH_CURRENTDES_FULFILLED' : {
@@ -9,13 +10,22 @@ export default function reduce(state = {
       return { ...state, hotel: action.payload };
     }
     case 'FETCH_CURRENTEVENTS_FULFILLED' : {
-      for (let i = 0; i < state.events.length; i += 1) {
-        if (state.events[i].id === action.payload.id) {
-          state.events.splice(i, 1);
-          return { ...state, events: state.events };
+      for (let i = 0; i < state.yelpEvents.length; i += 1) {
+        if (state.yelpEvents[i].id === action.payload.id) {
+          state.yelpEvents.splice(i, 1);
+          return { ...state, yelpEvents: state.yelpEvents };
         }
       }
-      return { ...state, events: state.events.concat(action.payload) };
+      return { ...state, yelpEvents: state.yelpEvents.concat(action.payload) };
+    }
+    case 'FETCH_CURRENTVIAEVENT_FULFILLED' : {
+      for (let i = 0; i < state.viatorEvents.length; i += 1) {
+        if (state.viatorEvents[i].title === action.payload.title) {
+          state.viatorEvents.splice(i, 1);
+          return { ...state, viatorEvents: state.viatorEvents };
+        }
+      }
+      return { ...state, viatorEvents: state.viatorEvents.concat(action.payload) };
     }
   }
   return state;

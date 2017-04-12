@@ -11,7 +11,7 @@ module.exports = {
           title: '.product-title > a',
           price: '.price-amount',
           image: {
-            selector: 'img',
+            selector: '.img-rounded',
             attr: 'src',
           },
           url: {
@@ -29,7 +29,7 @@ module.exports = {
             title: '.product-title > a',
             price: '.price-amount',
             image: {
-              selector: 'img',
+              selector: '.img-rounded',
               attr: 'src',
             },
             url: {
