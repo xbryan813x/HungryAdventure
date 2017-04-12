@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class ViatorEvents extends Component {
   render() {
-    console.log('hey')
+    console.log(this.props)
     return (
     <div>hey</div>
     )

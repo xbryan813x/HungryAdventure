@@ -4,7 +4,6 @@ module.exports = {
   scrape(req, res) {
     const city = req.query.location || 'new york city';
     let results;
-
     scrapeIt(`https://www.viator.com/search/${city}/1?TOPX=1-15&section=ttd&sortBy=RELEVANCE`, {
       pages: {
         listItem: '.media',
