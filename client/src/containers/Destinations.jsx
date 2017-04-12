@@ -4,7 +4,7 @@ import { fetchDestinations } from '../actions/destinationsAction';
 import DestinationList from '../components/DestinationList';
 import Search from './searchForm';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction'
-
+import Auth from './FacebookAuth'
 
 class Destinations extends Component {
 
@@ -18,7 +18,7 @@ submit = (values) => {
 
       <div>
         <Search onSubmit={this.submit}/>
-        <h1 className="title"> Hungry Adventure </h1>
+        <Auth />
         <h1>Budget: {this.props.budget.original}</h1>
         <DestinationList destinations={this.props.destinations} redirect={(url)=>{this.props.history.push(url)}}/>
       </div>

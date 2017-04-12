@@ -39,28 +39,50 @@ handleSelect = (destination) => {
 render () {
 
   return (
-  <div className="destEntry">
+  // <div className="destEntry">
+  <section className="no-padding" id="locations">
+    <div className="container-fluid">
+      <div className="row no-gutter popup-gallery">
     {this.props.destinations.destinations.map((destination, index) => (
-      <Col className="" md={4} key={destination.IataCode}>
-        <div className="tile">
-          <div className='image'>
-            <Carousel key={index} className="flight" direction={null}>
-              {destination.imageUrl.map((image, i) => (
-                <Carousel.Item className="flightimg" key={destination.imageUrl[i]+i} >
-                 <img className="flightimg" alt=""
-                 src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}}/>
-                </Carousel.Item>
-                  ))}
-            </Carousel>
-            <div className="caption post-content">
-              <div className="bold">{destination.city}</div>
-              <div>${destination.price}</div>
+       <div className="col-lg-4 col-sm-6">
+            <div className="portfolio-box" onClick={ ()=> {this.handleSelect(destination)}} >
+                <img src={destination.imageUrl[0]} 
+                  className="img-responsive customImg" 
+                  alt="" />
+                <div className="portfolio-box-caption">
+                    <div className="portfolio-box-caption-content">
+                        <div className="project-category text-faded">
+                            {destination.city}
+                        </div>
+                        <div className="project-name">
+                            ${destination.price}
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        </Col>
+      // <Col className="" md={4} key={destination.IataCode}>
+      //   <div className="tile">
+      //     <div className='image'>
+      //       <Carousel key={index} className="flight" direction={null}>
+      //         {destination.imageUrl.map((image, i) => (
+      //           <Carousel.Item className="flightimg" key={destination.imageUrl[i]+i} >
+      //            <img className="flightimg" alt=""
+      //            src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}}/>
+      //           </Carousel.Item>
+      //             ))}
+      //       </Carousel>
+      //       <div className="caption post-content">
+      //         <div className="bold">{destination.city}</div>
+      //         <div>${destination.price}</div>
+      //       </div>
+      //     </div>
+      //   </div>
+      //   </Col>
       ))}
+      </div>
     </div>
+  </section>
     )
   }
 }
