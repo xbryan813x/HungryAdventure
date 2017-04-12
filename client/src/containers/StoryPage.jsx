@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Parallax, Background } from 'react-parallax';
 
 class StoryPage extends Component {
 
