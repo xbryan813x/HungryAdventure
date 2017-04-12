@@ -126,14 +126,14 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('../../assets/2.jpeg');
+  background-image: url('../../assets/2.jpg');
   text-align: center;
   color: white;
 }
 header .header-content {
   position: relative;
   text-align: center;
-  padding: 100px 15px 100px;
+  padding: 80px 15px 100px;
   width: 100%;
 }
 header .header-content .header-content-inner h1 {
@@ -141,7 +141,7 @@ header .header-content .header-content-inner h1 {
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 30px;
+  font-size: 50px;
 }
 header .header-content .header-content-inner hr {
   margin: 30px auto;
@@ -406,7 +406,7 @@ body {
       rgba(0, 0, 0, 0.5), 
       rgba(0, 0, 0, 0.5)
     ),
-  url("https://static.pexels.com/photos/65125/pexels-photo-65125.jpeg") no-repeat center center fixed; 
+  url("https://cdn.pixabay.com/photo/2017/04/08/10/42/burj-khalifa-2212978_960_720.jpg") no-repeat center center fixed; 
   background-size: cover;
 }
 
@@ -443,7 +443,7 @@ body {
         rgba(0, 0, 0, 0.5), 
         rgba(0, 0, 0, 0.5)
       ),
-    url("https://static.pexels.com/photos/65125/pexels-photo-65125.jpeg") fixed; 
+    url("https://cdn.pixabay.com/photo/2017/04/08/10/42/burj-khalifa-2212978_960_720.jpg") fixed; 
     background-size: cover;
     height: 100%
   }
