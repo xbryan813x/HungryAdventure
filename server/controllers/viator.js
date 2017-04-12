@@ -8,7 +8,7 @@ module.exports = {
       pages: {
         listItem: '.media',
         data: {
-          title: 'a',
+          title: '.product-title > a',
           price: '.price-amount',
           image: {
             selector: 'img',
@@ -26,7 +26,7 @@ module.exports = {
         pages: {
           listItem: '.media',
           data: {
-            title: 'a',
+            title: '.product-title > a',
             price: '.price-amount',
             image: {
               selector: 'img',
