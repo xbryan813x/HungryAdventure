@@ -1,3 +1,7 @@
-export default const ViatorEvent = (props) => (
-  <div>{this.props.title}</div>
+import React from 'react';
+
+const ViatorEvent = ({ event }) => (
+  <div>{event.title}</div>
 )
+
+export default ViatorEvent;
