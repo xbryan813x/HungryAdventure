@@ -46,6 +46,7 @@
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.5.3",
     "react-facebook-login": "^3.5.0",
+    "react-parallax": "^1.2.6",
     "react-redux": "^5.0.3",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
