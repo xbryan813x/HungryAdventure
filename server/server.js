@@ -30,6 +30,8 @@ const server = app.listen(8888, () => {
 
 // SCRAPE-IT EXAMPLE
 //const xray = Xray();
+const xray = Xray();
+
 
 // <div class="items">
 //   <div class="item">
@@ -75,6 +77,4 @@ const server = app.listen(8888, () => {
 
 
 //_G1d _wle _xle
-
-
 
