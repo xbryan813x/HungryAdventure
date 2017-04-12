@@ -11,6 +11,8 @@ import { fetchEvents } from '../actions/eventsAction'
 import { fetchWeather } from '../actions/weatherAction'
 import { currentDestination } from '../actions/currentState';
 import { destinationImage } from '../actions/budgetBarAction';
+import { fetchViator } from '../actions/viatorAction'
+
 
 class DestinationEntry extends Component {
 
@@ -31,8 +33,9 @@ handleSelect = (destination) => {
     });
   this.props.destinationSet(destination);
   this.props.destinationImage({destination: destination.imageUrl[0]})
-  this.props.fetchEvents({location: destination.city});
-  this.props.currentDestination({destination: destination});
+  this.props.fetchEvents({ location: destination.city });
+  this.props.fetchViator({ location: destination.city })
+  this.props.currentDestination({ destination: destination });
   this.props.redirect('/destination');
 }
 
@@ -94,4 +97,4 @@ const mapStateToProps = ({destinations, budget, geo, bar}) => ({
 });
 
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination, destinationImage } )(DestinationEntry);
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination, destinationImage, fetchViator } )(DestinationEntry);

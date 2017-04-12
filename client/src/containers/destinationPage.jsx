@@ -18,7 +18,8 @@ class destinationPage extends Component {
 
   render() {
     return (<div>
-      <div><Link to="/events">EVENTS</Link></div>
+      <div><Link to="/events">YELP</Link></div>
+      <div><Link to="/viator">VIATOR</Link></div>
       <h1> Hungry Adventure </h1>
       <div className="hero" style={{ backgroundImage: `url(${this.props.destination.imageUrl[0]})` }} />
       <GoogleMaps locator={this.props.geo.locator} />
