@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchWeather } from '../actions/weatherAction';
 
-class Weather2 extends Component {
+class Weather extends Component {
   constructor(props) {
     super(props);
   }
@@ -61,4 +61,4 @@ const mapStateToProps = state => ({
   ...state,
 });
 
-export default connect(mapStateToProps, null)(Weather2);
+export default connect(mapStateToProps, null)(Weather);

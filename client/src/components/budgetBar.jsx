@@ -24,7 +24,11 @@ class budgetBar extends Component {
               width: '100%',
               height: '100%',
             }}
-          />
+          >
+            {this.props.bar.destination ? (
+              <img className="img-circle" style={{ width: '75px', height: '75px' }} src={this.props.bar.destination} />
+          ) : null}
+          </div>
           <div
             className="lower" style={{
               borderTop: 'medium solid black',
@@ -47,7 +51,11 @@ class budgetBar extends Component {
               width: '100%',
               height: '100%',
             }}
-          />
+          >
+            {this.props.bar.hotel ? (
+              <img className="img-circle" style={{ width: '75px', height: '75px' }} src={this.props.bar.hotel} />
+          ) : null}
+          </div>
           <div
             className="lower" style={{
               borderTop: 'medium solid black',
@@ -70,7 +78,14 @@ class budgetBar extends Component {
               width: '100%',
               height: '100%',
             }}
-          />
+          >
+
+            {this.props.bar.events ? (
+              <img className="img-circle" style={{ width: '75px', height: '75px' }} src={this.props.bar.events} />
+                ) : null}
+
+          </div>
+
           <div
             className="lower" style={{
               borderTop: 'medium solid black',

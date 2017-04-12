@@ -86,12 +86,12 @@ span.icon {
 }
 .btn-custom {
     background-color: transparent;
-    color: $color-main;
+    color: white;
     border-width: medium;
     border-radius: 5px;
-    border-color: $color-main;
+    border-color: white;
 }
 .btn-custom:hover, .btn-custom:active, .btn-custom:visited, .btn-custom:focus {
-    background-color: $color-main;
-    color: white;
+    background-color: white;
+    color: $color-main;
 }
