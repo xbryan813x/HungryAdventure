@@ -5,6 +5,8 @@ import StarRatingComponent from 'react-star-rating-component';
 import Pin from './pin';
 import GoogleMaps from '../containers/GoogleMaps';
 import { currentEvents } from '../actions/currentState';
+import { eventBudget } from '../actions/budgetAction';
+import { eventsImage } from '../actions/budgetBarAction';
 
 class Event extends Component {
   constructor(props){
@@ -12,7 +14,10 @@ class Event extends Component {
   }
 
   add = (event) => {
-    this.props.currentEvents({event: event})
+    this.props.currentEvents({event: event});
+    this.props.eventsImage({ events: event.image_url })
+    // yelp price by ratings????
+    // this.props.eventBudget({budget: this.props.budget, event: event})
   }
 
   render(){
@@ -26,11 +31,11 @@ class Event extends Component {
               </Media.Left>
               <Media.Body>
                 <h4><a href={this.props.event.url}>{this.props.event.name}</a></h4>
-                <StarRatingComponent 
-                    name="rating" 
+                <StarRatingComponent
+                    name="rating"
                     editing={false}
                     starCount={5}
-                    value={this.props.event.rating} 
+                    value={this.props.event.rating}
                     />
                 <div>{this.props.event.categories[0].title}</div>
               </Media.Body>
@@ -44,10 +49,10 @@ class Event extends Component {
       </div>
     )
   }
-} 
+}
 
 const mapStateToProps = (state) => ({
   ...state
 })
 
-export default connect(mapStateToProps, { currentEvents })(Event);
+export default connect(mapStateToProps, { currentEvents, eventBudget, eventsImage })(Event);

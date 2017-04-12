@@ -9,9 +9,9 @@ const API = require('../keys/mapsKey.js');
 import Pin from '../components/pin';
 
 class Events extends Component {
-  // constructor (props){
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     if (this.props.eventsArr.events === undefined) {
@@ -21,6 +21,7 @@ class Events extends Component {
     }
     return (
       <div>
+        <h1>current budget: ${this.props.budget.hotel}</h1>
         <button><Link to="/storypage">Story Page</Link></button>
         <div className="maps">
           <GoogleMapReact
@@ -41,9 +42,10 @@ class Events extends Component {
   }
 }
 
-const mapStateToProps = ({ events, geo }) => ({
+const mapStateToProps = ({ events, geo, budget }) => ({
   eventsArr: events,
   geo,
+  budget,
 });
 
 export default connect(mapStateToProps, { fetchEvents })(Events);

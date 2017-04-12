@@ -22,10 +22,10 @@ class Weather2 extends Component {
               <div className="city-selected">
                 <article>
                   <div className="info">
-                    <div className="city"><span>City:</span> {this.props.destination.city}</div>
-                    <h3>HighTemp: {this.props.weather.weather.highTemp}°F</h3>
-                    <h3>LowTemp: {this.props.weather.weather.lowTemp}°F</h3>
-                    <h6>Summary {this.props.weather.weather.summary}</h6>
+                    <div className="city">{this.props.destination.city}</div>
+                    <h3>{this.props.weather.weather.highTemp}°F</h3>
+                    <h3>{this.props.weather.weather.lowTemp}°F</h3>
+                    <h6>{this.props.weather.weather.summary}</h6>
                     <div className="wind">
                       <svg id="wind" style={{ enableBackground: 'new 0 0 300.492 300.492' }} version="1.1" viewBox="0 0 300.492 300.492" x="0px" y="0px" xmlSpace="preserve">
                         <g>
@@ -45,12 +45,8 @@ class Weather2 extends Component {
                 <figure style={{ backgroundImage: `url(${herojpg})` }} />
               </div>
               <div className="days">
-                <div className="row row-no-gutter">
-                  <div className="col-md-4">
-                    <div className="day">
-                      <h1>Day of arrival forecast</h1>
-                    </div>
-                  </div>
+                <div className="day">
+                  <h1>Day of arrival forecast</h1>
                 </div>
               </div>
             </div>

@@ -44,7 +44,6 @@
     "react": "^15.5.3",
     "react-addons-shallow-compare": "^15.5.1",
     "react-bootstrap": "^0.30.8",
-    "react-dates": "^10.0.0",
     "react-dom": "^15.5.3",
     "react-facebook-login": "^3.5.0",
     "react-redux": "^5.0.3",
@@ -83,7 +82,9 @@
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
     "node-geocoder": "^3.16.0",
+    "node-sass": "^4.5.2",
     "sass-loader": "^6.0.3",
-    "style-loader": "^0.16.1"
+    "style-loader": "^0.16.1",
+    "webpack": "^2.3.3"
   }
 }

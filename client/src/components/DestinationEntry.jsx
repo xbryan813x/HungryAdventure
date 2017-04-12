@@ -10,6 +10,7 @@ import { browserHistory } from 'react-router';
 import { fetchEvents } from '../actions/eventsAction'
 import { fetchWeather } from '../actions/weatherAction'
 import { currentDestination } from '../actions/currentState';
+import { destinationImage } from '../actions/budgetBarAction';
 
 class DestinationEntry extends Component {
 
@@ -29,6 +30,7 @@ handleSelect = (destination) => {
       })
     });
   this.props.destinationSet(destination);
+  this.props.destinationImage({destination: destination.imageUrl[0]})
   this.props.fetchEvents({location: destination.city});
   this.props.currentDestination({destination: destination});
   this.props.redirect('/destination');
@@ -39,9 +41,9 @@ render () {
   return (
   <div className="destEntry">
     {this.props.destinations.destinations.map((destination, index) => (
-      <Col className="" lg={4} key={destination.IataCode}>
+      <Col className="" md={4} key={destination.IataCode}>
         <div className="tile">
-          <div>
+          <div className='image'>
             <Carousel key={index} className="flight" direction={null}>
               {destination.imageUrl.map((image, i) => (
                 <Carousel.Item className="flightimg" key={destination.imageUrl[i]+i} >
@@ -50,10 +52,10 @@ render () {
                 </Carousel.Item>
                   ))}
             </Carousel>
-          </div>
-          <div className="caption post-content">
-            <div className="bold">{destination.city}</div>
-            <div>${destination.price}</div>
+            <div className="caption post-content">
+              <div className="bold">{destination.city}</div>
+              <div>${destination.price}</div>
+            </div>
           </div>
         </div>
         </Col>
@@ -62,11 +64,12 @@ render () {
     )
   }
 }
-const mapStateToProps = ({destinations, budget, geo}) => ({
+const mapStateToProps = ({destinations, budget, geo, bar}) => ({
   destinations,
   budget,
   geo,
+  bar,
 });
 
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination } )(DestinationEntry);
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination, destinationImage } )(DestinationEntry);

@@ -9,7 +9,6 @@ import { saveSearchQuery } from '../actions/saveSearchQueryAction'
 class Destinations extends Component {
 
 submit = (values) => {
-
   this.props.fetchDestinations(values).then(() =>{
      this.props.history.push('/flights');
    })

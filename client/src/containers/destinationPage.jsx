@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
-// +++++ Imported Components
 import Weather2 from '../components/weather';
+import BudgetBar from '../components/budgetBar';
+// +++++ Imported Components
 import { Link } from 'react-router-dom';
 
 // +++++ Imported Components
@@ -24,9 +25,13 @@ class destinationPage extends Component {
       <div className="hero" style={{ backgroundImage: `url(${heroImage})` }} />
       <GoogleMaps locator={this.props.geo.locator} />
       <h1> current budget: ${this.props.budget.flight}</h1>
+      <h1> hotel budget: ${this.props.budget.hotel}</h1>
       <h1> {this.props.destination.city}</h1>
       <h1> {this.props.destination.country}</h1>
       <h1>$ {this.props.destination.price}</h1>
+      <div>
+        <BudgetBar budget={this.props.budget} />
+      </div>
       <Weather2 />
       {/* < HEADERIMG />*/}
       {/* < INFO Component />*/}

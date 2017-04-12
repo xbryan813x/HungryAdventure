@@ -31,14 +31,6 @@ color: red;
 text-shadow: 1px 1px 1px white;
 }
 
-.btn-custom {
-  background-color: transparent;
-  color: #4c69ba;
-  border-width: medium;
-  border-radius: 5px;
-  border-color: #4c69ba;
-}
-
 .facebookButton {
   height:50px;
   position:absolute;

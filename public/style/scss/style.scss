@@ -18,7 +18,7 @@ div.tile {
   height: 275px;
   margin: 10px;
   @media only screen and (max-width: 1250px) and  (min-width: 400px) {
-    margin: 0 auto;
+    margin: 10px auto;
   }
   @media only screen and (max-width: 400px){
     width: 3 * (375px) / 4;
@@ -83,4 +83,15 @@ span.icon {
     @media only screen and (max-width: 400px){
       left: 15%;
     }
+}
+.btn-custom {
+    background-color: transparent;
+    color: $color-main;
+    border-width: medium;
+    border-radius: 5px;
+    border-color: $color-main;
+}
+.btn-custom:hover, .btn-custom:active, .btn-custom:visited, .btn-custom:focus {
+    background-color: $color-main;
+    color: white;
 }
