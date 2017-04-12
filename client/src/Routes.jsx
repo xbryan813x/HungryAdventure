@@ -6,6 +6,7 @@ import Destination from './containers/destinationPage';
 import GoogleMaps from './containers/GoogleMaps';
 import Events from './containers/Events';
 import Story from './containers/StoryPage';
+import Viator from './containers/ViatorEvents'
 
 const Routes = () => (
   <Router>
@@ -16,6 +17,7 @@ const Routes = () => (
       <Route path="/destination" component={Destination} />
       <Route path="/events" component={Events} />
       <Route path="/storypage" component={Story} />
+      <Route path="/viator" component={Viator} />
     </div>
   </Router>
 );

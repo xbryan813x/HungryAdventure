@@ -12,6 +12,7 @@ import profile from './facebookReducer';
 import weather from './weatherReducer';
 import current from './currentStateReducer';
 import saveQuery from './saveSearchQueryReducer';
+import viator from './viatorReducer';
 
 
 const rootReducer = combineReducers({
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   form: formReducer,
   weather,
   saveQuery,
+  viator,
 });
 
 export default rootReducer;
