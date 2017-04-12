@@ -19,8 +19,10 @@ submit = (values) => {
       <div>
         <Search onSubmit={this.submit}/>
         <Auth />
-        <h1>Budget: {this.props.budget.original}</h1>
+        <div className='pageFrame'>
+        {/*<h1>Budget: {this.props.budget.original}</h1>*/}
         <DestinationList destinations={this.props.destinations} redirect={(url)=>{this.props.history.push(url)}}/>
+        </div>
       </div>
     );
   }
