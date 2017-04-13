@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Col, Carousel, Button } from 'react-bootstrap';
+import { Col, Button } from 'react-bootstrap';
 import { currentHotel } from '../actions/currentState';
 import { hotelBudget } from '../actions/budgetAction';
 import { hotelImage } from '../actions/budgetBarAction';
@@ -34,35 +34,36 @@ class HotelEntry extends Component {
     }
     return (
       <div>
+        <div className='container'>
         <h1 className="title">Hotels</h1>
         <Button onClick={()=> this.toggle(this.props.toggle)} bsStyle="primary" style={{ float: "right" }}>See More...</Button>
-        <div className='container'></div>
+        <div className="container"></div>
         {this.props.hotels.hotels.map((hotel, index) => (
-          <div className="col-lg-4 col-sm-6" className={ ((index >= 3 && !this.props.toggle.hotels) ? "none" : "") }  key={hotel.id} onClick={()=> { this.add(hotel, this.props) }}>
+          <Col lg={4} sm={6} className={"pad " + ((index >= 3 && !this.props.toggle.hotels) ? "none" : "") }  key={hotel.id} onClick={()=> { this.add(hotel, this.props) }}>
             <div className="portfolio-box">
               <img className="img-responsive customImg" alt="" src={hotel.pictures[0]} />
               <div className='portfolio-box-caption'>
                 <div className='portfolio-box-caption-content'>
-                <div className="project-category text-faded">
-                  {Array(Math.floor(hotel.rating)).fill(0).map((elem, i) =>
-                    <span key={hotel.id + i} className="glyphicon glyphicon-star" />,
-                  )}
-                  <span className="glyphicons glyphicons-star" />
-                </div>
-                <div className='project-name'>
-                  ${hotel.price}
-                </div>
+                  <div className="project-category text-faded">
+                    {Array(Math.floor(hotel.rating)).fill(0).map((elem, i) =>
+                      <span key={hotel.id + i} className="glyphicon glyphicon-star" />,
+                    )}
+                    <span className="glyphicons glyphicons-star" />
+                  </div>
+                  <div className='project-name'>
+                    ${hotel.price}
+                  </div>
                 </div>
               </div>
-              </div>
-          </div>
+            </div>
+          </Col>
         ))}
+      </div>
       </div>
     );
   }
   }
 
-// onClick={()=> { this.add(hotel, this.props) }}
 const mapStateToProps = ({ hotels, destination, budget, toggle }) => ({
   hotels,
   destination,

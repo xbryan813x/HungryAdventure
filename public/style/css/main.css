@@ -455,14 +455,9 @@ body {
   display: none;
 }
 
-#overlay    {
-  background:rgba(0,0,0,.75);
-  opacity:0;
+.pad {
+  padding: 0;
 }
-
-#box:hover #overlay {
-               opacity:1;}
-
 
 /*+++++++++++++++
 +++ D3 Styles +++
@@ -470,4 +465,3 @@ body {
 .donutAlign {
   margin-top: 250px;
 }
-
