@@ -11,7 +11,8 @@ import { fetchEvents } from '../actions/eventsAction'
 import { fetchWeather } from '../actions/weatherAction'
 import { currentDestination } from '../actions/currentState';
 import { destinationImage } from '../actions/budgetBarAction';
-import { fetchViator } from '../actions/viatorAction'
+import { fetchViator } from '../actions/viatorAction';
+import { fetchFrommers } from '../actions/frommersAction';
 
 
 class DestinationEntry extends Component {
@@ -36,6 +37,7 @@ handleSelect = (destination) => {
   this.props.fetchEvents({ location: destination.city });
   this.props.fetchViator({ location: destination.city })
   this.props.currentDestination({ destination: destination });
+  this.props.fetchFrommers({ location: destination.city });
   this.props.redirect('/destination');
 }
 
