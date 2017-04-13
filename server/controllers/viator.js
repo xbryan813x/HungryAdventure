@@ -40,16 +40,15 @@ module.exports = {
         },
       }).then((page2) => {
         results = results.concat(page2.pages);
-        for (let i = 0; i < results.length; i++) {
+        for (let i = 0; i < results.length; i += 1) {
           if (!results[i].price) {
-            results[i] = '';           
+            results[i] = '';
+          } else {
+            results[i].price = Number(results[i].price.replace(/[^\d.]/g, ''));
           }
         }
-        results = results.filter(function(str) {
-          return /\S/.test(str);
-        });
-      }).then(() => res.send(results))
+        results = results.filter(str => /\S/.test(str));
+      }).then(() => res.send(results));
     });
   },
 };
-

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 class StoryPage extends Component {
 
   render() {
+    console.log(this.props);
     if (!this.props.hotel) {
       return (
         <div className="parallaxContainer">
@@ -14,7 +15,7 @@ class StoryPage extends Component {
             <div >{this.props.destination.city}</div>
             <div>{this.props.destination.country}</div>
             <div>$ {this.props.destination.price}</div>
-            {this.props.events.map((event, i) => <div key={i}>{event.name}</div>)}
+            {this.props.yelpEvents.map((event, i) => <div key={i}>{event.name}</div>)}
           </div>
           <div className="space" />
         </section>
@@ -64,7 +65,7 @@ class StoryPage extends Component {
             <div>$ {this.props.destination.price}</div>
             <div>{this.props.hotel.hotel}</div>
             <div>$ {this.props.hotel.price}</div>
-            {this.props.events.map((event, i) => <div key={i}>{event.name}</div>)}
+            {this.props.yelpEvents.map((event, i) => <div key={i}>{event.name}</div>)}
           </div>
           <div className="space" />
         </section>
