@@ -26,10 +26,10 @@ module.exports = {
   },
   budgetFunc: (array, budget) => {
     let newArr = array.slice();
-    for (let i = 0; i < newArr.length; i++) {
-    	if (newArr[i].MinPrice > budget) {
-    		return newArr = newArr.slice(0, i);
-    	}
+    for (let i = 0; i < newArr.length; i += 1) {
+      if (newArr[i].MinPrice > budget) {
+        newArr = newArr.slice(0, i);
+      }
     }
     return newArr;
   },
