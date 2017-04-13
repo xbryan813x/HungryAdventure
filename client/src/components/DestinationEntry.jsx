@@ -85,7 +85,7 @@ const mapStateToProps = ({destinations, budget, geo, bar}) => ({
 });
 
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination, destinationImage, fetchViator } )(DestinationEntry);
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination, destinationImage, fetchViator, fetchFrommers } )(DestinationEntry);
 
 // <Col className="" md={4} key={destination.IataCode}>
 //   <div className="tile">
