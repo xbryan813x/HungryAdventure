@@ -23,12 +23,13 @@ class Events extends Component {
     }
     return (
       <div>
+        <button><Link to="/storypage">Checkout</Link></button>
+        <br></br>
         <h1>current budget: ${this.props.budget.hotel}</h1>
         <div style={{ display: 'grid' }}>
           <BudgetBar budget={this.props.budget} />
         </div>
         <div className="maps">
-          <button><Link to="/storypage">Checkout</Link></button>
           <GoogleMapReact
             defaultCenter={{ lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude }}
             defaultZoom={14}
