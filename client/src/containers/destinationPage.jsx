@@ -7,6 +7,7 @@ import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
 import Weather from '../components/weather';
 import BudgetBar from '../components/budgetBar';
+import FrommersInfo from './FrommersInfo';
 
 class destinationPage extends Component {
 
@@ -18,6 +19,7 @@ class destinationPage extends Component {
     return (<div>
       <div><Link to="/events">YELP</Link></div>
       <div><Link to="/viator">VIATOR</Link></div>
+      <FrommersInfo />
       <h1> Hungry Adventure </h1>
       <div
         className="hero" style={{
