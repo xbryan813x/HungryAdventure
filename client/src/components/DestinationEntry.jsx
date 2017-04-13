@@ -40,7 +40,6 @@ handleSelect = (destination) => {
 }
 
 render () {
-  console.log('WHAT IS THIS BRUHHHHHH', this.props.destinations.fetched)
   if(this.props.destinations.fetched === false) {
     return (
       <div>loading</div>
