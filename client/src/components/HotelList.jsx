@@ -2,7 +2,9 @@ import React from 'react';
 import HotelEntry from './HotelEntry';
 
 const HotelList = () => (
-  <HotelEntry />
+  <div>
+    <HotelEntry />
+  </div>
 );
 
 export default HotelList;

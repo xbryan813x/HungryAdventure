@@ -453,8 +453,6 @@ body {
   padding-left: 5%;
   padding-right: 5%;
 }
-<<<<<<< HEAD
-=======
 
 /* multi carousel*/
 .carousel-control 			 { width:  4%; }
@@ -480,4 +478,3 @@ body {
 	.carousel-inner .next        { left:  25%; }
 	.carousel-inner .prev		 { left: -25%; }
 }
->>>>>>> multi carousel attempt
