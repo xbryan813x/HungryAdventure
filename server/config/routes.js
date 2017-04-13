@@ -7,6 +7,7 @@ const databaseController = require('../controllers/database.js');
 const yelp = require('../controllers/yelp.js');
 const viator = require('../controllers/viator.js');
 const frommers = require('../controllers/frommers.js')
+const googlePlacesController = require('../controllers/googlePlacesFlights')
 
 module.exports = (app, express) => {
   app.get('/api/flights', flightController.getFlights);
@@ -25,6 +26,7 @@ module.exports = (app, express) => {
   app.get('/api/anywhere', anywhereController.getAnywhere);
   app.get('/api/hotels', hotelController.getHotels);
 
+  app.get('/api/google', googlePlacesController.getGoogleData);
 
   // Analysis
   app.get('/api/dbSearchQuerySave', databaseController.saveQuery);
