@@ -1,14 +1,13 @@
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
-//++++++++
+
 dotenv.config();
 
 const pg = require('./config/database.js');
 
 const app = express();
 require('./config/routes.js')(app, express);
-
 
 app.use(express.static(path.join(`${__dirname}/../build`)));
 app.use(express.static(path.join(`${__dirname}/../public`)));
