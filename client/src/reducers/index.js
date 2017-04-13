@@ -14,6 +14,7 @@ import current from './currentStateReducer';
 import saveQuery from './saveSearchQueryReducer';
 import viator from './viatorReducer';
 import toggle from './toggleReducer';
+import frommers from './frommersReducer';
 
 
 const rootReducer = combineReducers({
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
   saveQuery,
   viator,
   toggle,
+  frommers,
 });
 
 export default rootReducer;
