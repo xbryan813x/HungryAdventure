@@ -55,3 +55,40 @@ const mapStateToProps = ({ hotels, destination, budget }) => ({
   budget,
 });
 export default connect(mapStateToProps, { currentHotel, hotelBudget, hotelImage })(HotelEntry);
+
+
+// <div>
+//         {this.props.hotels.hotels.map(hotel => (
+//           <Col sm={6} md={4} key={hotel.id}>
+//           <button onClick={()=> { this.add(hotel, this.props) }}>Add</button>
+//             <div className="tile">
+//               <div>
+//                 <Carousel className="flight" direction={null}>
+//                   {hotel.pictures.map((image, i) => (
+//                     <Carousel.Item className="flightimg" key={i} >
+//                       <img className="flightimg" alt="" src={hotel.pictures[i]} />
+//                     </Carousel.Item>
+//                     ))}
+//                 </Carousel>
+//               </div>
+//               <div>
+//                 <div>
+//                   <div className="col-xs-10 left">
+//                     <span className="bold"> {hotel.neighborhood || this.props.destination.city} </span>
+//                     ||
+//                     <span> {hotel.hotel}</span>
+//                   </div>
+//                   <div className="col-xs-2 right">${hotel.price}</div>
+//                 </div>
+//                 <div>
+//                   {Array(Math.floor(hotel.rating)).fill(0).map((elem, i) =>
+//                     <span key={hotel.id + i} className="glyphicon glyphicon-star" />,
+//                   )}
+//                   <span className="glyphicons glyphicons-star" />
+//                   <span>{hotel.rating}</span>
+//                 </div>
+//               </div>
+//             </div>
+//           </Col>
+//         ))}
+//       </div>
