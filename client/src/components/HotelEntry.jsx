@@ -9,7 +9,6 @@ import { toggleHotels } from '../actions/toggleAction';
 class HotelEntry extends Component {
   constructor(props) {
     super(props);
-    console.log("READ ME HERE BITCH ", props)
   }
 
   add = (hotel, props) => {
