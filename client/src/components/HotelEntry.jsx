@@ -38,36 +38,24 @@ class HotelEntry extends Component {
         <Button onClick={()=> this.toggle(this.props.toggle)} bsStyle="primary" style={{ float: "right" }}>See More...</Button>
         <div className='container'></div>
         {this.props.hotels.hotels.map((hotel, index) => (
-          <Col className={ ((index >= 3 && !this.props.toggle.hotels) ? "none" : "") } sm={6} md={4} key={hotel.id} onClick={()=> { this.add(hotel, this.props) }}>
-            <div className="tile">
-              <div>
-                <Carousel className="flight" direction={null}>
-                  {hotel.pictures.map((image, i) => (
-                    <Carousel.Item className={"flightimg "} key={i} >
-                      <img className="flightimg" alt="" src={hotel.pictures[i]} />
-                    </Carousel.Item>
-                    ))}
-                </Carousel>
-              </div>
-              <div>
-                <div>
-                  <div className="col-xs-10 left">
-                    <span className="bold"> {hotel.neighborhood || this.props.destination.city} </span>
-                    ||
-                    <span> {hotel.hotel}</span>
-                  </div>
-                  <div className="col-xs-2 right">${hotel.price}</div>
-                </div>
-                <div>
+          <div className="col-lg-4 col-sm-6" className={ ((index >= 3 && !this.props.toggle.hotels) ? "none" : "") }  key={hotel.id} onClick={()=> { this.add(hotel, this.props) }}>
+            <div className="portfolio-box">
+              <img className="img-responsive customImg" alt="" src={hotel.pictures[0]} />
+              <div className='portfolio-box-caption'>
+                <div className='portfolio-box-caption-content'>
+                <div className="project-category text-faded">
                   {Array(Math.floor(hotel.rating)).fill(0).map((elem, i) =>
                     <span key={hotel.id + i} className="glyphicon glyphicon-star" />,
                   )}
                   <span className="glyphicons glyphicons-star" />
-                  <span>{hotel.rating}</span>
+                </div>
+                <div className='project-name'>
+                  ${hotel.price}
+                </div>
                 </div>
               </div>
-            </div>
-          </Col>
+              </div>
+          </div>
         ))}
       </div>
     );
