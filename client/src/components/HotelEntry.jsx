@@ -35,7 +35,7 @@ class HotelEntry extends Component {
               <div>
                 <Carousel className="flight" direction={null}>
                   {hotel.pictures.map((image, i) => (
-                    <Carousel.Item className={"flightimg"+ (i <= 3 ? "none" : "")} key={i} >
+                    <Carousel.Item className={"flightimg"+ (i > 3 ? "none" : "")} key={i} >
                       <img className="flightimg" alt="" src={hotel.pictures[i]} />
                     </Carousel.Item>
                     ))}
