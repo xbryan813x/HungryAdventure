@@ -1,11 +1,10 @@
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
-const scrapeIt = require("scrape-it");
+const scrapeIt = require('scrape-it');
 const Xray = require('x-ray');
 
 //++++++++
-
 dotenv.config();
 
 const pg = require('./config/database.js');
@@ -29,7 +28,7 @@ const server = app.listen(8888, () => {
 
 
 // SCRAPE-IT EXAMPLE
-//const xray = Xray();
+// const xray = Xray();
 const xray = Xray();
 
 
@@ -76,5 +75,4 @@ const xray = Xray();
 // }});
 
 
-//_G1d _wle _xle
-
+// _G1d _wle _xle

@@ -2,8 +2,8 @@
 ++ ORIGINAL  STYLE ++
 +++++++++++++++++++*/
 .maps {
-  width: 50%;
-  height: 80%;
+  width: 80%;
+  height: 50%;
   margin: auto;
   padding-top: 2%;
   padding-bottom: 1%;
@@ -401,12 +401,12 @@ body {
 }
 
 .parallax {
-  background: 
+  background:
     linear-gradient(
-      rgba(0, 0, 0, 0.5), 
+      rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     ),
-  url("https://cdn.pixabay.com/photo/2017/04/08/10/42/burj-khalifa-2212978_960_720.jpg") no-repeat center center fixed; 
+  url("https://cdn.pixabay.com/photo/2017/04/08/10/42/burj-khalifa-2212978_960_720.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -438,12 +438,12 @@ body {
 
 @media screen and (max-width: 720px) {
   .parallax {
-    background: 
+    background:
       linear-gradient(
-        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
       ),
-    url("https://cdn.pixabay.com/photo/2017/04/08/10/42/burj-khalifa-2212978_960_720.jpg") fixed; 
+    url("https://cdn.pixabay.com/photo/2017/04/08/10/42/burj-khalifa-2212978_960_720.jpg") fixed;
     background-size: cover;
     height: 100%
   }
@@ -454,4 +454,27 @@ body {
   padding-right: 5%;
 }
 
+/* multi carousel*/
+.carousel-control 			 { width:  4%; }
+.carousel-control.left,.carousel-control.right {margin-left:15px;background-image:none;}
+@media (max-width: 767px) {
+	.carousel-inner .active.left { left: -100%; }
+	.carousel-inner .next        { left:  100%; }
+	.carousel-inner .prev		 { left: -100%; }
+	.active > div { display:none; }
+	.active > div:first-child { display:block; }
 
+}
+@media (min-width: 767px) and (max-width: 992px ) {
+	.carousel-inner .active.left { left: -50%; }
+	.carousel-inner .next        { left:  50%; }
+	.carousel-inner .prev		 { left: -50%; }
+	.active > div { display:none; }
+	.active > div:first-child { display:block; }
+	.active > div:first-child + div { display:block; }
+}
+@media (min-width: 992px ) {
+	.carousel-inner .active.left { left: -25%; }
+	.carousel-inner .next        { left:  25%; }
+	.carousel-inner .prev		 { left: -25%; }
+}

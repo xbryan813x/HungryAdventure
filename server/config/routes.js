@@ -15,9 +15,10 @@ module.exports = (app, express) => {
   app.get('/api/dbQuery', databaseController.getProfile);
   app.get('/api/viator/', viator.scrape);
 
-  //Activate for testing
+  // Activate for testing
   // app.get('/api/anywhere', anywhereController.getAnywhereDummy);
   // app.get('/api/hotels', hotelController.getHotelsDummy);
+
   // //Live
   app.get('/api/anywhere', anywhereController.getAnywhere);
   app.get('/api/hotels', hotelController.getHotels);
