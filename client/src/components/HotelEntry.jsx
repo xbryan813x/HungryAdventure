@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Col, Carousel } from 'react-bootstrap';
+import { Col, Carousel, Button } from 'react-bootstrap';
 import { currentHotel } from '../actions/currentState';
 import { hotelBudget } from '../actions/budgetAction';
 import { hotelImage } from '../actions/budgetBarAction';
+import { toggleHotels } from '../actions/toggleAction';
 
 class HotelEntry extends Component {
   constructor(props) {
     super(props);
+    console.log("READ ME HERE BITCH ", props)
   }
 
   add = (hotel, props) => {
@@ -21,6 +23,10 @@ class HotelEntry extends Component {
     this.props.hotelImage({ hotel: hotel.pictures[0] });
   }
 
+  toggle = ({ hotels }) => {
+    this.props.toggleHotels({ hotels: hotels })
+  }
+
   render() {
     if (this.props.hotels.hotels === undefined) {
       return (
@@ -29,13 +35,16 @@ class HotelEntry extends Component {
     }
     return (
       <div>
-        {this.props.hotels.hotels.map(hotel => (
-          <Col sm={6} md={4} key={hotel.id} onClick={()=> { this.add(hotel, this.props) }}>
+        <h1 className="title">Hotels</h1>
+        <Button onClick={()=> this.toggle(this.props.toggle)} bsStyle="primary" style={{ float: "right" }}>See More...</Button>
+        <div className='container'></div>
+        {this.props.hotels.hotels.map((hotel, index) => (
+          <Col className={ ((index >= 3 && !this.props.toggle.hotels) ? "none" : "") } sm={6} md={4} key={hotel.id} onClick={()=> { this.add(hotel, this.props) }}>
             <div className="tile">
               <div>
                 <Carousel className="flight" direction={null}>
                   {hotel.pictures.map((image, i) => (
-                    <Carousel.Item className={"flightimg"+ (i <= 3 ? "none" : "")} key={i} >
+                    <Carousel.Item className={"flightimg "} key={i} >
                       <img className="flightimg" alt="" src={hotel.pictures[i]} />
                     </Carousel.Item>
                     ))}
@@ -67,9 +76,10 @@ class HotelEntry extends Component {
   }
 
 // onClick={()=> { this.add(hotel, this.props) }}
-const mapStateToProps = ({ hotels, destination, budget }) => ({
+const mapStateToProps = ({ hotels, destination, budget, toggle }) => ({
   hotels,
   destination,
   budget,
+  toggle,
 });
-export default connect(mapStateToProps, { currentHotel, hotelBudget, hotelImage })(HotelEntry);
+export default connect(mapStateToProps, { currentHotel, hotelBudget, hotelImage, toggleHotels })(HotelEntry);

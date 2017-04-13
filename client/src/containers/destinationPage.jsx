@@ -38,11 +38,9 @@ class destinationPage extends Component {
       >
         {this.props.destination.IataCode}
       </div>
-      <div className="container col-sm-offset-3" style={{ display: 'grid' }}>
-
+      <div className="container col-sm-offset-3" style={{ display: 'grid', marginBottom: '5%' }}>
         <BudgetBar budget={this.props.budget} />
       </div>
-      <GoogleMaps locator={this.props.geo.locator} />
       <div style={{ marginBottom: '10%' }}>
         <Col sm={6} className="col-md-offset-1">
           <h1> current budget: ${this.props.budget.flight}</h1>
@@ -53,6 +51,7 @@ class destinationPage extends Component {
         </Col>
         <Weather />
       </div>
+      <GoogleMaps locator={this.props.geo.locator} />
       <div style={{ display: 'grid' }} />
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
       <div><Link to="/events">EVENTS</Link></div>
