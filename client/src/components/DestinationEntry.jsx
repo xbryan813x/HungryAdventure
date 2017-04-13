@@ -51,10 +51,10 @@ render () {
     <div className="container-fluid">
       <div className="row no-gutter popup-gallery">
     {this.props.destinations.destinations.map((destination, index) => (
-       <div className="col-lg-4 col-sm-6">
+       <div className="col-lg-4 col-sm-6" key={destination.city}>
             <div className="portfolio-box" onClick={ ()=> {this.handleSelect(destination)}} >
-                <img src={destination.imageUrl[0]} 
-                  className="img-responsive customImg" 
+                <img src={destination.imageUrl[0]}
+                  className="img-responsive customImg"
                   alt="" />
                 <div className="portfolio-box-caption">
                     <div className="portfolio-box-caption-content">

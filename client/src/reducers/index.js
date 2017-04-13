@@ -13,6 +13,7 @@ import weather from './weatherReducer';
 import current from './currentStateReducer';
 import saveQuery from './saveSearchQueryReducer';
 import viator from './viatorReducer';
+import toggle from './toggleReducer';
 
 
 const rootReducer = combineReducers({
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   weather,
   saveQuery,
   viator,
+  toggle,
 });
 
 export default rootReducer;

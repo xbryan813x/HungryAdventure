@@ -5,11 +5,10 @@ import { Col } from 'react-bootstrap';
 class budgetBar extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
   render() {
     return (
-      <div style={{ width: '70%' }}>
+      <div style={{ width: '70%', marginBottom: '5%' }}>
         <Col
           md={2} style={{
             height: '50px',
