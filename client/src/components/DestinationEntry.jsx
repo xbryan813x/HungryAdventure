@@ -37,7 +37,7 @@ handleSelect = (destination) => {
   this.props.fetchEvents({ location: destination.city });
   this.props.fetchViator({ location: destination.city })
   this.props.currentDestination({ destination: destination });
-  this.props.fetchFrommers({ location: destination.city })
+  this.props.fetchFrommers({ location: destination.city });
   this.props.redirect('/destination');
 }
 
@@ -70,24 +70,6 @@ render () {
                 </div>
             </div>
         </div>
-      // <Col className="" md={4} key={destination.IataCode}>
-      //   <div className="tile">
-      //     <div className='image'>
-      //       <Carousel key={index} className="flight" direction={null}>
-      //         {destination.imageUrl.map((image, i) => (
-      //           <Carousel.Item className="flightimg" key={destination.imageUrl[i]+i} >
-      //            <img className="flightimg" alt=""
-      //            src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}}/>
-      //           </Carousel.Item>
-      //             ))}
-      //       </Carousel>
-      //       <div className="caption post-content">
-      //         <div className="bold">{destination.city}</div>
-      //         <div>${destination.price}</div>
-      //       </div>
-      //     </div>
-      //   </div>
-      //   </Col>
       ))}
       </div>
     </div>
@@ -103,4 +85,23 @@ const mapStateToProps = ({destinations, budget, geo, bar}) => ({
 });
 
 
-export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination, destinationImage, fetchViator, fetchFrommers } )(DestinationEntry);
+export default connect(mapStateToProps , { destinationSet, browserHistory, fetchGeo, fetchHotels, flightBudget, fetchEvents, fetchWeather, currentDestination, destinationImage, fetchViator } )(DestinationEntry);
+
+// <Col className="" md={4} key={destination.IataCode}>
+//   <div className="tile">
+//     <div className='image'>
+//       <Carousel key={index} className="flight" direction={null}>
+//         {destination.imageUrl.map((image, i) => (
+//           <Carousel.Item className="flightimg" key={destination.imageUrl[i]+i} >
+//            <img className="flightimg" alt=""
+//            src={destination.imageUrl[i]} onClick={ ()=> {this.handleSelect(destination)}}/>
+//           </Carousel.Item>
+//             ))}
+//       </Carousel>
+//       <div className="caption post-content">
+//         <div className="bold">{destination.city}</div>
+//         <div>${destination.price}</div>
+//       </div>
+//     </div>
+//   </div>
+//   </Col>

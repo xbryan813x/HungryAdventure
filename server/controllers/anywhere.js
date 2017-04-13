@@ -28,7 +28,7 @@ module.exports = {
         budgetTop.forEach(() => {
           finalarray.push({});
         });
-        anywhereHelper.trimSkyBody(finalarray, top21, parsedData);
+        anywhereHelper.trimSkyBody(finalarray, budgetTop, parsedData);
         return finalarray;
       })
       .catch((err) => {

@@ -238,10 +238,6 @@ header .header-content .header-content-inner p {
 .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 
-
-
-
-
 }
 .portfolio-box:focus {
   outline: none;
@@ -458,3 +454,11 @@ body {
 .none {
   display: none;
 }
+
+#overlay    {
+  background:rgba(0,0,0,.75);
+  opacity:0;
+}
+
+#box:hover #overlay {
+               opacity:1;}
