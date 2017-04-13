@@ -478,3 +478,12 @@ body {
 	.carousel-inner .next        { left:  25%; }
 	.carousel-inner .prev		 { left: -25%; }
 }
+
+
+/*+++++++++++++++
++++ D3 Styles +++
++++++++++++++++*/
+.donutAlign {
+  margin-top: 250px;
+}
+

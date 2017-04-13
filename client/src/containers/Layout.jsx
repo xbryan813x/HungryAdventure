@@ -10,10 +10,29 @@ import { saveSearchQuery } from '../actions/saveSearchQueryAction';
 import { combineReducers } from 'redux';
 //Imported Component
 import Search from './searchForm';
-import Auth from './FacebookAuth'
+import Auth from './FacebookAuth';
+
+// Charts
+import DonutChart from 'react-donut-chart';
+
 
 class Layout extends React.Component {
 
+  propTypes: {
+    value: React.PropTypes.number,        // value the chart should show
+    valuelabel: React.PropTypes.string,   // label for the chart
+    size: React.PropTypes.number,         // diameter of chart
+    strokewidth: React.PropTypes.number   // width of chart line
+  }
+
+  getDefaultProps() {
+    return {
+      value:0,
+      valuelabel:'Completed',
+      size:116,
+      strokewidth:26
+    };
+  }
 
   submit = (values) => {
   let saveQueryObj = {
@@ -34,12 +53,6 @@ class Layout extends React.Component {
   }
 
   render () {
-
-    // if (this.props.destination.length === 0) {
-    //   return (
-    //     <div>loading...</div>
-    //   );
-    // } 
      return (
       <div>
       <header>
@@ -47,6 +60,7 @@ class Layout extends React.Component {
         <section id="search">
           <div className="header-content">
             <div className="header-content-inner">
+            <br></br>
               <h1 id="homeHeading">HUNGRY ADVENTURE</h1>
                 <hr></hr>
                   <center>

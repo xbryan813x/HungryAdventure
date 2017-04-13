@@ -6,6 +6,8 @@ import Search from './searchForm';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction'
 import Auth from './FacebookAuth'
 
+
+
 class Destinations extends Component {
 
 submit = (values) => {
@@ -20,7 +22,8 @@ submit = (values) => {
         <Search onSubmit={this.submit}/>
         <Auth />
         <div className='pageFrame'>
-        
+       
+      
         {/*<h1>Budget: {this.props.budget.original}</h1>*/}
         <DestinationList destinations={this.props.destinations} redirect={(url)=>{this.props.history.push(url)}}/>
         </div>
