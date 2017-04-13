@@ -5,8 +5,7 @@ export function getBudget({ Budget }) {
 }
 
 export function flightBudget({ price, original }) {
-  const newBudget = original - price;
-  return { type: 'FLIGHT_BUDGET_FULFILLED', payload: { original, flight: newBudget } };
+  return { type: 'FLIGHT_BUDGET_FULFILLED', payload: { original, flight: price } };
 }
 
 export function hotelBudget(props) {
@@ -14,16 +13,11 @@ export function hotelBudget(props) {
   const hotel = props.hotel;
   const original = Number(props.budget.original);
   const days = getDays(props.arrivalDate, props.departureDate);
-  const newBudget = flight - (hotel * days);
+  const newBudget = (hotel * days);
   return { type: 'HOTEL_BUDGET_FULFILLED', payload: { original, flight, hotel: newBudget } };
 }
 export function eventBudget(props) {
-  let newBudget;
-  if (props.hotel) {
-    newBudget = props.hotel - props.event;
-  } else {
-    newBudget = props.flight - props.event;
-  }
+  const newBudget = props.event;
   return {
     type: 'EVENT_BUDGET_FULFILLED',
     payload: {
