@@ -462,3 +462,12 @@ body {
 
 #box:hover #overlay {
                opacity:1;}
+
+
+/*+++++++++++++++
++++ D3 Styles +++
++++++++++++++++*/
+.donutAlign {
+  margin-top: 250px;
+}
+
