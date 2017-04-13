@@ -17,7 +17,7 @@ class Weather extends Component {
     const herojpg = this.props.destination.imageUrl[1] || this.props.destination.imageUrl[0];
     return (
       <Col sm={4}>
-        <div id="card" className="weater">
+        <div id="card" className="weather">
           <div className="city-selected">
             <article>
               <div className="info">
