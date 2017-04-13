@@ -24,7 +24,7 @@ class Events extends Component {
     return (
       <div>
         <button><Link to="/storypage">Checkout</Link></button>
-        <br></br>
+        <br />
         <h1>current budget: ${this.props.budget.hotel}</h1>
         <div style={{ display: 'grid' }}>
           <BudgetBar budget={this.props.budget} />
