@@ -13,14 +13,14 @@ module.exports = (app, express) => {
   app.get('/api/weather', weatherController.getWeather);
   app.get('/api/yelp', yelp.getEvents);
   app.get('/api/dbQuery', databaseController.getProfile);
-  app.get('/api/viator/', viator.scrape);
+  app.get('/api/viator', viator.scrape);
 
   //Activate for testing
-  app.get('/api/anywhere', anywhereController.getAnywhereDummy);
-  app.get('/api/hotels', hotelController.getHotelsDummy);
+  // app.get('/api/anywhere', anywhereController.getAnywhereDummy);
+  // app.get('/api/hotels', hotelController.getHotelsDummy);
   // //Live
-  // app.get('/api/anywhere', anywhereController.getAnywhere);
-  // app.get('/api/hotels', hotelController.getHotels);
+  app.get('/api/anywhere', anywhereController.getAnywhere);
+  app.get('/api/hotels', hotelController.getHotels);
 
 
   // Analysis

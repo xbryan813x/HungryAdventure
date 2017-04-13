@@ -40,7 +40,12 @@ handleSelect = (destination) => {
 }
 
 render () {
-
+  console.log('WHAT IS THIS BRUHHHHHH', this.props.destinations.fetched)
+  if(this.props.destinations.fetched === false) {
+    return (
+      <div>loading</div>
+    )
+  }
   return (
   // <div className="destEntry">
   <section className="no-padding" id="locations">

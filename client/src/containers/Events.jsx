@@ -25,6 +25,7 @@ class Events extends Component {
           <BudgetBar budget={this.props.budget} />
         </div>
         <div className="maps">
+          <br />
         <button><Link to="/storypage">Checkout</Link></button>
           <GoogleMapReact
             defaultCenter={{ lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude }}
