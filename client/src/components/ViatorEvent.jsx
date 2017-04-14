@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { currentViator } from '../actions/currentState';
-import { eventsBudget } from '../actions/budgetAction';
+import { viatorBudget } from '../actions/budgetAction';
  
 
 class ViatorEvent extends Component {
@@ -12,7 +12,7 @@ class ViatorEvent extends Component {
   add = (event) => {
     this.props.currentViator({ event: event })
     setTimeout(() => {
-      this.props.eventsBudget(this.props.current)
+      this.props.viatorBudget(this.props.current)
     }, 1000)
   }
 
@@ -34,4 +34,4 @@ const mapStateToProps = state => ({
   ...state,
 });
 
-export default connect(mapStateToProps, { currentViator, eventsBudget })(ViatorEvent);
+export default connect(mapStateToProps, { currentViator, viatorBudget })(ViatorEvent);

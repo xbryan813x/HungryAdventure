@@ -16,8 +16,12 @@ export function hotelBudget(props) {
   const newBudget = (hotel * days);
   return { type: 'HOTEL_BUDGET_FULFILLED', payload: { original, flight, hotel: newBudget } };
 }
-export function eventsBudget(obj) {
-  return { type: 'EVENT_BUDGET_FULFILLED', payload: obj };
+export function viatorBudget(events) {
+  return { type: 'VIATOR_BUDGET_FULFILLED', payload: events };
+}
+
+export function yelpBudget(events) {
+  return { type: 'YELP_BUDGET_FULFILLED', payload: events }
 }
 
 export function resetBudget() {

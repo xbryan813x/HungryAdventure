@@ -9,8 +9,7 @@ export default function reduce(state = {}, action) {
     case 'HOTEL_BUDGET_FULFILLED' : {
       return { ...state, hotel: action.payload.hotel };
     }
-    case 'EVENT_BUDGET_FULFILLED' : {
-      console.log('THIS IS THE STATE FOOL', action.payload.viatorEvents);
+    case 'VIATOR_BUDGET_FULFILLED' : {
       let viatorTotal;
       if (action.payload.viatorEvents.length === 1) {
         viatorTotal = action.payload.viatorEvents[0].price;
@@ -19,7 +18,28 @@ export default function reduce(state = {}, action) {
       } else {
         viatorTotal = action.payload.viatorEvents.reduce((a, b) => a + b.price, 0);
       }
-      return { ...state, events: viatorTotal };
+      return { ...state, viatorEvents: viatorTotal };
+    }
+    case 'YELP_BUDGET_FULFILLED' : {
+      let yelpTotal;
+      let converted = [];
+      if (action.payload.yelpEvents.length === 0) {
+        yelpTotal = 0
+      } else {
+        action.payload.yelpEvents.forEach((event) => {
+          if (event.price === '$') {
+            converted.push(10)
+          } else if (event.price === '$$') {
+            converted.push(20)
+          } else if (event.price === '$$$') {
+            converted.push(45)
+          } else {
+            converted.push(100)
+          }
+        })
+        yelpTotal = converted.reduce((a, b) => a + b);
+      }
+      return { ...state, yelpEvents: yelpTotal };
     }
     case 'RESET': {
       return { ...state, flight: undefined, hotel: undefined, events: undefined };

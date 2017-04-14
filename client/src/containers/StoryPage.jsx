@@ -37,7 +37,7 @@ class StoryPage extends Component {
         </section>
       </div>
       );
-    } else if (!this.props.event && !this.props.hotel) {
+    } else if (!this.props.yelpEvent && !this.props.hotel) {
       return (
         <div className="parallaxContainer">
         <section className="parallax">
