@@ -6,13 +6,18 @@ import Search from './searchForm';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction'
 import Auth from './FacebookAuth'
 import { reset } from '../actions/resetState'
+import { getBudget, resetBudget } from '../actions/budgetAction'
 
 
 
 class Destinations extends Component {
 
+componentWillMount() {
+  this.props.resetBudget();
+}
+
 submit = (values) => {
-  this.props.reset()
+  this.props.getBudget(values)
   this.props.fetchDestinations(values).then(() =>{
      this.props.history.push('/flights');
    })
@@ -39,4 +44,4 @@ const mapStateToProps = ({destinations, budget}) => ({
   budget,
 });
 
-export default connect(mapStateToProps, { fetchDestinations, saveSearchQuery, reset })(Destinations);
+export default connect(mapStateToProps, { fetchDestinations, saveSearchQuery, reset, getBudget, resetBudget })(Destinations);

@@ -28,3 +28,7 @@ export function eventBudget(props) {
     },
   };
 }
+
+export function resetBudget() {
+  return { type: 'RESET' };
+}

@@ -12,6 +12,9 @@ export default function reduce(state = {}, action) {
     case 'EVENT_BUDGET_FULFILLED' : {
       return { ...state, events: action.payload.events };
     }
+    case 'RESET': {
+      return { ...state, flight: undefined, hotel: undefined, events: undefined }
+    }
   }
   return state;
 }

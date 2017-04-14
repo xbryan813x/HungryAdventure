@@ -22,6 +22,7 @@ constructor (props){
 }
 
 handleSelect = (destination) => {
+  this.props.destinationSet(destination);
   this.props.flightBudget({price: destination.price, original: Number(this.props.budget.original)});
   this.props.fetchHotels({city: destination.city});
   this.props.fetchGeo({location: destination.city})
@@ -32,7 +33,6 @@ handleSelect = (destination) => {
         time: destination.arrivalDate,
       })
     });
-  this.props.destinationSet(destination);
   this.props.destinationImage({destination: destination.imageUrl[0]})
   this.props.fetchEvents({ location: destination.city });
   this.props.fetchViator({ location: destination.city })
