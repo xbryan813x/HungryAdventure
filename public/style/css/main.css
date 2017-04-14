@@ -468,3 +468,11 @@ body {
 .donutAlign {
   margin-top: 250px;
 }
+#box:hover #overlay {
+  opacity:1;}
+
+
+.donutAlign {
+  margin-top: 250px;
+}
+
