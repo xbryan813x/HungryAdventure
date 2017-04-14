@@ -6,7 +6,7 @@ import Destination from './containers/destinationPage';
 import GoogleMaps from './containers/GoogleMaps';
 import Events from './containers/Events';
 import Story from './containers/StoryPage';
-import Viator from './containers/ViatorEvents'
+import Viator from './containers/ViatorEvents';
 
 const Routes = () => (
   <Router>

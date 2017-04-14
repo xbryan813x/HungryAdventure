@@ -5,7 +5,7 @@ import StarRatingComponent from 'react-star-rating-component';
 import Pin from './pin';
 import GoogleMaps from '../containers/GoogleMaps';
 import { currentEvents } from '../actions/currentState';
-import { eventBudget } from '../actions/budgetAction';
+import { yelpBudget } from '../actions/budgetAction';
 import { eventsImage } from '../actions/budgetBarAction';
 
 class Event extends Component {
@@ -16,9 +16,10 @@ class Event extends Component {
   add = (event) => {
     this.props.currentEvents({event: event});
     this.props.eventsImage({ events: event.image_url })
-    
-    // yelp price by ratings????
-    // this.props.eventBudget({budget: this.props.budget, event: event})
+    setTimeout(() => {
+      this.props.yelpBudget(this.props.current)
+    }, 1000)
+
   }
 
   render(){
@@ -56,4 +57,4 @@ const mapStateToProps = (state) => ({
   ...state
 })
 
-export default connect(mapStateToProps, { currentEvents, eventBudget, eventsImage })(Event);
+export default connect(mapStateToProps, { currentEvents, yelpBudget, eventsImage })(Event);

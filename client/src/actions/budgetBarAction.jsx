@@ -9,3 +9,7 @@ export function hotelImage(props) {
 export function eventsImage(props) {
   return { type: 'EVENTS_IMAGE_FULFILLED', payload: props };
 }
+
+export function resetBudget() {
+  return { type: 'RESET' };
+}

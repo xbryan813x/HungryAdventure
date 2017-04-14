@@ -9,6 +9,9 @@ export default function reduce(state = {}, action) {
     case 'EVENTS_IMAGE_FULFILLED' : {
       return { ...state, events: action.payload.events };
     }
+    case 'RESET': {
+      return ({});
+    }
   }
   return state;
 }
