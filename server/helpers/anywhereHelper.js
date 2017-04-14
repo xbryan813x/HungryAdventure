@@ -27,7 +27,7 @@ module.exports = {
   budgetFunc: (array, budget) => {
     let newArr = array.slice();
     for (let i = 0; i < newArr.length; i += 1) {
-      if (newArr[i].MinPrice > budget) {
+      if (Math.floor(newArr[i].MinPrice * 1.25) > budget) {
         newArr = newArr.slice(0, i);
       }
     }
