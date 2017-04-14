@@ -17,22 +17,10 @@ import DonutChart from 'react-donut-chart';
 
 
 class Layout extends React.Component {
-
-  propTypes: {
-    value: React.PropTypes.number,        // value the chart should show
-    valuelabel: React.PropTypes.string,   // label for the chart
-    size: React.PropTypes.number,         // diameter of chart
-    strokewidth: React.PropTypes.number   // width of chart line
+  constructor (props){
+    super(props);
   }
 
-  getDefaultProps() {
-    return {
-      value:0,
-      valuelabel:'Completed',
-      size:116,
-      strokewidth:26
-    };
-  }
 
   submit = (values) => {
   let saveQueryObj = {
@@ -41,14 +29,11 @@ class Layout extends React.Component {
     startDate: values.departDate,
     endDate: values.arrivalDate,
   }
-
     this.props.getBudget(values);
+    this.props.history.push('/flights');
     this.props.fetchDestinations(values)
       .then(() =>{
         this.props.saveSearchQuery(saveQueryObj);
-      })
-      .then(() =>{
-        this.props.history.push('/flights');
       });
   }
 
@@ -258,11 +243,14 @@ class Layout extends React.Component {
   }
 }
 
+
+
 //Connects to store
-const mapStateToProps = ({destinations, budget, profile}) => ({
+const mapStateToProps = ({destinations, budget, profile, form}) => ({
  destinations: destinations.destinations,
  budget,
  ...profile,
+ form,
 })
 
 export default connect(mapStateToProps, { fetchDestinations, getBudget, saveSearchQuery })(Layout);

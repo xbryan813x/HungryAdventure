@@ -15,6 +15,7 @@ import { fetchViator } from '../actions/viatorAction';
 import { fetchFrommers } from '../actions/frommersAction';
 
 
+
 class DestinationEntry extends Component {
 
 constructor (props){
@@ -42,11 +43,6 @@ handleSelect = (destination) => {
 }
 
 render () {
-  if(this.props.destinations.fetched === false) {
-    return (
-      <div>loading</div>
-    )
-  }
   return (
   // <div className="destEntry">
   <section className="no-padding" id="locations">
