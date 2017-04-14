@@ -65,7 +65,7 @@ module.exports = {
     };
     skyBody.forEach((elem, i) => {
       const trimResults = finalarray[i];
-      trimResults.price = elem.MinPrice;
+      trimResults.price = Math.floor(elem.MinPrice * 1.25);
       trimResults.carrierId = elem.OutboundLeg.CarrierIds[0];
       trimResults.originId = elem.OutboundLeg.OriginId;
       trimResults.destinationId = elem.InboundLeg.OriginId;
