@@ -4,6 +4,5 @@ export function toggleHotels({ hotels }) {
 }
 
 export function toggleSelect({ hotel }) {
-  const id = hotel.id;
-  return { type: 'TOGGLE_SELECT_FULLFILLED', payload: id };
+  return { type: 'TOGGLE_SELECT_FULLFILLED', payload: hotel.id };
 }

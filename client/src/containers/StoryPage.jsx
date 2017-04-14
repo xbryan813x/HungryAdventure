@@ -4,53 +4,54 @@ import { connect } from 'react-redux';
 class StoryPage extends Component {
 
   render() {
+    console.log('ITS STORY TIME', this.props);
     if (!this.props.hotel) {
       return (
         <div className="parallaxContainer">
-        <section className="parallax">
-          <h1 className="storyCity">{this.props.destination.city}</h1>
-          <div className="infoContainer">
-            {this.props.destination.country}
-            <div >{this.props.destination.city}</div>
-            <div>{this.props.destination.country}</div>
-            <div>$ {this.props.destination.price}</div>
-            {this.props.yelpEvents.map((event, i) => <div key={i}>{event.name}</div>)}
-          </div>
-          <div className="space" />
-        </section>
-      </div>
+          <section className="parallax">
+            <h1 className="storyCity">{this.props.destination.city}</h1>
+            <div className="infoContainer">
+              {this.props.destination.country}
+              <div >{this.props.destination.city}</div>
+              <div>{this.props.destination.country}</div>
+              <div>$ {this.props.destination.price}</div>
+              {this.props.yelpEvents.map((event, i) => <div key={i}>{event.name}</div>)}
+            </div>
+            <div className="space" />
+          </section>
+        </div>
       );
     } else if (!this.props.events) {
       return (
         <div className="parallaxContainer">
-        <section className="parallax">
-          <h1 className="storyCity">{this.props.destination.city}</h1>
-          <div className="infoContainer">
-            {this.props.destination.country}
-            <div >{this.props.destination.city}</div>
-            <div>{this.props.destination.country}</div>
-            <div>$ {this.props.destination.price}</div>
-            <div>{this.props.hotel.hotel}</div>
-            <div>$ {this.props.hotel.price}</div>
-          </div>
-          <div className="space" />
-        </section>
-      </div>
+          <section className="parallax">
+            <h1 className="storyCity">{this.props.destination.city}</h1>
+            <div className="infoContainer">
+              {this.props.destination.country}
+              <div >{this.props.destination.city}</div>
+              <div>{this.props.destination.country}</div>
+              <div>$ {this.props.destination.price}</div>
+              <div>{this.props.hotel.hotel}</div>
+              <div>$ {this.props.hotel.price}</div>
+            </div>
+            <div className="space" />
+          </section>
+        </div>
       );
     } else if (!this.props.event && !this.props.hotel) {
       return (
         <div className="parallaxContainer">
-        <section className="parallax">
-          <h1 className="storyCity">{this.props.destination.city}</h1>
-          <div className="infoContainer">
-            {this.props.destination.country}
-            <div >{this.props.destination.city}</div>
-            <div>{this.props.destination.country}</div>
-            <div>$ {this.props.destination.price}</div>
-          </div>
-          <div className="space" />
-        </section>
-      </div>
+          <section className="parallax">
+            <h1 className="storyCity">{this.props.destination.city}</h1>
+            <div className="infoContainer">
+              {this.props.destination.country}
+              <div >{this.props.destination.city}</div>
+              <div>{this.props.destination.country}</div>
+              <div>$ {this.props.destination.price}</div>
+            </div>
+            <div className="space" />
+          </section>
+        </div>
       );
     }
 
