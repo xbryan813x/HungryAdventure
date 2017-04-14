@@ -10,7 +10,7 @@ export default function reduce(state = {}, action) {
       return { ...state, events: action.payload.events };
     }
     case 'RESET': {
-      return({})
+      return ({});
     }
   }
   return state;

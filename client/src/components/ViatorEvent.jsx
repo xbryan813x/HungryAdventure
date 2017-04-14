@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { currentViator } from '../actions/currentState';
-import { eventBudget } from '../actions/budgetAction';
  
 
 class ViatorEvent extends Component {
@@ -11,7 +10,6 @@ class ViatorEvent extends Component {
 
   add = (event) => {
     this.props.currentViator({ event: event })
-    this.props.eventBudget({ event: event })
   }
 
   render() {
