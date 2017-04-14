@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 class StoryPage extends Component {
 
   render() {
-    console.log('ITS STORY TIME', this.props);
     if (!this.props.hotel) {
       return (
         <div className="parallaxContainer">

@@ -19,7 +19,6 @@ export default function reduce(state = {
         imageUrl: action.payload.imageUrl,
         url,
       };
-      console.log('fsdjkldfsjkdsfkljsdfjdf', url);
       return { ...state, destination: payload };
     }
     case 'FETCH_CURRENTHOTEL_FULFILLED' : {
