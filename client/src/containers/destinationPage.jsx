@@ -29,7 +29,7 @@ class destinationPage extends Component {
     return (<div>
       <div><Link to="/events">YELP</Link></div>
       <div><Link to="/viator">VIATOR</Link></div>
-      <FrommersInfo />
+
       <h1> Hungry Adventure </h1>
       <div
         className="hero" style={{
@@ -71,11 +71,7 @@ class destinationPage extends Component {
       </div>
       <div style={{ marginBottom: '10%' }}>
         <Col sm={6} className="col-md-offset-1">
-          <h1> current budget: ${this.props.budget.flight}</h1>
-          <h1> hotel budget: ${this.props.budget.hotel}</h1>
-          <h1> {this.props.destination.city}</h1>
-          <h1> {this.props.destination.country}</h1>
-          <h1>$ {this.props.destination.price}</h1>
+          <FrommersInfo />
         </Col>
         <Weather />
       </div>

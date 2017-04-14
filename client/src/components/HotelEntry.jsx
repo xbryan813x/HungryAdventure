@@ -25,12 +25,12 @@ class HotelEntry extends Component {
   toggle = ({ hotels }) => {
     this.props.toggleHotels({ hotels })
   }
-  select = ({ select }) => {
-    this.props.toggleSelect({ select })
+  select = (hotel, toggle) => {
+    this.props.toggleSelect({ hotel, select: toggle.select })
   }
   clickHotel = (hotel, props) => {
     this.add(hotel, props);
-    this.select(props.toggle);
+    this.select(hotel, props.toggle);
   }
 
   render() {
@@ -46,7 +46,7 @@ class HotelEntry extends Component {
         <Button onClick={()=> this.toggle(this.props.toggle)} bsStyle="custom" style={{ float: "right" }}>See More...</Button>
         <div className="container"></div>
         {this.props.hotels.hotels.map((hotel, index) => (
-          <Col lg={4} sm={6}
+          <Col md={4}
             key={hotel.id}
             className={
               "pad"
