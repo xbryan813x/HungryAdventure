@@ -5,6 +5,11 @@ export default function reducer(state = {}, action) {
         hotels: action.payload,
       };
     }
+    case 'TOGGLE_SELECT_FULLFILLED': {
+      return { ...state,
+        select: action.payload,
+      };
+    }
   }
   return state;
 }
