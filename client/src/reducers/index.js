@@ -17,7 +17,7 @@ import toggle from './toggleReducer';
 import frommers from './frommersReducer';
 
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   destinations,
   profile,
   destination,
@@ -34,5 +34,13 @@ const rootReducer = combineReducers({
   toggle,
   frommers,
 });
+
+const rootReducer = (state, action) => {
+  if (action.type === 'RESET_STATE') {
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}
 
 export default rootReducer;

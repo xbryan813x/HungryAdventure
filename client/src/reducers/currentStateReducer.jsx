@@ -42,6 +42,9 @@ export default function reduce(state = {
       }
       return { ...state, viatorEvents: state.viatorEvents.concat(action.payload) };
     }
+    case 'RESET' : {
+      return { ...state, yelpEvents: [], viatorEvents: [] };
+    }
   }
   return state;
 }

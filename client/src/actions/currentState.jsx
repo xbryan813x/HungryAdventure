@@ -13,3 +13,7 @@ export function currentEvents({ event }) {
 export function currentViator({ event }) {
   return { type: 'FETCH_CURRENTVIAEVENT_FULFILLED', payload: event };
 }
+
+export function reset() {
+  return { type: 'RESET' }
+}
