@@ -5,6 +5,7 @@ import { fetchDestinations } from '../actions/destinationsAction';
 import { getBudget } from '../actions/budgetAction';
 import { PageHeader } from 'react-bootstrap';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction';
+import { reset } from '../actions/resetState'
 
 //Reducer for react inputs
 import { combineReducers } from 'redux';
@@ -32,6 +33,10 @@ class Layout extends React.Component {
       size:116,
       strokewidth:26
     };
+  }
+
+  componentWillMount() {
+    this.props.reset();
   }
 
   submit = (values) => {
@@ -265,4 +270,4 @@ const mapStateToProps = ({destinations, budget, profile}) => ({
  ...profile,
 })
 
-export default connect(mapStateToProps, { fetchDestinations, getBudget, saveSearchQuery })(Layout);
+export default connect(mapStateToProps, { fetchDestinations, getBudget, saveSearchQuery, reset })(Layout);
