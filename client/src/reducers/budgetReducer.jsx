@@ -44,7 +44,7 @@ export default function reduce(state = {}, action) {
       return { ...state, yelpEvents: yelpTotal };
     }
     case 'RESET': {
-      return { ...state, flight: undefined, hotel: undefined, events: undefined };
+      return { ...state, flight: undefined, hotel: undefined, yelpEvents: undefined, viatorEvents: undefined };
     }
   }
   return state;

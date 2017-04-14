@@ -9,5 +9,5 @@ import reducer from './reducers';
 const middleware = applyMiddleware(promise(), thunk, ReduxLogger);
 const enhancer = compose(persistState());
 
-export default createStore(reducer, composeWithDevTools(middleware))
+export default createStore(reducer, composeWithDevTools(middleware), enhancer)
 ;
