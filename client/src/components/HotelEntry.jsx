@@ -12,7 +12,7 @@ class HotelEntry extends Component {
   }
 
   add = (hotel, props) => {
-    this.props.currentHotel({ hotel: hotel});
+    this.props.currentHotel({ hotel });
     this.props.hotelBudget({
       hotel: hotel.price,
       budget: props.budget,
@@ -23,14 +23,14 @@ class HotelEntry extends Component {
   }
 
   toggle = ({ hotels }) => {
-    this.props.toggleHotels({ hotels: hotels })
+    this.props.toggleHotels({ hotels })
   }
-  select = (hotel, toggle) => {
-    this.props.toggleSelect({ select: toggle.select , hotel: hotel})
+  select = ({ select }) => {
+    this.props.toggleSelect({ select })
   }
   clickHotel = (hotel, props) => {
     this.add(hotel, props);
-    this.select(hotel, props);
+    this.select(props.toggle);
   }
 
   render() {
