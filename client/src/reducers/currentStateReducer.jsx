@@ -1,10 +1,25 @@
+import { skyscanner } from '../keys/skyscanner';
+
 export default function reduce(state = {
   yelpEvents: [],
   viatorEvents: [],
 }, action) {
   switch (action.type) {
     case 'FETCH_CURRENTDES_FULFILLED' : {
-      return { ...state, destination: action.payload };
+      const url = `http://partners.api.skyscanner.net/apiservices/referral/v1.0/US/USD/US-en/${action.payload.originTerminal}/${action.payload.IataCode}/${action.payload.arrivalDate}/${action.payload.departureDate}?apiKey=${skyscanner()}`;
+      const payload = {
+        price: action.payload.price,
+        arrivalDate: action.payload.arrivalDate,
+        departureDate: action.payload.departureDate,
+        originTerminal: action.payload.originTerminal,
+        city: action.payload.city,
+        country: action.payload.country,
+        IataCode: action.payload.IataCode,
+        carrier: action.payload.carrier,
+        imageUrl: action.payload.imageUrl,
+        url,
+      };
+      return { ...state, destination: payload };
     }
     case 'FETCH_CURRENTHOTEL_FULFILLED' : {
       return { ...state, hotel: action.payload };
