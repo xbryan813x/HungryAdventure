@@ -19,10 +19,9 @@ class destinationPage extends Component {
   }
 
   render() {
-  
     const budget = this.props.budget.original;
     const flightCost = this.props.budget.flight || 0;
-    const hotelCost = this.props.budget.hotel || 0 ;
+    const hotelCost = this.props.budget.hotel || 0;
     const activityCost = this.props.budget.activity || 0;
     const foodCost = this.props.budget.food || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
@@ -38,21 +37,23 @@ class destinationPage extends Component {
           height: '70%',
 
         }}
-      ><DonutChart data= {[
-        { label: ' Hotel ( $ ' + hotelCost + ' )',
-          value: hotelCost },
-        { label: ' Flight ( $ ' + flightCost + ' )',
-          value: flightCost },
-        { label: 'Attractions ( $ ' + activityCost + ' )',
-          value: activityCost },
-        { label: 'Food ( $ ' + foodCost + ' )',
-          value: foodCost,
-        },
-        { label: 'Remaining ( $ ' + totalBudget + ' )',
-          value: totalBudget,
-          isEmpty: true,
-      }]} height={200} width={200} legend={false} className='donutAlign' />
-</div>
+      ><DonutChart
+        data={[
+          { label: ` Hotel ( $ ${hotelCost} )`,
+            value: hotelCost },
+          { label: ` Flight ( $ ${flightCost} )`,
+            value: flightCost },
+          { label: `Attractions ( $ ${activityCost} )`,
+            value: activityCost },
+          { label: `Food ( $ ${foodCost} )`,
+            value: foodCost,
+          },
+          { label: `Remaining ( $ ${totalBudget} )`,
+            value: totalBudget,
+            isEmpty: true,
+          }]} height={200} width={200} legend={false} className="donutAlign"
+      />
+      </div>
       <div
         style={{
           backgroundColor: 'white',

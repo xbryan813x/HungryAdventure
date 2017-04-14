@@ -235,10 +235,13 @@ header .header-content .header-content-inner p {
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
   font-size: 18px;
 }
-.portfolio-box:hover .portfolio-box-caption {
+ .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
-
 }
+.select .portfolio-box .portfolio-box-caption {
+ opacity: 1;
+}
+
 .portfolio-box:focus {
   outline: none;
 }
@@ -455,14 +458,9 @@ body {
   display: none;
 }
 
-#overlay    {
-  background:rgba(0,0,0,.75);
-  opacity:0;
+.pad {
+  padding: 0;
 }
-
-#box:hover #overlay {
-               opacity:1;}
-
 
 /*+++++++++++++++
 +++ D3 Styles +++
@@ -470,4 +468,3 @@ body {
 .donutAlign {
   margin-top: 250px;
 }
-
