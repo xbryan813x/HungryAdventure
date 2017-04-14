@@ -1,7 +1,9 @@
 export default function reduce(state = {}, action) {
   switch (action.type) {
     case 'GET_BUDGET_FULFILLED' : {
-      return { ...state, original: action.payload };
+      return { ...state,
+        original: action.payload,
+        loading: true }
     }
     case 'FLIGHT_BUDGET_FULFILLED' : {
       return { ...state, flight: action.payload.flight };
