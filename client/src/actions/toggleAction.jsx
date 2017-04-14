@@ -3,7 +3,7 @@ export function toggleHotels({ hotels }) {
   return { type: 'TOGGLE_HOTELS_FULLFILLED', payload: bool };
 }
 
-export function toggleSelect({ select, hotel }) {
+export function toggleSelect({ hotel }) {
   const id = hotel.id;
   return { type: 'TOGGLE_SELECT_FULLFILLED', payload: id };
 }
