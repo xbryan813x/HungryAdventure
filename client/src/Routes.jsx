@@ -13,6 +13,7 @@ const Routes = () => (
     <div>
       <Route exact path="/" component={Layout} />
       <Route path="/flights" component={Destinations} />
+      <Route path="/flights?Budget=:Budget&departDate=:departDate&arrivalDate=arrivalDate" component={GoogleMaps} />
       <Route path="/maps" component={GoogleMaps} />
       <Route path="/destination" component={Destination} />
       <Route path="/events" component={Events} />

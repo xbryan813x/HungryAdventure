@@ -25,6 +25,7 @@ class Layout extends React.Component {
 
   componentWillMount() {
     this.props.reset();
+    console.log(window.location);
   }
 
   submit = (values) => {
@@ -35,7 +36,7 @@ class Layout extends React.Component {
     endDate: values.arrivalDate,
   }
     this.props.getBudget(values);
-    this.props.history.push('/flights');
+    this.props.history.push(`/flights?Budget=${values.Budget}&departDate=${values.departDate}&arrivalDate=${values.arrivalDate}`);
     this.props.fetchDestinations(values)
       .then(() =>{
         this.props.saveSearchQuery(saveQueryObj);

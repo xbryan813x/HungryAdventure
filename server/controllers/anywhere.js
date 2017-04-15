@@ -1,15 +1,17 @@
 const rp = require('request-promise');
 const anywhereHelper = require('../helpers/anywhereHelper.js');
-
-const dummyFlights = require('../dummy/dummyFlights.js');
+// const dummyFlights = require('../dummy/dummyFlights.js');
 
 module.exports = {
-  getAnywhereDummy: (req, res) => {
-    res.send(dummyFlights);
-  },
+  // getAnywhereDummy: (req, res) => {
+  //   res.send(dummyFlights);
+  // },
   getAnywhere: (req, res) => {
     const departDate = req.query.departDate.slice(0, 10);
     const arrivalDate = req.query.arrivalDate.slice(0, 10);
+    console.log('DepartureDate--->', req.query.departDate);
+    console.log('ArrivalDate--->', req.query.arrivalDate);
+    console.log('HELLLLLLOOOOOOOOOOO!!!', req.query.Budget);
 
     const options = {
       url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/NYCA/anywhere/${departDate}/${arrivalDate}?apiKey=${process.env.SKYSCANNER_API}`,

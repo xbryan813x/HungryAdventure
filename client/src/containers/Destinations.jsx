@@ -15,13 +15,41 @@ class Destinations extends Component {
   
 componentWillMount() {
   this.props.resetBudget();
+  if (window.location.search){
+
+  var queryString = window.location.search;
+  queryString = queryString.substring(1);
+
+  var parseQueryString = function( q ) {
+    var params = {}, queries, temp, i, l;
+    // Split into key/value pairs
+    queries = q.split("&");
+    // Convert the array of strings into an object
+    for ( i = 0, l = queries.length; i < l; i++ ) {
+        temp = queries[i].split('=');
+        params[temp[0]] = temp[1];
+    }
+    return params;
+};
+
+let queryObj = {
+  Budget: parseQueryString(queryString).Budget,
+  departDate: new Date ((parseQueryString(queryString).departDate).replace(/%20/g, " ")),
+  arrivalDate: new Date ((parseQueryString(queryString).arrivalDate).replace(/%20/g, " ")),
+}
+
+this.props.getBudget(queryObj)
+this.props.fetchDestinations(queryObj);
+
+}
+  
 }
 
 submit = (values) => {
+  
   this.props.getBudget(values)
-
   this.props.fetchDestinations(values).then(() =>{
-     this.props.history.push('/flights');
+     this.props.history.push(`/flights?Budget=${values.Budget}&departDate=${values.departDate}&arrivalDate=${values.arrivalDate}`);
    })
 }
 
