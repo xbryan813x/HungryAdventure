@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
+import HotelPin from '../components/HotelPin';
 const API = require('../keys/mapsKey.js');
+
 
 class GoogleMaps extends Component {
   constructor(props) {
     super(props);
+    console.log('GOOGLEMAPS', this.props);
   }
 
   render() {
-    if (this.props.locator === undefined) {
+    if (this.props.locator === undefined || this.props.hotels === undefined) {
       return (
         <div>loading</div>
       );
@@ -18,11 +21,16 @@ class GoogleMaps extends Component {
       <div className="maps">
         <GoogleMapReact
           options={{ scrollwheel: false }}
-          defaultCenter={{ lat: this.props.locator.latitude, lng: this.props.locator.longitude }}
-          defaultZoom={13}
+          defaultCenter={{ lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude }}
+          defaultZoom={14}
           bootstrapURLKeys={{ key: API.googleMaps() }}
-          key={this.props.locator.latitude}
-        />
+        >
+          {this.props.hotelsArr.map((hotel, index) =>
+            <HotelPin
+              lat={hotel.lat} lng={hotel.lng} key={index} price={hotel.price}
+            />,
+        )}
+        </GoogleMapReact>
       </div>
     );
   }

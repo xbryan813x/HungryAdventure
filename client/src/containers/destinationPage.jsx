@@ -25,7 +25,6 @@ class destinationPage extends Component {
     const activityCost = this.props.budget.viatorEvents || 0;
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
-
     return (<div>
       <div><Link to="/events">YELP</Link></div>
       <div><Link to="/viator">VIATOR</Link></div>
@@ -39,19 +38,19 @@ class destinationPage extends Component {
         }}
       ><DonutChart
         data={[{ label: `Remaining ( $ ${totalBudget} )`,
-            value: totalBudget,
-            isEmpty: true,
-          },
-          { label: ` Hotel ( $ ${hotelCost} )`,
-            value: hotelCost },
-          { label: ` Flight ( $ ${flightCost} )`,
-            value: flightCost },
-          { label: `Attractions ( $ ${activityCost} )`,
-            value: activityCost },
-          { label: `Food ( $ ${foodCost} )`,
-            value: foodCost,
-          }
-          ]} height={200} width={200} legend={false} className="donutAlign"
+          value: totalBudget,
+          isEmpty: true,
+        },
+        { label: ` Hotel ( $ ${hotelCost} )`,
+          value: hotelCost },
+        { label: ` Flight ( $ ${flightCost} )`,
+          value: flightCost },
+        { label: `Attractions ( $ ${activityCost} )`,
+          value: activityCost },
+        { label: `Food ( $ ${foodCost} )`,
+          value: foodCost,
+        },
+        ]} height={200} width={200} legend={false} className="donutAlign"
       />
       </div>
       <div
@@ -75,10 +74,9 @@ class destinationPage extends Component {
         </Col>
         <Weather />
       </div>
-      <GoogleMaps locator={this.props.geo.locator} />
       <div style={{ display: 'grid' }} />
+      <GoogleMaps locator={this.props.geo.locator} hotelsArr={this.props.hotels.hotels} />
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
-      <div><Link to="/events">EVENTS</Link></div>
     </div>
     );
   }
