@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export function fetchDestinations(searchObj) {
-	console.log('WITHIN FETCH DEST', searchObj);
   return function (dispatch) {
     return axios.get('/api/anywhere', {
       params: searchObj })
