@@ -17,7 +17,8 @@ module.exports = {
         })
         // res.json(googleAirports)
 
-
+        //this.props.airport     => list of airports
+        //this.props.geolocation => user location
         options = {
           url: `http://partners.api.skyscanner.net/apiservices/geo/v1.0?apiKey=prtl6749387986743898559646983194`,
           headers: {
@@ -67,7 +68,7 @@ module.exports = {
               }
             }
           }
-            console.log(result)
+            res.json(result)
         })
       })
   }
