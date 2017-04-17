@@ -476,3 +476,29 @@ body {
 .donutAlign {
   margin-top: 250px;
 }
+
+.viatorContainer {
+  width: 80%;
+  margin: auto;
+  /*padding-top: 2%;*/
+  margin-top: 2%;
+}
+
+.viatorEventContainer {
+  padding-bottom: 2%;
+  height: 21%;
+}
+
+.viatorImg {
+  width: 100%;
+  cursor: pointer;
+}
+
+.viatorPrice {
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+.viatorHide {
+  display: none;
+}

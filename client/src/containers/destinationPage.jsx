@@ -8,6 +8,7 @@ import HotelList from '../components/HotelList';
 import Weather from '../components/weather';
 import BudgetBar from '../components/budgetBar';
 import FrommersInfo from './FrommersInfo';
+import ViatorEvents from './ViatorEvents';
 
 // Charts
 import DonutChart from 'react-donut-chart';
@@ -27,7 +28,6 @@ class destinationPage extends Component {
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
     return (<div>
       <div><Link to="/events">YELP</Link></div>
-      <div><Link to="/viator">VIATOR</Link></div>
 
       <h1> Hungry Adventure </h1>
       <div
@@ -77,6 +77,7 @@ class destinationPage extends Component {
       <div style={{ display: 'grid' }} />
       <GoogleMaps locator={this.props.geo.locator} hotelsArr={this.props.hotels.hotels} />
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
+      <ViatorEvents />
     </div>
     );
   }
