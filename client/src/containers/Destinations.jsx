@@ -15,6 +15,7 @@ class Destinations extends Component {
   
 componentWillMount() {
   this.props.resetBudget();
+
   if (window.location.search){
 
   var queryString = window.location.search;
@@ -43,6 +44,7 @@ this.props.fetchDestinations(queryObj);
 
 }
   
+
 }
 
 submit = (values) => {
@@ -90,15 +92,19 @@ getRandomInt = (min, max) => {
     
     )
   }
-    return (
-      <div>
-        <Search onSubmit={this.submit}/>
+    return ( <div>
+  <Search onSubmit={this.submit}/>
         <Auth />
-        <div className='pageFrame'>
-        {/*<h1>Budget: {this.props.budget.original}</h1>*/}
+    <section id="banner">
+        <h2>Hungry Adventure</h2>
+        <p>Lets go on an adventure</p>
+    </section>
+<section className="customContainer">
         <DestinationList destinations={this.props.destinations} redirect={(url)=>{this.props.history.push(url)}}/>
-        </div>
-      </div>
+</section>
+
+
+</div>
     );
   }
 }
@@ -110,3 +116,4 @@ const mapStateToProps = ({destinations, budget}) => ({
 
 
 export default connect(mapStateToProps, { fetchDestinations, saveSearchQuery, reset, getBudget, resetBudget })(Destinations);
+

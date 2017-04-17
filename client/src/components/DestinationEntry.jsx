@@ -42,33 +42,28 @@ handleSelect = (destination) => {
   this.props.redirect('/destination');
 }
 
+getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+
 render () {
+
+
   return (
   // <div className="destEntry">
   <section className="no-padding" id="locations">
-    <div className="container-fluid">
-      <div className="row no-gutter popup-gallery">
     {this.props.destinations.destinations.map((destination, index) => (
-       <div className="col-lg-4 col-sm-6" key={destination.city}>
-            <div className="portfolio-box" onClick={ ()=> {this.handleSelect(destination)}} >
-                <img src={destination.imageUrl[0]}
-                  className="img-responsive customImg"
-                  alt="" />
-                <div className="portfolio-box-caption">
-                    <div className="portfolio-box-caption-content">
-                        <div className="project-category text-faded">
-                            {destination.city}
-                        </div>
-                        <div className="project-name">
-                            ${destination.price}
-                        </div>
-                    </div>
-                </div>
+       <div className="col-lg-4 col-sm-6" key={destination.city+index}>
+            <div className="event-card" onClick={ ()=> {this.handleSelect(destination)}} >
+                <img src={destination.imageUrl[this.getRandomInt(0,destination.imageUrl.length)]}
+                  className="customImg" alt="Image not found" onError={(e)=>{e.target.src='https://ugotalksalot.files.wordpress.com/2016/06/no-thumb.jpg';}}/>
+                  <div className="card-text"> ${destination.price} {destination.city} , {destination.country}</div>      
             </div>
         </div>
       ))}
-      </div>
-    </div>
   </section>
     )
   }
