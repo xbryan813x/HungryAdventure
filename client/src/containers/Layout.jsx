@@ -7,6 +7,9 @@ import { PageHeader } from 'react-bootstrap';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction';
 import { reset } from '../actions/resetState'
 
+
+
+// import { userLocation } from './userLocationAction'
 //Reducer for react inputs
 import { combineReducers } from 'redux';
 //Imported Component
@@ -15,6 +18,9 @@ import Auth from './FacebookAuth';
 
 // Charts
 import DonutChart from 'react-donut-chart';
+
+import Auth from './FacebookAuth'
+import UserLocationTrigger from './UserLocationTrigger'
 
 
 class Layout extends React.Component {
@@ -56,6 +62,7 @@ class Layout extends React.Component {
                 <hr></hr>
                   <center>
                     <Search onSubmit={this.submit} />
+                    <UserLocationTrigger />
                   </center>
             </div>
           </div>
@@ -238,7 +245,7 @@ class Layout extends React.Component {
                 </div>
                 <div className="col-lg-4 text-center">
                     <i className="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">team@hungryadventure.com</a></p>
+                    <p><a href="mailto:your-email@hotmail.com">team@hungryadventure.com</a></p>
                 </div>
             </div>
         </div>
