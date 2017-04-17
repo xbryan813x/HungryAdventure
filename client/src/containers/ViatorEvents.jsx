@@ -39,15 +39,14 @@ class ViatorEvents extends Component {
     return (
       <div className="eventsContainer">
         <div>
-          <span>Events</span>
           <span><Button onClick={() => this.expand()}>See More..</Button></span>
         </div>
         <br/>
         {this.props.viator.events.map((event, index) => (
           <Col sm={6} md={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
-          <img className="viatorImg" src={event.image} onClick={() => this.add(event)}/>
+          <img className="eventImg" src={event.image} onClick={() => this.add(event)}/>
           <div>
-          <span className="viatorPrice">${event.price}</span>
+          <span className="price">${event.price}</span>
           <a href={`https://www.viator.com/${event.url}`}>{event.title}</a>
           </div>
         </Col>

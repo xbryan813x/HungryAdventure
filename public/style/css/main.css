@@ -15,11 +15,11 @@
 .input .open > a:focus {background-color: transparent;}
 
 
-.eventContainer {
+/*.eventContainer {
   width: 50%;
   margin: auto;
   padding-bottom: 1%;
-}
+}*/
 
 .pin {
 width: 50px;
@@ -476,25 +476,24 @@ body {
 .donutAlign {
   margin-top: 250px;
 }
+.eventContainer {
+  padding-bottom: 2%;
+  /*height: 21%;*/
+}
 
 .eventsContainer {
-  width: 80%;
   margin: auto;
   /*padding-top: 2%;*/
   margin-top: 2%;
 }
 
-.eventContainer {
-  padding-bottom: 2%;
-  height: 21%;
-}
 
-.viatorImg {
+.eventImg {
   width: 100%;
   cursor: pointer;
 }
 
-.viatorPrice {
+.price {
   font-weight: bold;
   padding-right: 5px;
 }

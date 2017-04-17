@@ -42,14 +42,13 @@ class YelpEvents extends Component {
     return (
       <div className="eventsContainer">
         <div>
-          <span>Events</span>
           <span><Button onClick={() => this.expand()}>See More...</Button></span>
         </div>
         {this.props.yelp.events.map((event, index) => (
           <Col sm={6} md={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
-          <img className="viatorImg" src={event.image_url} onClick={() => this.add(event)}/>
+          <img className="eventImg" src={event.image_url} onClick={() => this.add(event)}/>
           <div>
-          <span className="viatorPrice">${event.price}</span>
+          <span className="price">${event.price}</span>
           <a href={event.url}>{event.name}</a>
           </div>
         </Col>
