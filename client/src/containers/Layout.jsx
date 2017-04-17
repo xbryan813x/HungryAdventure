@@ -6,22 +6,16 @@ import { getBudget } from '../actions/budgetAction';
 import { PageHeader } from 'react-bootstrap';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction';
 import { reset } from '../actions/resetState'
-
-
-
 // import { userLocation } from './userLocationAction'
 //Reducer for react inputs
 import { combineReducers } from 'redux';
 //Imported Component
 import Search from './searchForm';
 import Auth from './FacebookAuth';
+import UserLocationTrigger from './UserLocationTrigger'
 
 // Charts
 import DonutChart from 'react-donut-chart';
-
-import Auth from './FacebookAuth'
-import UserLocationTrigger from './UserLocationTrigger'
-
 
 class Layout extends React.Component {
   constructor (props){
