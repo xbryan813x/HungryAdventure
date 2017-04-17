@@ -44,11 +44,8 @@ class Layout extends React.Component {
     this.props.getBudget(values);
     this.props.history.push(`/flights?Budget=${values.Budget}&departDate=${values.departDate}&arrivalDate=${values.arrivalDate}`);
     this.props.fetchDestinations(values)
-      .then(() => {
+      .then(() =>{
         this.props.saveSearchQuery(saveQueryObj);
-      })
-      .then(() => {
-        this.props.history.push('/flights');
       });
   }
 
