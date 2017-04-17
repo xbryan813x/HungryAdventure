@@ -16,6 +16,7 @@ class Destinations extends Component {
 componentWillMount() {
   this.props.resetBudget();
 
+if(Object.keys(this.props.budget).length === 0){
   if (window.location.search){
 
   var queryString = window.location.search;
@@ -43,7 +44,7 @@ this.props.getBudget(queryObj)
 this.props.fetchDestinations(queryObj);
 
 }
-  
+}
 
 }
 
