@@ -16,6 +16,8 @@ import UserLocationTrigger from './UserLocationTrigger'
 
 // Charts
 import DonutChart from 'react-donut-chart';
+import UserLocationTrigger from './UserLocationTrigger'
+
 
 class Layout extends React.Component {
   constructor (props){
