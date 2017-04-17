@@ -6,6 +6,9 @@ import { getBudget } from '../actions/budgetAction';
 import { PageHeader } from 'react-bootstrap';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction';
 import { reset } from '../actions/resetState'
+import { getGoogleData } from '../actions/userLocationAction'
+
+
 // import { userLocation } from './userLocationAction'
 //Reducer for react inputs
 import { combineReducers } from 'redux';
@@ -26,7 +29,6 @@ class Layout extends React.Component {
 
   componentWillMount() {
     this.props.reset();
-    console.log(window.location);
   }
 
   submit = (values) => {
@@ -36,12 +38,13 @@ class Layout extends React.Component {
     startDate: values.departDate,
     endDate: values.arrivalDate,
   }
+    values.cityId = this.props.airportCode.airportCode;
     this.props.getBudget(values);
     this.props.history.push(`/flights?Budget=${values.Budget}&departDate=${values.departDate}&arrivalDate=${values.arrivalDate}`);
     this.props.fetchDestinations(values)
       .then(() =>{
         this.props.saveSearchQuery(saveQueryObj);
-      });
+      })
   }
 
   render () {
@@ -254,11 +257,12 @@ class Layout extends React.Component {
 
 
 //Connects to store
-const mapStateToProps = ({destinations, budget, profile, form}) => ({
+const mapStateToProps = ({destinations, budget, profile, form, airportCode}) => ({
  destinations: destinations.destinations,
  budget,
  ...profile,
  form,
+ airportCode,
 })
 
-export default connect(mapStateToProps, { fetchDestinations, getBudget, saveSearchQuery, reset })(Layout);
+export default connect(mapStateToProps, { fetchDestinations, getBudget, saveSearchQuery, reset, getGoogleData })(Layout);

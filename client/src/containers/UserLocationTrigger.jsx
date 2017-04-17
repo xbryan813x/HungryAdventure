@@ -6,7 +6,6 @@ class UserLocationTrigger extends Component {
   constructor(props) {
     super(props);
   }
-
   getLocation = () => {
       let options = {
       enableHighAccuracy: true,
@@ -17,6 +16,10 @@ class UserLocationTrigger extends Component {
     const success = (pos) => {
       let crd = pos.coords;
 
+      this.props.getGoogleData({
+        latitude: crd.latitude,
+        longitude: crd.longitude
+      })
       console.log('Your current position is:');
       console.log(`Latitude : ${crd.latitude}`);
       console.log(`Longitude: ${crd.longitude}`);
@@ -32,6 +35,7 @@ class UserLocationTrigger extends Component {
   }
 
   render() {
+    console.log('inside of UserLocationTrigger =>', this.props)
     console.log('SEARCH',this.props)
     return (
 
@@ -47,4 +51,4 @@ const mapStateToProps = state => ({
   ...state,
 });
 
-export default connect(mapStateToProps, getGoogleData)(UserLocationTrigger)
+export default connect(mapStateToProps, { getGoogleData })(UserLocationTrigger)
