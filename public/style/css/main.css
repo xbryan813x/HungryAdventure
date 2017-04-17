@@ -477,14 +477,14 @@ body {
   margin-top: 250px;
 }
 
-.viatorContainer {
+.eventsContainer {
   width: 80%;
   margin: auto;
   /*padding-top: 2%;*/
   margin-top: 2%;
 }
 
-.viatorEventContainer {
+.eventContainer {
   padding-bottom: 2%;
   height: 21%;
 }
@@ -499,6 +499,6 @@ body {
   padding-right: 5px;
 }
 
-.viatorHide {
+.hide {
   display: none;
 }

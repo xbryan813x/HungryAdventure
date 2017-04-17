@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { currentEvents } from '../actions/currentStateAction';
+import { yelpBudget } from '../actions/budgetAction';
+import { eventsImage } from '../actions/budgetBarAction';
 import { Col, Button } from 'react-bootstrap';
-import { currentViator } from '../actions/currentStateAction';
-import { viatorBudget } from '../actions/budgetAction';
 
-class ViatorEvents extends Component {
+
+class YelpEvents extends Component {
   constructor(props) {
     super(props)
-    this.state = {
+        this.state = {
       show: " hide",
       flag: true
     }
   }
 
   add = (event) => {
-    this.props.currentViator({ event: event })
+    this.props.currentEvents({event: event});
+    this.props.eventsImage({ events: event.image_url })
     setTimeout(() => {
-      this.props.viatorBudget(this.props.current)
+      this.props.yelpBudget(this.props.current)
     }, 1000)
   }
 
@@ -31,29 +34,28 @@ class ViatorEvents extends Component {
   }
 
   render() {
-    if (this.props.viator.events === undefined) {
+    if (this.props.yelp.events === undefined) {
       return (
-        <div>No Viator Events</div>
-      )
+        <div>No Yelp Events</div>
+      );
     }
     return (
       <div className="eventsContainer">
         <div>
           <span>Events</span>
-          <span><Button onClick={() => this.expand()}>See More..</Button></span>
+          <span><Button onClick={() => this.expand()}>See More...</Button></span>
         </div>
-        <br/>
-        {this.props.viator.events.map((event, index) => (
+        {this.props.yelp.events.map((event, index) => (
           <Col sm={6} md={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
-          <img className="viatorImg" src={event.image} onClick={() => this.add(event)}/>
+          <img className="viatorImg" src={event.image_url} onClick={() => this.add(event)}/>
           <div>
           <span className="viatorPrice">${event.price}</span>
-          <a href={`https://www.viator.com/${event.url}`}>{event.title}</a>
+          <a href={event.url}>{event.name}</a>
           </div>
         </Col>
         ))}
       </div>
-    );
+    )
   }
 }
 
@@ -61,4 +63,4 @@ const mapStateToProps = state => ({
   ...state,
 });
 
-export default connect(mapStateToProps, { currentViator, viatorBudget })(ViatorEvents)
+export default connect(mapStateToProps, { currentEvents, yelpBudget, eventsImage })(YelpEvents);

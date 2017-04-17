@@ -9,6 +9,7 @@ import Weather from '../components/weather';
 import BudgetBar from '../components/budgetBar';
 import FrommersInfo from './FrommersInfo';
 import ViatorEvents from './ViatorEvents';
+import YelpEvents from './YelpEvents';
 
 // Charts
 import DonutChart from 'react-donut-chart';
@@ -27,8 +28,6 @@ class destinationPage extends Component {
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
     return (<div>
-      <div><Link to="/events">YELP</Link></div>
-
       <h1> Hungry Adventure </h1>
       <div
         className="hero" style={{
@@ -78,6 +77,7 @@ class destinationPage extends Component {
       <GoogleMaps locator={this.props.geo.locator} hotelsArr={this.props.hotels.hotels} />
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
       <ViatorEvents />
+      <YelpEvents />
     </div>
     );
   }

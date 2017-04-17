@@ -7,7 +7,7 @@ import geo from './geoReducer';
 import hotels from './hotelReducer';
 import budget from './budgetReducer';
 import bar from './budgetBarReducer';
-import events from './eventsReducer';
+import yelp from './yelpReducer';
 import profile from './facebookReducer';
 import weather from './weatherReducer';
 import current from './currentStateReducer';
@@ -25,7 +25,7 @@ const appReducer = combineReducers({
   hotels,
   budget,
   bar,
-  events,
+  yelp,
   current,
   form: formReducer,
   weather,
