@@ -78,6 +78,7 @@ class destinationPage extends Component {
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
       <ViatorEvents />
       <YelpEvents />
+      <button> <Link to="/storypage"> CHECKOUT</Link></button>
     </div>
     );
   }
