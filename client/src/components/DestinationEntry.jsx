@@ -7,7 +7,7 @@ import { fetchHotels } from '../actions/hotelAction';
 import { flightBudget } from '../actions/budgetAction';
 import { history, Link } from 'react-router-dom'
 import { browserHistory } from 'react-router';
-import { fetchEvents } from '../actions/eventsAction'
+import { fetchEvents } from '../actions/yelpAction'
 import { fetchWeather } from '../actions/weatherAction'
 import { currentDestination } from '../actions/currentStateAction';
 import { destinationImage } from '../actions/budgetBarAction';

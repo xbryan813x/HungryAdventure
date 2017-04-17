@@ -55,9 +55,9 @@ class HotelEntry extends Component {
             }
             onClick={()=> {  this.clickHotel(hotel, this.props) }}
           >
-            <div className="portfolio-box">
-              <img className="img-responsive customImg" alt="" src={hotel.pictures[0]} />
-              <div className='portfolio-box-caption'>
+            <div className="event-card hotel">
+              <img className="customImg" alt="" src={hotel.pictures[0]} />
+              <div className='card-text'>
                 <div className='portfolio-box-caption-content'>
                   <div className="project-category text-faded">
                     {Array(Math.floor(hotel.rating)).fill(0).map((elem, i) =>

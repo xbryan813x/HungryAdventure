@@ -15,11 +15,11 @@
 .input .open > a:focus {background-color: transparent;}
 
 
-.eventContainer {
+/*.eventContainer {
   width: 50%;
   margin: auto;
   padding-bottom: 1%;
-}
+}*/
 
 .pin {
 width: 50px;
@@ -569,13 +569,11 @@ Destionations Page Design
     margin-right: 4%;
 }
 
-
 .event-card{
   position: relative;
   background-color: #FFFFFF;
   border: .5px solid #B5B5B5;
-  height: 450px;
-  width: 650px;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -605,6 +603,10 @@ Destionations Page Design
 
 }
 
+.hotel {
+  height: 30%;
+}
+
 .card-text {
    position: absolute; 
    bottom: 0; 
@@ -615,4 +617,31 @@ Destionations Page Design
    background: rgb(0, 0, 0); /* fallback color */
    background: rgba(0, 0, 0, 0.7);
    padding: 10px; 
+}
+
+.eventContainer {
+  padding-bottom: 2%;
+  /*height: 21%;*/
+}
+
+.eventsContainer {
+  margin: auto;
+  /*padding-top: 2%;*/
+  margin-top: 2%;
+}
+
+
+.eventImg {
+  width: 100%;
+  cursor: pointer;
+}
+
+.price {
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+.hide {
+  display: none;
+
 }
