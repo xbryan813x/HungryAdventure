@@ -7,7 +7,6 @@ module.exports = {
     res.send(dummyFlights);
   },
   getAnywhere: (req, res) => {
-    console.log('req dot query', req.query);
     const departDate = req.query.departDate.slice(0, 10);
     const arrivalDate = req.query.arrivalDate.slice(0, 10);
 

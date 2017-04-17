@@ -52,13 +52,13 @@ class Layout extends React.Component {
         <section id="search">
           <div className="header-content">
             <div className="header-content-inner">
-            <br></br>
+              <br></br>
               <h1 id="homeHeading">HUNGRY ADVENTURE</h1>
-                <hr></hr>
-                  <center>
-                    <Search onSubmit={this.submit} />
-                    <UserLocationTrigger />
-                  </center>
+              <hr></hr>
+              <center>
+                <Search onSubmit={this.submit} />
+                <UserLocationTrigger />
+              </center>
             </div>
           </div>
         </section>
@@ -68,11 +68,11 @@ class Layout extends React.Component {
         <div className="container">
             <div className="row">
                 <div className="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 className="section-heading">Ready for an Adventure?</h2>
-                    <hr className="light"></hr>
-                    <p className="text-faded">Do you have a budget and data you're available but don't know where to go or what your options are? We have you covered! Out site provides a one stop shop for all travel
-                    needs.</p>
-                    <a href="#search" className="page-scroll btn btn-default btn-xl sr-button">Lets Get Started!</a>
+                  <h2 className="section-heading">Ready for an Adventure?</h2>
+                  <hr className="light"></hr>
+                  <p className="text-faded">Do you have a budget and data you're available but don't know where to go or what your options are? We have you covered! Out site provides a one stop shop for all travel
+                  needs.</p>
+                  <a href="#search" className="page-scroll btn btn-default btn-xl sr-button">Lets Get Started!</a>
                 </div>
             </div>
         </div>
