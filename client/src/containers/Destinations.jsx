@@ -8,11 +8,11 @@ import Auth from './FacebookAuth';
 import { Jumbotron } from 'react-bootstrap';
 import { reset } from '../actions/resetState'
 import { getBudget, resetBudget } from '../actions/budgetAction'
+import { getGoogleData } from '../actions/userLocationAction'
 
 
 class Destinations extends Component {
 
-  
 componentWillMount() {
   this.props.resetBudget();
   if (window.location.search){
@@ -37,16 +37,18 @@ let queryObj = {
   departDate: new Date ((parseQueryString(queryString).departDate).replace(/%20/g, " ")),
   arrivalDate: new Date ((parseQueryString(queryString).arrivalDate).replace(/%20/g, " ")),
 }
+console.log('HELLO',this.airportCode)
+
 
 this.props.getBudget(queryObj)
 this.props.fetchDestinations(queryObj);
 
 }
-  
+
 }
 
 submit = (values) => {
-  
+
   this.props.getBudget(values)
   this.props.fetchDestinations(values).then(() =>{
      this.props.history.push(`/flights?Budget=${values.Budget}&departDate=${values.departDate}&arrivalDate=${values.arrivalDate}`);
@@ -62,7 +64,7 @@ getRandomInt = (min, max) => {
 
   render() {
 
-  let funFacts = 
+  let funFacts =
     ['Did you know London, England draws more international visitors than any other city on the planet?',
     'Did you know that 40 per cent of the New York subway system is above ground, and it runs 24 hours a day?',
     'San Francisco’s famous suspension bridge isn’t actually gold; its official paint colour is ‘international orange.’ Goldengatebridge.org even publicizes the colour formula used to attain this orange hue, so fans of the bridge can replicate the exact tone at home. The bridge owes its golden name to the Golden Gate Strait, the waterway it straddles, not its paint colour.',
@@ -87,7 +89,7 @@ getRandomInt = (min, max) => {
         <img src='../../assets/loading.gif'></img>
         </center>
       </Jumbotron>
-    
+
     )
   }
     return (
@@ -109,4 +111,4 @@ const mapStateToProps = ({destinations, budget}) => ({
 });
 
 
-export default connect(mapStateToProps, { fetchDestinations, saveSearchQuery, reset, getBudget, resetBudget })(Destinations);
+export default connect(mapStateToProps, { fetchDestinations, saveSearchQuery, reset, getBudget, resetBudget, getGoogleData })(Destinations);
