@@ -486,12 +486,12 @@ Destionations Page Design
 /* Banner */
 
   #banner {
-    background-attachment: fixed;              
+    background-attachment: fixed;
     background-color: #666;
     background-image: url("../../assets/banner.jpg");
-    background-position: center center;         
-    background-repeat: no-repeat;             
-    background-size: cover;      
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #fff;
     padding: 12em 0 20em 0;
     text-align: center;
@@ -548,7 +548,7 @@ Destionations Page Design
         background: #fff;
         color: #666 !important;
       }
-  
+
   div.major {
     padding: 1em 0;
     text-align: center;
@@ -615,15 +615,15 @@ Destionations Page Design
 }
 
 .card-text {
-   position: absolute; 
-   bottom: 0; 
-   left: 0; 
-   color: white; 
-   font: bold 24px/45px Helvetica, Sans-Serif; 
-   letter-spacing: -1px;  
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   color: white;
+   font: bold 24px/45px Helvetica, Sans-Serif;
+   letter-spacing: -1px;
    background: rgb(0, 0, 0); /* fallback color */
    background: rgba(0, 0, 0, 0.7);
-   padding: 10px; 
+   padding: 10px;
 }
 
 .eventContainer {

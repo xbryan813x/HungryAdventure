@@ -66,14 +66,14 @@ class StoryPage extends Component {
                   <div >
                     <Col xs={2}>${this.props.destination.price}</Col>
                     <Col xs={8}>{this.props.destination.IataCode}</Col>
-                    <Col xs={2}><Button bsStyle="primary" bsSize="xsmall" href={this.props.destination.url} target="_blank">flight</Button></Col>
+                    <Col xs={2}><Button bsStyle="custom" bsSize="xsmall" href={this.props.destination.url} target="_blank">flight</Button></Col>
                   </div>
                   {this.props.hotel ?
                     <div>
                       <div>
                         <Col xs={2}>${this.props.hotel.price}</Col>
                         <Col xs={8}>{this.props.hotel.hotel}</Col>
-                        <Col xs={2}><Button bsStyle="primary" bsSize="xsmall" href={this.props.hotel.url} target="_blank">airbnb</Button></Col>
+                        <Col xs={2}><Button bsStyle="custom" bsSize="xsmall" href={this.props.hotel.url} target="_blank">airbnb</Button></Col>
                       </div>
                     </div>
                     : '' }
@@ -83,7 +83,7 @@ class StoryPage extends Component {
                         <div key={event.name}>
                           <Col xs={2}>({event.price})</Col>
                           <Col xs={8}>{event.name}</Col>
-                          <Col xs={2}><Button bsStyle="primary" bsSize="xsmall" href={event.url} target="_blank">yelp</Button></Col>
+                          <Col xs={2}><Button bsStyle="custom" bsSize="xsmall" href={event.url} target="_blank">yelp</Button></Col>
                         </div>)}
                     </div>
                     : '' }
@@ -93,7 +93,7 @@ class StoryPage extends Component {
                         <div key={event.title}>
                           <Col xs={2}>${event.price}</Col>
                           <Col xs={8}>{event.title}</Col>
-                          <Col xs={2}><Button bsStyle="primary" bsSize="xsmall" href={`https://www.viator.com/${event.url}`} target="_blank">viator</Button></Col>
+                          <Col xs={2}><Button bsStyle="custom" bsSize="xsmall" href={`https://www.viator.com/${event.url}`} target="_blank">viator</Button></Col>
                         </div>,
                         )}
                     </div>
