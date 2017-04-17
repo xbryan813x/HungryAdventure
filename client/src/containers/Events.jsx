@@ -1,59 +1,60 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import GoogleMapReact from 'google-map-react';
-import { fetchEvents } from '../actions/eventsAction';
-import Event from '../components/Event';
-// import GoogleMaps from './GoogleMaps'
-import { YelpPin } from '../components/Pins';
-import BudgetBar from '../components/budgetBar';
-import { googleMaps } from '../keys/mapsKey';
+import { Media, Col } from 'react-bootstrap';
+import StarRatingComponent from 'react-star-rating-component';
+import YelpPin from './YelpPin';
+import GoogleMaps from '../containers/GoogleMaps';
+import { currentEvents } from '../actions/currentStateAction';
+import { yelpBudget } from '../actions/budgetAction';
+import { eventsImage } from '../actions/budgetBarAction';
 
-class Events extends Component {
-  constructor(props) {
-    super(props);
+class Event extends Component {
+  constructor(props){
+    super(props)
   }
 
-  render() {
-    if (this.props.eventsArr.events === undefined) {
-      return (
-        <div>No Yelp Events</div>
-      );
-    }
-    return (
-      <div>
-        <button><Link to="/storypage">Checkout</Link></button>
-        <br />
-        <h1>current budget: ${this.props.budget.hotel}</h1>
-        <div style={{ display: 'grid' }}>
-          <BudgetBar budget={this.props.budget} />
-        </div>
-        <div className="maps">
-          <GoogleMapReact
-            options={{ scrollwheel: false }}
-            defaultCenter={{ lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude }}
-            defaultZoom={14}
-            bootstrapURLKeys={{ key: googleMaps() }}
-          >
-            {this.props.eventsArr.events.map((event, index) =>
-              <YelpPin
-                lat={event.coordinates.latitude} lng={event.coordinates.longitude} text={event.name} key={index}
-              />,
-              )}
-          </GoogleMapReact>
-        </div>
-        {this.props.eventsArr.events.map((event, index) =>
-          <Event event={event} key={index} />,
-          )}
+  add = (event) => {
+    this.props.currentEvents({event: event});
+    this.props.eventsImage({ events: event.image_url })
+    setTimeout(() => {
+      this.props.yelpBudget(this.props.current)
+    }, 1000)
+
+  }
+
+  render(){
+    return(
+      <div className="eventContainer">
+        <button onClick={ () => this.add(this.props.event) }>Add</button>
+        <Media>
+          <Col xs={12} md={8}>
+              <Media.Left >
+                <img width={84} height={84} src={this.props.event.image_url} />
+              </Media.Left>
+              <Media.Body>
+                <h4><a href={this.props.event.url}>{this.props.event.name}</a></h4>
+                <StarRatingComponent
+                    name="rating"
+                    editing={false}
+                    starCount={5}
+                    value={this.props.event.rating}
+                    />
+                <div>{this.props.event.categories[0].title}</div>
+              </Media.Body>
+          </Col>
+          <Col xs={6} md={4}>
+            <div>{this.props.event.location.city}</div>
+            <div>{this.props.event.location.display_address[0]}</div>
+          </Col>
+        </Media>
+        <hr></hr>
       </div>
-    );
+    )
   }
 }
 
-const mapStateToProps = ({ events, geo, budget }) => ({
-  eventsArr: events,
-  geo,
-  budget,
-});
+const mapStateToProps = (state) => ({
+  ...state
+})
 
-export default connect(mapStateToProps, null)(Events);
+export default connect(mapStateToProps, { currentEvents, yelpBudget, eventsImage })(Event);

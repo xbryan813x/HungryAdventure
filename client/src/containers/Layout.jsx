@@ -20,6 +20,7 @@ import UserLocationTrigger from './UserLocationTrigger'
 // Charts
 import DonutChart from 'react-donut-chart';
 
+
 class Layout extends React.Component {
   constructor (props){
     super(props);
@@ -28,7 +29,6 @@ class Layout extends React.Component {
 
   componentWillMount() {
     this.props.reset();
-    console.log(window.location);
   }
 
   submit = (values) => {
@@ -38,10 +38,7 @@ class Layout extends React.Component {
     startDate: values.departDate,
     endDate: values.arrivalDate,
   }
-    console.log('these are the props', this.props.airportCode.airportCode)
     values.cityId = this.props.airportCode.airportCode;
-    console.log('these are the values', values)
-    console.log('inside of Layout.jsx =>', this.props)
     this.props.getBudget(values);
     this.props.history.push(`/flights?Budget=${values.Budget}&departDate=${values.departDate}&arrivalDate=${values.arrivalDate}`);
     this.props.fetchDestinations(values)
