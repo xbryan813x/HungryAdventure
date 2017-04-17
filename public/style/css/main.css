@@ -9,7 +9,14 @@
   padding-bottom: 1%;
   margin-top: 30%;
 }
-
+.storyMap {
+  width: 100%;
+  height: 50%;
+}
+.storyDonut {
+  margin-bottom: 30%;
+  margin: auto;
+}
 .input .open > a,
 .input .open > a:hover,
 .input .open > a:focus {background-color: transparent;}
@@ -407,7 +414,7 @@ body {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     ),
-  url("https://cdn.pixabay.com/photo/2017/04/08/10/42/burj-khalifa-2212978_960_720.jpg") no-repeat center center fixed;
+  url("../../assets/7.jpeg") no-repeat center center fixed;
   background-size: cover;
 }
 
