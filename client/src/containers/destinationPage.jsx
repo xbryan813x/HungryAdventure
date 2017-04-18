@@ -42,6 +42,7 @@ class destinationPage extends Component {
       </div>
 
       <div className="pageContainer">
+        <Col sm={4} xs={12} className="weatherPadding mobileSpacing"> <Weather /></Col>
         <Col sm={4} xs={12} className="donut mobileSpacing"> <DonutChart
           data={[{ label: `Remaining ( $ ${totalBudget} )`,
             value: totalBudget,
@@ -58,7 +59,6 @@ class destinationPage extends Component {
           },
           ]} height={200} width={200} legend={false} className="donutAlign"
         /></Col>
-        <Col sm={4} xs={12} className="weatherPadding mobileSpacing"> <Weather /></Col>
         <Col sm={4} xs={12} className="mobileSpacing"><FrommersInfo /></Col>
       </div>
       
