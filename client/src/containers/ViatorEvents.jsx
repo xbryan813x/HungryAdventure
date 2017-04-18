@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { Col, Button, Row } from 'react-bootstrap';
 import { currentViator } from '../actions/currentStateAction';
 import { viatorBudget } from '../actions/budgetAction';
+import Scroll from 'react-scroll';
+const scroll = Scroll.animateScroll;
+
 
 class ViatorEvents extends Component {
   constructor(props) {
@@ -12,6 +15,7 @@ class ViatorEvents extends Component {
       flag: true
     }
   }
+
 
   add = (event) => {
     this.props.currentViator({ event: event })
@@ -28,6 +32,7 @@ class ViatorEvents extends Component {
       this.setState({show: " hide"});
       this.setState({flag: true});
     }
+    scroll.scrollMore(500, { delay : 100 });
   }
 
   render() {
