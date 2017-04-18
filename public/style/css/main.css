@@ -746,6 +746,14 @@ body #main {
   font-size: 16px;
 }
 
+.hotel {
+  height: 30%;
+}
+
+.hotel-text {
+  width: 100%;
+}
+
 .seeAll {
   float: right;
   padding-top: 25px;

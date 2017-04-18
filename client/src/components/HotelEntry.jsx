@@ -59,7 +59,7 @@ class HotelEntry extends Component {
             >            
               <div className="event-card hotel">
                 <img className="customImg" alt="" src={hotel.pictures[0]} />
-                <div className='card-text'>
+                <div className='card-text hotel-text'>
                     <div className="hotelInfo">
                        <span className="price">${hotel.price}</span>
                        <span className="price">{hotel.hotel}</span>
