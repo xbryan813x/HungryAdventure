@@ -60,8 +60,9 @@ class HotelEntry extends Component {
               <div className="event-card hotel">
                 <img className="customImg" alt="" src={hotel.pictures[0]} />
                 <div className='card-text'>
-                    <div>
+                    <div className="hotelInfo">
                        <span className="price">${hotel.price}</span>
+                       <span className="price">{hotel.hotel}</span>
                       {Array(Math.floor(hotel.rating)).fill(0).map((elem, i) =>
                         <span key={hotel.id + i} className="glyphicon glyphicon-star" />,
                       )}

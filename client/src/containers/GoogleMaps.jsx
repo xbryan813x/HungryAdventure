@@ -16,7 +16,6 @@ class GoogleMaps extends Component {
       );
     }
     return (
-      <div className="maps">
         <GoogleMapReact
           options={{ scrollwheel: false }}
           defaultCenter={{ lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude }}
@@ -29,7 +28,6 @@ class GoogleMaps extends Component {
             />,
         )}
         </GoogleMapReact>
-      </div>
     );
   }
 }

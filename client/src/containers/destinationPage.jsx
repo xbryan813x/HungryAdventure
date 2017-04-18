@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // +++++ Imported Components
 import { Link } from 'react-router-dom';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Button } from 'react-bootstrap';
 import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
 import Weather from '../components/weather';
@@ -27,8 +27,8 @@ class destinationPage extends Component {
 
       <div
         className="hero" style={{
-          background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]})`,
-          height: '70%',
+          background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]}) no-repeat center center fixed`,
+          height: '60%',
           'background-size': 'cover',
           'margin-top': '-20px',
         }}
@@ -38,11 +38,11 @@ class destinationPage extends Component {
           <hr className="pageHr" />
           <p className="pageTitle">{this.props.destination.city}, {this.props.destination.country}</p>
         </div>
+          <Button className="checkout"> <Link to="/storypage">Checkout</Link></Button>
       </div>
 
       <div className="pageContainer">
-        <Col sm={4}><FrommersInfo /></Col>
-        <Col sm={4} className="donut"> <DonutChart
+        <Col sm={4} xs={12} className="donut mobileSpacing"> <DonutChart
           data={[{ label: `Remaining ( $ ${totalBudget} )`,
             value: totalBudget,
             isEmpty: true,
@@ -58,17 +58,14 @@ class destinationPage extends Component {
           },
           ]} height={200} width={200} legend={false} className="donutAlign"
         /></Col>
-        <Col sm={4}> <Weather /></Col>
+        <Col sm={4} xs={12} className="weatherPadding mobileSpacing"> <Weather /></Col>
+        <Col sm={4} xs={12} className="mobileSpacing"><FrommersInfo /></Col>
       </div>
-
-      <GoogleMaps locator={this.props.geo.locator} hotelsArr={this.props.hotels.hotels} />
+      
+      <Col sm={12} xs={12} className="mapsPadding"><div className="maps"><GoogleMaps locator={this.props.geo.locator} hotelsArr={this.props.hotels.hotels} /></div></Col>
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
       <ViatorEvents />
-      <br />
       <YelpEvents />
-
-
-      <button> <Link to="/storypage"> CHECKOUT</Link></button>
     </div>
     );
   }
