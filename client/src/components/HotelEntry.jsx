@@ -5,6 +5,8 @@ import { currentHotel } from '../actions/currentStateAction';
 import { hotelBudget } from '../actions/budgetAction';
 import { hotelImage } from '../actions/budgetBarAction';
 import { toggleHotels, toggleSelect } from '../actions/toggleAction';
+import Scroll from 'react-scroll';
+const scroll = Scroll.animateScroll;
 
 class HotelEntry extends Component {
   constructor(props) {
@@ -23,7 +25,8 @@ class HotelEntry extends Component {
   }
 
   toggle = ({ hotels }) => {
-    this.props.toggleHotels({ hotels })
+    this.props.toggleHotels({ hotels });
+    scroll.scrollMore(700, { delay : 100 });
   }
   select = (hotel, toggle) => {
     this.props.toggleSelect({ hotel, select: toggle.select })

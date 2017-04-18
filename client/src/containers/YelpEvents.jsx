@@ -4,6 +4,8 @@ import { currentEvents } from '../actions/currentStateAction';
 import { yelpBudget } from '../actions/budgetAction';
 import { eventsImage } from '../actions/budgetBarAction';
 import { Col, Button, Row } from 'react-bootstrap';
+import Scroll from 'react-scroll';
+const scroll = Scroll.animateScroll;
 
 
 class YelpEvents extends Component {
@@ -31,6 +33,7 @@ class YelpEvents extends Component {
       this.setState({show: " hide"});
       this.setState({flag: true});
     }
+    scroll.scrollMore(700, { delay : 100 });
   }
 
   render() {
