@@ -741,12 +741,6 @@ body #main {
   width: 75%;
 }
 
-.hotelContainer {
-  padding-top: 8%;
-  margin: auto;
-  width: 80%;
-}
-
 .hotelInfo {
   color: white;
   font-size: 16px;
@@ -806,4 +800,5 @@ pageBorder {
 
 .mapsPadding {
   padding: 0;
+  margin-bottom:6%;
 }
