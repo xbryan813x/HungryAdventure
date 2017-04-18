@@ -4,6 +4,7 @@ node_modules
 build
 keys
 public/style/minify
+env.json
 
 =#.##
 
