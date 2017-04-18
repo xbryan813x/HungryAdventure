@@ -32,7 +32,7 @@ class ViatorEvents extends Component {
       this.setState({show: " hide"});
       this.setState({flag: true});
     }
-    scroll.scrollMore(700, { delay : 100 });
+    scroll.scrollMore(500, { delay : 100 });
   }
 
   render() {

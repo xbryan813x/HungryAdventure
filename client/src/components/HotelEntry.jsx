@@ -26,7 +26,7 @@ class HotelEntry extends Component {
 
   toggle = ({ hotels }) => {
     this.props.toggleHotels({ hotels });
-    scroll.scrollMore(700, { delay : 100 });
+    scroll.scrollMore(500, { delay : 100 });
   }
   select = (hotel, toggle) => {
     this.props.toggleSelect({ hotel, select: toggle.select })
