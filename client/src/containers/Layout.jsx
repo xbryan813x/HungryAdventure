@@ -155,13 +155,8 @@ class Layout extends React.Component {
         <div className="container-fluid">
             <div className="row no-gutter popup-gallery">
                 <div className="col-lg-4 col-sm-6">
-<<<<<<< HEAD
-                    <a href="../../assets/3.jpg" className="customImg">
-                        <img src="../../assets/3.jpg" className="img-responsive customImg" alt=""></img>
-=======
                     <a href="../../assets/3.jpg" className="portfolio-box">
                         <img src="../../assets/3.jpg" className="img-responsive headImg" alt=""></img>
->>>>>>> fix(css): story page and class reuse errors
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                             </div>
