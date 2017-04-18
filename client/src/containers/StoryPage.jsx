@@ -18,91 +18,131 @@ class StoryPage extends Component {
     const mapArray = pinArray(this.props);
     return (
       <div className="parallaxContainer">
-        <section className="parallax">
+        <section
+          style={{
+            background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${this.props.destination.imageUrl[1] || this.props.destination.imageUrl[0]}) no-repeat center center fixed`,
+            backgroundSize: 'cover',
+          }}
+        >
           <h1 className="storyCity">{this.props.destination.city}</h1>
           <div className="infoContainer">
             <div className="container">
-              <Col md={8}>
-                <div className="storyMap">
-                  <GoogleMapReact
-                    options={{ scrollwheel: false }}
-                    defaultCenter={{
-                      lat: this.props.locator.latitude,
-                      lng: this.props.locator.longitude,
-                    }}
-                    defaultZoom={15}
-                    bootstrapURLKeys={{ key: googleMaps() }}
-                  >
-                    {mapArray.map(elem =>
-                      <StoryPin
-                        lat={elem.lat || elem.coordinates.latitude}
-                        lng={elem.lng || elem.coordinates.longitude}
-                        text={elem.hotel || elem.name}
-                        key={elem.id || elem.name}
-                      />,
+              <h3 className="h3">Summary</h3>
+              <div className="storyMap">
+                <GoogleMapReact
+                  options={{ scrollwheel: false }}
+                  defaultCenter={{
+                    lat: this.props.locator.latitude,
+                    lng: this.props.locator.longitude,
+                  }}
+                  defaultZoom={15}
+                  bootstrapURLKeys={{ key: googleMaps() }}
+                >
+                  {mapArray.map(elem =>
+                    <StoryPin
+                      lat={elem.lat || elem.coordinates.latitude}
+                      lng={elem.lng || elem.coordinates.longitude}
+                      text={elem.hotel || elem.name}
+                      key={elem.id || elem.name}
+                    />,
                 )}
-                  </GoogleMapReact>
-                </div>
-              </Col>
-              <Col md={4}>
-                <DonutChart
-                  data={[{ label: `Remaining ( $ ${totalBudget} )`,
-                    value: totalBudget,
-                    isEmpty: true,
-                  },
-                  { label: ` Hotel ( $ ${hotelCost} )`,
-                    value: hotelCost },
-                  { label: ` Flight ( $ ${flightCost} )`,
-                    value: flightCost },
-                  { label: `Attractions ( $ ${activityCost} )`,
-                    value: activityCost },
-                  { label: `Food ( $ ${foodCost} )`,
-                    value: foodCost,
-                  },
-                  ]} height={200} width={200} legend={false} className="storyDonut"
-                />
-                <div>
-                  {this.props.destination.country}
-                  <div >
-                    <Col xs={2}>${this.props.destination.price}</Col>
-                    <Col xs={8}>{this.props.destination.IataCode}</Col>
-                    <Col xs={2}><Button bsStyle="custom" bsSize="xsmall" href={this.props.destination.url} target="_blank">flight</Button></Col>
+                </GoogleMapReact>
+              </div>
+            </div>
+          </div>
+          <div className="blankContainer">
+            <div className="container">
+              <Col sm={10}>
+                <div className="">
+                  <h3 className="price-title text-aquamarine h3">Flight</h3>
+                  <h3 className="text-white h3">${this.props.destination.price}</h3>
+                  <div className="clearfix" />
+                  <div className="text-white rule">
+                    {this.props.destination.originTerminal} to {this.props.destination.IataCode}
                   </div>
-                  {this.props.hotel ?
-                    <div>
-                      <div>
-                        <Col xs={2}>${this.props.hotel.price}</Col>
-                        <Col xs={8}>{this.props.hotel.hotel}</Col>
-                        <Col xs={2}><Button bsStyle="custom" bsSize="xsmall" href={this.props.hotel.url} target="_blank">airbnb</Button></Col>
-                      </div>
-                    </div>
-                    : '' }
-                  {this.props.yelpEvents ?
-                    <div>
-                      {this.props.yelpEvents.map(event =>
-                        <div key={event.name}>
-                          <Col xs={2}>({event.price})</Col>
-                          <Col xs={8}>{event.name}</Col>
-                          <Col xs={2}><Button bsStyle="custom" bsSize="xsmall" href={event.url} target="_blank">yelp</Button></Col>
-                        </div>)}
-                    </div>
-                    : '' }
-                  {this.props.viatorEvents ?
-                    <div>
-                      {this.props.viatorEvents.map(event =>
-                        <div key={event.title}>
-                          <Col xs={2}>${event.price}</Col>
-                          <Col xs={8}>{event.title}</Col>
-                          <Col xs={2}><Button bsStyle="custom" bsSize="xsmall" href={`https://www.viator.com/${event.url}`} target="_blank">viator</Button></Col>
-                        </div>,
-                        )}
-                    </div>
-                    : '' }
+                  <a href={this.props.destination.url} target="_blank" className="btn-solid" style={{ borderRadius: '0' }}>Buy</a>
                 </div>
               </Col>
             </div>
           </div>
-          <div className="space" />
+          {this.props.hotel ?
+            <div className="infoContainer" >
+              <div className="container">
+                <Col sm={10}>
+                  <h3 className="price-title text-aquamarine h3">Hotel</h3>
+                  <h3 className="text-white h3">${this.props.hotel.price}</h3>
+                  <div className="clearfix" />
+                  <div className="text-white rule">
+                    {this.props.hotel.hotel}
+                  </div>
+                  <a href={this.props.hotel.url} target="_blank" className="btn-solid" style={{ borderRadius: '0' }}>Buy</a>
+                </Col>
+              </div>
+            </div>
+          : '' }
+          {this.props.yelpEvents ?
+            <div className="blankContainer">
+              <div className="container">
+                <Col sm={10}>
+                  <h3 className="price-title text-aquamarine h3">Restaurants</h3>
+                  {this.props.yelpEvents.map((event, i) =>
+                    <div key={event.name}>
+                      <h3 className="text-white h3">({event.price})</h3>
+                      <div className="clearfix" />
+                      <div className="text-white rule">
+                        {event.name}
+                      </div>
+                      <a href={event.url} target="_blank" className="btn-solid" style={{ borderRadius: '0' }}>Link</a>
+                      {i < this.props.yelpEvents.length - 1 ?
+                        <div className="space" />
+                        : '' }
+                    </div>)}
+                </Col>
+              </div>
+            </div>
+          : '' }
+          {this.props.viatorEvents ?
+            <div className="infoContainer">
+              <div className="container">
+                <Col sm={10}>
+                  <h3 className="price-title text-aquamarine h3">Events</h3>
+                  {this.props.viatorEvents.map((event, i) =>
+                    <div key={event.title}>
+                      <h3 className="text-white h3">${event.price}</h3>
+                      <div className="clearfix" />
+                      <div className="text-white rule">
+                        {event.title}
+                      </div>
+                      <a href={`https://www.viator.com/${event.url}`} target="_blank" className="btn-solid" style={{ borderRadius: '0' }}>Buy</a>
+                      {i < this.props.viatorEvents.length - 1 ?
+                        <div className="space" />
+                        : '' }
+                    </div>)}
+                </Col>
+              </div>
+            </div>
+          : '' }
+          <div className="blankContainer">
+            <div className="container" style={{ textAlign: 'center' }}>
+              <h3 className="h3">Budget</h3>
+              <DonutChart
+                data={[{ label: `Remaining ( $ ${totalBudget} )`,
+                  value: totalBudget,
+                  isEmpty: true,
+                },
+                { label: ` Hotel ( $ ${hotelCost} )`,
+                  value: hotelCost },
+                { label: ` Flight ( $ ${flightCost} )`,
+                  value: flightCost },
+                { label: `Attractions ( $ ${activityCost} )`,
+                  value: activityCost },
+                { label: `Food ( $ ${foodCost} )`,
+                  value: foodCost,
+                },
+                ]} height={300} width={300} legend={false} className="storyDonut"
+              />
+            </div>
+          </div>
         </section>
       </div>
     );
