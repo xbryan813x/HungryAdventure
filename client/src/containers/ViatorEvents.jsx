@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Col, Button } from 'react-bootstrap';
+import { Col, Button, Row } from 'react-bootstrap';
 import { currentViator } from '../actions/currentStateAction';
 import { viatorBudget } from '../actions/budgetAction';
 
@@ -38,11 +38,10 @@ class ViatorEvents extends Component {
     }
     return (
       <div className="eventsContainer">
-        <div className="buttonContainer">
-          <Col xs={12} md={10}><div>Experiences</div></Col>
-          <Col xs={6} md={2}><Button className="floatMe" onClick={() => this.expand()}>See More..</Button></Col>
-        </div>
-        <br/>
+        <Row className="rowTitle">
+          <Col sm={6}><h2>Experience</h2></Col>
+          <Col sm={6}><div className="seeAll" onClick={() => this.expand()}>See all >></div></Col>
+        </Row>
         {this.props.viator.events.map((event, index) => (
           <Col sm={6} md={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
           <img className="eventImg" src={event.image} onClick={() => this.add(event)}/>

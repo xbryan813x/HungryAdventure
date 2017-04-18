@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { currentEvents } from '../actions/currentStateAction';
 import { yelpBudget } from '../actions/budgetAction';
 import { eventsImage } from '../actions/budgetBarAction';
-import { Col, Button } from 'react-bootstrap';
+import { Col, Button, Row } from 'react-bootstrap';
 
 
 class YelpEvents extends Component {
@@ -41,20 +41,20 @@ class YelpEvents extends Component {
     }
     return (
       <div className="eventsContainer">
-        <div className="buttonContaine2r">
-          <Col xs={12} md={10}><div>Resturants</div></Col>
-          <Col xs={6} md={2}><Button className="floatMe" onClick={() => this.expand()}>See More..</Button></Col>
-          <div className="spacMe"></div>
-        </div>
+        <Row className="rowTitle">
+          <Col sm={6}><h2>Resturants</h2></Col>
+          <Col sm={6}><div className="seeAll" onClick={() => this.expand()}>See all >></div></Col>
+        </Row>
         {this.props.yelp.events.map((event, index) => (
-          <Col sm={6} md={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
+          <Col sm={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
           <img className="eventImg yelp" src={event.image_url} onClick={() => this.add(event)}/>
           <div>
-          <span className="price">${event.price}</span>
-          <a href={event.url}>{event.name}</a>
+            <span className="price">${event.price}</span>
+            <a href={event.url}>{event.name}</a>
           </div>
         </Col>
         ))}
+        <div className="spaceMe"></div>
       </div>
     )
   }
