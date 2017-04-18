@@ -9,15 +9,15 @@ import { Col, Button } from 'react-bootstrap';
 class YelpEvents extends Component {
   constructor(props) {
     super(props)
-        this.state = {
+      this.state = {
       show: " hide",
-      flag: true
+      flag: true,
     }
   }
 
   add = (event) => {
     this.props.currentEvents({event: event});
-    this.props.eventsImage({ events: event.image_url })
+    this.props.eventsImage({ events: event.image_url });
     setTimeout(() => {
       this.props.yelpBudget(this.props.current)
     }, 1000)
@@ -41,12 +41,14 @@ class YelpEvents extends Component {
     }
     return (
       <div className="eventsContainer">
-        <div>
-          <span><Button onClick={() => this.expand()}>See More...</Button></span>
+        <div className="buttonContaine2r">
+          <Col xs={12} md={10}><div>Resturants</div></Col>
+          <Col xs={6} md={2}><Button className="floatMe" onClick={() => this.expand()}>See More..</Button></Col>
+          <div className="spacMe"></div>
         </div>
         {this.props.yelp.events.map((event, index) => (
           <Col sm={6} md={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
-          <img className="eventImg" src={event.image_url} onClick={() => this.add(event)}/>
+          <img className="eventImg yelp" src={event.image_url} onClick={() => this.add(event)}/>
           <div>
           <span className="price">${event.price}</span>
           <a href={event.url}>{event.name}</a>

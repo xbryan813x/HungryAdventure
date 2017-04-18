@@ -38,8 +38,9 @@ class ViatorEvents extends Component {
     }
     return (
       <div className="eventsContainer">
-        <div>
-          <span><Button onClick={() => this.expand()}>See More..</Button></span>
+        <div className="buttonContainer">
+          <Col xs={12} md={10}><div>Experiences</div></Col>
+          <Col xs={6} md={2}><Button className="floatMe" onClick={() => this.expand()}>See More..</Button></Col>
         </div>
         <br/>
         {this.props.viator.events.map((event, index) => (
