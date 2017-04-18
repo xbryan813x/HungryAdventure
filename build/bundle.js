@@ -49604,8 +49604,8 @@ var Layout = function (_React$Component) {
                                 { className: 'col-lg-4 col-sm-6' },
                                 _react2.default.createElement(
                                     'a',
-                                    { href: '../../assets/3.jpg', className: 'portfolio-box' },
-                                    _react2.default.createElement('img', { src: '../../assets/3.jpg', className: 'img-responsive customImg', alt: '' }),
+                                    { href: '../../assets/3.jpg', className: 'event-card' },
+                                    _react2.default.createElement('img', { src: '../../assets/3.jpg', className: 'customImg', alt: '' }),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'portfolio-box-caption' },
@@ -49631,7 +49631,7 @@ var Layout = function (_React$Component) {
                                 { className: 'col-lg-4 col-sm-6' },
                                 _react2.default.createElement(
                                     'a',
-                                    { href: '../../assets/4.jpg', className: 'portfolio-box' },
+                                    { href: '../../assets/4.jpg', className: 'event-card' },
                                     _react2.default.createElement('img', { src: '../../assets/4.jpg', className: 'img-responsive customImg', alt: '' }),
                                     _react2.default.createElement(
                                         'div',
@@ -49658,8 +49658,8 @@ var Layout = function (_React$Component) {
                                 { className: 'col-lg-4 col-sm-6' },
                                 _react2.default.createElement(
                                     'a',
-                                    { href: '../../assets/5.jpg', className: 'portfolio-box' },
-                                    _react2.default.createElement('img', { src: '../../assets/5.jpg', className: 'img-responsive customImg', alt: '' }),
+                                    { href: '../../assets/5.jpg', className: 'event-card' },
+                                    _react2.default.createElement('img', { src: '../../assets/5.jpg', className: 'customImg', alt: '' }),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'portfolio-box-caption' },
@@ -49685,8 +49685,8 @@ var Layout = function (_React$Component) {
                                 { className: 'col-lg-4 col-sm-6' },
                                 _react2.default.createElement(
                                     'a',
-                                    { href: '../../assets/6.jpg', className: 'portfolio-box' },
-                                    _react2.default.createElement('img', { src: '../../assets/6.jpg', className: 'img-responsive customImg', alt: '' }),
+                                    { href: '../../assets/6.jpg', className: 'event-card' },
+                                    _react2.default.createElement('img', { src: '../../assets/6.jpg', className: 'customImg', alt: '' }),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'portfolio-box-caption' },
@@ -49712,8 +49712,8 @@ var Layout = function (_React$Component) {
                                 { className: 'col-lg-4 col-sm-6' },
                                 _react2.default.createElement(
                                     'a',
-                                    { href: '../../assets/1.jpg', className: 'portfolio-box' },
-                                    _react2.default.createElement('img', { src: '../../assets/1.jpg', className: 'img-responsive customImg', alt: '' }),
+                                    { href: '../../assets/1.jpg', className: 'event-card' },
+                                    _react2.default.createElement('img', { src: '../../assets/1.jpg', className: 'customImg', alt: '' }),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'portfolio-box-caption' },
@@ -49739,8 +49739,8 @@ var Layout = function (_React$Component) {
                                 { className: 'col-lg-4 col-sm-6' },
                                 _react2.default.createElement(
                                     'a',
-                                    { href: '../../assets/5.jpg', className: 'portfolio-box' },
-                                    _react2.default.createElement('img', { src: '../../assets/5.jpg', className: 'img-responsive customImg', alt: '' }),
+                                    { href: '../../assets/5.jpg', className: 'event-card' },
+                                    _react2.default.createElement('img', { src: '../../assets/5.jpg', className: 'customImg', alt: '' }),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'portfolio-box-caption' },

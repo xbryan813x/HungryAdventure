@@ -158,8 +158,8 @@ class Layout extends React.Component {
         <div className="container-fluid">
             <div className="row no-gutter popup-gallery">
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/3.jpg" className="portfolio-box">
-                        <img src="../../assets/3.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/3.jpg" className="event-card">
+                        <img src="../../assets/3.jpg" className="customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
@@ -173,7 +173,7 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/4.jpg" className="portfolio-box">
+                    <a href="../../assets/4.jpg" className="event-card">
                         <img src="../../assets/4.jpg" className="img-responsive customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
@@ -188,8 +188,8 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/5.jpg" className="portfolio-box">
-                        <img src="../../assets/5.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/5.jpg" className="event-card">
+                        <img src="../../assets/5.jpg" className="customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
@@ -203,8 +203,8 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/6.jpg" className="portfolio-box">
-                        <img src="../../assets/6.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/6.jpg" className="event-card">
+                        <img src="../../assets/6.jpg" className="customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
@@ -218,8 +218,8 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/1.jpg" className="portfolio-box">
-                        <img src="../../assets/1.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/1.jpg" className="event-card">
+                        <img src="../../assets/1.jpg" className="customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
@@ -233,8 +233,8 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/5.jpg" className="portfolio-box">
-                        <img src="../../assets/5.jpg" className="img-responsive customImg" alt=""></img>
+                    <a href="../../assets/5.jpg" className="event-card">
+                        <img src="../../assets/5.jpg" className="customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
                                 <div className="project-category text-faded">
