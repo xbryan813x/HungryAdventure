@@ -27,61 +27,40 @@ class StoryPage extends Component {
           <h1 className="storyCity">{this.props.destination.city}</h1>
           <div className="infoContainer">
             <div className="container">
-              <Col md={8}>
-                <h3>Summary</h3>
-                <div className="storyMap">
-                  <GoogleMapReact
-                    options={{ scrollwheel: false }}
-                    defaultCenter={{
-                      lat: this.props.locator.latitude,
-                      lng: this.props.locator.longitude,
-                    }}
-                    defaultZoom={15}
-                    bootstrapURLKeys={{ key: googleMaps() }}
-                  >
-                    {mapArray.map(elem =>
-                      <StoryPin
-                        lat={elem.lat || elem.coordinates.latitude}
-                        lng={elem.lng || elem.coordinates.longitude}
-                        text={elem.hotel || elem.name}
-                        key={elem.id || elem.name}
-                      />,
+              <h3 className="h3">Summary</h3>
+              <div className="storyMap">
+                <GoogleMapReact
+                  options={{ scrollwheel: false }}
+                  defaultCenter={{
+                    lat: this.props.locator.latitude,
+                    lng: this.props.locator.longitude,
+                  }}
+                  defaultZoom={15}
+                  bootstrapURLKeys={{ key: googleMaps() }}
+                >
+                  {mapArray.map(elem =>
+                    <StoryPin
+                      lat={elem.lat || elem.coordinates.latitude}
+                      lng={elem.lng || elem.coordinates.longitude}
+                      text={elem.hotel || elem.name}
+                      key={elem.id || elem.name}
+                    />,
                 )}
-                  </GoogleMapReact>
-                </div>
-              </Col>
-              <Col md={4} style={{ textAlign: 'center' }}>
-                <h3>Budget</h3>
-                <DonutChart
-                  data={[{ label: `Remaining ( $ ${totalBudget} )`,
-                    value: totalBudget,
-                    isEmpty: true,
-                  },
-                  { label: ` Hotel ( $ ${hotelCost} )`,
-                    value: hotelCost },
-                  { label: ` Flight ( $ ${flightCost} )`,
-                    value: flightCost },
-                  { label: `Attractions ( $ ${activityCost} )`,
-                    value: activityCost },
-                  { label: `Food ( $ ${foodCost} )`,
-                    value: foodCost,
-                  },
-                  ]} height={200} width={200} legend={false} className="storyDonut"
-                />
-              </Col>
+                </GoogleMapReact>
+              </div>
             </div>
           </div>
           <div className="blankContainer">
             <div className="container">
               <Col sm={10}>
                 <div className="">
-                  <h3 className="price-title text-aquamarine">Flight</h3>
-                  <h3 className="text-white">${this.props.destination.price}</h3>
+                  <h3 className="price-title text-aquamarine h3">Flight</h3>
+                  <h3 className="text-white h3">${this.props.destination.price}</h3>
                   <div className="clearfix" />
                   <div className="text-white rule">
                     {this.props.destination.originTerminal} to {this.props.destination.IataCode}
                   </div>
-                  <a href={this.props.destination.url} target="_blank" className="btn btn-solid js-goto-signup js-button-module-get-free">buy</a>
+                  <a href={this.props.destination.url} target="_blank" className="btn-solid" style={{ borderRadius: '0' }}>Buy</a>
                 </div>
               </Col>
             </div>
@@ -90,13 +69,13 @@ class StoryPage extends Component {
             <div className="infoContainer" >
               <div className="container">
                 <Col sm={10}>
-                  <h3 className="price-title text-aquamarine">Hotel</h3>
-                  <h3 className="text-white">${this.props.hotel.price}</h3>
+                  <h3 className="price-title text-aquamarine h3">Hotel</h3>
+                  <h3 className="text-white h3">${this.props.hotel.price}</h3>
                   <div className="clearfix" />
                   <div className="text-white rule">
                     {this.props.hotel.hotel}
                   </div>
-                  <a href={this.props.hotel.url} target="_blank" className="btn btn-solid js-goto-signup js-button-module-get-free">Buy</a>
+                  <a href={this.props.hotel.url} target="_blank" className="btn-solid" style={{ borderRadius: '0' }}>Buy</a>
                 </Col>
               </div>
             </div>
@@ -105,15 +84,15 @@ class StoryPage extends Component {
             <div className="blankContainer">
               <div className="container">
                 <Col sm={10}>
-                  <h3 className="price-title text-aquamarine">Yelp Events</h3>
+                  <h3 className="price-title text-aquamarine h3">Restaurants</h3>
                   {this.props.yelpEvents.map((event, i) =>
                     <div key={event.name}>
-                      <h3 className="text-white">({event.price})</h3>
+                      <h3 className="text-white h3">({event.price})</h3>
                       <div className="clearfix" />
                       <div className="text-white rule">
                         {event.name}
                       </div>
-                      <a href={event.url} target="_blank" className="btn btn-solid js-goto-signup js-button-module-get-free">Link</a>
+                      <a href={event.url} target="_blank" className="btn-solid" style={{ borderRadius: '0' }}>Link</a>
                       {i < this.props.yelpEvents.length - 1 ?
                         <div className="space" />
                         : '' }
@@ -126,24 +105,44 @@ class StoryPage extends Component {
             <div className="infoContainer">
               <div className="container">
                 <Col sm={10}>
-                  <h3 className="price-title text-aquamarine">Viator Events</h3>
+                  <h3 className="price-title text-aquamarine h3">Events</h3>
                   {this.props.viatorEvents.map((event, i) =>
                     <div key={event.title}>
-                      <h3 className="text-white">${event.price}</h3>
+                      <h3 className="text-white h3">${event.price}</h3>
                       <div className="clearfix" />
                       <div className="text-white rule">
                         {event.title}
                       </div>
-                      <a href={`https://www.viator.com/${event.url}`} target="_blank" className="btn btn-solid js-goto-signup js-button-module-get-free">Buy</a>
+                      <a href={`https://www.viator.com/${event.url}`} target="_blank" className="btn-solid" style={{ borderRadius: '0' }}>Buy</a>
                       {i < this.props.viatorEvents.length - 1 ?
                         <div className="space" />
-                    : '' }
+                        : '' }
                     </div>)}
                 </Col>
               </div>
             </div>
           : '' }
-          <div className="space" />
+          <div className="blankContainer">
+            <div className="container" style={{ textAlign: 'center' }}>
+              <h3 className="h3">Budget</h3>
+              <DonutChart
+                data={[{ label: `Remaining ( $ ${totalBudget} )`,
+                  value: totalBudget,
+                  isEmpty: true,
+                },
+                { label: ` Hotel ( $ ${hotelCost} )`,
+                  value: hotelCost },
+                { label: ` Flight ( $ ${flightCost} )`,
+                  value: flightCost },
+                { label: `Attractions ( $ ${activityCost} )`,
+                  value: activityCost },
+                { label: `Food ( $ ${foodCost} )`,
+                  value: foodCost,
+                },
+                ]} height={300} width={300} legend={false} className="storyDonut"
+              />
+            </div>
+          </div>
         </section>
       </div>
     );
