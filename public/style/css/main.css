@@ -776,7 +776,7 @@ body #main {
   width: 100%;
 }
 
-pageBorder {
+.pageBorder {
   width: 100%;
   border-top: 1px solid;
 }

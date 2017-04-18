@@ -158,7 +158,7 @@ class Layout extends React.Component {
         <div className="container-fluid">
             <div className="row no-gutter popup-gallery">
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/3.jpg" className="portfolio-box">
+                    <a href="../../assets/3.jpg" className="customImg">
                         <img src="../../assets/3.jpg" className="img-responsive customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
