@@ -16,6 +16,10 @@ import DonutChart from 'react-donut-chart';
 
 class destinationPage extends Component {
 
+  componentWillMount() {
+    window.scrollTo(0, 0)
+  }
+
   render() {
     const budget = this.props.budget.original;
     const flightCost = this.props.budget.flight || 0;
