@@ -1,7 +1,7 @@
 import React from 'react';
 
 const HotelPin = props => (
-  <div className="pin hotelPin"><span className="hotelPin" />${props.price}</div>
+  <div className="pin"><span className="glyphicon glyphicon-pushpin" />${props.price}</div>
     );
 
 const YelpPin = props => (
