@@ -791,17 +791,27 @@ body #main {
   margin-top: 140px;
 }
 
-@media screen and (max-width: 480px) {
-    .checkout {
-       margin-left: 35%;
-       margin-top: 20%;
+@media screen and (max-width: 414px) {
+   .checkout {
+     position: absolute;
+     margin-left: 35%;
+     margin-top: -15px;
     }
     .weatherPadding {
       padding: 0;
     }
     .mobileSpacing {
-      padding-top: 5%;
-      padding-bottom: 5%;
+      padding-top: 10%;
+      padding-bottom: 10%;
+    }
+    .eventContainer {
+      padding-bottom: 80%;
+    }
+    .rowTitle {
+      margin-top: 10%;
+    }
+    .floatMe {
+       float: left;
     }
 }
 

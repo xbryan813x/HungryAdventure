@@ -45,8 +45,8 @@ class YelpEvents extends Component {
     return (
       <div className="eventsContainer">
         <Row className="rowTitle">
-          <Col sm={6}><h2>Resturants</h2></Col>
-          <Col sm={6}><div className="seeAll" onClick={() => this.expand()}>See all >></div></Col>
+          <Col sm={6} xs={6}><h2>Resturants</h2></Col>
+          <Col sm={6} xs={6}><div className="seeAll" onClick={() => this.expand()}>See all >></div></Col>
         </Row>
         {this.props.yelp.events.map((event, index) => (
           <Col sm={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
