@@ -32,7 +32,35 @@ class Layout extends React.Component {
     this.props.reset();
   }
 
+  getLocation = () => {
+     let options = {
+     enableHighAccuracy: true,
+     timeout: 5000,
+     maximumAge: 0
+   };
+   console.log("<===IM BEEN RUN IN HERE===>")
+   const success = (pos) => {
+     let crd = pos.coords;
+
+     this.props.getGoogleData({
+       latitude: crd.latitude,
+       longitude: crd.longitude
+     })
+     console.log('Your current position is:');
+     console.log(`Latitude : ${crd.latitude}`);
+     console.log(`Longitude: ${crd.longitude}`);
+     console.log(`More or less ${crd.accuracy} meters.`);
+   };
+
+   const error = (err) => {
+     console.warn(`ERROR(${err.code}): ${err.message}`);
+   };
+
+   navigator.geolocation.getCurrentPosition(success, error, options)
+ }
+
   submit = (values) => {
+  this.getLocation()
   let saveQueryObj = {
     email: this.props.email || 'none',
     budget: values.Budget,
@@ -49,6 +77,7 @@ class Layout extends React.Component {
   }
 
   render () {
+    console.log('****_inside of Layout.jsx**',this.props)
      return (
       <div>
       <header>
@@ -61,7 +90,7 @@ class Layout extends React.Component {
               <hr></hr>
               <center>
                 <Search onSubmit={this.submit} />
-                <UserLocationTrigger />
+
               </center>
             </div>
           </div>
