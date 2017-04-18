@@ -3,21 +3,21 @@ import { connect } from 'react-redux';
 import { currentEvents } from '../actions/currentStateAction';
 import { yelpBudget } from '../actions/budgetAction';
 import { eventsImage } from '../actions/budgetBarAction';
-import { Col, Button } from 'react-bootstrap';
+import { Col, Button, Row } from 'react-bootstrap';
 
 
 class YelpEvents extends Component {
   constructor(props) {
     super(props)
-        this.state = {
+      this.state = {
       show: " hide",
-      flag: true
+      flag: true,
     }
   }
 
   add = (event) => {
     this.props.currentEvents({event: event});
-    this.props.eventsImage({ events: event.image_url })
+    this.props.eventsImage({ events: event.image_url });
     setTimeout(() => {
       this.props.yelpBudget(this.props.current)
     }, 1000)
@@ -41,18 +41,20 @@ class YelpEvents extends Component {
     }
     return (
       <div className="eventsContainer">
-        <div>
-          <span><Button onClick={() => this.expand()}>See More...</Button></span>
-        </div>
+        <Row className="rowTitle">
+          <Col sm={6}><h2>Resturants</h2></Col>
+          <Col sm={6}><div className="seeAll" onClick={() => this.expand()}>See all >></div></Col>
+        </Row>
         {this.props.yelp.events.map((event, index) => (
-          <Col sm={6} md={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
+          <Col sm={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
           <img className="eventImg" src={event.image_url} onClick={() => this.add(event)}/>
           <div>
-          <span className="price">${event.price}</span>
-          <a href={event.url}>{event.name}</a>
+            <span className="price">${event.price}</span>
+            <a href={event.url}>{event.name}</a>
           </div>
         </Col>
         ))}
+        <div className="spaceMe"></div>
       </div>
     )
   }
