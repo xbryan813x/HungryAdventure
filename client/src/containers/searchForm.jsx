@@ -42,12 +42,24 @@ const setDefault = (props) => {
   }
   return new Date();
 };
+const enableSubmit = (props) => {
+  if (props.search) {
+    if (props.search.values) {
+      if (Object.keys(props.search.values).length === 3) {
+        return false;
+      }
+    }
+  }
+  return true;
+};
 
-// this.props.form.search.values.departDate ||
 class searchForm extends Component {
+  constructor(props) {
+    super(props);
+    console.log('searchform', this.props);
+  }
   render() {
-  	const { handleSubmit, pristine, reset, submitting } = this.props;
-    console.log('Current Search state in render', this.props.search);
+  	const { handleSubmit, reset } = this.props;
     return (<div>
       <center>
         <Form inline onSubmit={handleSubmit}>
@@ -83,7 +95,12 @@ class searchForm extends Component {
           </FormGroup>
 
           <FormGroup>
-            <Button bsStyle="custom" type="submit" style={{ borderRadius: '0' }}> Submit </Button>
+            <Button
+              bsStyle="custom"
+              type="submit"
+              disabled={enableSubmit(this.props)}
+              style={{ borderRadius: '0' }}
+            >Submit</Button>
           </FormGroup>
         </Form>
       </center>
