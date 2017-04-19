@@ -23,7 +23,7 @@ class YelpEvents extends Component {
     const last = this.state.added.lastIndexOf(index);
     if (first !== last) {
       this.state.added.splice(first, 1);
-      this.state.added.splice(last, 1);
+      this.state.added.pop();
       return this.state[index] = 0;
     }
     this.state[index] = 1;
