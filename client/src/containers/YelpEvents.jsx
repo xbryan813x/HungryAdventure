@@ -14,15 +14,29 @@ class YelpEvents extends Component {
       this.state = {
       show: " hide",
       flag: true,
+      added: [],
     }
   }
 
-  add = (event) => {
+  check = (index) => {
+    const first = this.state.added.indexOf(index);
+    const last = this.state.added.lastIndexOf(index);
+    if (first !== last) {
+      this.state.added.splice(first, 1);
+      this.state.added.splice(last, 1);
+      return this.state[index] = 0;
+    }
+    this.state[index] = 1;
+  }
+
+  add = (event, index) => {
     this.props.currentEvents({event: event});
     this.props.eventsImage({ events: event.image_url });
     setTimeout(() => {
       this.props.yelpBudget(this.props.current)
-    }, 1000)
+    }, 1000);
+    this.state.added.push(index);
+    this.check(index);
   }
 
   expand = () => {
@@ -42,17 +56,19 @@ class YelpEvents extends Component {
         <div>No Yelp Events</div>
       );
     }
+
     return (
       <div className="eventsContainer">
         <Row className="rowTitle">
-          <Col sm={6} xs={6}><h2>Resturants</h2></Col>
-          <Col sm={6} xs={6}><div className="seeAll" onClick={() => this.expand()}>See all >></div></Col>
+          <Col md={6} xs={6}><h2>Resturants</h2></Col>
+          <Col md={6} xs={6}><div className="seeAll" onClick={() => this.expand()}>See all >></div></Col>
         </Row>
         {this.props.yelp.events.map((event, index) => (
-          <Col sm={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
-          <div className="portfolio-box">
-            <img className="eventImg" src={event.image_url} onClick={() => this.add(event)}/>
+          <Col md={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
+          <div className="portfolio-box" onClick={() => this.add(event, index)}>
+            <img className="eventImg" src={event.image_url}/>
             <div className ="portfolio-box-caption"></div>
+            <div className ="portfolio-box-caption" style={{opacity: this.state[index]}}><span className="glyphicon glyphicon-shopping-cart" /></div>
           </div>
           <div>
             <span className="price">${event.price}</span>

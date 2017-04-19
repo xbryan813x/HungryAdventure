@@ -731,7 +731,7 @@ body #main {
 }
 
 .spaceMe {
-  padding-top: 20%;
+  padding-top: 10%;
 }
 
 .pageContainer {
@@ -820,6 +820,7 @@ body #main {
        float: left;
     }
 }
+
 .mapsPadding {
   padding: 0;
   margin-bottom: 6%;
@@ -829,3 +830,9 @@ body #main {
   float: right;
 }
 
+.glyphicon.glyphicon-shopping-cart {
+  font-size: 75px;
+  margin: auto;
+  padding: 55px;
+  color: white;
+}
