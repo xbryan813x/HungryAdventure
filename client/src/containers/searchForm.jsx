@@ -95,16 +95,12 @@ class searchForm extends Component {
           </FormGroup>
 
           <FormGroup>
-<<<<<<< HEAD
-            <Button bsStyle="custom" type="submit" style={{ borderRadius: '4px' }}> Submit </Button>
-=======
             <Button
               bsStyle="custom"
               type="submit"
               disabled={enableSubmit(this.props)}
               style={{ borderRadius: '0' }}
             >Submit</Button>
->>>>>>> map233
           </FormGroup>
         </Form>
       </center>
