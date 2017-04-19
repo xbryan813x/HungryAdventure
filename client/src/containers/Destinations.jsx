@@ -21,7 +21,7 @@ if(Object.keys(this.props.budget).length === 0){
   if (window.location.search){
     var queryString = window.location.search;
     queryString = queryString.substring(1);
-  
+
     var parseQueryString = function( q ) {
       var params = {}, queries, temp, i, l;
       // Split into key/value pairs
@@ -100,10 +100,21 @@ return funFacts[this.getRandomInt(0, funFacts.length)]
          </div>
          </Modal.Footer>
        </Modal.Dialog>
-    </div>  
-       
+    </div>
+
     )
-  }
+  } else if(this.props.destinations.destinations.length === 0){
+    return (
+      <div>
+        <Search onSubmit={this.submit}/>
+              <Auth />
+          <section id="banner">
+              <h2>No Search Results.</h2>
+              <p>Please try again</p>
+          </section>
+      </div>
+    )
+  } else {
     return ( <div className="supreme-container">
   <Search onSubmit={this.submit}/>
         <Auth />
@@ -125,12 +136,13 @@ return funFacts[this.getRandomInt(0, funFacts.length)]
            </center>
          </div>
          </Modal.Footer>
-      </Modal> 
+      </Modal>
         <DestinationList destinations={this.props.destinations} redirect={(url)=>{this.props.history.push(url)}}/>
     </section>
 </div>
     );
   }
+}
 }
 
 const mapStateToProps = ({destinations, budget}) => ({
