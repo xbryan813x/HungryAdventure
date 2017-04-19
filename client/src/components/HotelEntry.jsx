@@ -16,6 +16,7 @@ class HotelEntry extends Component {
   add = (hotel, props) => {
     this.props.currentHotel({ hotel });
     this.props.hotelBudget({
+      id: hotel.id,
       hotel: hotel.price,
       budget: props.budget,
       arrivalDate: props.destination.arrivalDate,
