@@ -10,6 +10,7 @@ module.exports = {
     const departDate = req.query.departDate.slice(0, 10);
     const arrivalDate = req.query.arrivalDate.slice(0, 10);
     const cityId = req.query.cityId || 'NYCA'
+
     const options = {
       url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/${cityId}/anywhere/${departDate}/${arrivalDate}?apiKey=${process.env.SKYSCANNER_API}`,
       headers: {

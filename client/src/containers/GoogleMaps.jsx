@@ -16,11 +16,10 @@ class GoogleMaps extends Component {
       );
     }
     return (
-      <div className="maps">
         <GoogleMapReact
           options={{ scrollwheel: false }}
           defaultCenter={{ lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude }}
-          defaultZoom={14}
+          defaultZoom={12}
           bootstrapURLKeys={{ key: googleMaps() }}
         >
           {this.props.hotelsArr.map((hotel, index) =>
@@ -29,7 +28,6 @@ class GoogleMaps extends Component {
             />,
         )}
         </GoogleMapReact>
-      </div>
     );
   }
 }

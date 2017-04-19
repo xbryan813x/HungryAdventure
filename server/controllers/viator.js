@@ -48,7 +48,10 @@ module.exports = {
           }
         }
         results = results.filter(str => /\S/.test(str));
-      }).then(() => res.send(results));
+      }).then(() => {
+        results.splice(27, 2)
+        res.send(results)
+      });
     });
   },
 };
