@@ -23,7 +23,7 @@ class destinationPage extends Component {
   render() {
     const budget = this.props.budget.original;
     const flightCost = this.props.budget.flight || 0;
-    const hotelCost = this.props.budget.hotel || 0;
+    const hotelCost =  this.props.current.hotel ? this.props.current.hotel.price : 0;
     const activityCost = this.props.budget.viatorEvents || 0;
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;

@@ -18,17 +18,14 @@ class ViatorEvents extends Component {
   }
   
   check = (index) => {
-    console.log('THIS IS THE ADDED', this.state.added);
     const first = this.state.added.indexOf(index);
     const last = this.state.added.lastIndexOf(index);
     if (first !== last) {
       this.state.added.splice(first, 1);
       this.state.added.pop();
-      console.log('new states', this.state.added)
       return this.state[index] = 0;
     }
     this.state[index] = 1;
-    console.log('added states', this.state.added)
   }
 
   add = (event, index) => {

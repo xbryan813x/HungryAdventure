@@ -708,7 +708,7 @@ body #main {
 
 .eventImg {
   width: 100%;
-  height: 180px;
+  height: 200px;
   cursor: pointer;
 }
 
@@ -830,4 +830,8 @@ body #main {
   margin: auto;
   padding: 55px;
   color: white;
+}
+
+.iconWrapper {
+  padding: 22px;
 }
