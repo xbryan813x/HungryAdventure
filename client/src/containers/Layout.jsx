@@ -222,10 +222,9 @@ class Layout extends React.Component {
                       <img src="https://darksky.net/images/darkskylogo.png" height="75" width="75"></img>
                       <img src="https://www.thehostel.us/wp-content/uploads/2014/01/logo_frommers.png" height="75" width="125"></img>
                       <img src="http://www.photos.apo-opa.com/plog-content/images/apo/logos/airbnb.png" height="75" width="175"></img>
-                      <img src="http://www.freeiconspng.com/uploads/facebook-logo-29.png" height="75" width="100"></img>
+                      <img src="http://www.freeiconspng.com/uploads/facebook-logo-29.png" height="85" width="125"></img>
                       <img src="https://s3-media2.fl.yelpcdn.com/assets/srv0/styleguide/1ea40efd80f5/assets/img/brand_guidelines/yelp_fullcolor.png" height="75" width="125"></img>
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Skyscanner_Logo_New.png" height="75" width="200"></img>
-
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Skyscanner_Logo_New.png" height="65" width="200"></img>
                   </div>
                 </div>
             </div>
@@ -234,21 +233,81 @@ class Layout extends React.Component {
 
     <section id="contact">
         <div className="container">
-            <div className="row">
-                <div className="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 className="section-heading">Development Team!</h2>
-                    <hr className="primary"></hr>
-                    <p>Get Ready as we introduce!</p>
-                </div>
-                <div className="col-lg-4 col-lg-offset-2 text-center">
-                    <i className="fa fa-phone fa-3x sr-contact"></i>
-                    <p>999-999-9999</p>
-                </div>
-                <div className="col-lg-4 text-center">
-                    <i className="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@hotmail.com">team@hungryadventure.com</a></p>
-                </div>
-            </div>
+             <div className="container text-center">
+                 <div className="call-to-action">
+                     <h2>Development Team!</h2>
+                     <br></br>
+                     <br></br>
+                       <div>
+                         <div>
+                           <div className="col-sm-3">
+                           <a href="http://michaeljchan.com">
+                             <img className="profilePicture img-circle" src="http://michaeljchan.com/image/profile.PNG" height="65" width="65"></img>
+                           </a>
+                             <h4>Michael Chan</h4>
+                             <h5>Product owner</h5>
+                             <h5>Software Engineer</h5>
+                           <p>
+                             <a href="http://github.com/ThinkFWD">
+                               <img className="gitIcon" src="https://image.flaticon.com/icons/svg/23/23957.svg" height="40" width="40"></img>
+                             </a>
+                             <a href="https://www.linkedin.com/in/mikethikfwd/">
+                               <img className="linkedIcon" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" height="40" width="40"></img>
+                             </a>
+                           </p>
+                           </div>
+                           <div className="col-sm-3">
+                           <a href="https://github.com/supreme38">
+                             <img className="profilePicture img-circle" src="https://avatars2.githubusercontent.com/u/14501778?v=3&s=460" height="65" width="65"></img>
+                           </a>
+                             <h4>Vincent Liu</h4>
+                             <h5>Scrum master</h5>
+                             <h5>Software Engineer</h5>
+                           <p>
+                             <a href="https://github.com/supreme38">
+                               <img className="gitIcon" src="https://image.flaticon.com/icons/svg/23/23957.svg" height="40" width="40"></img>
+                             </a>
+                             <a href="https://www.linkedin.com/in/vincent38">
+                               <img className="linkedIcon" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" height="40" width="40"></img>
+                             </a>
+                           </p>
+                         </div>
+                         <div className="col-sm-3">
+                           <a href="https://www.github.com/camdunne">
+                             <img className="profilePicture img-circle" src="https://avatars1.githubusercontent.com/u/22266951?v=3&s=460" height="65" width="65"></img>
+                           </a>
+                             <h4>Cameron Dunne</h4>
+                             <h5>Software Engineer</h5>
+                             <br></br>
+                           <p>
+                             <a href="https://www.github.com/camdunne">
+                               <img className="gitIcon" src="https://image.flaticon.com/icons/svg/23/23957.svg" height="40" width="40"></img>
+                             </a>
+                             <a href="https://www.linkedin.com/in/camerondunne">
+                               <img className="linkedIcon" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" height="40" width="40"></img>
+                             </a>
+                           </p>
+                         </div>
+                         <div className="col-sm-3">
+                           <a href="https://github.com/xbryan813x">
+                             <img className="profilePicture img-circle" src="https://avatars1.githubusercontent.com/u/15056067?v=3&s=460" height="65" width="65"></img>
+                           </a>
+                             <h4>Bryam Pacheco</h4>
+                             <h5>Software Engineer</h5>
+                             <br></br>
+                           <p>
+                             <a href="https://github.com/xbryan813x">
+                               <img className="gitIcon" src="https://image.flaticon.com/icons/svg/23/23957.svg" height="40" width="40"></img>
+                             </a>
+                             <a href="https://www.linkedin.com/in/bryan-pacheco-807a80107/">
+                               <img className="linkedIcon" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" height="40" width="40"></img>
+                             </a>
+                           </p>
+                         </div>
+                       </div>
+                     </div>
+                 </div>
+             </div>
         </div>
     </section>
 
