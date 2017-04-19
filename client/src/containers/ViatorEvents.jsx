@@ -12,10 +12,14 @@ class ViatorEvents extends Component {
     super(props)
     this.state = {
       show: " hide",
-      flag: true
+      flag: true,
+      hover: false,
     }
   }
 
+  toggleHover = () => {
+    this.setState({hover: !this.state.hover})
+  }
 
   add = (event) => {
     this.props.currentViator({ event: event })
@@ -41,6 +45,7 @@ class ViatorEvents extends Component {
         <div>No Viator Events</div>
       )
     }
+
     return (
       <div className="eventsContainer">
         <Row className="rowTitle">
@@ -49,7 +54,10 @@ class ViatorEvents extends Component {
         </Row>
         {this.props.viator.events.map((event, index) => (
           <Col sm={6} md={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
-          <img className="eventImg" src={event.image} onClick={() => this.add(event)}/>
+          <div className="portfolio-box">
+            <img className="eventImg" src={event.image} onClick={() => this.add(event)}/>
+            <div className ="portfolio-box-caption"></div>
+          </div>
           <div>
           <span className="price">${event.price}</span>
           <a href={`https://www.viator.com/${event.url}`}>{event.title}</a>

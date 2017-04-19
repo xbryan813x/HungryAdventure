@@ -60,8 +60,9 @@ class HotelEntry extends Component {
               }
               onClick={()=> {  this.clickHotel(hotel, this.props) }}
             >            
-              <div className="event-card hotel">
+              <div className="event-card hotel portfolio-box">
                 <img className="customImg" alt="" src={hotel.pictures[0]} />
+                <div className ="portfolio-box-caption"></div>
                 <div className='card-text hotel-text'>
                     <div className="hotelInfo">
                        <span className="price">${hotel.price}</span>
