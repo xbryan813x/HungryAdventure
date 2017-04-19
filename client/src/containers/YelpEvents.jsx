@@ -53,7 +53,7 @@ class YelpEvents extends Component {
   render() {
     if (this.props.yelp.events === undefined) {
       return (
-        <div>No Yelp Events</div>
+        <div></div>
       );
     }
 
