@@ -134,6 +134,10 @@ aside {
   padding: 50px 0;
 }
 
+aside1 {
+  padding: 0px
+}
+
 .no-padding {
   padding: 0;
 }
@@ -528,6 +532,7 @@ pad {
   height: 210px;
   background-color: coral;
 }
+
 
 #box:hover #overlay {
   opacity: 1;

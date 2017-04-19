@@ -84,7 +84,7 @@ class Layout extends React.Component {
           <div className="header-content">
             <div className="header-content-inner">
               <br></br>
-              <h1 id="homeHeading">HUNGRY   ADVENTURE</h1>
+              <h1 id="homeHeading">HUNGRY ADVENTURE</h1>
               <hr></hr>
               <center>
                 <Search onSubmit={this.submit} />
@@ -316,6 +316,16 @@ class Layout extends React.Component {
              </div>
         </div>
     </section>
+     <aside className="bg-dark">
+       <div className="container text-center">
+           <div className="call-to-action">
+               <h6>© 2017 Hungry Adventure All rights reserved. |
+                 <a className="githubLink" href="https://github.com/hungry-adventure" target="_blank"> Hungry Adventure GitHub</a>
+               </h6>
+
+           </div>
+       </div>
+   </aside>
 
       </div>
     );
