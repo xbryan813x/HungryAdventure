@@ -866,6 +866,18 @@ body.modal-open .supreme-container{
   cursor: pointer;
 }
 
+.circleAdd {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: coral;
+  float: left;
+  position: fixed;
+  z-index: 10;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
 .checkoutbutton {
   font-size: 43px !important;
   margin: 0 !important;

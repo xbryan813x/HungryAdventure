@@ -3,6 +3,12 @@ import { skyscanner } from '../keys/skyscanner';
 export default function reduce(state = {
   yelpEvents: [],
   viatorEvents: [],
+  destination: {
+    imageUrl:[],
+  },
+  hotel:{
+    pictures:[],
+  },
 }, action) {
   switch (action.type) {
     case 'FETCH_CURRENTDES_FULFILLED' : {
