@@ -22,6 +22,31 @@ class destinationPage extends Component {
     window.scrollTo(0, 0);
   }
 
+  loadDestination = () => {
+    if(this.props.current.destination.imageUrl.length > 0){
+      return <img className="circleAdd" style={{ marginTop: '110px',}} src={this.props.current.destination.imageUrl[0]}></img>
+    }
+  }
+
+  loadHotel = () => {
+    if(this.props.current.hotel.pictures.length > 0){
+      return <img className="circleAdd" style={{ marginTop: '200px',}} src={this.props.current.hotel.pictures[0]}></img>
+    }  
+  }
+
+  loadEvents = () => {
+    if(this.props.current.viatorEvents.length > 0){
+        return <img className="circleAdd" style={{ marginTop: "300px",}} src={this.props.current.viatorEvents[0].image}></img>
+    }
+  }
+
+ loadFood = () => {
+    if(this.props.current.yelpEvents.length > 0){
+        return <img className="circleAdd" style={{ marginTop: "400px",}} src={this.props.current.yelpEvents[0].image_url}></img>
+    }
+  }
+
+
   render() {
     const budget = this.props.budget.original;
     const flightCost = this.props.budget.flight || 0;
@@ -34,7 +59,12 @@ class destinationPage extends Component {
     console.log('maparray', mapArray);
     return (<div>
       {/* <Button style={{ borderRadius: '0', position: 'fixed', float: 'left', }} className="checkoutbutton"> <Link to="/storypage">Checkout</Link></Button> */}
+
       <Link to="/storypage"><div className="circle"><div className="checkoutbutton glyphicon glyphicon-shopping-cart" /></div></Link>
+      {this.loadDestination()}
+      {this.loadHotel()}
+      {this.loadEvents()}
+      {this.loadFood()}
       <div
         className="hero" style={{
           background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]}) no-repeat center center fixed`,
