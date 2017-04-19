@@ -453,6 +453,7 @@ body {
   height: 100%;
   width: 100%;
   cursor: pointer;
+  border-radius: 4px;
 }
 .headImg {
   height: 50%;
@@ -652,6 +653,7 @@ body #main {
   -moz-transform: scale(1);
   transition: all 200ms ease-in;
   transform: scale(1);
+  border-radius: 4px;
 }
 
 .event-card:hover {
@@ -665,19 +667,6 @@ body #main {
   -moz-transform: scale(1.10);
   transition: all 200ms ease-in;
   transform: scale(1.10);
-}
-
-.card-text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  color: white;
-  font: bold 16px/45px Helvetica, Sans-Serif;
-  letter-spacing: -1px;
-  background: rgba(0, 0, 0, 0.4);
-  /* fallback color */
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px;
 }
 
 .card-text {
@@ -839,6 +828,19 @@ body #main {
 }
 
 .loadingImg {
-  width: 50%;
-  height: 10%;
+  width: 20vw;
+}
+
+.loadingText {
+  font-size: 2.3vw;
+  font: bold;
+
+}
+
+body.modal-open .supreme-container{
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);
 }
