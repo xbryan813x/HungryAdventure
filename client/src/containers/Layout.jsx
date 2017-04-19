@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 //++++++ Imported Actions
 import { fetchDestinations } from '../actions/destinationsAction';
 import { getBudget } from '../actions/budgetAction';
-import { PageHeader, Modal } from 'react-bootstrap';
+import { PageHeader } from 'react-bootstrap';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction';
 import { reset } from '../actions/resetState'
 import { getGoogleData } from '../actions/userLocationAction'
@@ -84,7 +84,7 @@ class Layout extends React.Component {
           <div className="header-content">
             <div className="header-content-inner">
               <br></br>
-              <h1 id="homeHeading">HUNGRY   ADVENTURE</h1>
+              <h1 id="homeHeading">HUNGRY ADVENTURE</h1><font size="8px">Beta</font>
               <hr></hr>
               <center>
                 <Search onSubmit={this.submit} />
@@ -100,9 +100,9 @@ class Layout extends React.Component {
                 <div className="col-lg-8 col-lg-offset-2 text-center">
                   <h2 className="section-heading">Ready for an Adventure?</h2>
                   <hr className="light"></hr>
-                  <p className="text-faded">Do you have a budget and data you're available but don't know where to go or what your options are? We have you covered! Out site provides a one stop shop for all travel
+                  <p className="text-faded">Do you have a budget and date but don't know where to go or what your options are? We have you covered! Our site provides a one stop shop for all travel
                   needs.</p>
-                <a href="#" className="page-scroll btn btn-default btn-xl sr-button" style={{ borderRadius: '0', backgroundColor: 'white' }}>Let's Get Started!</a>
+                <a href="#" className="page-scroll btn btn-default btn-xl sr-button" style={{ borderRadius: '4px', backgroundColor: 'white' }}>Let's Get Started!</a>
                 </div>
             </div>
         </div>
@@ -155,7 +155,7 @@ class Layout extends React.Component {
         <div className="container-fluid">
             <div className="row no-gutter popup-gallery">
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/3.jpg" className="portfolio-box">
+                    <a href="../../assets/8.jpg" className="portfolio-box" target="_blank">
                         <img src="../../assets/8.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
@@ -165,7 +165,7 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/4.jpg" className="portfolio-box">
+                    <a href="../../assets/asakusaTempleTokyo.jpg" className="portfolio-box" target="_blank">
                         <img src="../../assets/asakusaTempleTokyo.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
@@ -175,7 +175,7 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/5.jpg" className="portfolio-box">
+                    <a href="../../assets/dubrovnikCrotia.jpg" className="portfolio-box" target="_blank">
                         <img src="../../assets/dubrovnikCrotia.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
@@ -185,7 +185,7 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/6.jpg" className="portfolio-box">
+                    <a href="../../assets/paris.jpg" className="portfolio-box" target="_blank">
                         <img src="../../assets/paris.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
@@ -195,7 +195,7 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/1.jpg" className="portfolio-box">
+                    <a href="../../assets/pyramidGiza.jpg" className="portfolio-box" target="_blank">
                         <img src="../../assets/pyramidGiza.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
@@ -205,7 +205,7 @@ class Layout extends React.Component {
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/tajMahal.jpg" className="portfolio-box">
+                    <a href="../../assets/tajMahal.jpg" className="portfolio-box" target="_blank">
                         <img src="../../assets/tajMahal.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
@@ -241,20 +241,20 @@ class Layout extends React.Component {
         <div className="container">
              <div className="container text-center">
                  <div className="call-to-action">
-                     <h2>Development Team!</h2>
+                     <h2>Development Team</h2>
                      <br></br>
                      <br></br>
                        <div>
                          <div>
                            <div className="col-sm-3">
-                           <a href="http://michaeljchan.com">
+                           <a href="http://michaeljchan.com" target="_blank">
                              <img className="profilePicture img-circle" src="http://michaeljchan.com/image/profile.PNG" height="65" width="65"></img>
                            </a>
                              <h4>Michael Chan</h4>
                              <h5>Product owner</h5>
                              <h5>Software Engineer</h5>
                            <p>
-                             <a href="http://github.com/ThinkFWD">
+                             <a href="http://github.com/ThinkFWD" target="_blank">
                                <img className="gitIcon" src="https://image.flaticon.com/icons/svg/23/23957.svg" height="40" width="40"></img>
                              </a>
                              <a href="https://www.linkedin.com/in/mikethikfwd/">
@@ -263,49 +263,49 @@ class Layout extends React.Component {
                            </p>
                            </div>
                            <div className="col-sm-3">
-                           <a href="https://github.com/supreme38">
+                           <a href="https://github.com/supreme38" target="_blank">
                              <img className="profilePicture img-circle" src="https://avatars2.githubusercontent.com/u/14501778?v=3&s=460" height="65" width="65"></img>
                            </a>
                              <h4>Vincent Liu</h4>
                              <h5>Scrum master</h5>
                              <h5>Software Engineer</h5>
                            <p>
-                             <a href="https://github.com/supreme38">
+                             <a href="https://github.com/supreme38" target="_blank">
                                <img className="gitIcon" src="https://image.flaticon.com/icons/svg/23/23957.svg" height="40" width="40"></img>
                              </a>
-                             <a href="https://www.linkedin.com/in/vincent38">
+                             <a href="https://www.linkedin.com/in/vincent38" target="_blank">
                                <img className="linkedIcon" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" height="40" width="40"></img>
                              </a>
                            </p>
                          </div>
                          <div className="col-sm-3">
-                           <a href="https://www.github.com/camdunne">
+                           <a href="https://www.github.com/camdunne" target="_blank">
                              <img className="profilePicture img-circle" src="https://avatars1.githubusercontent.com/u/22266951?v=3&s=460" height="65" width="65"></img>
                            </a>
                              <h4>Cameron Dunne</h4>
                              <h5>Software Engineer</h5>
                              <br></br>
                            <p>
-                             <a href="https://www.github.com/camdunne">
+                             <a href="https://www.github.com/camdunne" target="_blank">
                                <img className="gitIcon" src="https://image.flaticon.com/icons/svg/23/23957.svg" height="40" width="40"></img>
                              </a>
-                             <a href="https://www.linkedin.com/in/camerondunne">
+                             <a href="https://www.linkedin.com/in/camerondunne" target="_blank">
                                <img className="linkedIcon" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" height="40" width="40"></img>
                              </a>
                            </p>
                          </div>
                          <div className="col-sm-3">
-                           <a href="https://github.com/xbryan813x">
+                           <a href="https://github.com/xbryan813x" target="_blank">
                              <img className="profilePicture img-circle" src="https://avatars1.githubusercontent.com/u/15056067?v=3&s=460" height="65" width="65"></img>
                            </a>
                              <h4>Bryam Pacheco</h4>
                              <h5>Software Engineer</h5>
                              <br></br>
                            <p>
-                             <a href="https://github.com/xbryan813x">
+                             <a href="https://github.com/xbryan813x" target="_blank">
                                <img className="gitIcon" src="https://image.flaticon.com/icons/svg/23/23957.svg" height="40" width="40"></img>
                              </a>
-                             <a href="https://www.linkedin.com/in/bryan-pacheco-807a80107/">
+                             <a href="https://www.linkedin.com/in/bryan-pacheco-807a80107/" target="_blank">
                                <img className="linkedIcon" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" height="40" width="40"></img>
                              </a>
                            </p>
@@ -316,7 +316,6 @@ class Layout extends React.Component {
              </div>
         </div>
     </section>
-
       </div>
     );
   }
