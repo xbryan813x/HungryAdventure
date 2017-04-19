@@ -84,7 +84,7 @@ class Layout extends React.Component {
           <div className="header-content">
             <div className="header-content-inner">
               <br></br>
-              <h1 id="homeHeading">HUNGRY ADVENTURE</h1>
+              <h1 id="homeHeading">HUNGRY ADVENTURE</h1><font size="8px">Beta</font>
               <hr></hr>
               <center>
                 <Search onSubmit={this.submit} />
@@ -238,7 +238,7 @@ class Layout extends React.Component {
                 <div className="col-lg-8 col-lg-offset-2 text-center">
                     <h2 className="section-heading">Development Team!</h2>
                     <hr className="primary"></hr>
-                    <p>Get Ready as we introduce!</p>
+                    <p>We are in Beta!</p>
                 </div>
                 <div className="col-lg-4 col-lg-offset-2 text-center">
                     <i className="fa fa-phone fa-3x sr-contact"></i>
