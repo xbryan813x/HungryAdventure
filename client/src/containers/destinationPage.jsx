@@ -10,6 +10,7 @@ import BudgetBar from '../components/budgetBar';
 import FrommersInfo from './FrommersInfo';
 import ViatorEvents from './ViatorEvents';
 import YelpEvents from './YelpEvents';
+import Auth from './FacebookAuth';
 
 // Charts
 import DonutChart from 'react-donut-chart';
@@ -28,20 +29,22 @@ class destinationPage extends Component {
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
     return (<div>
+      {/*<Button style={{ borderRadius: '0', position: 'fixed', float: 'left', }} className="checkoutbutton"> <Link to="/storypage">Checkout</Link></Button> */}
+      <div className="circle"><div className="checkoutbutton glyphicon glyphicon-shopping-cart"><Link to="/storypage"></Link></div></div>
       <div
         className="hero" style={{
           background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]}) no-repeat center center fixed`,
           height: '60%',
           'background-size': 'cover',
-          'margin-top': '-20px',
         }}
       >
         <div className="titleContainer">
-          <h1>Hungry Adventure</h1>
-          <hr className="pageHr" />
-          <p className="pageTitle">{this.props.destination.city}, {this.props.destination.country}</p>
+          <div className="mobileTitle">
+            <h1>Hungry Adventure</h1>
+            <hr className="pageHr" />
+            <p className="pageTitle">{this.props.destination.city}, {this.props.destination.country}</p>
+          </div>
         </div>
-        <Button className="checkout" style={{ borderRadius: '0' }}> <Link to="/storypage">Checkout</Link></Button>
       </div>
 
       <div className="pageContainer">
@@ -69,6 +72,7 @@ class destinationPage extends Component {
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
       <ViatorEvents />
       <YelpEvents />
+      <div className="spaceMe"></div>
     </div>
     );
   }
