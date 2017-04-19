@@ -24,7 +24,7 @@ export default function reduce(state = {
     case 'FETCH_CURRENTHOTEL_FULFILLED' : {
       if (state.hotel) {
         if (state.hotel.id === action.payload.id) {
-          return { ...state, hotel: undefined }
+          return { ...state, hotel: undefined };
         }
       }
       return { ...state, hotel: action.payload };

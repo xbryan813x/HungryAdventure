@@ -10,7 +10,7 @@ export default function reduce(state = {}, action) {
     }
     case 'HOTEL_BUDGET_FULFILLED' : {
       if (state.id === action.payload.id) {
-        return { ...state, hotel: 0, id: undefined }
+        return { ...state, hotel: 0, id: undefined };
       }
       return { ...state, hotel: action.payload.hotel, id: action.payload.id };
     }

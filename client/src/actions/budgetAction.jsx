@@ -22,7 +22,7 @@ export function viatorBudget(events) {
 }
 
 export function yelpBudget(events) {
-  return { type: 'YELP_BUDGET_FULFILLED', payload: events }
+  return { type: 'YELP_BUDGET_FULFILLED', payload: events };
 }
 
 export function resetBudget() {
