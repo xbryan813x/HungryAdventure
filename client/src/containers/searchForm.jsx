@@ -16,18 +16,30 @@ momentLocaliser(moment);
 
 // +++++ COMPONENTS
 
-const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholder }) => (<DateTimePicker
+const renderStartDatePicker = ({ input: { onChange, value }, showTime, placeholder }) => (<DateTimePicker
   onChange={onChange}
   format="DD MMM YYYY"
   time={showTime}
+  min={new Date()}
   value={!value ? null : new Date(value)}
   placeholder={placeholder}
 />);
 
+const renderEndDatePicker = ({ input: { onChange, value }, showTime, placeholder, defaultValue }) => (<DateTimePicker
+  onChange={onChange}
+  format="DD MMM YYYY"
+  time={showTime}
+  min={defaultValue}
+  value={!value ? null : new Date(value)}
+  placeholder={placeholder}
 
+/>);
+
+// this.props.form.search.values.departDate ||
 class searchForm extends Component {
   render() {
   	const { handleSubmit, pristine, reset, submitting } = this.props;
+    console.log('Current Search state in render', this.props.search);
     return (<div>
       <center>
         <Form inline onSubmit={handleSubmit}>
@@ -40,13 +52,18 @@ class searchForm extends Component {
 
           <FormGroup>
             <div className="budgetSearch" >
-              <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Departure Date" />
+              <Field
+                name="departDate" showTime={false} component={renderStartDatePicker} type="text" placeholder="Start Date"
+              />
             </div>
           </FormGroup>
 
           <FormGroup>
             <div className="budgetSearch" >
-              <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Arrival Date" />
+              <Field
+                defaultValue={
+                  this.props.search ? this.props.search.values.departDate : new Date()} name="arrivalDate" showTime={false} component={renderEndDatePicker} type="text" placeholder="End Date"
+              />
             </div>
           </FormGroup>
           <FormGroup>
@@ -62,5 +79,10 @@ class searchForm extends Component {
 searchForm = reduxForm({
   form: 'search',  // a unique identifier for this form
 })(searchForm);
+
+const mapStateToProps = ({ form: { search } }) => ({
+  search,
+});
+
 // (state, action,)
-export default connect(null, null)(searchForm);
+export default connect(mapStateToProps, null)(searchForm, renderEndDatePicker);
