@@ -84,7 +84,7 @@ class Layout extends React.Component {
           <div className="header-content">
             <div className="header-content-inner">
               <br></br>
-              <h1 id="homeHeading">HUNGRY ADVENTURE</h1>
+              <h1 id="homeHeading">HUNGRY   ADVENTURE</h1>
               <hr></hr>
               <center>
                 <Search onSubmit={this.submit} />
@@ -156,54 +156,60 @@ class Layout extends React.Component {
             <div className="row no-gutter popup-gallery">
                 <div className="col-lg-4 col-sm-6">
                     <a href="../../assets/3.jpg" className="portfolio-box">
-                        <img src="../../assets/3.jpg" className="img-responsive headImg" alt=""></img>
+                        <img src="../../assets/8.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
+                              <h3>Rio de Janeiro, Brazil</h3>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
                     <a href="../../assets/4.jpg" className="portfolio-box">
-                        <img src="../../assets/4.jpg" className="img-responsive headImg" alt=""></img>
+                        <img src="../../assets/asakusaTempleTokyo.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
+                              <h3>Tokyo, Japan</h3>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
                     <a href="../../assets/5.jpg" className="portfolio-box">
-                        <img src="../../assets/5.jpg" className="img-responsive headImg" alt=""></img>
+                        <img src="../../assets/dubrovnikCrotia.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
+                              <h3>Dubrovnik, Crotia</h3>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
                     <a href="../../assets/6.jpg" className="portfolio-box">
-                        <img src="../../assets/6.jpg" className="img-responsive headImg" alt=""></img>
+                        <img src="../../assets/paris.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
+                              <h3>Paris, France</h3>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
                     <a href="../../assets/1.jpg" className="portfolio-box">
-                        <img src="../../assets/1.jpg" className="img-responsive headImg" alt=""></img>
+                        <img src="../../assets/pyramidGiza.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
+                              <h3>El Giza, Egypt</h3>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                    <a href="../../assets/5.jpg" className="portfolio-box">
-                        <img src="../../assets/5.jpg" className="img-responsive headImg" alt=""></img>
+                    <a href="../../assets/tajMahal.jpg" className="portfolio-box">
+                        <img src="../../assets/tajMahal.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
+                              <h3>Taj Mahal. Agra, India</h3>
                             </div>
                         </div>
                     </a>
