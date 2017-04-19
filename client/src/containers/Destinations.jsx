@@ -5,7 +5,7 @@ import DestinationList from '../components/DestinationList';
 import Search from './searchForm';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction'
 import Auth from './FacebookAuth';
-import { Jumbotron } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import { reset } from '../actions/resetState'
 import { getBudget, resetBudget } from '../actions/budgetAction'
 import { getGoogleData } from '../actions/userLocationAction'
@@ -81,19 +81,28 @@ getRandomInt = (min, max) => {
 
   let randomSlogan = funFacts[this.getRandomInt(0, funFacts.length)]
 
-      if(this.props.destinations.fetched === false) {
-    return (
-      <Jumbotron>
-      <center>
-        <br></br>
-        <br></br>
-        <h1> DID YOU KNOW? </h1>
-        <br></br>
-        <h3> {randomSlogan} </h3>
-        <img src='../../assets/loading.gif'></img>
-        </center>
-      </Jumbotron>
-
+  if(this.props.destinations.fetched === false) {
+    return ( <div className="loadingScreen">
+     <div className="static-modal">
+       <Modal.Dialog>
+         <Modal.Header>
+           <Modal.Title><h1><center>DID YOU KNOW?</center></h1></Modal.Title>
+         </Modal.Header>
+   
+         <Modal.Body>
+           <h3> {randomSlogan} </h3>
+         </Modal.Body>
+   
+         <Modal.Footer>
+          <div><center>
+           <img className="loadingImg" src='../../assets/loading.gif'></img>
+           </center>
+         </div>
+         </Modal.Footer>
+       </Modal.Dialog>
+     </div> 
+    </div>  
+       
     )
   }
     return ( <div>

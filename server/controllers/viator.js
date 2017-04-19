@@ -50,7 +50,6 @@ module.exports = {
         results = results.filter(str => /\S/.test(str));
       }).then(() => {
         results.splice(27, 2)
-        console.log(results.length);
         res.send(results)
       });
     });

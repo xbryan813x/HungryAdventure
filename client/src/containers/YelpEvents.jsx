@@ -4,6 +4,8 @@ import { currentEvents } from '../actions/currentStateAction';
 import { yelpBudget } from '../actions/budgetAction';
 import { eventsImage } from '../actions/budgetBarAction';
 import { Col, Button, Row } from 'react-bootstrap';
+import Scroll from 'react-scroll';
+const scroll = Scroll.animateScroll;
 
 
 class YelpEvents extends Component {
@@ -31,6 +33,7 @@ class YelpEvents extends Component {
       this.setState({show: " hide"});
       this.setState({flag: true});
     }
+    scroll.scrollMore(500, { delay : 100 });
   }
 
   render() {
@@ -42,8 +45,8 @@ class YelpEvents extends Component {
     return (
       <div className="eventsContainer">
         <Row className="rowTitle">
-          <Col sm={6}><h2>Resturants</h2></Col>
-          <Col sm={6}><div className="seeAll" onClick={() => this.expand()}>See all >></div></Col>
+          <Col sm={6} xs={6}><h2>Resturants</h2></Col>
+          <Col sm={6} xs={6}><div className="seeAll" onClick={() => this.expand()}>See all >></div></Col>
         </Row>
         {this.props.yelp.events.map((event, index) => (
           <Col sm={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>

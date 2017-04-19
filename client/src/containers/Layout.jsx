@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 //++++++ Imported Actions
 import { fetchDestinations } from '../actions/destinationsAction';
 import { getBudget } from '../actions/budgetAction';
-import { PageHeader } from 'react-bootstrap';
+import { PageHeader, Modal } from 'react-bootstrap';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction';
 import { reset } from '../actions/resetState'
 import { getGoogleData } from '../actions/userLocationAction'
@@ -38,7 +38,6 @@ class Layout extends React.Component {
      timeout: 5000,
      maximumAge: 0
    };
-   console.log("<===IM BEEN RUN IN HERE===>")
    const success = (pos) => {
      let crd = pos.coords;
 
@@ -77,7 +76,6 @@ class Layout extends React.Component {
   }
 
   render () {
-    console.log('****_inside of Layout.jsx**',this.props)
      return (
       <div>
       <header>
@@ -90,7 +88,6 @@ class Layout extends React.Component {
               <hr></hr>
               <center>
                 <Search onSubmit={this.submit} />
-
               </center>
             </div>
           </div>
@@ -105,7 +102,7 @@ class Layout extends React.Component {
                   <hr className="light"></hr>
                   <p className="text-faded">Do you have a budget and data you're available but don't know where to go or what your options are? We have you covered! Out site provides a one stop shop for all travel
                   needs.</p>
-                  <a href="#search" className="page-scroll btn btn-default btn-xl sr-button">Lets Get Started!</a>
+                <a href="#" className="page-scroll btn btn-default btn-xl sr-button" style={{ borderRadius: '0', backgroundColor: 'white' }}>Let's Get Started!</a>
                 </div>
             </div>
         </div>
@@ -162,12 +159,6 @@ class Layout extends React.Component {
                         <img src="../../assets/3.jpg" className="customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
-                                <div className="project-category text-faded">
-                                    Category
-                                </div>
-                                <div className="project-name">
-                                    Project Name
-                                </div>
                             </div>
                         </div>
                     </a>
@@ -177,12 +168,6 @@ class Layout extends React.Component {
                         <img src="../../assets/4.jpg" className="img-responsive customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
-                                <div className="project-category text-faded">
-                                    Category
-                                </div>
-                                <div className="project-name">
-                                    Project Name
-                                </div>
                             </div>
                         </div>
                     </a>
@@ -192,12 +177,6 @@ class Layout extends React.Component {
                         <img src="../../assets/5.jpg" className="customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
-                                <div className="project-category text-faded">
-                                    Category
-                                </div>
-                                <div className="project-name">
-                                    Project Name
-                                </div>
                             </div>
                         </div>
                     </a>
@@ -207,12 +186,6 @@ class Layout extends React.Component {
                         <img src="../../assets/6.jpg" className="customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
-                                <div className="project-category text-faded">
-                                    Category
-                                </div>
-                                <div className="project-name">
-                                    Project Name
-                                </div>
                             </div>
                         </div>
                     </a>
@@ -222,12 +195,6 @@ class Layout extends React.Component {
                         <img src="../../assets/1.jpg" className="customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
-                                <div className="project-category text-faded">
-                                    Category
-                                </div>
-                                <div className="project-name">
-                                    Project Name
-                                </div>
                             </div>
                         </div>
                     </a>
@@ -237,12 +204,6 @@ class Layout extends React.Component {
                         <img src="../../assets/5.jpg" className="customImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
-                                <div className="project-category text-faded">
-                                    Category
-                                </div>
-                                <div className="project-name">
-                                    Project Name
-                                </div>
                             </div>
                         </div>
                     </a>
@@ -254,7 +215,19 @@ class Layout extends React.Component {
      <aside className="bg-dark">
         <div className="container text-center">
             <div className="call-to-action">
-                <h2>Development Team!</h2>
+                <h2>Powered By</h2>
+                  <div>
+                    <div>
+                      <img src="http://patrickcoombe.com/wp-content/uploads/2015/09/new-google-logo-2015.png" height="75" width="200"></img>
+                      <img src="https://darksky.net/images/darkskylogo.png" height="75" width="75"></img>
+                      <img src="https://www.thehostel.us/wp-content/uploads/2014/01/logo_frommers.png" height="75" width="125"></img>
+                      <img src="http://www.photos.apo-opa.com/plog-content/images/apo/logos/airbnb.png" height="75" width="175"></img>
+                      <img src="http://www.freeiconspng.com/uploads/facebook-logo-29.png" height="75" width="100"></img>
+                      <img src="https://s3-media2.fl.yelpcdn.com/assets/srv0/styleguide/1ea40efd80f5/assets/img/brand_guidelines/yelp_fullcolor.png" height="75" width="125"></img>
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Skyscanner_Logo_New.png" height="75" width="200"></img>
+
+                  </div>
+                </div>
             </div>
         </div>
     </aside>
