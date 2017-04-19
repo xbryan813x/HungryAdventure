@@ -101,7 +101,7 @@ getRandomInt = (min, max) => {
         <Auth />
     <section id="banner">
         <h2>Hungry Adventure</h2>
-        <p>Lets go on an adventure</p>
+        <p>Let's go on an adventure</p>
     </section>
 <section className="customContainer">
         <DestinationList destinations={this.props.destinations} redirect={(url)=>{this.props.history.push(url)}}/>

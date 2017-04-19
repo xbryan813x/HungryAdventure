@@ -34,19 +34,34 @@ const renderEndDatePicker = ({ input: { onChange, value }, showTime, placeholder
   placeholder={placeholder}
 
 />);
+const setDefault = (props) => {
+  if (props.search) {
+    if (props.search.values) {
+      return props.search.values.departDate;
+    }
+  }
+  return new Date();
+};
 
 // this.props.form.search.values.departDate ||
 class searchForm extends Component {
   render() {
   	const { handleSubmit, pristine, reset, submitting } = this.props;
-    console.log('Current Search state in render', this.props.search);
     return (<div>
       <center>
         <Form inline onSubmit={handleSubmit}>
 
           <FormGroup>
             <div className="rw-datetimepicker rw-widget budgetSearch" >
-              <Field className="rw-input" name="Budget" component="input" type="number" placeholder="Budget" />
+              <Field
+                className="rw-input"
+                name="Budget"
+                component="input"
+                type="number"
+                min="0"
+                step="1"
+                placeholder="Budget"
+              />
             </div>
           </FormGroup>
 
@@ -61,11 +76,11 @@ class searchForm extends Component {
           <FormGroup>
             <div className="budgetSearch" >
               <Field
-                defaultValue={
-                  this.props.search ? this.props.search.values.departDate : new Date()} name="arrivalDate" showTime={false} component={renderEndDatePicker} type="text" placeholder="End Date"
+                defaultValue={setDefault(this.props)} name="arrivalDate" showTime={false} component={renderEndDatePicker} type="text" placeholder="End Date"
               />
             </div>
           </FormGroup>
+
           <FormGroup>
             <Button bsStyle="custom" type="submit" style={{ borderRadius: '0' }}> Submit </Button>
           </FormGroup>
