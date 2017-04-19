@@ -16,49 +16,38 @@ class Destinations extends Component {
 componentWillMount() {
   this.props.resetBudget();
 
-if(Object.keys(this.props.budget).length === 0){
-  if (window.location.search){
-
-  var queryString = window.location.search;
-  queryString = queryString.substring(1);
-
-  var parseQueryString = function( q ) {
-    var params = {}, queries, temp, i, l;
-    // Split into key/value pairs
-    queries = q.split("&");
-    // Convert the array of strings into an object
-    for ( i = 0, l = queries.length; i < l; i++ ) {
-        temp = queries[i].split('=');
-        params[temp[0]] = temp[1];
+  if (Object.keys(this.props.budget).length === 0) {
+    if (window.location.search) {
+    var queryString = window.location.search;
+    queryString = queryString.substring(1);
+    var parseQueryString = function(q) {
+      var params = {}, queries, temp, i, l;
+      // Split into key/value pairs
+      queries = q.split("&");
+      // Convert the array of strings into an object
+      for ( i = 0, l = queries.length; i < l; i++ ) {
+          temp = queries[i].split('=');
+          params[temp[0]] = temp[1];
+      }
+      return params;
+    };
+    let queryObj = {
+      Budget: parseQueryString(queryString).Budget,
+      departDate: new Date ((parseQueryString(queryString).departDate).replace(/%20/g, " ")),
+      arrivalDate: new Date ((parseQueryString(queryString).arrivalDate).replace(/%20/g, " ")),
     }
-    return params;
-};
-
-let queryObj = {
-  Budget: parseQueryString(queryString).Budget,
-  departDate: new Date ((parseQueryString(queryString).departDate).replace(/%20/g, " ")),
-  arrivalDate: new Date ((parseQueryString(queryString).arrivalDate).replace(/%20/g, " ")),
-}
-
-
-this.props.getBudget(queryObj)
-this.props.fetchDestinations(queryObj);
-
-}
-
-}
-
-
+    this.props.getBudget(queryObj)
+    this.props.fetchDestinations(queryObj);
+    }
+  }
 }
 
 submit = (values) => {
-
   this.props.getBudget(values)
   this.props.fetchDestinations(values).then(() =>{
-     this.props.history.push(`/flights?Budget=${values.Budget}&departDate=${values.departDate}&arrivalDate=${values.arrivalDate}`);
-   })
+    this.props.history.push(`/flights?Budget=${values.Budget}&departDate=${values.departDate}&arrivalDate=${values.arrivalDate}`);
+  })
 }
-
 
 getRandomInt = (min, max) => {
     min = Math.ceil(min);
@@ -81,57 +70,56 @@ getRandomInt = (min, max) => {
 
   let randomSlogan = funFacts[this.getRandomInt(0, funFacts.length)]
 
-  if(this.props.destinations.fetched === false) {
-    return ( <div className="loadingScreen">
-     <div className="static-modal">
-       <Modal.Dialog>
-         <Modal.Header>
-           <Modal.Title><h1><center>DID YOU KNOW?</center></h1></Modal.Title>
-         </Modal.Header>
-   
-         <Modal.Body>
-           <h3> {randomSlogan} </h3>
-         </Modal.Body>
-   
-         <Modal.Footer>
-          <div><center>
-           <img className="loadingImg" src='../../assets/loading.gif'></img>
-           </center>
-         </div>
-         </Modal.Footer>
-       </Modal.Dialog>
-     </div> 
-    </div>  
-       
-    )
-  } else if(this.props.destinations.destinations.length === 0){
-    return (
-      <div>
-        <Search onSubmit={this.submit}/>
-              <Auth />
-          <section id="banner">
-              <h2>No Search Results.</h2>
-              <p>Please try again</p>
-          </section>
+    if(this.props.destinations.fetched === false) {
+      return ( <div className="loadingScreen">
+       <div className="static-modal">
+         <Modal.Dialog>
+           <Modal.Header>
+             <Modal.Title><h1><center>DID YOU KNOW?</center></h1></Modal.Title>
+           </Modal.Header>
+
+           <Modal.Body>
+             <h3> {randomSlogan} </h3>
+           </Modal.Body>
+
+           <Modal.Footer>
+            <div><center>
+             <img className="loadingImg" src='../../assets/loading.gif'></img>
+             </center>
+           </div>
+           </Modal.Footer>
+         </Modal.Dialog>
+       </div>
       </div>
-    )
-  } else {
-    return ( <div>
-  <Search onSubmit={this.submit}/>
-        <Auth />
-    <section id="banner">
-        <h2>Hungry Adventure</h2>
-        <p>Let's go on an adventure</p>
-    </section>
-<section className="customContainer">
-        <DestinationList destinations={this.props.destinations} redirect={(url)=>{this.props.history.push(url)}}/>
-</section>
 
-
-</div>
-    );
+      )
+    } else if (this.props.destinations.destinations.length === 0) {
+      return (
+        <div>
+          <Search onSubmit={this.submit}/>
+          <Auth />
+          <section id="banner">
+            <h2>No Search Results.</h2>
+            <p>Please try again</p>
+          </section>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <Search onSubmit={this.submit}/>
+          <Auth />
+          <section id="banner">
+            <h2>Hungry Adventure</h2>
+            <p>Let's go on an adventure</p>
+          </section>
+          <section className="customContainer">
+            <DestinationList destinations={this.props.destinations} redirect={(url)=>{this.props.history.push(url)}}/>
+          </section>
+        </div>
+      );
+    }
   }
-}
 }
 
 const mapStateToProps = ({destinations, budget}) => ({
