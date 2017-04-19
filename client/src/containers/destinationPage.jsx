@@ -11,6 +11,7 @@ import FrommersInfo from './FrommersInfo';
 import ViatorEvents from './ViatorEvents';
 import YelpEvents from './YelpEvents';
 import Auth from './FacebookAuth';
+import { pinArray } from '../../utils/storyPageHelpers';
 
 // Charts
 import DonutChart from 'react-donut-chart';
@@ -28,6 +29,9 @@ class destinationPage extends Component {
     const activityCost = this.props.budget.viatorEvents || 0;
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
+
+    const mapArray = pinArray(this.props.current);
+    console.log('maparray', mapArray);
     return (<div>
       {/* <Button style={{ borderRadius: '0', position: 'fixed', float: 'left', }} className="checkoutbutton"> <Link to="/storypage">Checkout</Link></Button> */}
       <Link to="/storypage"><div className="circle"><div className="checkoutbutton glyphicon glyphicon-shopping-cart" /></div></Link>
@@ -35,7 +39,7 @@ class destinationPage extends Component {
         className="hero" style={{
           background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]}) no-repeat center center fixed`,
           height: '60%',
-          'background-size': 'cover',
+          backgroundSize: 'cover',
         }}
       >
         <div className="titleContainer">
@@ -68,7 +72,7 @@ class destinationPage extends Component {
         <Col sm={4} xs={12} className="mobileSpacing"><FrommersInfo /></Col>
       </div>
 
-      <Col sm={12} xs={12} className="mapsPadding"><div className="maps"><GoogleMaps locator={this.props.geo.locator} hotelsArr={this.props.hotels.hotels} /></div></Col>
+      <Col sm={12} xs={12} className="mapsPadding"><div className="maps"><GoogleMaps locator={this.props.geo.locator} mapArray={mapArray} /></div></Col>
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
       <ViatorEvents />
       <YelpEvents />

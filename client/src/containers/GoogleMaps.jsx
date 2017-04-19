@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
-import { HotelPin } from '../components/Pins';
+
+import { HotelPin, YelpPin } from '../components/Pins';
 import { googleMaps } from '../keys/mapsKey';
 
 class GoogleMaps extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     if (this.props.locator === undefined || this.props.hotels === undefined) {
@@ -16,18 +15,27 @@ class GoogleMaps extends Component {
       );
     }
     return (
-        <GoogleMapReact
-          options={{ scrollwheel: false }}
-          defaultCenter={{ lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude }}
-          defaultZoom={12}
-          bootstrapURLKeys={{ key: googleMaps() }}
-        >
-          {this.props.hotelsArr.map((hotel, index) =>
-            <HotelPin
-              lat={hotel.lat} lng={hotel.lng} key={index} price={hotel.price}
-            />,
-        )}
-        </GoogleMapReact>
+      <GoogleMapReact
+        options={{ scrollwheel: false }}
+        defaultCenter={{ lat: this.props.geo.locator.latitude, lng: this.props.geo.locator.longitude }}
+        defaultZoom={11}
+        bootstrapURLKeys={{ key: googleMaps() }}
+      >
+        {this.props.mapArray.map((elem, index) => {
+          if (elem.lat) {
+            return (<HotelPin
+              lat={elem.lat}
+              lng={elem.lng}
+              key={elem.id}
+            />);
+          }
+          return (<YelpPin
+            lat={elem.coordinates.latitude}
+            lng={elem.coordinates.longitude}
+            key={elem.name}
+          />);
+        })}
+      </GoogleMapReact>
     );
   }
 }

@@ -145,6 +145,7 @@ return funFacts[this.getRandomInt(0, funFacts.length)]
 }
 }
 
+
 const mapStateToProps = ({destinations, budget}) => ({
   destinations,
   budget,
