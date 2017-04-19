@@ -51,7 +51,7 @@ class ViatorEvents extends Component {
   render() {
     if (this.props.viator.events === undefined) {
       return (
-        <div>No Viator Events</div>
+        <div></div>
       )
     }
 
