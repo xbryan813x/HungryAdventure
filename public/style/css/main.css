@@ -697,18 +697,13 @@ body #main {
 }
 
 .eventContainer {
-  padding-bottom: 2%;
-  height: 21%;
+  height: 25%;
 }
 
 
 .eventsContainer {
   margin: auto;
   width: 80%;
-}
-
-.eventContainer {
-  height: 23%;
 }
 
 .eventImg {

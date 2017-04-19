@@ -50,7 +50,8 @@ module.exports = {
         results = results.filter(str => /\S/.test(str));
       }).then(() => {
         results.splice(27, 2)
-        res.send(results)
+        results.forEach(result => result.image = result.image.replace('thumbs210x118', 'thumbs674x446'));
+        res.send(results);
       });
     });
   },
