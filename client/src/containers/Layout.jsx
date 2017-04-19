@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 //++++++ Imported Actions
 import { fetchDestinations } from '../actions/destinationsAction';
 import { getBudget } from '../actions/budgetAction';
-import { PageHeader } from 'react-bootstrap';
+import { PageHeader, Modal } from 'react-bootstrap';
 import { saveSearchQuery } from '../actions/saveSearchQueryAction';
 import { reset } from '../actions/resetState'
 import { getGoogleData } from '../actions/userLocationAction'
