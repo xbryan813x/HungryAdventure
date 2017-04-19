@@ -95,7 +95,18 @@ getRandomInt = (min, max) => {
       </Jumbotron>
 
     )
-  }
+  } else if(this.props.destinations.destinations.length === 0){
+    return (
+      <div>
+        <Search onSubmit={this.submit}/>
+              <Auth />
+          <section id="banner">
+              <h2>No Search Results.</h2>
+              <p>Please try again</p>
+          </section>
+      </div>
+    )
+  } else {
     return ( <div>
   <Search onSubmit={this.submit}/>
         <Auth />
@@ -111,6 +122,7 @@ getRandomInt = (min, max) => {
 </div>
     );
   }
+}
 }
 
 const mapStateToProps = ({destinations, budget}) => ({

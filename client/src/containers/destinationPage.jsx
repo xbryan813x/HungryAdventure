@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // +++++ Imported Components
 import { Link } from 'react-router-dom';
-import { Col, Row, Button } from 'react-bootstrap';
+import { Col, Button } from 'react-bootstrap';
 import GoogleMaps from './GoogleMaps';
 import HotelList from '../components/HotelList';
 import Weather from '../components/weather';
@@ -27,14 +27,7 @@ class destinationPage extends Component {
     const activityCost = this.props.budget.viatorEvents || 0;
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
-    console.log('destinations.destinations', this.props.destinations.destinations);
-    if (this.props.destinations.destinations.length === 0) {
-      return (<div>
-        No Search Results Found. Please Try Again.
-      </div>);
-    }
     return (<div>
-
       <div
         className="hero" style={{
           background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]}) no-repeat center center fixed`,
