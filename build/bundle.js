@@ -23807,7 +23807,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function fetchDestinations(searchObj) {
   return function (dispatch) {
     return _axios2.default.get('/api/anywhere', {
-      params: searchObj }).then(function (response) {
+      params: searchObj }).then(dispatch({ type: 'FETCH_DESTINATION_TOGGLE' })).then(function (response) {
       return dispatch({ type: 'FETCH_DESTINATIONS_FULFILLED', payload: response.data });
     }).catch(function (err) {
       return dispatch({ type: 'FETCH_DESTINATIONS_REJECTED', payload: err });
@@ -49862,7 +49862,6 @@ var Destinations = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Destinations.__proto__ || Object.getPrototypeOf(Destinations)).call.apply(_ref, [this].concat(args))), _this), _this.submit = function (values) {
-
       _this.props.getBudget(values);
       _this.props.fetchDestinations(values).then(function () {
         _this.props.history.push('/flights?Budget=' + values.Budget + '&departDate=' + values.departDate + '&arrivalDate=' + values.arrivalDate);
@@ -49871,6 +49870,16 @@ var Destinations = function (_Component) {
       min = Math.ceil(min);
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min)) + min;
+    }, _this.loadingStatus = function () {
+      if (_this.props.destinations.fetching) {
+        return true;
+      } else {
+        return false;
+      }
+    }, _this.randomSlogan = function () {
+      var funFacts = ['Did you know London, England draws more international visitors than any other city on the planet?', 'Did you know that 40 per cent of the New York subway system is above ground, and it runs 24 hours a day?', 'San Francisco’s famous suspension bridge isn’t actually gold; its official paint colour is ‘international orange.’ Goldengatebridge.org even publicizes the colour formula used to attain this orange hue, so fans of the bridge can replicate the exact tone at home. The bridge owes its golden name to the Golden Gate Strait, the waterway it straddles, not its paint colour.', 'Pacific Rim tourists susceptible to vertigo, be warned. Hong Kong’s skyline features more skyscrapers than New York City.', 'If you’re referring to the tower in London’s Houses of Parliament as Big Ben, try again. According to the UK Parliament’s website, the tower is officially called the Clock Tower. Big Ben is the nickname for the clock’s bell.', 'Don’t forget your swimsuit and snorkel; life really is a beach in Australia. The country lays claim to over 10,000 beaches – more than any other nation.', 'Reaching triumphantly skyward over the waters of New York City’s harbour, the Statue of Liberty is one of America’s most beloved attractions. But surprisingly, this iconic American landmark began her life in Europe. Built by French sculptor Auguste Bartholdi, the Statue took nine years to complete and was shipped via boat from France to New York City in 350 individual pieces.', 'Arizona’s steep canyon is certainly grand, but it’s not the world’s largest. Tibet’s Tsangpo Canyon actually holds the title as the planet’s biggest, deepest canyon. The Grand Canyon is the runner-up.', 'According to the City of Niagara Falls, over 6 million cubic feet of water hurls over the top of Canada’s Horseshoe Falls every minute – enough to fill a million bathtubs to the brim in 60 seconds. But once in March 1848, the water actually stopped flowing. A temporary obstruction at the mouth of the Niagara River in Fort Erie, Ontario caused the roaring cascade of water to shrink to a quiet trickle.'];
+
+      return funFacts[_this.getRandomInt(0, funFacts.length)];
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -49881,7 +49890,6 @@ var Destinations = function (_Component) {
 
       if (Object.keys(this.props.budget).length === 0) {
         if (window.location.search) {
-
           var queryString = window.location.search;
           queryString = queryString.substring(1);
 
@@ -49906,7 +49914,6 @@ var Destinations = function (_Component) {
             departDate: new Date(parseQueryString(queryString).departDate.replace(/%20/g, " ")),
             arrivalDate: new Date(parseQueryString(queryString).arrivalDate.replace(/%20/g, " "))
           };
-
           this.props.getBudget(queryObj);
           this.props.fetchDestinations(queryObj);
         }
@@ -49917,59 +49924,51 @@ var Destinations = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var funFacts = ['Did you know London, England draws more international visitors than any other city on the planet?', 'Did you know that 40 per cent of the New York subway system is above ground, and it runs 24 hours a day?', 'San Francisco’s famous suspension bridge isn’t actually gold; its official paint colour is ‘international orange.’ Goldengatebridge.org even publicizes the colour formula used to attain this orange hue, so fans of the bridge can replicate the exact tone at home. The bridge owes its golden name to the Golden Gate Strait, the waterway it straddles, not its paint colour.', 'Pacific Rim tourists susceptible to vertigo, be warned. Hong Kong’s skyline features more skyscrapers than New York City.', 'If you’re referring to the tower in London’s Houses of Parliament as Big Ben, try again. According to the UK Parliament’s website, the tower is officially called the Clock Tower. Big Ben is the nickname for the clock’s bell.', 'Don’t forget your swimsuit and snorkel; life really is a beach in Australia. The country lays claim to over 10,000 beaches – more than any other nation.', 'Reaching triumphantly skyward over the waters of New York City’s harbour, the Statue of Liberty is one of America’s most beloved attractions. But surprisingly, this iconic American landmark began her life in Europe. Built by French sculptor Auguste Bartholdi, the Statue took nine years to complete and was shipped via boat from France to New York City in 350 individual pieces.', 'Arizona’s steep canyon is certainly grand, but it’s not the world’s largest. Tibet’s Tsangpo Canyon actually holds the title as the planet’s biggest, deepest canyon. The Grand Canyon is the runner-up.', 'According to the City of Niagara Falls, over 6 million cubic feet of water hurls over the top of Canada’s Horseshoe Falls every minute – enough to fill a million bathtubs to the brim in 60 seconds. But once in March 1848, the water actually stopped flowing. A temporary obstruction at the mouth of the Niagara River in Fort Erie, Ontario caused the roaring cascade of water to shrink to a quiet trickle.'];
-
-      var randomSlogan = funFacts[this.getRandomInt(0, funFacts.length)];
-
       if (this.props.destinations.fetched === false) {
         return _react2.default.createElement(
           'div',
           { className: 'loadingScreen' },
           _react2.default.createElement(
-            'div',
-            { className: 'static-modal' },
+            _reactBootstrap.Modal.Dialog,
+            null,
             _react2.default.createElement(
-              _reactBootstrap.Modal.Dialog,
+              _reactBootstrap.Modal.Header,
               null,
               _react2.default.createElement(
-                _reactBootstrap.Modal.Header,
+                _reactBootstrap.Modal.Title,
                 null,
                 _react2.default.createElement(
-                  _reactBootstrap.Modal.Title,
-                  null,
-                  _react2.default.createElement(
-                    'h1',
-                    null,
-                    _react2.default.createElement(
-                      'center',
-                      null,
-                      'DID YOU KNOW?'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.Modal.Body,
-                null,
-                _react2.default.createElement(
-                  'div',
-                  { className: 'loadingText' },
-                  ' ',
-                  randomSlogan,
-                  ' '
-                )
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.Modal.Footer,
-                null,
-                _react2.default.createElement(
-                  'div',
+                  'h1',
                   null,
                   _react2.default.createElement(
                     'center',
                     null,
-                    _react2.default.createElement('img', { className: 'loadingImg', src: '../../assets/loading.gif' })
+                    'DID YOU KNOW?'
                   )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.Modal.Body,
+              null,
+              _react2.default.createElement(
+                'div',
+                { className: 'loadingText' },
+                ' ',
+                this.randomSlogan(),
+                ' '
+              )
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.Modal.Footer,
+              null,
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'center',
+                  null,
+                  _react2.default.createElement('img', { className: 'loadingImg', src: '../../assets/loading.gif' })
                 )
               )
             )
@@ -49978,7 +49977,7 @@ var Destinations = function (_Component) {
       }
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'supreme-container' },
         _react2.default.createElement(_searchForm2.default, { onSubmit: this.submit }),
         _react2.default.createElement(_FacebookAuth2.default, null),
         _react2.default.createElement(
@@ -49998,6 +49997,51 @@ var Destinations = function (_Component) {
         _react2.default.createElement(
           'section',
           { className: 'customContainer' },
+          _react2.default.createElement(
+            _reactBootstrap.Modal,
+            { show: this.loadingStatus() },
+            _react2.default.createElement(
+              _reactBootstrap.Modal.Header,
+              null,
+              _react2.default.createElement(
+                _reactBootstrap.Modal.Title,
+                null,
+                _react2.default.createElement(
+                  'h1',
+                  null,
+                  _react2.default.createElement(
+                    'center',
+                    null,
+                    'DID YOU KNOW?'
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.Modal.Body,
+              null,
+              _react2.default.createElement(
+                'div',
+                { className: 'loadingText' },
+                ' ',
+                this.randomSlogan(),
+                ' '
+              )
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.Modal.Footer,
+              null,
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'center',
+                  null,
+                  _react2.default.createElement('img', { className: 'loadingImg', src: '../../assets/loading.gif' })
+                )
+              )
+            )
+          ),
           _react2.default.createElement(_DestinationList2.default, { destinations: this.props.destinations, redirect: function redirect(url) {
               _this2.props.history.push(url);
             } })
@@ -51886,7 +51930,7 @@ function reducer() {
   var action = arguments[1];
 
   switch (action.type) {
-    case 'FETCH_DESTINATIONS':
+    case 'FETCH_DESTINATION_TOGGLE':
       {
         return _extends({}, state, {
           fetching: true
