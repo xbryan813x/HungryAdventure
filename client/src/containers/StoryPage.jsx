@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import GoogleMapReact from 'google-map-react';
 import DonutChart from 'react-donut-chart';
 import { Col, Checkbox } from 'react-bootstrap';
-import { googleMaps } from '../keys/mapsKey';
+import GoogleMaps from './GoogleMaps';
 import { StoryPin } from '../components/Pins';
 import { pinArray, yelpPrice } from '../../utils/storyPageHelpers';
 
@@ -26,24 +25,7 @@ class StoryPage extends Component {
         >
           <h1 className="storyCity">{this.props.destination.city}</h1>
           <div className="storyMap">
-            <GoogleMapReact
-              options={{ scrollwheel: false }}
-              defaultCenter={{
-                lat: this.props.locator.latitude,
-                lng: this.props.locator.longitude,
-              }}
-              defaultZoom={12}
-              bootstrapURLKeys={{ key: googleMaps() }}
-            >
-              {mapArray.map(elem =>
-                <StoryPin
-                  lat={elem.lat || elem.coordinates.latitude}
-                  lng={elem.lng || elem.coordinates.longitude}
-                  text={elem.hotel || elem.name}
-                  key={elem.id || elem.name}
-                />,
-                )}
-            </GoogleMapReact>
+            <GoogleMaps locator={this.props.locator} mapArray={mapArray} />
           </div>
           <div className="blankContainer">
             <div className="container">
@@ -158,6 +140,7 @@ const mapStateToProps = ({ current, geo, budget }) => ({
   ...current,
   ...geo,
   budget,
+
 });
 
 export default connect(mapStateToProps, null)(StoryPage);
