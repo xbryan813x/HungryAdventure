@@ -122,6 +122,7 @@ getRandomInt = (min, max) => {
   }
 }
 
+
 const mapStateToProps = ({destinations, budget}) => ({
   destinations,
   budget,
