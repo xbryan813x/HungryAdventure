@@ -47,6 +47,7 @@ const setDefault = (props) => {
 class searchForm extends Component {
   render() {
   	const { handleSubmit, pristine, reset, submitting } = this.props;
+    console.log('Current Search state in render', this.props.search);
     return (<div>
       <center>
         <Form inline onSubmit={handleSubmit}>
