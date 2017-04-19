@@ -104,13 +104,24 @@ getRandomInt = (min, max) => {
     </div>  
        
     )
-  }
+  } else if(this.props.destinations.destinations.length === 0){
+    return (
+      <div>
+        <Search onSubmit={this.submit}/>
+              <Auth />
+          <section id="banner">
+              <h2>No Search Results.</h2>
+              <p>Please try again</p>
+          </section>
+      </div>
+    )
+  } else {
     return ( <div>
   <Search onSubmit={this.submit}/>
         <Auth />
     <section id="banner">
         <h2>Hungry Adventure</h2>
-        <p>Lets go on an adventure</p>
+        <p>Let's go on an adventure</p>
     </section>
 <section className="customContainer">
         <DestinationList destinations={this.props.destinations} redirect={(url)=>{this.props.history.push(url)}}/>
@@ -120,6 +131,7 @@ getRandomInt = (min, max) => {
 </div>
     );
   }
+}
 }
 
 const mapStateToProps = ({destinations, budget}) => ({

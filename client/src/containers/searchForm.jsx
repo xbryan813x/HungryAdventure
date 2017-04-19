@@ -16,15 +16,34 @@ momentLocaliser(moment);
 
 // +++++ COMPONENTS
 
-const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholder }) => (<DateTimePicker
+const renderStartDatePicker = ({ input: { onChange, value }, showTime, placeholder }) => (<DateTimePicker
   onChange={onChange}
   format="DD MMM YYYY"
   time={showTime}
+  min={new Date()}
   value={!value ? null : new Date(value)}
   placeholder={placeholder}
 />);
 
+const renderEndDatePicker = ({ input: { onChange, value }, showTime, placeholder, defaultValue }) => (<DateTimePicker
+  onChange={onChange}
+  format="DD MMM YYYY"
+  time={showTime}
+  min={defaultValue}
+  value={!value ? null : new Date(value)}
+  placeholder={placeholder}
 
+/>);
+const setDefault = (props) => {
+  if (props.search) {
+    if (props.search.values) {
+      return props.search.values.departDate;
+    }
+  }
+  return new Date();
+};
+
+// this.props.form.search.values.departDate ||
 class searchForm extends Component {
   render() {
   	const { handleSubmit, pristine, reset, submitting } = this.props;
@@ -34,21 +53,34 @@ class searchForm extends Component {
 
           <FormGroup>
             <div className="rw-datetimepicker rw-widget budgetSearch" >
-              <Field className="rw-input" name="Budget" component="input" type="number" placeholder="Budget" />
+              <Field
+                className="rw-input"
+                name="Budget"
+                component="input"
+                type="number"
+                min="0"
+                step="1"
+                placeholder="Budget"
+              />
             </div>
           </FormGroup>
 
           <FormGroup>
             <div className="budgetSearch" >
-              <Field name="departDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Departure Date" />
+              <Field
+                name="departDate" showTime={false} component={renderStartDatePicker} type="text" placeholder="Start Date"
+              />
             </div>
           </FormGroup>
 
           <FormGroup>
             <div className="budgetSearch" >
-              <Field name="arrivalDate" showTime={false} component={renderDateTimePicker} type="text" placeholder="Arrival Date" />
+              <Field
+                defaultValue={setDefault(this.props)} name="arrivalDate" showTime={false} component={renderEndDatePicker} type="text" placeholder="End Date"
+              />
             </div>
           </FormGroup>
+
           <FormGroup>
             <Button bsStyle="custom" type="submit" style={{ borderRadius: '0' }}> Submit </Button>
           </FormGroup>
@@ -62,5 +94,10 @@ class searchForm extends Component {
 searchForm = reduxForm({
   form: 'search',  // a unique identifier for this form
 })(searchForm);
+
+const mapStateToProps = ({ form: { search } }) => ({
+  search,
+});
+
 // (state, action,)
-export default connect(null, null)(searchForm);
+export default connect(mapStateToProps, null)(searchForm, renderEndDatePicker);
