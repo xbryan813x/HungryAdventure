@@ -49952,8 +49952,8 @@ var Destinations = function (_Component) {
                 _reactBootstrap.Modal.Body,
                 null,
                 _react2.default.createElement(
-                  'h3',
-                  null,
+                  'div',
+                  { className: 'loadingText' },
                   ' ',
                   randomSlogan,
                   ' '

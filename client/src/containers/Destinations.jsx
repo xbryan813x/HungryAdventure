@@ -90,7 +90,7 @@ getRandomInt = (min, max) => {
          </Modal.Header>
    
          <Modal.Body>
-           <h3> {randomSlogan} </h3>
+           <div className="loadingText"> {randomSlogan} </div>
          </Modal.Body>
    
          <Modal.Footer>
