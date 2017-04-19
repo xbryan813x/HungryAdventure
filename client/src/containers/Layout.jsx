@@ -215,7 +215,19 @@ class Layout extends React.Component {
      <aside className="bg-dark">
         <div className="container text-center">
             <div className="call-to-action">
-                <h2>Development Team!</h2>
+                <h2>Powered By</h2>
+                  <div>
+                    <div>
+                      <img src="http://patrickcoombe.com/wp-content/uploads/2015/09/new-google-logo-2015.png" height="75" width="200"></img>
+                      <img src="https://darksky.net/images/darkskylogo.png" height="75" width="75"></img>
+                      <img src="https://www.thehostel.us/wp-content/uploads/2014/01/logo_frommers.png" height="75" width="125"></img>
+                      <img src="http://www.photos.apo-opa.com/plog-content/images/apo/logos/airbnb.png" height="75" width="175"></img>
+                      <img src="http://www.freeiconspng.com/uploads/facebook-logo-29.png" height="75" width="100"></img>
+                      <img src="https://s3-media2.fl.yelpcdn.com/assets/srv0/styleguide/1ea40efd80f5/assets/img/brand_guidelines/yelp_fullcolor.png" height="75" width="125"></img>
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Skyscanner_Logo_New.png" height="75" width="200"></img>
+
+                  </div>
+                </div>
             </div>
         </div>
     </aside>
