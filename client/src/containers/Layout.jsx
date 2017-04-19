@@ -316,7 +316,17 @@ class Layout extends React.Component {
              </div>
         </div>
     </section>
-      </div>
+     <aside className="bg-dark">
+       <div className="container text-center">
+           <div className="call-to-action">
+               <h6>© 2017 Hungry Adventure All rights reserved. |
+                 <a className="githubLink" href="https://github.com/hungry-adventure" target="_blank"> Hungry Adventure GitHub</a>
+               </h6>
+
+           </div>
+       </div>
+     </aside>
+    </div>
     );
   }
 }
