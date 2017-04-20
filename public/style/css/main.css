@@ -793,28 +793,21 @@ body #main {
   margin-top: 140px;
 }
 
-@media screen and (max-width: 414px) {
-  .mobileTitle {
-    position: relative;
-    top: -70px;
-  }
-  .weatherPadding {
-    padding: 0;
-  }
-  .mobileSpacing {
-    margin-top: 5%;
-    margin-bottom: 5%;
-  }
-  .viatorContainer {
-    margin-bottom: 23%;
-  }
-  .yelpContainer {
-    margin-bottom: 22%;
-  }
-  .floatMe {
-    float: left;
-  }
+
+.circleAdd {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: coral;
+  float: left;
+  position: fixed;
+  z-index: 10;
+  margin-left: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
+
+
 
 .mapsPadding {
   padding: 0;
@@ -873,22 +866,14 @@ body.modal-open .supreme-container {
   float: left;
   position: fixed;
   z-index: 10;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-top: 1vw;
+  margin-left: 10px;
   cursor: pointer;
 }
 
-.circleAdd {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: coral;
-  float: left;
-  position: fixed;
-  z-index: 10;
-  margin-left: 20px;
-  cursor: pointer;
-}
+
+
+
 
 .checkoutbutton {
   font-size: 43px !important;
@@ -900,5 +885,45 @@ body.modal-open .supreme-container {
 
 .fromContainer {
   top: -5px;
+}
+
+
+
+@media screen and (max-width: 414px) {
+  .mobileTitle {
+    position: relative;
+    top: -70px;
+  }
+  .weatherPadding {
+    padding: 0;
+  }
+  .mobileSpacing {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .viatorContainer {
+    margin-bottom: 23%;
+  }
+  .yelpContainer {
+    margin-bottom: 22%;
+  }
+  .floatMe {
+    float: left;
+  }
+  .circleAdd{
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+  }
+  .circle {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+  }
+  .checkoutbutton {
+    font-size: 20px !important;
+    left: 10px ;
+    top: 10px;
+  }
 }
 
