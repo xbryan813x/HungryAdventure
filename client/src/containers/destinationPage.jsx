@@ -19,7 +19,7 @@ import DonutChart from 'react-donut-chart';
 class destinationPage extends Component {
 
   componentWillMount() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
 
   loadDestination = () => {
@@ -55,15 +55,16 @@ class destinationPage extends Component {
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
     const mapArray = pinArray(this.props.current);
+
     return (<div>
       <Link to="/storypage"><div className="circle"><div className="checkoutbutton glyphicon glyphicon-shopping-cart" /></div></Link>
-      {this.loadDestination()}
+      {/*{this.loadDestination()}
       {this.loadHotel()}
       {this.loadEvents()}
-      {this.loadFood()}
+      {this.loadFood()}*/}
       <div
         className="hero" style={{
-          background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]}) center center no-repeat fixed`,
+          background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]}) no-repeat center center fixed`,
           height: '60%',
           backgroundSize: 'cover',
         }}

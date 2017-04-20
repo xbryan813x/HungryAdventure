@@ -454,6 +454,8 @@ body {
   height: 100%;
   width: 100%;
   cursor: pointer;
+  border-radius: 4px;
+  
 }
 
 .headImg {
@@ -701,6 +703,7 @@ body #main {
 .eventImg {
   width: 100%;
   height: 200px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -869,6 +872,18 @@ body.modal-open .supreme-container{
   margin-top: 20px;
   margin-left: 20px;
   cursor: pointer;
+}
+
+.circleAdd {		
+  width: 80px;		
+  height: 80px;		
+  border-radius: 50%;		
+  background-color: coral;		
+  float: left;		
+  position: fixed;		
+  z-index: 10;		
+  margin-left: 20px;		
+  cursor: pointer;		
 }
 
 .checkoutbutton {
