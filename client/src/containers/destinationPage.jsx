@@ -95,7 +95,7 @@ class destinationPage extends Component {
           },
           ]} height={200} width={200} legend={false} className="donutAlign"
         /></Col>
-        <Col sm={4} xs={12} className="mobileSpacing"><FrommersInfo /></Col>
+        <Col sm={4} xs={12} className="mobileSpacing fromContainer"><FrommersInfo /></Col>
       </div>
 
       <Col sm={12} xs={12} className="mapsPadding">
