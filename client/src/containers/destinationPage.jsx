@@ -55,7 +55,7 @@ class destinationPage extends Component {
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
     const mapArray = pinArray(this.props.current);
-
+    
     return (<div>
       <Link to="/storypage"><div className="circle"><div className="checkoutbutton glyphicon glyphicon-shopping-cart" /></div></Link>
       {this.loadDestination()}

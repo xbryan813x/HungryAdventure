@@ -4,10 +4,10 @@ export default function reduce(state = {
   yelpEvents: [],
   viatorEvents: [],
   destination: {
-    imageUrl:[],
+    imageUrl: [],
   },
-  hotel:{
-    pictures:[],
+  hotel: {
+    pictures: [],
   },
 }, action) {
   switch (action.type) {

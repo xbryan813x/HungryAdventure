@@ -105,7 +105,7 @@ class Layout extends React.Component {
     </section>
 
     <section id="services">
-        <div className="container">
+        <div className="container services">
             <div className="row">
                 <div className="col-lg-12 text-center">
                     <h2 className="section-heading">What We Do</h2>
