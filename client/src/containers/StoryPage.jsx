@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import DonutChart from 'react-donut-chart';
 import { Col, Checkbox } from 'react-bootstrap';
 import GoogleMaps from './GoogleMaps';
-import { StoryPin } from '../components/Pins';
 import { pinArray, yelpPrice } from '../../utils/storyPageHelpers';
 
 class StoryPage extends Component {
@@ -139,6 +138,7 @@ class StoryPage extends Component {
 const mapStateToProps = ({ current, geo, budget }) => ({
   ...current,
   ...geo,
+  geo,
   budget,
 
 });
