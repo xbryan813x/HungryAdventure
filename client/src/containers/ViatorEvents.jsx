@@ -12,7 +12,7 @@ class ViatorEvents extends Component {
     super(props)
     this.state = {
       show: " hide",
-      flag: true,
+      flag: "See More >>",
       added: [],
     }
   }
@@ -23,9 +23,9 @@ class ViatorEvents extends Component {
     if (first !== last) {
       this.state.added.splice(first, 1);
       this.state.added.pop();
-      return this.state[index] = 0;
+      return this.state[index] = "";
     }
-    this.state[index] = 1;
+    this.state[index] = " select";
   }
 
   add = (event, index) => {
@@ -38,20 +38,14 @@ class ViatorEvents extends Component {
   }
 
   expand = () => {
-    if (this.state.flag) {
-      this.setState({show: ""});
-      this.setState({flag: false});
-    } else if (!this.state.flag) {
-      this.setState({show: " hide"});
-      this.setState({flag: true});
-    }
+    this.state.flag === "See More >>" ? (this.setState({flag: "See Less <<"}), this.setState({show: ""})) : (this.setState({flag: "See More >>"}), this.setState({show: " hide"}))
     scroll.scrollMore(500, { delay : 100 });
   }
 
   render() {
     if (this.props.viator.events === undefined) {
       return (
-        <div></div>
+        <div />
       )
     }
 
@@ -59,14 +53,13 @@ class ViatorEvents extends Component {
       <div className="eventsContainer">
         <Row className="rowTitle">
           <Col md={6} xs={6}><h2>Experience</h2></Col>
-          <Col md={6} xs={6}><div className="seeAll" onClick={() => this.expand()}>See all >></div></Col>
+          <Col md={6} xs={6}><div className="seeAll" onClick={() => this.expand()}>{this.state.flag}</div></Col>
         </Row>
         {this.props.viator.events.map((event, index) => (
-          <Col md={6} md={3} key={index} className={"eventContainer" + ((index > 3) ? this.state.show : "")}>
+          <Col md={6} md={3} key={index} className={"viatorContainer" + (!this.state[index] ? "" : this.state[index]) + ((index > 3) ? this.state.show : "")}>
           <div className="portfolio-box" onClick={() => this.add(event, index)}>
             <img className="eventImg" src={event.image} />
-            <div className ="portfolio-box-caption"></div>
-            <div className ="portfolio-box-caption" style={{opacity: this.state[index]}}><span className="glyphicon glyphicon-shopping-cart" /></div> 
+            <div className ="portfolio-box-caption"><span className="glyphicon glyphicon-shopping-cart" /></div> 
           </div>
           <div>
           <span className="price">${event.price}</span>

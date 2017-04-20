@@ -19,7 +19,7 @@ class StoryPage extends Component {
       <div className="parallaxContainer">
         <section
           style={{
-            background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${this.props.destination.imageUrl[1] || this.props.destination.imageUrl[0]}) no-repeat center center fixed`,
+            background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${this.props.destination.imageUrl[1] || this.props.destination.imageUrl[0]}) center center no-repeat fixed`,
             backgroundSize: 'cover',
           }}
         >

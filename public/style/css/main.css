@@ -1,6 +1,7 @@
 /*+++++++++++++++++++
 ++ ORIGINAL  STYLE ++
 +++++++++++++++++++*/
+
 .maps {
   width: 100%;
   height: 60%;
@@ -12,6 +13,7 @@
   width: 100%;
   height: 70%;
 }
+
 .storyDonut {
   margin-bottom: 30%;
   margin: auto;
@@ -25,15 +27,15 @@
 }
 
 .pin {
-
-width: 50px;
-height: 50px;
-/*background: white;*/
-/*border-radius: 100%;*/
-display: flex;
-justify-content: center;
-align-items: center;
-color: black;
+  width: 50px;
+  height: 50px;
+  /*background: white;*/
+  /*border-radius: 100%;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-shadow: 5px 5px 5px white;
 }
 
 .facebookButton {
@@ -456,6 +458,7 @@ body {
   cursor: pointer;
   border-radius: 4px;
 }
+
 .headImg {
   height: 40%;
   width: 100%;
@@ -467,12 +470,7 @@ body {
 }
 
 .parallax {
-  background:
-    linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-  url("../../assets/7.jpeg") no-repeat center center fixed;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/7.jpeg") no-repeat center center fixed;
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2017/04/08/10/42/burj-khalifa-2212978_960_720.jpg") no-repeat center center fixed;
   background-size: cover;
 }
@@ -524,13 +522,13 @@ pad {
 .donutAlign {
   margin: auto;
   width: 100%;
+  margin-top: 5px;
 }
 
 .donut {
   height: 210px;
   background-color: coral;
 }
-
 
 #box:hover #overlay {
   opacity: 1;
@@ -594,7 +592,6 @@ Destionations Page Design
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-
 #banner input[type="submit"]:active,
 #banner input[type="reset"]:active,
 #banner input[type="button"]:active,
@@ -654,7 +651,6 @@ body #main {
   -moz-transform: scale(1);
   transition: all 200ms ease-in;
   transform: scale(1);
-  border-radius: 4px;
 }
 
 .event-card:hover {
@@ -671,34 +667,39 @@ body #main {
 }
 
 .card-text {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   color: white;
-   font: bold 24px/45px Helvetica, Sans-Serif;
-   letter-spacing: -1px;
-   background: rgb(0, 0, 0); /* fallback color */
-   background: rgba(0, 0, 0, 0.7);
-   padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  font: bold 24px/45px Helvetica, Sans-Serif;
+  letter-spacing: -1px;
+  background: rgb(0, 0, 0);
+  /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
 }
 
 .event {
   font: bold 16px Helvetica, Sans-Serif;
 }
 
-.eventContainer {
-  height: 25%;
-}
-
-
 .eventsContainer {
   margin: auto;
   width: 80%;
 }
 
+.yelpContainer {
+  height: 27%;
+}
+
+.viatorContainer {
+  height: 29%;
+}
+
 .eventImg {
   width: 100%;
   height: 200px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -759,7 +760,6 @@ body #main {
   text-align: center;
   padding-top: 250px;
   color: white;
-
 }
 
 .pageHr {
@@ -783,23 +783,26 @@ body #main {
 }
 
 @media screen and (max-width: 414px) {
-    .mobileTitle {
-      position: relative;
-      top: -70px;
-    }
-    .weatherPadding {
-      padding: 0;
-    }
-    .mobileSpacing {
-      margin-top: 5%;
-      margin-bottom: 5%;
-    }
-    .eventContainer {
-      margin-bottom:20%;
-    }
-    .floatMe {
-       float: left;
-    }
+  .mobileTitle {
+    position: relative;
+    top: -70px;
+  }
+  .weatherPadding {
+    padding: 0;
+  }
+  .mobileSpacing {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .viatorContainer {
+    margin-bottom: 23%;
+  }
+  .yelpContainer {
+    margin-bottom: 22%;
+  }
+  .floatMe {
+    float: left;
+  }
 }
 
 .mapsPadding {
@@ -807,22 +810,20 @@ body #main {
   margin-bottom: 6%;
 }
 
-.right{
+.right {
   float: right;
 }
 
 .loadingScreen {
-    /* The image used */
-    background-image: url("../../assets/loadingPage.jpg");
-
-    /* Set a specific height */
-    height: 100%;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  /* The image used */
+  background-image: url("../../assets/loadingPage.jpg");
+  /* Set a specific height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .loadingImg {
@@ -834,12 +835,12 @@ body #main {
   font: bold;
 }
 
-body.modal-open .supreme-container{
-    -webkit-filter: blur(1px);
-    -moz-filter: blur(1px);
-    -o-filter: blur(1px);
-    -ms-filter: blur(1px);
-    filter: blur(1px);
+body.modal-open .supreme-container {
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
 }
 
 .glyphicon.glyphicon-shopping-cart {
@@ -885,3 +886,8 @@ body.modal-open .supreme-container{
   left: 18px;
   top: 18px;
 }
+
+.fromContainer {
+  top: -5px;
+}
+

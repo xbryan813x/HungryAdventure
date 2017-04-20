@@ -96,7 +96,7 @@ class Layout extends React.Component {
                 <div className="col-lg-8 col-lg-offset-2 text-center">
                   <h2 className="section-heading">Ready for an Adventure?</h2>
                   <hr className="light"></hr>
-                  <p className="text-faded">Do you have a budget and date but don't know where to go or what your options are? We have you covered! Our site provides a one stop shop for all travel
+                  <p className="text-faded">Do you have a budget and a timeframe you're thinking about traveling but don't know where to go or what your options are? We have you covered! Our site provides a one-stop experience for all your travel
                   needs.</p>
                 <a href="#" className="page-scroll btn btn-default btn-xl sr-button" style={{ borderRadius: '4px', backgroundColor: 'white' }}>Let's Get Started!</a>
                 </div>
@@ -118,8 +118,8 @@ class Layout extends React.Component {
                 <div className="col-lg-3 col-md-6 text-center">
                     <div className="service-box">
                         <i className="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <h3>Aggrigate</h3>
-                        <p className="text-muted">We aggrigate Skyscanner, Airbnb, Yelp, Google, Weather and more..</p>
+                        <h3>Aggregate</h3>
+                        <p className="text-muted">We aggregate Skyscanner, Airbnb, Yelp, Google, Weather and more..</p>
                     </div>
                 </div>
                 <div className="col-lg-3 col-md-6 text-center">
@@ -140,7 +140,7 @@ class Layout extends React.Component {
                     <div className="service-box">
                         <i className="fa fa-4x fa-heart text-primary sr-icons"></i>
                         <h3>Story</h3>
-                        <p className="text-muted">You Construct a custom itinary and story</p>
+                        <p className="text-muted">You assemble a custom itinary and story</p>
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@ class Layout extends React.Component {
                         <img src="../../assets/pyramidGiza.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
-                              <h3>El Giza, Egypt</h3>
+                              <h3>Al Haram, Egypt</h3>
                             </div>
                         </div>
                     </a>
@@ -205,7 +205,7 @@ class Layout extends React.Component {
                         <img src="../../assets/tajMahal.jpg" className="img-responsive headImg" alt=""></img>
                         <div className="portfolio-box-caption">
                             <div className="portfolio-box-caption-content">
-                              <h3>Taj Mahal. Agra, India</h3>
+                              <h3>Agra, India</h3>
                             </div>
                         </div>
                     </a>
@@ -222,7 +222,7 @@ class Layout extends React.Component {
                     <div>
                       <img src="http://patrickcoombe.com/wp-content/uploads/2015/09/new-google-logo-2015.png" height="75" width="200"></img>
                       <img src="https://darksky.net/images/darkskylogo.png" height="75" width="75"></img>
-                      <img src="https://www.thehostel.us/wp-content/uploads/2014/01/logo_frommers.png" height="75" width="125"></img>
+                      <img src="http://www.riadkniza.com/images/press/frommers.png" height="85" width="240"></img>
                       <img src="http://www.photos.apo-opa.com/plog-content/images/apo/logos/airbnb.png" height="75" width="175"></img>
                       <img src="http://www.freeiconspng.com/uploads/facebook-logo-29.png" height="85" width="125"></img>
                       <img src="https://s3-media2.fl.yelpcdn.com/assets/srv0/styleguide/1ea40efd80f5/assets/img/brand_guidelines/yelp_fullcolor.png" height="75" width="125"></img>
