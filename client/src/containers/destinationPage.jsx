@@ -31,7 +31,7 @@ class destinationPage extends Component {
   loadHotel = () => {
     if(this.props.current.hotel.pictures.length > 0){
       return <img className="circleAdd" style={{ marginTop: '200px',}} src={this.props.current.hotel.pictures[0]}></img>
-    }  
+    }
   }
 
   loadEvents = () => {
@@ -55,7 +55,6 @@ class destinationPage extends Component {
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
     const mapArray = pinArray(this.props.current);
-    console.log('DESTINATIONPAGE PROPS', this.props);
     return (<div>
       {/* <Button style={{ borderRadius: '0', position: 'fixed', float: 'left', }} className="checkoutbutton"> <Link to="/storypage">Checkout</Link></Button> */}
 
