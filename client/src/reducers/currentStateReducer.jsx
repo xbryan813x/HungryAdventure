@@ -1,7 +1,9 @@
 import { skyscanner } from '../keys/skyscanner';
 
 export default function reduce(state = {
-  yelpEvents: [],
+  yelpEvents: [{
+    image:'',
+  }],
   viatorEvents: [],
   destination: {
     imageUrl: [],
