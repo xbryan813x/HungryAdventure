@@ -56,7 +56,6 @@ const enableSubmit = (props) => {
 class searchForm extends Component {
   constructor(props) {
     super(props);
-    console.log('searchform', this.props);
   }
   render() {
   	const { handleSubmit, reset } = this.props;
