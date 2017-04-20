@@ -54,9 +54,8 @@ class destinationPage extends Component {
     const activityCost = this.props.budget.viatorEvents || 0;
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
-
     const mapArray = pinArray(this.props.current);
-    console.log('maparray', mapArray);
+    console.log('DESTINATIONPAGE PROPS', this.props);
     return (<div>
       {/* <Button style={{ borderRadius: '0', position: 'fixed', float: 'left', }} className="checkoutbutton"> <Link to="/storypage">Checkout</Link></Button> */}
 
