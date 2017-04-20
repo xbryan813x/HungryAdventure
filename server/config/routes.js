@@ -28,6 +28,8 @@ module.exports = (app) => {
   // app.get('/api/anywhere', anywhereController.getAnywhere);
   // app.get('/api/hotels', hotelController.getHotels);
 
+  app.get('/api/google', googlePlacesController.getGoogleData);
+
   // Analysis
   app.get('/api/dbSearchQuerySave', databaseController.saveQuery);
 };

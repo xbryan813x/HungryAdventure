@@ -6,6 +6,10 @@ import GoogleMaps from './GoogleMaps';
 import { pinArray, yelpPrice } from '../../utils/storyPageHelpers';
 
 class StoryPage extends Component {
+   componentWillMount() {
+    window.scrollTo(0, 0);
+   }
+
   render() {
     const budget = this.props.budget.original;
     const flightCost = this.props.budget.flight || 0;
@@ -14,6 +18,7 @@ class StoryPage extends Component {
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
     const mapArray = pinArray(this.props);
+
     return (
       <div className="parallaxContainer">
         <section
@@ -98,7 +103,7 @@ class StoryPage extends Component {
                       <div className="text-white rule">
                         {event.title}
                       </div>
-                      <a href={`https://www.viator.com/${event.url}`} rel="noopener noreferrer" target="_blank" className="btn-solid" style={{ borderRadius: '0' }}>Buy</a>
+                      <a href={event.url} rel="noopener noreferrer" target="_blank" className="btn-solid" style={{ borderRadius: '0' }}>Buy</a>
                       <Checkbox className="right" />
                       {i < this.props.viatorEvents.length - 1 ?
                         <div className="space" />
