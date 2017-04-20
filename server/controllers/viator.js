@@ -59,7 +59,6 @@ module.exports = {
       }).then((page2) => {
         const link = 'https://www.viator.com';
         results = results.concat(page2.pages);
-        results.splice(28, 2);
         for (let i = 0; i < results.length; i += 1) {
           if (results[i].rating) {
             results[i].rating = Number(results[i].rating.slice(0, 1));
@@ -71,6 +70,7 @@ module.exports = {
         }
         results = results.filter(str => /\S/.test(str));
       }).then(() => {
+        results.splice(28, 2);
         results.forEach(result => result.image = result.image.replace('thumbs210x118', 'thumbs674x446'));
         res.send(results);
       });
