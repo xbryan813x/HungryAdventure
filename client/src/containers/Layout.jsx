@@ -96,7 +96,7 @@ class Layout extends React.Component {
                 <div className="col-lg-8 col-lg-offset-2 text-center">
                   <h2 className="section-heading">Ready for an Adventure?</h2>
                   <hr className="light"></hr>
-                  <p className="text-faded">Do you have a budget and a timeframe you're thinking about traveling but don't know where to go or what your options are? We have you covered! Our site provides a one-stop experience for all your travelx
+                  <p className="text-faded">Do you have a budget and a timeframe you're thinking about traveling but don't know where to go or what your options are? We have you covered! Our site provides a one-stop experience for all your travel
                   needs.</p>
                 <a href="#" className="page-scroll btn btn-default btn-xl sr-button" style={{ borderRadius: '4px', backgroundColor: 'white' }}>Let's Get Started!</a>
                 </div>
