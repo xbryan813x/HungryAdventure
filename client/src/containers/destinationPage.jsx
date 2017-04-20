@@ -101,7 +101,7 @@ class destinationPage extends Component {
 
       <Col sm={12} xs={12} className="mapsPadding">
         <div className="maps">
-          <GoogleMaps locator={this.props.geo.locator} mapArray={mapArray} />
+          <GoogleMaps key={this.props.current.destination.city} locator={this.props.geo.locator} mapArray={mapArray} />
         </div>
       </Col>
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
