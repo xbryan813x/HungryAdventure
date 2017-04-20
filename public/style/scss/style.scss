@@ -174,3 +174,9 @@ div .rule {
 input[type=checkbox], input[type=radio] {
     margin: 40px 0 0;
   }
+
+@media only screen and (min-width : 992px) {
+  .text-center {
+    height: 30%;
+  }
+}
