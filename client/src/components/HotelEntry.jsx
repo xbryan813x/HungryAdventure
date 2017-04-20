@@ -31,7 +31,7 @@ class HotelEntry extends Component {
   toggle = ({ hotels }) => {
     this.props.toggleHotels({ hotels });
     scroll.scrollMore(500, { delay : 100 });
-    this.state.flag === "See More >>" ? (this.setState({flag: "See Less <<"}), this.setState({show: ""})) : (this.setState({flag: "See More >>"}), this.setState({show: " hide"}))
+    this.state.flag === "See More >>" ? (this.setState({flag: "See Less <<"})) : (this.setState({flag: "See More >>"}));
 
   }
   select = (hotel, toggle) => {
