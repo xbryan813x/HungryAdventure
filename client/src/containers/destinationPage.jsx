@@ -19,7 +19,7 @@ import DonutChart from 'react-donut-chart';
 class destinationPage extends Component {
 
   componentWillMount() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
 
   loadDestination = () => {
@@ -55,9 +55,8 @@ class destinationPage extends Component {
     const foodCost = this.props.budget.yelpEvents || 0;
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
     const mapArray = pinArray(this.props.current);
-    return (<div>
-      {/* <Button style={{ borderRadius: '0', position: 'fixed', float: 'left', }} className="checkoutbutton"> <Link to="/storypage">Checkout</Link></Button> */}
 
+    return (<div>
       <Link to="/storypage"><div className="circle"><div className="checkoutbutton glyphicon glyphicon-shopping-cart" /></div></Link>
       {this.loadDestination()}
       {this.loadHotel()}
@@ -97,12 +96,12 @@ class destinationPage extends Component {
           },
           ]} height={200} width={200} legend={false} className="donutAlign"
         /></Col>
-        <Col sm={4} xs={12} className="mobileSpacing"><FrommersInfo /></Col>
+        <Col sm={4} xs={12} className="mobileSpacing fromContainer"><FrommersInfo /></Col>
       </div>
 
       <Col sm={12} xs={12} className="mapsPadding">
         <div className="maps">
-          <GoogleMaps locator={this.props.geo.locator} mapArray={mapArray} />
+          <GoogleMaps key={this.props.current.destination.city} locator={this.props.geo.locator} mapArray={mapArray} />
         </div>
       </Col>
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
