@@ -222,11 +222,11 @@ class Layout extends React.Component {
                     <div>
                       <img src="http://patrickcoombe.com/wp-content/uploads/2015/09/new-google-logo-2015.png" height="75" width="200"></img>
                       <img src="https://darksky.net/images/darkskylogo.png" height="75" width="75"></img>
-                      <img src="http://www.riadkniza.com/images/press/frommers.png" height="85" width="240"></img>
+                      <img src="http://www.riadkniza.com/images/press/frommers.png" height="85" width="180" style={{objectFit: "cover"}}></img>
                       <img src="http://www.photos.apo-opa.com/plog-content/images/apo/logos/airbnb.png" height="75" width="175"></img>
                       <img src="http://www.freeiconspng.com/uploads/facebook-logo-29.png" height="85" width="125"></img>
                       <img src="https://s3-media2.fl.yelpcdn.com/assets/srv0/styleguide/1ea40efd80f5/assets/img/brand_guidelines/yelp_fullcolor.png" height="75" width="125"></img>
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Skyscanner_Logo_New.png" height="65" width="200"></img>
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Skyscanner_Logo_New.png" height="65" width="220"></img>
                   </div>
                 </div>
             </div>
