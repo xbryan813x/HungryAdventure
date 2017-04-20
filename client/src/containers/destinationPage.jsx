@@ -58,10 +58,10 @@ class destinationPage extends Component {
 
     return (<div>
       <Link to="/storypage"><div className="circle"><div className="checkoutbutton glyphicon glyphicon-shopping-cart" /></div></Link>
-      {/*{this.loadDestination()}
+      {this.loadDestination()}
       {this.loadHotel()}
       {this.loadEvents()}
-      {this.loadFood()}*/}
+      {this.loadFood()}
       <div
         className="hero" style={{
           background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]}) no-repeat center center fixed`,
