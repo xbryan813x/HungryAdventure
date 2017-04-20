@@ -1,10 +1,10 @@
 module.exports = {
   pinArray: (data) => {
     const results = [];
-    if (data.hotel) results.push(data.hotel);
+    if (data.hotel.lat && data.hotel.lng) results.push(data.hotel);
     if (data.yelpEvents) {
       data.yelpEvents.forEach((event) => {
-        results.push(event);
+        if (event.coordinates) results.push(event);
       });
     }
     return results;
