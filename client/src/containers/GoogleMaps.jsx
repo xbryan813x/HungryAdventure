@@ -9,7 +9,7 @@ class GoogleMaps extends Component {
 
 
   render() {
-    if (this.props.locator === undefined || this.props.hotels === undefined) {
+    if (this.props.locator === undefined) {
       return (
         <div>loading</div>
       );

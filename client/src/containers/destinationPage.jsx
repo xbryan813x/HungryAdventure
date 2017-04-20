@@ -100,7 +100,11 @@ class destinationPage extends Component {
         <Col sm={4} xs={12} className="mobileSpacing"><FrommersInfo /></Col>
       </div>
 
-      <Col sm={12} xs={12} className="mapsPadding"><div className="maps"><GoogleMaps locator={this.props.geo.locator} mapArray={mapArray} /></div></Col>
+      <Col sm={12} xs={12} className="mapsPadding">
+        <div className="maps">
+          <GoogleMaps locator={this.props.geo.locator} mapArray={mapArray} />
+        </div>
+      </Col>
       <HotelList hotels={this.props.hotels} destination={this.props.destination} />
       <ViatorEvents />
       <YelpEvents />

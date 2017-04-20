@@ -8,8 +8,8 @@ const YelpPin = props => (
   <div className="fa fa-cutlery" style={{ fontSize: '24px', color: 'blue' }} />
     );
 
-const StoryPin = props => (
-  <div className="pin"><span className="glyphicon glyphicon-pushpin" />{props.text}</div>
+const FlightPin = props => (
+  <div className="fa fa-plane" style={{ fontSize: '24px' }} />
     );
 
-export { HotelPin, YelpPin, StoryPin };
+export { HotelPin, YelpPin, FlightPin };
