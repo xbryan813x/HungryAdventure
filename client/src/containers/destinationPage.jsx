@@ -56,8 +56,6 @@ class destinationPage extends Component {
     const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
     const mapArray = pinArray(this.props.current);
     return (<div>
-      {/* <Button style={{ borderRadius: '0', position: 'fixed', float: 'left', }} className="checkoutbutton"> <Link to="/storypage">Checkout</Link></Button> */}
-
       <Link to="/storypage"><div className="circle"><div className="checkoutbutton glyphicon glyphicon-shopping-cart" /></div></Link>
       {this.loadDestination()}
       {this.loadHotel()}
@@ -65,7 +63,7 @@ class destinationPage extends Component {
       {this.loadFood()}
       <div
         className="hero" style={{
-          background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]}) no-repeat center center fixed`,
+          background: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${this.props.destination.imageUrl[0]}) center center no-repeat fixed`,
           height: '60%',
           backgroundSize: 'cover',
         }}
