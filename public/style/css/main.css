@@ -61,6 +61,17 @@
   top: 5px;
   right: 5px;
 }
+.circleImg {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  right: 5px;
+}
 
 
 /*+++++++++++++++++++

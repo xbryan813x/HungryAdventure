@@ -29,8 +29,35 @@ class FacebookAuth extends React.Component {
 
 responseFacebook = (response) => {
   this.props.queryDB(response);
-
 }
+
+// loadHotel = () => {
+// if(this.props.hotel.pictures)
+// return <img className='circleImg' src={this.props.hotel.pictures[0]}></img>
+// }
+
+// loadEvents = () => {
+// if(this.props.viatorEvents.length > 0) {
+//   console.log('VIATOR', this.props.viatorEvents)
+//   return (
+//     this.props.viatorEvents.forEach(item => (
+//       <img className='circleImg' src={item.image}></img>
+//     ))
+    
+//     )
+// }
+// }
+
+// loadFood = () => {
+// if(this.props.yelpEvents > 0)
+// return <img className='circleImg' src={this.props.yelpEvents[0].image_url}></img>
+// }
+
+// loadDestination = () => {
+// if(this.props.destination)
+// return <img className='circleImg' src={this.props.destination.image_Url[0]}></img>
+// }
+
 
   render () {
     if(this.props.fbpicture === undefined){
@@ -45,15 +72,16 @@ responseFacebook = (response) => {
     } else {
      return (<div>
        <img className='user' src={this.props.fbpicture}></img>
-       </div>
+      </div>
      );
    }
   }
 }
 
 //Connects to store
-const mapStateToProps = ({profile}) => ({
-...profile
+const mapStateToProps = ({profile, current}) => ({
+...profile,
+...current
 });
 
 export default connect(mapStateToProps, {queryDB})(FacebookAuth);
