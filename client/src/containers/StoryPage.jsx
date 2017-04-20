@@ -45,7 +45,7 @@ class StoryPage extends Component {
               </Col>
             </div>
           </div>
-          {this.props.hotel ?
+          {this.props.hotel.url ?
             <div className="infoContainer" >
               <div className="container">
                 <Col sm={10}>
