@@ -25,7 +25,6 @@
 }
 
 .pin {
-
 width: 50px;
 height: 50px;
 /*background: white;*/
@@ -34,6 +33,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 color: black;
+text-shadow: 5px 5px 5px white;
 }
 
 .facebookButton {
@@ -415,7 +415,7 @@ fieldset[disabled] .btn-primary.active {
 .btn {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   border: none;
-  /*border-radius: 300px;*/
+  border-radius: 300px;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -454,8 +454,8 @@ body {
   height: 100%;
   width: 100%;
   cursor: pointer;
-  /*border-radius: 4px;*/
 }
+
 .headImg {
   height: 40%;
   width: 100%;
@@ -531,7 +531,6 @@ pad {
   height: 210px;
   background-color: coral;
 }
-
 
 #box:hover #overlay {
   opacity: 1;
@@ -655,7 +654,6 @@ body #main {
   -moz-transform: scale(1);
   transition: all 200ms ease-in;
   transform: scale(1);
-  /*border-radius: 4px;*/
 }
 
 .event-card:hover {
@@ -869,18 +867,6 @@ body.modal-open .supreme-container{
   position: fixed;
   z-index: 10;
   margin-top: 20px;
-  margin-left: 20px;
-  cursor: pointer;
-}
-
-.circleAdd {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: coral;
-  float: left;
-  position: fixed;
-  z-index: 10;
   margin-left: 20px;
   cursor: pointer;
 }
