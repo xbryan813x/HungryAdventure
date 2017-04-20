@@ -138,6 +138,7 @@ class StoryPage extends Component {
 const mapStateToProps = ({ current, geo, budget }) => ({
   ...current,
   ...geo,
+  geo,
   budget,
 
 });
