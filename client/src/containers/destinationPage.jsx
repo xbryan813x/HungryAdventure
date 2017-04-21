@@ -57,9 +57,8 @@ class destinationPage extends Component {
           <div key={i}>
             <h6>{event.name}</h6>
             <h6>{event.categories[0].title}</h6>
-            <h6>Phone: {event.display_phone}</h6>
-            <h6>Rating: {event.rating}</h6>
             <h6>Price: {event.price}</h6>
+            <h6>Rating: {event.rating}</h6>
             <h6><a href={event.url}>More Info</a></h6>
             < br/>
           </div>
