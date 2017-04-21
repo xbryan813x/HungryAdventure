@@ -18,3 +18,11 @@
 * Use the imperative, present tense: "change" not "changed" nor "changes"
 * Don't capitalize first letter
 * No dot (.) at the end
+
+1. When you've finished with your fix or feature, Rebase upstream changes into your branch. submit a pull request directly to master. Include a description of your changes.
+2. Your pull request will be reviewed by another maintainer. The point of code reviews is to help keep the codebase clean and of high quality and, equally as important, to help you grow as a programmer. If your code reviewer requests you make a change you don't understand, ask them why.
+3. Fix any issues raised by your code reviwer, and push your fixes as a single new commit.
+4. Once the pull request has been reviewed, it will be merged by another member of the team. Do not merge your own commits.
+
+### Detailed Workflow
+####
