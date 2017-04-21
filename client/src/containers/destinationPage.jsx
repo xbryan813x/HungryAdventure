@@ -24,36 +24,36 @@ class destinationPage extends Component {
 
   loadDestination = () => {
     if(this.props.current.destination.imageUrl.length > 0){
-      return <img className="circleAdd" style={{ marginTop: '12vw',}} src={this.props.current.destination.imageUrl[0]}></img>
+      return <img className="circleAdd circleAddDest" style={{ marginTop: '9vw',}} src={this.props.current.destination.imageUrl[0]}></img>
     }
   }
 
   loadHotel = () => {
     if(this.props.current.hotel.pictures.length > 0){
-      return <img className="circleAdd" style={{ marginTop: '23vw',}} src={this.props.current.hotel.pictures[0]}></img>
+      return <img className="circleAdd circleAddHotel" style={{ marginTop: '17vw',}} src={this.props.current.hotel.pictures[0]}></img>
     }
   }
 
   loadEvents = () => {
     if(this.props.current.viatorEvents.length > 0){
-        return <img className="circleAdd" style={{ marginTop: "34vw",}} src={this.props.current.viatorEvents[0].image}></img>
+        return <img className="circleAdd circleAddEvent" style={{ marginTop: "25vw",}} src={this.props.current.viatorEvents[0].image}></img>
     }
   }
 
  loadFood = () => {
     if(this.props.current.yelpEvents.length > 0){
-        return <img className="circleAdd" style={{ marginTop: "45vw",}} src={this.props.current.yelpEvents[0].image_url}></img>
+        return <img className="circleAdd circleAddFood" style={{ marginTop: "33vw",}} src={this.props.current.yelpEvents[0].image_url}></img>
     }
   }
 
 
   render() {
-    const budget = this.props.budget.original;
-    const flightCost = this.props.budget.flight || 0;
-    const hotelCost = this.props.budget.hotel || 0;
-    const activityCost = this.props.budget.viatorEvents || 0;
-    const foodCost = this.props.budget.yelpEvents || 0;
-    const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
+    const budget = ~~(this.props.budget.original);
+    const flightCost = ~~(this.props.budget.flight) || 0;
+    const hotelCost = ~~(this.props.budget.hotel) || 0;
+    const activityCost = ~~(this.props.budget.viatorEvents) || 0;
+    const foodCost = ~~(this.props.budget.yelpEvents) || 0;
+    const totalBudget = ~~(budget - flightCost - hotelCost - activityCost - foodCost);
     const mapArray = pinArray(this.props);
 
     return (<div>
