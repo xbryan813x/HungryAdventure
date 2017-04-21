@@ -35,7 +35,7 @@ class StoryPage extends Component {
             <div className="container">
               <Col sm={10}>
                 <div className="">
-                  <h3 className="price-title text-aquamarine h3">Flight    </h3>
+                  <h3 className="price-title text-aquamarine h3">Flight</h3>
                   <h3 className="text-white h3">${this.props.destination.price}</h3>
                   <div className="clearfix" />
                   <div className="text-white rule">
